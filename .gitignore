@@ -1,4 +1,9 @@
+# Docker Files
+.lando.yml
+
 .DS_Store
+
+application/config/database.php
 
 application/cache/*
 !application/cache/index.html
