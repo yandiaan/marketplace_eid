@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
+    <style>
+        body {
+            font-family: 'Quicksand';
+        }
+        .content {
+            padding-left: 75px;
+            padding-right: 75px;
+        }
+    </style>
   </head>
   <body class="bg-light">
 
@@ -13,7 +24,7 @@
     <!-- /Navigation -->
 
     <!-- Content -->
-    <div class="container mt-4">
+    <div class="container-fluid content mt-4">
         <?php $this->load->view($content); ?>
     </div>
     <!-- /Content -->

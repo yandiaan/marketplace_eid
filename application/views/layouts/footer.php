@@ -1,10 +1,11 @@
 <style>
     footer {
         background-color: #82C631;
-        color: white !important;
+        color: white;
     }
 
-    .bd-footer a:link, a:visited {
+    .bd-footer a:link,
+    .bd-footer a:visited {
         text-decoration: none;
         color: white;
     }
