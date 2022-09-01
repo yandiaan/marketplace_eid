@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Produk route
 $route['produk/(:any)'] = 'produk/detail/$1';
+$route['pencarian'] = 'pencarian/index';
