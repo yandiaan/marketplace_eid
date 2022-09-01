@@ -14,6 +14,10 @@
         font-weight: bold;
     }
 
+    .bd-footer h5 {
+        font-weight: bold;
+    }
+
     .bt-footer {
         background-color: #66AA23;
         color: white;
@@ -80,6 +84,6 @@
   </div>
 </footer>
 
-<div class="bt-footer py-4 text-center">
+<div class="bt-footer py-4 text-center fw-bold">
   &copy <?php echo date('Y'); ?> Estimator Indonesia
 </div>
