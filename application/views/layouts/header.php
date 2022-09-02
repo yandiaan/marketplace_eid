@@ -86,7 +86,7 @@
             <form class="container-fluid mx-3 mb-2 mb-lg-0" role="search">
                 <div class="input-group">
                     <input class="form-control" type="search" placeholder="Cari barang.." aria-label="Search">
-                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-search" type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </form>
 
