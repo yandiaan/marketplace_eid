@@ -1,67 +1,3 @@
-<style>
-    footer {
-        background-image: linear-gradient(to right, #69BA10 , #98E74A);
-        color: white;
-    }
-
-    .bd-footer a:link,
-    .bd-footer a:visited {
-        text-decoration: none;
-        color: white;
-    }
-
-    .bd-footer a:hover {
-        font-weight: bold;
-    }
-
-    .bd-footer h5 {
-        font-weight: bold;
-    }
-
-    .bt-footer {
-        background-color: #66AA23;
-        color: white;
-    }
-
-    .btn-contact {
-      color: black !important;
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    .btn-contact:hover {
-      color: black !important;
-      background: rgba(255, 255, 255, 1);
-      border-color: rgba(255, 255, 255, 1);
-      font-weight: normal !important;
-    }
-    #joinNow {
-      padding-bottom: 250px;
-      position: relative;
-    }
-    #joinNow .jn-content {
-      top: 10rem;
-      right: 5rem;
-      left: 5rem;
-      position: absolute;
-      max-width: 80rem;
-    }
-    #joinNow .card {
-      border: none;
-    }
-    #joinNow .jn-content .card p {
-      text-align: justify;
-      font-size: 14px;
-    }
-    #joinNow .jn-content .card img {
-      object-fit: cover;
-    }
-    .social {
-      padding: 10px 10px 10px 10px;
-      border-radius: 50px !important;
-      background-color: #66AA23;
-    }
-</style>
-
 <!-- Join now -->
 <section id="joinNow" class="my-5 pt-5">
   <div class="d-flex justify-content-center">
@@ -75,11 +11,11 @@
           <img src="<?php echo base_url('assets/img/Rectangle 58.png') ?>" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col">
-          <div class="card-body m-5 align-items-center">
+          <div class="card-body p-5 align-items-center">
             <h5 class="text-uppercase">Menjadi Supplier Kami</h5>
             <p class="text-muted mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus ac ultrices nulla porta vel viverra. Eget et feugiat pretium luctus sit. Semper faucibus sed sed elementum ornare etiam tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus ac ultrices nulla porta vel viverra. Eget et feugiat pretium luctus sit. Semper faucibus sed sed elementum ornare etiam tempus.</p>
           
-            <a href="#" class="btn btn-primary-eid py-3 px-4 mt-4">Gabung Sekarang</a>
+            <a href="#" class="btn btn-primary-eid py-2 px-3 mt-4">Gabung Sekarang</a>
           </div>
         </div>
       </div>
@@ -126,27 +62,27 @@
         <div class="mt-4">
           <p>Follow Us</p>
 
-          <a href="#" class="btn btn-primary-eid social">
-            <img src="<?php echo base_url('assets/icon/Instagram.svg') ?>" class="img-fluid" alt="">
+          <a href="#" class="social me-2">
+            <img src="<?php echo base_url('assets/icon/Instagram.svg') ?>" class="img-fluid" alt="Instagram">
           </a>
 
-          <a href="#" class="btn btn-primary-eid social">
-            <img src="<?php echo base_url('assets/icon/Twitter.svg') ?>" class="img-fluid" alt="">
+          <a href="#" class="social me-2">
+            <img src="<?php echo base_url('assets/icon/Twitter.svg') ?>" class="img-fluid" alt="Twitter">
           </a>
 
-          <a href="#" class="btn btn-primary-eid social">
-            <img src="<?php echo base_url('assets/icon/Facebook.svg') ?>" class="img-fluid" alt="">
+          <a href="#" class="social me-2">
+            <img src="<?php echo base_url('assets/icon/Facebook.svg') ?>" class="img-fluid" alt="Facebook">
           </a>
         </div>
       </div>
-      <div class="col-lg-2 mb-3 fw-bold">
+      <div id="menu-footer" class="col-lg-2 mb-3 fw-bold">
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="#">BERANDA</a></li>
-          <li class="mb-2"><a href="#">KOLEKSI</a></li>
-          <li class="mb-2"><a href="#">PAKET</a></li>
-          <li class="mb-2"><a href="#">FITUR</a></li>
+          <li class="mb-2"><a href="#">Beranda</a></li>
+          <li class="mb-2"><a href="#">Koleksi</a></li>
+          <li class="mb-2"><a href="#">Paket</a></li>
+          <li class="mb-2"><a href="#">Fitur</a></li>
           <li class="mb-2"><a href="#">FAQ</a></li>
-          <li class="mb-2"><a href="#">TENTANG KAMI</a></li>
+          <li class="mb-2"><a href="#">Tentang kami</a></li>
         </ul>
       </div>
     </div>
