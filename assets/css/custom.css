@@ -2,6 +2,12 @@ body {
     font-family: 'Quicksand';
     background: #fff;
 }
+@media (min-width:992px) {
+  .col-lg-15 {
+    flex: 0 0 auto;
+    width: 12.5%;
+  }
+}
 .form-control {
     border-radius: 10px;
 }
@@ -168,9 +174,6 @@ footer {
     font-size: 14px;
     border: solid 1px rgba(108, 114, 124, .05);
   }
-  .category div {
-    height: auto;
-  } 
   .category:hover {
     transform: scale(1.05);
   }
