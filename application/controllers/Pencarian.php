@@ -9,4 +9,10 @@ class Pencarian extends CI_Controller
         $data = ['content' => 'pencarian'];
         $this->load->view('layouts/app', $data);
     }
+
+    public function pencarian_produk()
+    {
+        $data = ['content' => 'pencarian-produk'];
+        $this->load->view('layouts/app', $data);
+    }
 }

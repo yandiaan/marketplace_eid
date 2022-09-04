@@ -31,7 +31,7 @@
                 </svg> Filter
             </h5>
         </div>
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -58,6 +58,78 @@
                         <a href="#" id="detail">Lihat Selengkapnya</a>
                     </div>
                 </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        Kategori Material
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        <form class="my-2">
+                            <label for="vehicle2">Semua Kategori</label><br>
+                            <label for="vehicle2">Dinding</label><br>
+                            <label for="vehicle2">Elektrikal</label><br>
+                            <label for="vehicle2">Lantai</label><br>
+                            <label for="vehicle2">Mekanikal</label><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                        Merk Material
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        <form class="my-2">
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2">&nbsp; Semua Merk</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2" style="font-size: 14px;">&nbsp; American Standard</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2">&nbsp; Duma</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2">&nbsp; Ethylum</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2">&nbsp; Formax Roof</label><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTree" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        Harga
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">RP</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                                <label for="floatingInputGroup1">Harga Minimum</label>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">RP</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                                <label for="floatingInputGroup1">Harga Maksimum</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="position-relative mt-4">
+                <button type="button" class="btn btn-primary-eid position-absolute top-0 start-50 translate-middle">Terapkan</button>
             </div>
         </div>
     </div>
@@ -89,7 +161,7 @@
         </div>
         <div class="row mt-4">
             <div class="col-sm-6">
-                <p class="d-flex flex-row">Menampilkan 63 suplier untuk "American Standard"</p>
+                <p class="d-flex flex-row">Menampilkan 549 produk untuk "E Shower Toilet Manual American Standard"</p>
             </div>
             <div class="col-sm-6">
                 <div class="dropdown d-flex flex-row-reverse">
@@ -107,220 +179,121 @@
         </div>
 
         <div class="row mt-4">
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-3 mr-2">
                 <div class="card">
-                    <div class="card-header">
-                        <nav class="navbar bg-light">
-                            <div class="container-fluid">
-                                <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                                <h6>PT American Standard Indonesia</h6>
-                                <!-- <small>Jakarta Pusat</small> -->
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-sm btn-outline-primary-eid">Lihat Suplier</a>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4 mr-2">
-                                <div class="card" style="width: 10rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 mr-2">
-                                <div class="card" style="width: 10rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 ">
-                                <div class="card" style="width: 10rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
+                        <small>L535 x W173mm</small><br>
+                        <small><b>Rp 55.120.000</b> / unit</small>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+
+            <div class="col-md-3 mr-2">
                 <div class="card">
-                    <div class="card-header">
-                        <nav class="navbar bg-light">
-                            <div class="container-fluid">
-                                <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                                <h6>PT American Standard Indonesia</h6>
-                                <!-- <small>Jakarta Pusat</small> -->
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-sm btn-outline-primary-eid">Lihat Suplier</a>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4 mr-2">
-                                <div class="card" style="width: 10rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 mr-2">
-                                <div class="card" style="width: 10rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 ">
-                                <div class="card" style="width: 10rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
+                        <small>L535 x W173mm</small><br>
+                        <small><b>Rp 55.120.000</b> / unit</small>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-3 mr-2">
+                <div class="card">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
+                    <div class="card-body">
+                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
+                        <small>L535 x W173mm</small><br>
+                        <small><b>Rp 55.120.000</b> / unit</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mr-2">
+                <div class="card">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
+                    <div class="card-body">
+                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
+                        <small>L535 x W173mm</small><br>
+                        <small><b>Rp 55.120.000</b> / unit</small>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="row mt-4">
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-3 mr-2">
                 <div class="card">
-                    <div class="card-header">
-                        <nav class="navbar bg-light">
-                            <div class="container-fluid">
-                                <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                                <h6>PT American Standard Indonesia</h6>
-                                <!-- <small>Jakarta Pusat</small> -->
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-sm btn-outline-primary-eid">Lihat Suplier</a>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4 mr-2">
-                                <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                                    </svg>
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 mr-2">
-                                <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                                    </svg>
-                                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 ">
-                                <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                                    </svg>
-                                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
+                        <small>L535 x W173mm</small><br>
+                        <small><b>Rp 55.120.000</b> / unit</small>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+
+            <div class="col-md-3 mr-2">
                 <div class="card">
-                    <div class="card-header">
-                        <nav class="navbar bg-light">
-                            <div class="container-fluid">
-                                <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                                <h6>PT American Standard Indonesia</h6>
-                                <!-- <small>Jakarta Pusat</small> -->
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-sm btn-outline-primary-eid">Lihat Suplier</a>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4 mr-2">
-                                <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                                    </svg>
-                                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 mr-2">
-                                <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                                    </svg>
-                                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 ">
-                                <div class="card" style="width: 10rem;">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                                    </svg>
-                                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                    <div class="card-body">
-                                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
-                                        <small>Rp 55.120.000 / unit</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
+                        <small>L535 x W173mm</small><br>
+                        <small><b>Rp 55.120.000</b> / unit</small>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-3 mr-2">
+                <div class="card">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
+                    <div class="card-body">
+                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
+                        <small>L535 x W173mm</small><br>
+                        <small><b>Rp 55.120.000</b> / unit</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mr-2">
+                <div class="card">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
+                    <div class="card-body">
+                        <small class="card-text">Acasia E Shower Toilet Manual CEAS5006-0000422CO</small>
+                        <small>L535 x W173mm</small><br>
+                        <small><b>Rp 55.120.000</b> / unit</small>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
