@@ -1,0 +1,19 @@
+#detail {
+	color: #82c631;
+	text-decoration: none;
+}
+
+.pagination a {
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.pagination a.active {
+	background-color: #82c631;
+	color: white;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
