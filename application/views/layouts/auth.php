@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg sticky-top bg-white px-5 py-3 shadow-sm">
         <div class="container">
             <img src="https://estimator.id/assets/img/logo.png" alt="brand-logo">
-            <span class="ms-4 "><strong>Sign In</strong></span>
+            <span class="ms-4 "><strong><?= $title ?></strong></span>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
