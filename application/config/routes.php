@@ -53,6 +53,9 @@ $route['default_controller'] = 'homepage';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// auth
+$route['login']  = 'auth/login';
+
 // Produk route
 $route['produk/(:any)'] = 'produk/detail/$1';
 $route['pencarian'] = 'pencarian/index';
