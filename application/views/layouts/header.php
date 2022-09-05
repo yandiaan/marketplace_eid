@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg sticky-top bg-white px-5 py-3 shadow-sm">
     <div class="container">
-        <img src="https://estimator.id/assets/img/logo.png" alt="brand-logo">
+        <a href="<?= base_url('') ?>"><img src="https://estimator.id/assets/img/logo.png" alt="brand-logo"></a>
 
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
