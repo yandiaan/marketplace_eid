@@ -25,21 +25,26 @@
         <div class="card-body">
             <h4 class="fw-bold">Daftar</h4>
             <small>Sudah punya akun Estimator.id?<a href="<?= base_url('/login') ?>" class="text-decoration-none fw-semibold" style="font-size: 14px; color: #66AA23;"> Masuk</a></small>
-            <form action="" class="mt-4">
+            <form action="<?= base_url('register/action') ?>" method="POST" class="mt-4">
                 <div class="mb-3">
-                    <input type="text" class="form-control formAuth" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Lengkap">
+                    <input type="text" class="form-control formAuth" name="nama_lengkap" placeholder="Nama Lengkap">
+                    <?php echo form_error('nama_lengkap', '<small class="text-danger" style="font-size:12px;">', '</small>'); ?>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control formAuth" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                    <input type="text" class="form-control formAuth" name="username" placeholder="Username">
+                    <?php echo form_error('username', '<small class="text-danger" style="font-size:12px;">', '</small>'); ?>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control formAuth" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                    <input type="email" class="form-control formAuth" name="email" placeholder="Email">
+                    <?php echo form_error('email', '<small class="text-danger" style="font-size:12px;">', '</small>'); ?>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control formAuth" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+                    <input type="password" class="form-control formAuth" name="password1" placeholder="Password">
+                    <?php echo form_error('password1', '<small class="text-danger" style="font-size:12px;">', '</small>'); ?>
                 </div>
                 <div class="mb-5">
-                    <input type="password" class="form-control formAuth" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ulangi Password">
+                    <input type="password" class="form-control formAuth" name="password2" placeholder="Ulangi Password">
+                    <?php echo form_error('password2', '<small class="text-danger" style="font-size:12px;">', '</small>'); ?>
                 </div>
                 <div class="mb-3 d-grid gap-2">
                     <button type="submit" class="btn btn-sm btn-primary-eid btn-login fw-semibold">DAFTAR</button>
