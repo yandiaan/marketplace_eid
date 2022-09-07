@@ -15,7 +15,7 @@
 -- Dumping structure for table marketplace-eid.alamat_pengguna
 CREATE TABLE IF NOT EXISTS `alamat_pengguna` (
   `id_alamat_pengguna` int(11) NOT NULL AUTO_INCREMENT,
-  `id_pengguna` int(11) DEFAULT NULL,
+`id_pengguna` int(11) DEFAULT NULL,da
   `nama_penerima` varchar(255) DEFAULT NULL,
   `nomor_hp` varchar(255) DEFAULT NULL,
   `provinsi` varchar(255) DEFAULT NULL,
