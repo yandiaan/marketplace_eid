@@ -24,7 +24,7 @@
     <?php $this->load->view('layouts/header'); ?>
 
     <!-- Content -->
-    <div class="container mt-4">
+    <div class="mt-4">
         <?php $this->load->view($content); ?>
     </div>
 

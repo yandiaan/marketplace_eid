@@ -57,3 +57,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['produk/(:any)'] = 'produk/detail/$1';
 $route['pencarian'] = 'pencarian/index';
 $route['pencarian-produk'] = 'pencarian/pencarian_produk';
+
+$route['supplier/(:any)'] = 'supplier/index/$1';
