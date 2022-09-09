@@ -1,5 +1,6 @@
-import "bootstrap/scss/bootstrap.scss";
-import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+import "@fortawesome/fontawesome-free/css/all.css";
 import "./css/main.scss";
 
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import * as bootstrap from "bootstrap";
+
+import {productPage} from './js/productPage';

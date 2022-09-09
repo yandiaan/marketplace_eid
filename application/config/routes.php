@@ -59,6 +59,7 @@ $route['register']              = 'Auth/register';
 $route['register/action']       = 'Auth/register/register_action';
 
 // Produk route
+
 $route['produk/(:any)']         = 'produk/detail/$1';
 $route['pencarian']             = 'pencarian/index';
 $route['pencarian-produk']      = 'pencarian/pencarian_produk';
