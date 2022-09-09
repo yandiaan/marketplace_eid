@@ -5,7 +5,8 @@ class Produk extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('produk');
+		$data = ['content' => 'produk'];
+		$this->load->view('layouts/app', $data);
 	}
 
     public function detail($uid)
