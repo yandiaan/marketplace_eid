@@ -38,8 +38,8 @@
 
             <div class="vr me-2"></div>
 
-            <a href="#" class="btn btn-primary-eid btn-grow mx-2 px-3 py-1">Masuk</a>
-            <a href="#" class="btn btn-outline-primary-eid btn-grow px-3 py-1">Daftar</a>
+            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary-eid btn-grow mx-2 px-3 py-1">Masuk</a>
+            <a href="<?= base_url('register') ?>" class="btn btn-outline-primary-eid btn-grow px-3 py-1">Daftar</a>
 
         </div>
     </div>
