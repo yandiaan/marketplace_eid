@@ -81,3 +81,6 @@ $route['api/suplier/register']  = 'API/suplier_auth/register';
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
 $route['api/suplier/all']               = 'API/suplier/all';
 $route['api/suplier/products/(:any)']   = 'API/suplier/products/$1';
+
+// API untuk produk
+$route['api/produk/filter'] = 'API/produk/filter';
