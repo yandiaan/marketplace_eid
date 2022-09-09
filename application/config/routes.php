@@ -64,4 +64,3 @@ $route['pencarian'] = 'pencarian/index';
 $route['pencarian-produk'] = 'pencarian/pencarian_produk';
 $route['checkout'] = 'checkout/index';
 $route['checkout-2'] = 'checkout/checkout_2';
-
