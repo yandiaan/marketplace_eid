@@ -1,5 +1,5 @@
 <!-- Carousel -->
-<section id="banner">
+<section id="banner" class="container">
     <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
         <!-- Carousel indicators -->
         <ol class="carousel-indicators">
@@ -34,7 +34,7 @@
 <!-- /Carousel -->
 
 <!-- List of kategori -->
-<section class="my-5 pb-5">
+<section class="container my-5 pb-5">
     <div class="row text-center">
 
         <div class="col-4 col-sm-3 col-md-3 col-lg-15 mt-2 mb-3">
@@ -180,7 +180,7 @@
 <!-- /List of kategori -->
 
 <!-- Special Discount -->
-<section class="product my-5">
+<section id="product" class="container my-5">
     <div class="row d-flex align-items-center">
 
         <div class="col-6 text-start">
@@ -637,7 +637,7 @@
 <!-- /Special Discount -->
 
 <!-- New arrivals -->
-<section id="newProduct" class="my-5">
+<section id="newProduct" class="container my-5">
     <div class="row d-flex align-items-center">
 
         <div class="col-12 text-center">
@@ -1069,7 +1069,7 @@
 <!-- /New arrivals -->
 
 <!-- Most Popular -->
-<section class="product my-5">
+<section id="product" class="container my-5">
     <div class="row d-flex align-items-center">
 
         <div class="col-6 text-start">
@@ -1506,7 +1506,7 @@
 <!-- /Most Popular -->
 
 <!-- Just for you -->
-<section class="product my-5">
+<section id="product" class="container my-5">
     <div class="row d-flex align-items-center">
 
         <div class="col-6 text-start">
@@ -1902,6 +1902,7 @@
     </div>
 </section>
 <!-- /Just for you -->
+
 <!-- Join now -->
 <section id="joinNow" class="my-5 pt-5">
     <div class="d-flex justify-content-center">
@@ -1929,6 +1930,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </section>
 <!-- /Join now -->

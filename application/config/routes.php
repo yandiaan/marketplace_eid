@@ -49,14 +49,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'homepage';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['default_controller']    = 'homepage';
+$route['404_override']          = '';
+$route['translate_uri_dashes']  = FALSE;
 
 // auth
-$route['login']  = 'auth/login';
-$route['register']  = 'auth/register';
-$route['register/action']  = 'auth/register/register_action';
+$route['login']                 = 'Auth/login';
+$route['register']              = 'Auth/register';
+$route['register/action']       = 'Auth/register/register_action';
 
 // Produk route
 $route['produk/(:any)'] = 'produk/detail/$1';
@@ -65,3 +65,28 @@ $route['pencarian-produk'] = 'pencarian/pencarian_produk';
 $route['checkout'] = 'checkout/index';
 $route['cart'] = 'cart/index';
 $route['checkout-2'] = 'checkout/checkout_2';
+$route['produk/(:any)']         = 'produk/detail/$1';
+$route['pencarian']             = 'pencarian/index';
+$route['pencarian-produk']      = 'pencarian/pencarian_produk';
+$route['checkout']              = 'checkout/index';
+$route['checkout-2']            = 'checkout/checkout_2';
+
+// Suplier route
+$route['supplier/(:any)'] = 'supplier/index/$1';
+
+// ========================== API ==========================
+
+// dummy api untuk kustomer
+$route['api/login']             = 'API/auth';
+$route['api/register']          = 'API/auth/register';
+
+// api untuk suplier
+$route['api/suplier/login']     = 'API/suplier_auth/login';
+$route['api/suplier/register']  = 'API/suplier_auth/register';
+
+$route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
+$route['api/suplier/all']               = 'API/suplier/all';
+$route['api/suplier/products/(:any)']   = 'API/suplier/products/$1';
+
+// API untuk produk
+$route['api/produk/filter'] = 'API/produk/filter';
