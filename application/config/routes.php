@@ -58,6 +58,9 @@ $route['login']                 = 'auth/login';
 $route['register']              = 'auth/register';
 $route['register/action']       = 'auth/register/register_action';
 
+//admin
+$route['admin']                 = 'api/admin/product/index';
+
 // Produk route
 
 $route['produk/(:any)']         = 'produk/detail/$1';
@@ -75,4 +78,3 @@ $route['api/register']          = 'api/auth/register';
 // api untuk suplier
 $route['api/suplier/login']     = 'api/suplierauth/login';
 $route['api/suplier/register']  = 'api/suplierauth/register';
-
