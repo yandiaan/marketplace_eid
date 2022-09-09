@@ -1,1 +1,16 @@
-@import 'theme';
+$enable-negative-margins: true;
+
+// font & icons
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+
+// bootstrap
+@import '~bootstrap';
+
+// default theme
+@import "theme";
+
+// page
+@import "page/produk";
+@import "page/pencarian";
+
