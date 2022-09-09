@@ -1,26 +1,5 @@
-<style>
-    .font-color {
-        color: #66AA23;
-    }
-
-    .bg-eid {
-        background-color: #82C631;
-        border-color: #82C631;
-        color: white;
-    }
-
-    .btn-primary-eid {
-        background-color: #66AA23;
-    }
-
-    .btn-outline-eid {
-        border: 2px solid #66AA23;
-        color: #66AA23;
-    }
-</style>
-
 <div class="d-grid gap-2">
-    <button class="btn btn-primary-eid" type="button"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <button class="btn btn-primary text-white" type="button"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="48" height="48" fill="url(#pattern0)" />
             <defs>
                 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -38,8 +17,8 @@
         <p class="fw-bold font-color pb-2 border-bottom border-secondary">Informasi Pengiriman</p>
         <p class="fw-bold mb-2">Alamat Pengiriman</p>
         <nav class="nav mb-3">
-            <a class="nav-link btn btn-primary-eid rounded-pill me-3 fw-bold" aria-current="page" href="#">Pilih Alamat Pengiriman</a>
-            <a class="nav-link btn btn-outline-eid rounded-pill fw-bold" href="#">Masukkan Alamat Baru</a>
+            <a class="btn btn-primary text-white rounded-pill me-3 fw-bold" aria-current="page" href="#">Pilih Alamat Pengiriman</a>
+            <a class="btn btn-outline-primary rounded-pill fw-bold" href="#">Masukkan Alamat Baru</a>
         </nav>
         <div class="card border-secondary mb-3">
             <div class="card-body">
@@ -48,7 +27,7 @@
                         <img src="<?php echo base_url('assets/img/maps.png') ?>">
                     </div>
                     <div class="col-md-10">
-                        <p class="fw-bold">Kantor Utama <small class="bg-eid">Alamat Utama</small></p>
+                        <p class="fw-bold">Kantor Utama <small class="bg-primary text-white p-1">Alamat Utama</small></p>
                         <p class="fw-bold">081911121512</p>
                         <p class="card-text">Jln. Solo km 7 Gang Delima 2. Kec. Depok, Kab. Sleman, Yogyakarta</p>
                         <p class="fw-bold">55281</p>
@@ -64,7 +43,7 @@
     </div>
     <div class="col-md-4">
         <div class="card border-success mb-3" s>
-            <div class="card-header bg-eid text-center fw-bold">Pesanan</div>
+            <div class="card-header bg-primary text-white text-center fw-bold">Pesanan</div>
             <div class="card-body">
                 <h5 class="card-title fw-bold fs-6">Rincian Harga</h5>
                 <div class="card-text">
@@ -95,7 +74,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center pb-2">
-                    <button type="button" class="btn btn-danger rounded-pill">Bayar Sekarang</button>
+                    <button type="button" class="btn btn-danger rounded-pill text-white">Bayar Sekarang</button>
                 </div>
             </div>
         </div>

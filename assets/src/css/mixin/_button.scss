@@ -1,0 +1,47 @@
+$btn-primary: #82c631;
+$btn-secondary: #6c757d;
+$btn-success: #198754;
+$btn-info: #0dcaf0;
+$btn-warning: #e28102;
+$btn-danger: #f73131;
+$btn-light: #ffffff;
+$btn-dark: #000;
+
+.btn-primary {
+	@include button-variant(
+		$btn-primary,
+		darken($btn-primary, 7.5%),
+		darken($btn-primary, 10%),
+		lighten($btn-primary, 5%),
+		lighten($btn-primary, 10%),
+		darken($btn-primary, 30%)
+	);
+}
+
+.btn-outline-primary {
+	@include button-outline-variant(
+		$btn-primary,
+		#ffffff,
+		lighten($btn-primary, 5%),
+		$btn-primary
+	);
+}
+.btn-danger {
+	@include button-variant(
+		$btn-danger,
+		darken($btn-danger, 7.5%),
+		lighten($btn-danger, 100%),
+		lighten($btn-danger, 5%),
+		lighten($btn-danger, 10%),
+		darken($btn-danger, 30%)
+	);
+}
+
+.btn-outline-danger {
+	@include button-outline-variant(
+		$btn-danger,
+		#ffffff,
+		lighten($btn-danger, 5%),
+		$btn-danger
+	);
+}

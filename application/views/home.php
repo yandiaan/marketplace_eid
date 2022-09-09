@@ -1894,7 +1894,7 @@
             </div>
             <div class="row mt-5 text-center">
                 <div class="col-12">
-                    <a href="#" class="btn btn-sm btn-outline-primary-eid px-4 py-3">Lihat Selengkapnya</a>
+                    <a href="#" class="btn btn-sm btn-outline-primary px-4 py-3">Lihat Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -1924,7 +1924,7 @@
                             Faucibus ac ultrices nulla porta vel viverra. Eget et feugiat pretium luctus sit. Semper
                             faucibus sed sed elementum ornare etiam tempus.</p>
 
-                        <a href="#" class="btn btn-primary-eid py-2 px-3 mt-4">Gabung Sekarang</a>
+                        <a href="#" class="btn btn-primary text-white py-2 px-3 mt-4">Gabung Sekarang</a>
                     </div>
                 </div>
             </div>

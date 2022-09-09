@@ -1,4 +1,6 @@
-$enable-negative-margins: true;
+@import "variables";
+
+// default theme
 
 // font & icons
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
@@ -7,10 +9,12 @@ $enable-negative-margins: true;
 // bootstrap
 @import '~bootstrap';
 
-// default theme
+@import "mixin/button";
+
 @import "theme";
 
 // page
 @import "page/produk";
 @import "page/pencarian";
+@import "page/cart";
 
