@@ -180,11 +180,7 @@
 <!-- /List of kategori -->
 
 <!-- Special Discount -->
-<<<<<<< HEAD
 <section id="product" class="container my-5">
-=======
-<section class="product my-5">
->>>>>>> rizki
     <div class="row d-flex align-items-center">
 
         <div class="col-6 text-start">
@@ -1073,11 +1069,7 @@
 <!-- /New arrivals -->
 
 <!-- Most Popular -->
-<<<<<<< HEAD
 <section id="product" class="container my-5">
-=======
-<section class="product my-5">
->>>>>>> rizki
     <div class="row d-flex align-items-center">
 
         <div class="col-6 text-start">
@@ -1910,7 +1902,6 @@
     </div>
 </section>
 <!-- /Just for you -->
-<<<<<<< HEAD
 
 <!-- Join now -->
 <section id="joinNow" class="my-5 pt-5">
@@ -1935,35 +1926,5 @@
       </div>
     </div>
   </div>
-=======
-<!-- Join now -->
-<section id="joinNow" class="my-5 pt-5">
-    <div class="d-flex justify-content-center">
-        <img src="<?php echo base_url('assets/img/Rectangle 57.png') ?>" class="img-fluid" alt="">
-    </div>
-
-    <div class="jn-content mx-auto d-lg-block d-sm-none d-xs-none">
-        <div class="card">
-            <div class="row">
-                <div class="col">
-                    <img src="<?php echo base_url('assets/img/Rectangle 58.png') ?>" class="img-fluid rounded-start"
-                        alt="...">
-                </div>
-                <div class="col">
-                    <div class="card-body p-5 align-items-center">
-                        <h5 class="text-uppercase">Menjadi Supplier Kami</h5>
-                        <p class="text-muted mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus ac
-                            ultrices nulla porta vel viverra. Eget et feugiat pretium luctus sit. Semper faucibus sed
-                            sed elementum ornare etiam tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Faucibus ac ultrices nulla porta vel viverra. Eget et feugiat pretium luctus sit. Semper
-                            faucibus sed sed elementum ornare etiam tempus.</p>
-
-                        <a href="#" class="btn btn-primary-eid py-2 px-3 mt-4">Gabung Sekarang</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
->>>>>>> rizki
 </section>
 <!-- /Join now -->
