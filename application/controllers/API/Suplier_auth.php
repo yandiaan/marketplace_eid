@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 use chriskacerguis\RestServer\RestController;
 use Firebase\JWT\JWT;
 
-class SuplierAuth extends RestController
+class Suplier_auth extends RestController
 {
     // ================================================== Login =======================================================
     public function login_post()
@@ -50,6 +50,7 @@ class SuplierAuth extends RestController
                     $this->response([
                         'code'    => 422,
                         'message' => 'Password anda salah !',
+                        'pass'    => $password
                     ], 422);
                 }
             } else {

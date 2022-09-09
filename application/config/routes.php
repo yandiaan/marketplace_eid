@@ -54,9 +54,9 @@ $route['404_override']          = '';
 $route['translate_uri_dashes']  = FALSE;
 
 // auth
-$route['login']                 = 'auth/login';
-$route['register']              = 'auth/register';
-$route['register/action']       = 'auth/register/register_action';
+$route['login']                 = 'Auth/login';
+$route['register']              = 'Auth/register';
+$route['register/action']       = 'Auth/register/register_action';
 
 // Produk route
 $route['produk/(:any)']         = 'produk/detail/$1';
@@ -68,9 +68,13 @@ $route['checkout-2']            = 'checkout/checkout_2';
 // ========================== API ==========================
 
 // dummy api untuk kustomer
-$route['api/login']             = 'api/auth';
-$route['api/register']          = 'api/auth/register';
+$route['api/login']             = 'API/auth';
+$route['api/register']          = 'API/auth/register';
 
 // api untuk suplier
-$route['api/suplier/login']     = 'api/suplierauth/login';
-$route['api/suplier/register']  = 'api/suplierauth/register';
+$route['api/suplier/login']     = 'API/suplier_auth/login';
+$route['api/suplier/register']  = 'API/suplier_auth/register';
+
+$route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
+$route['api/suplier/all']               = 'API/suplier/all';
+$route['api/suplier/products/(:any)']   = 'API/suplier/products/$1';
