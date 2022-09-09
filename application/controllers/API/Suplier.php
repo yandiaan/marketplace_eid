@@ -5,7 +5,7 @@ use chriskacerguis\RestServer\RestController;
 
 class Suplier extends RestController
 {
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -17,7 +17,7 @@ class Suplier extends RestController
     {
         $data = $this->suplier->get_one($id);
 
-        if(count($data) < 1) {
+        if (count($data) < 1) {
             $this->response([
                 'code'  => 404,
                 'message'  => 'Suplier tidak ditemukan',
@@ -35,7 +35,7 @@ class Suplier extends RestController
     {
         $data = $this->suplier->get_all();
 
-        if(count($data) < 1) {
+        if (count($data) < 1) {
             $this->response([
                 'code'  => 404,
                 'message'  => 'Suplier tidak ditemukan',
@@ -43,6 +43,7 @@ class Suplier extends RestController
         } else {
             $this->response([
                 'code'  => 200,
+                'message' => 'success',
                 'data'  => $data,
             ], 200);
         }
@@ -53,14 +54,17 @@ class Suplier extends RestController
     {
         $data = $this->suplier->get_products($id);
 
-        if(count($data) < 1) {
+        if (count($data) < 1) {
             $this->response([
                 'code'  => 404,
                 'message'  => 'Produk tidak ditemukan',
             ], 404);
         } else {
             $this->response([
-                'code'  => 200,
+                'meta' => [
+                    'code'  => 200,
+                    'status'=> 'message'
+                ],
                 'data'  => $data,
             ], 200);
         }

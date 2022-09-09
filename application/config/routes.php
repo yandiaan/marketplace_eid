@@ -89,4 +89,5 @@ $route['api/suplier/all']               = 'API/suplier/all';
 $route['api/suplier/products/(:any)']   = 'API/suplier/products/$1';
 
 // API untuk produk
+$route['api/produk/(:any)'] = 'API/produk/$1';
 $route['api/produk/filter'] = 'API/produk/filter';
