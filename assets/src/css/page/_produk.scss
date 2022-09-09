@@ -1,0 +1,83 @@
+.info-group {
+	margin-top: 15px;
+}
+.price,
+.variant {
+	margin-top: 40px;
+}
+
+$colors: (
+	"red": #db2828,
+	"yellow": #fbbd08,
+	"green": #21ba45,
+);
+
+input[type="radio"] {
+	display: none;
+	&:checked + label {
+		span {
+			transform: scale(1.25);
+		}
+		@each $name, $value in $colors {
+			.#{$name} {
+				border: 2px solid darken($value, 25%);
+			}
+		} // !@each
+	} // !&:checked + label
+}
+
+label {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+	cursor: pointer;
+	&:hover {
+		span {
+			transform: scale(1.25);
+		}
+	}
+	span {
+		border-radius: 50px;
+		display: block;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.2s ease-in-out;
+		@each $name, $value in $colors {
+			&.#{$name} {
+				background: $value;
+			}
+		}
+	}
+}
+
+.quantity .btn {
+	padding: 0px;
+	width: 24px;
+	height: 24px;
+}
+
+.card-supplier {
+	box-shadow: 0px 0px 8px 0px #00000026;
+	border: none;
+}
+
+.accord {
+	border: none;
+}
+
+.specs {
+	list-style-position: inside;
+}
+.review-form {
+	border-radius: 20px 0 0 20px;
+}
+
+.input-review::placeholder {
+	color: #f4f4f4;
+}
+.user-review {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 75vh;
+}

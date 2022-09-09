@@ -13,3 +13,10 @@ yarn build
 ```
 
 to bundle your application
+
+
+
+# Install depedencies 
+```
+composer install
+```
