@@ -39,3 +39,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 #  node
 node_modules
 package-lock.json
+yarn.lock
+assets/dist/main.css
+assets/dist/main.js
