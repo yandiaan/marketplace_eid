@@ -12,6 +12,44 @@ class Produk extends RestController
         $this->load->model('produk_model', 'produk');
     }
 
+    public function index_get()
+    {
+        $id = htmlspecialchars($this->input->get('id', true));
+
+        if($id){
+            $result = $this->produk->get_one($id);
+            if ($result) {
+                $this->response([
+                    'meta' => [
+                        'code'    => 200,
+                        'status'  => 'success',
+                        'message' => 'Success get data produk by id '.$id
+                    ],
+                    'data'  => $result,
+                ], 200);
+            }else{
+                $this->response([
+                    'meta'    => [
+                        'code'    => 404,
+                        'message' => "Data dengan id $id tidak ditemukan",
+                    ],
+                ], 404);
+            }
+
+        }else {
+            $result = $this->produk->get_all();
+            $this->response([
+                'meta' => [
+                    'code'    => 200,
+                    'status'  => 'success',
+                    // 'total'   => count($result),
+                    'message' => 'Success get data produk'
+                ],
+                'data'  => $result,
+            ], 200);
+        }
+    }
+
     public function filter_post()
     {
         $data = [
@@ -26,10 +64,27 @@ class Produk extends RestController
 
         $result = $this->produk->filter($data);
 
-        $this->response([
-            'code'  => 200,
-            'total' => count($result),
-            'data'  => $result,
-        ], 200);
+        if ($result) {
+            // $result = $this->produk->filter($data);
+            $this->response([
+                'meta' => [
+                    'code'    => 200,
+                    'status'  => 'success',
+                    'total'   => count($result),
+                    'message' => 'Success get data produk'
+                ],
+                'data'  => $result,
+            ], 200);
+        } else {
+            $this->response([
+                'meta'    =>[
+                    'code'    => 404,
+                    'total'   => count($result),
+                    'message' => 'Data yang anda tidak ditemukan',
+                ],
+                'data' => $result
+            ], 404);
+        }
+
     }
 }
