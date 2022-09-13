@@ -32,7 +32,7 @@ class Product extends CI_Controller
 
         $product = $this->produk->save($data);
 
-        return $this->index();
+        redirect('/admin');
     }
 
     public function delete($id_produk = null)

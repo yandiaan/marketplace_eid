@@ -40,7 +40,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Suplier</h6>
                     <a class="collapse-item" href="<?= base_url('admin'); ?>">CRUD Produk</a>
-                    <a class="collapse-item" href="cards.html">Upload/Update Banner</a>
+                    <a class="collapse-item" href="<?= base_url('upload') ?>">Upload/Update Banner</a>
                     <a class="collapse-item" href="cards.html"> Upload/update Logo</a>
                     <a class="collapse-item" href="cards.html"> CRUD Suplier</a>
                     <a class="collapse-item" href="cards.html"> CRUD diskon produk</a>

@@ -19,10 +19,12 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($products as $product) : ?>
+            <?php
+            $no = 1;
+            foreach ($products as $product) : ?>
                 <tr>
                     <td class="text-center">
-                        <?= $product['id_produk'] ?>
+                        <?php echo $no++; ?>
                     </td>
                     <td>
                         <?php echo $product['nama_produk'] ?>

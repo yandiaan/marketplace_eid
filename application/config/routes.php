@@ -60,6 +60,7 @@ $route['register/action']       = 'auth/register/register_action';
 
 //admin
 $route['admin']                 = 'api/admin/product/index';
+$route['upload']                = 'api/admin/upload_file/index';
 
 // Produk route
 
