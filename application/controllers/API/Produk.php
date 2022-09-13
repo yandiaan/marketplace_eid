@@ -42,7 +42,7 @@ class Produk extends RestController
                 'meta' => [
                     'code'    => 200,
                     'status'  => 'success',
-                    'total'   => count($result),
+                    // 'total'   => count($result),
                     'message' => 'Success get data produk'
                 ],
                 'data'  => $result,

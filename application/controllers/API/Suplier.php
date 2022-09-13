@@ -24,7 +24,11 @@ class Suplier extends RestController
             ], 404);
         } else {
             $this->response([
-                'code'  => 200,
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Success get suplier by id'
+                ],
                 'data'  => $data,
             ], 200);
         }
@@ -37,13 +41,17 @@ class Suplier extends RestController
 
         if (count($data) < 1) {
             $this->response([
-                'code'  => 404,
-                'message'  => 'Suplier tidak ditemukan',
+                'code'      => 404,
+                'status'    => 'success',
+                'message'   => 'Suplier tidak ditemukan',
             ], 404);
         } else {
             $this->response([
-                'code'  => 200,
-                'message' => 'success',
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Success get all suplier',
+                ],
                 'data'  => $data,
             ], 200);
         }
@@ -56,14 +64,15 @@ class Suplier extends RestController
 
         if (count($data) < 1) {
             $this->response([
-                'code'  => 404,
-                'message'  => 'Produk tidak ditemukan',
+                'code'      => 404,
+                'message'   => 'Produk tidak ditemukan',
             ], 404);
         } else {
             $this->response([
                 'meta' => [
-                    'code'  => 200,
-                    'status'=> 'message'
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'messahe'   => 'Success get all produk suplier'
                 ],
                 'data'  => $data,
             ], 200);
