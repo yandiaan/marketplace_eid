@@ -20,20 +20,21 @@ class Upload_File extends CI_Controller
 
     public function save()
     {
+        $location = 'public/' . 'upload/';
         $images = $_FILES['inputFile']['name'];
         $config['upload_path'] = 'public/upload/';
         $config['allowed_types'] = 'pdf|gif|jpg|jpeg|png|jpeg|bmp';
-        $config['max_size'] = '3000';
+        $config['max_size'] = '1000';
         $config['file_name'] = 'banner_' . date('ymdhis');
         $this->load->library('upload');
         $this->upload->initialize($config);
         if ($this->upload->do_upload('inputFile')) {
             $file_foto = $this->upload->data();
-            $data['banner'] = $file_foto['file_name'];
+            $data['banner'] = $location . $file_foto['file_name'];
             $this->M_File->upload_file_db($data);
         }
 
-        return $this->index();
+        redirect('upload');
     }
 
     public function update()

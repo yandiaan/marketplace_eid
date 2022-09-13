@@ -23,7 +23,7 @@
                         <?php echo $no++; ?>
                     </td>
                     <td>
-                        <a href="<?php echo 'public/upload/' . $foto['banner'] ?>" target="_blank">File</a>
+                        <a href="<?php echo $foto['banner'] ?>" target="_blank">File</a>
                     </td>
                     </td>
                     <td class="text-center">

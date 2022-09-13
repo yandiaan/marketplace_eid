@@ -35,10 +35,37 @@ class Product extends CI_Controller
         redirect('/admin');
     }
 
+    public function edit()
+    {
+        $get = $this->input->post('id');
+        $data = $this->produk->getprodukbyid($get);
+        echo json_encode($data);
+    }
+
+    public function update()
+    {
+        $data = array(
+            'nama_produk' => $this->input->post('nama_produkU'),
+            'deskripsi' => $this->input->post('deskripsiU'),
+            // 'spesifikasi' => $this->input->post('spesifikasi'),
+            'brand' => $this->input->post('brandU'),
+            'harga' => $this->input->post('hargaU'),
+            'berat' => $this->input->post('beratU'),
+            'lebar' => $this->input->post('lebarU'),
+            'tinggi' => $this->input->post('tinggiU'),
+        );
+
+        $id_produk = $this->input->post('id_produkU');
+
+        $product = $this->produk->save_update($data, $id_produk);
+
+        redirect('/admin');
+    }
+
     public function delete($id_produk = null)
     {
         if ($this->produk->delete($id_produk)) {
-            return $this->index();
+            redirect('/admin');
         }
     }
 }

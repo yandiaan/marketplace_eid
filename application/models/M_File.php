@@ -22,7 +22,19 @@ class M_File extends CI_Model
 
     public function upload_file_db($data)
     {
-        return $this->db->insert('suplier', $data);
+        $response['success'] = false;
+        $response['message'] = null;
+        $return = $this->db->insert('suplier', $data);
+
+        if ($return) {
+
+            $response['success'] = true;
+            $response['message'] = 'Data Berhasil Ditambahkan';
+        } else {
+            $response['success'] = false;
+            $response['message'] = 'Data Gagal DItambahkan';
+        }
+        return $response;
     }
 
     public function get_Banner($id)
