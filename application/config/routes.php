@@ -59,16 +59,16 @@ $route['register']              = 'Auth/register';
 $route['register/action']       = 'Auth/register/register_action';
 
 //admin
-$route['admin']                 = 'api/admin/product/index';
-$route['upload']                = 'api/admin/upload_file/index';
+$route['admin']                 = 'API/Admin/product/index';
+$route['upload']                = 'API/Admin/upload_file/index';
 
 // Produk route
-$route['produk/(:any)'] = 'produk/detail/$1';
-$route['pencarian'] = 'pencarian/index';
-$route['pencarian-produk'] = 'pencarian/pencarian_produk';
-$route['checkout'] = 'checkout/index';
-$route['cart'] = 'cart/index';
-$route['checkout-2'] = 'checkout/checkout_2';
+$route['produk/(:any)']         = 'produk/detail/$1';
+$route['pencarian']             = 'pencarian/index';
+$route['pencarian-produk']      = 'pencarian/pencarian_produk';
+$route['checkout']              = 'checkout/index';
+$route['cart']                  = 'cart/index';
+$route['checkout-2']            = 'checkout/checkout_2';
 $route['produk/(:any)']         = 'produk/detail/$1';
 $route['pencarian']             = 'pencarian/index';
 $route['pencarian-produk']      = 'pencarian/pencarian_produk';
@@ -88,8 +88,9 @@ $route['api/register']          = 'API/auth/register';
 $route['api/suplier/login']     = 'API/suplier_auth/login';
 $route['api/suplier/register']  = 'API/suplier_auth/register';
 
-$route['api/suplier/update_profile']  = 'API/suplier/update_profile';
-$route['api/suplier/update_password']  = 'API/suplier/update_password';
+$route['api/suplier/update_profile']    = 'API/suplier/update_profile';
+$route['api/suplier/update_password']   = 'API/suplier/update_password';
+$route['api/suplier/update_banner']     = 'API/suplier/update_banner';
 
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
 $route['api/suplier/all']               = 'API/suplier/all';
