@@ -85,11 +85,12 @@ $route['api/login']             = 'API/auth';
 $route['api/register']          = 'API/auth/register';
 
 // api untuk suplier
-$route['api/suplier/login']     = 'API/suplier_auth/login';
-$route['api/suplier/register']  = 'API/suplier_auth/register';
+$route['api/admin/suplier/login']     = 'API/suplier_auth/login';
+$route['api/admin/suplier/register']  = 'API/suplier_auth/register';
+$route['api/admin/suplier/update_profile']   = 'API/admin/suplier/update_profile';
+$route['api/admin/suplier/update_password']  = 'API/admin/suplier/update_password';
+$route['api/admin/suplier/upload_banner']  = 'API/admin/suplier/upload_banner';
 
-$route['api/suplier/update_profile']  = 'API/suplier/update_profile';
-$route['api/suplier/update_password']  = 'API/suplier/update_password';
 
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
 $route['api/suplier/all']               = 'API/suplier/all';
