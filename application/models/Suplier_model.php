@@ -14,7 +14,7 @@ class Suplier_model extends CI_Model
                 array(
                         'field' => 'email',
                         'label' => 'Email',
-                        'rules' => 'required'
+                        'rules' => 'required|valid_email'
                 ),
                 array(
                         'field' => 'nama_toko',
