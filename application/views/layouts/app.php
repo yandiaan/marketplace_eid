@@ -12,7 +12,8 @@
 
     <!-- Font family & Icons -->
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -55,7 +56,7 @@
                                     id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
                             </div>
                             <div class="mb-3 d-grid gap-2">
-                                <button type="submit" class="btn btn-sm btn-primary-eid fw-semibold"
+                                <button type="submit" class="btn btn-sm btn-primary fw-semibold"
                                     style="border-radius: 2px;">LOG IN</button>
                                 <a href="" class="text-decoration-none" style="color: #66AA23;"><small>Lupa
                                         password</small></a>

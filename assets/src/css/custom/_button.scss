@@ -11,7 +11,7 @@ $btn-dark: #000;
 	@include button-variant(
 		$btn-primary,
 		darken($btn-primary, 7.5%),
-		darken($btn-primary, 10%),
+		white,
 		lighten($btn-primary, 5%),
 		lighten($btn-primary, 10%),
 		darken($btn-primary, 30%)

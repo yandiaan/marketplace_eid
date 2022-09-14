@@ -1,19 +1,17 @@
-#detail {
-	color: #82c631;
+.sidebar {
+	border: 1px solid rgba(121, 121, 121, 0.1);
+	box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.05);
+	border-radius: 6px;
+	padding: 20px;
+	margin-top: 18px;
+}
+.more a {
 	text-decoration: none;
 }
 
-.pagination a {
-	color: black;
-	padding: 8px 16px;
-	text-decoration: none;
-}
-
-.pagination a.active {
-	background-color: #82c631;
-	color: white;
-}
-
-.pagination a:hover:not(.active) {
-	background-color: #ddd;
+.category-list,
+.material-list {
+	overflow-y: scroll;
+	overflow-x: visible;
+	height: 150px;
 }
