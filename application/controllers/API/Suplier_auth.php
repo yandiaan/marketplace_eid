@@ -31,6 +31,7 @@ class Suplier_auth extends RestController
                         "iat"           => time(),
                         "exp"           => time() + getenv('JWT_TIME_EXP'),
                         "id_suplier"    => $user['id_suplier'],
+                        "username"      => $user['username'],
                         "email"         => $email
                     );
 
@@ -50,7 +51,6 @@ class Suplier_auth extends RestController
                     $this->response([
                         'code'    => 422,
                         'message' => 'Password anda salah !',
-                        'pass'    => $password
                     ], 422);
                 }
             } else {

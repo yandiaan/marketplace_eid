@@ -5,7 +5,7 @@ use chriskacerguis\RestServer\RestController;
 
 class Suplier extends RestController
 {
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -17,14 +17,18 @@ class Suplier extends RestController
     {
         $data = $this->suplier->get_one($id);
 
-        if(count($data) < 1) {
+        if (count($data) < 1) {
             $this->response([
                 'code'  => 404,
                 'message'  => 'Suplier tidak ditemukan',
             ], 404);
         } else {
             $this->response([
-                'code'  => 200,
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Success get suplier by id'
+                ],
                 'data'  => $data,
             ], 200);
         }
@@ -35,14 +39,19 @@ class Suplier extends RestController
     {
         $data = $this->suplier->get_all();
 
-        if(count($data) < 1) {
+        if (count($data) < 1) {
             $this->response([
-                'code'  => 404,
-                'message'  => 'Suplier tidak ditemukan',
+                'code'      => 404,
+                'status'    => 'success',
+                'message'   => 'Suplier tidak ditemukan',
             ], 404);
         } else {
             $this->response([
-                'code'  => 200,
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Success get all suplier',
+                ],
                 'data'  => $data,
             ], 200);
         }
@@ -53,16 +62,21 @@ class Suplier extends RestController
     {
         $data = $this->suplier->get_products($id);
 
-        if(count($data) < 1) {
+        if (count($data) < 1) {
             $this->response([
-                'code'  => 404,
-                'message'  => 'Produk tidak ditemukan',
+                'code'      => 404,
+                'message'   => 'Produk tidak ditemukan',
             ], 404);
         } else {
             $this->response([
-                'code'  => 200,
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Success get all produk suplier'
+                ],
                 'data'  => $data,
             ], 200);
         }
     }
-}
+    
+    }

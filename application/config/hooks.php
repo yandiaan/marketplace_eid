@@ -1,4 +1,6 @@
 <?php
+
+use Dotenv\Dotenv;
 // Use this code if your .env files on *CodeIgniter ROOT* folder
 use Dotenv\Dotenv;
 
