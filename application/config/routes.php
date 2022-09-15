@@ -59,17 +59,22 @@ $route['register']              = 'Auth/register';
 $route['register/action']       = 'Auth/register/register_action';
 
 //admin
+<<<<<<< HEAD
 $route['admin']                 = 'api/admin/product/index';
 $route['upload']                = 'api/admin/upload_file/index';
 $route['galeri']                = 'api/admin/upload_file/galeri_index';
+=======
+$route['admin']                 = 'API/Admin/product/index';
+$route['upload']                = 'API/Admin/upload_file/index';
+>>>>>>> 311e5d43517c71439393a1a7d44707842f98e7c7
 
 // Produk route
-$route['produk/(:any)'] = 'produk/detail/$1';
-$route['pencarian'] = 'pencarian/index';
-$route['pencarian-produk'] = 'pencarian/pencarian_produk';
-$route['checkout'] = 'checkout/index';
-$route['cart'] = 'cart/index';
-$route['checkout-2'] = 'checkout/checkout_2';
+$route['produk/(:any)']         = 'produk/detail/$1';
+$route['pencarian']             = 'pencarian/index';
+$route['pencarian-produk']      = 'pencarian/pencarian_produk';
+$route['checkout']              = 'checkout/index';
+$route['cart']                  = 'cart/index';
+$route['checkout-2']            = 'checkout/checkout_2';
 $route['produk/(:any)']         = 'produk/detail/$1';
 $route['pencarian']             = 'pencarian/index';
 $route['pencarian-produk']      = 'pencarian/pencarian_produk';
