@@ -20,6 +20,31 @@ class M_Produk extends CI_Model
         }
     }
 
+    public function get_Kategori($id_produk = null)
+    {
+        $ci  = &get_instance();
+        if ($id_produk != null) {
+            $prov = $ci->db
+                ->where(['id_produk_kategori' => $id_produk])
+                ->order_by("nama_kategori", 'asc')
+                ->get('produk_kategori');
+            if ($prov->num_rows() > 0) {
+                return $prov->row_array();
+            } else {
+                return null;
+            }
+        } else {
+            $prov = $ci->db
+                ->order_by("nama_kategori", 'asc')
+                ->get('produk_kategori');
+            if ($prov->num_rows() > 0) {
+                return $prov->result_array();
+            } else {
+                return null;
+            }
+        }
+    }
+
     public function getprodukbyid($id_produk)
     {
         $get = $this->db->query('SELECT * FROM produk WHERE id_produk=?', array($id_produk));
@@ -58,5 +83,21 @@ class M_Produk extends CI_Model
     public function delete($id_produk)
     {
         return $this->db->delete('produk', array("id_produk" => $id_produk));
+    }
+
+    public function get_editkategori($role_id)
+    {
+        $data = $this->db->query("SELECT pf.id, pf.name FROM project_role_users pru
+        LEFT JOIN project_features pf ON pf.project_role_user=pru.id
+        WHERE pf.project_role_user =? AND pf.is_active =?", [$role_id, '1']);
+
+        $fetched_records = $data;
+        $dataProject = $fetched_records->result_array();
+
+        $data = array();
+        foreach ($dataProject as $project) {
+            $data[] = array("id" => $project['id'], "text" => $project['name']);
+        }
+        return $data;
     }
 }
