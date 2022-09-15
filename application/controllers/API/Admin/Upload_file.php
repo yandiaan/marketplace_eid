@@ -94,7 +94,7 @@ class Upload_File extends CI_Controller
             if (!empty($_FILES['files' . $i . '']['name'])) {
                 if (!in_array($_FILES['files' . $i . '']['name'], $nama)) {
                     $nama[$i] = $_FILES['files' . $i . '']['name'];
-                    $foto[$i] = uploadBerkas('files' . $i . '', 'galeri', 'galeri_produk')['file_name'];
+                    $foto[$i] = uploadBerkas('files' . $i . '', 'galeri', 'banner')['file_name'];
                 } else {
                     return "Terdapat data yang sama";
                 }
