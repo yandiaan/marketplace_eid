@@ -43,7 +43,7 @@
                     <a class="collapse-item" href="<?= base_url('upload') ?>">Upload/Update Banner</a>
                     <a class="collapse-item" href="cards.html"> Upload/update Logo</a>
                     <a class="collapse-item" href="cards.html"> CRUD Suplier</a>
-                    <a class="collapse-item" href="cards.html"> CRUD diskon produk</a>
+                    <a class="collapse-item" href="<?= base_url('galeri') ?>"> Form Tambah galeri Produk</a>
                     <a class="collapse-item" href="cards.html"> Get Profile Suplier with <br> Product By id login</a>
                 </div>
             </div>
