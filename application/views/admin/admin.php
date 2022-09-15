@@ -57,7 +57,7 @@
                     </td>
                     <td class="text-center">
                         <a onclick="edit(<?= $product['id_produk'] ?>)" href="#" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
-                        <a onclick="deleteConfirm('<?php echo site_url('api/admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <a onclick="deleteConfirm('<?php echo site_url('api/admin/D_produk/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -75,7 +75,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo site_url('api/admin/product/add') ?>" method="POST">
+            <form action="<?php echo site_url('api/admin/D_produk/add') ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
@@ -153,7 +153,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo site_url('api/admin/product/update') ?>" method="POST">
+            <form action="<?php echo site_url('api/admin/D_produk/update') ?>" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="id_produkU" id="id_produk" value="">
                     <div class="form-group row">
@@ -243,7 +243,7 @@
         $.ajax({
             type: 'ajax',
             method: 'POST',
-            url: base_url + 'API/Admin/Product/edit',
+            url: base_url + 'API/Admin/D_produk/edit',
             data: {
                 id: id
             },
