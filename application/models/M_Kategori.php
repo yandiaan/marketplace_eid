@@ -20,9 +20,9 @@ class M_Kategori extends CI_Model
         }
     }
 
-    public function getprodukbyid($id_produk)
+    public function getkategoribyid($id_produk)
     {
-        $get = $this->db->query('SELECT * FROM produk WHERE id_produk=?', array($id_produk));
+        $get = $this->db->query('SELECT * FROM produk_kategori WHERE id_produk_kategori=?', array($id_produk));
 
         if ($get->num_rows() > 0) {
             return $get->row_array();
@@ -36,8 +36,8 @@ class M_Kategori extends CI_Model
         $response['success'] = false;
         $response['message'] = null;
 
-        $this->db->where('id_produk', $id_produk);
-        $return = $this->db->update('produk', $data);
+        $this->db->where('id_produk_kategori', $id_produk);
+        $return = $this->db->update('produk_kategori', $data);
 
         if ($return) {
 
