@@ -11,7 +11,10 @@ class Produk extends CI_Controller {
 
     public function detail($uid)
     {
-        $data = ['uid' => $uid];
-        $this->load->view('produk', $data);
+        $data = array(
+            'content' => 'produk',
+            'uid' => $uid
+        );
+        $this->load->view('layouts/app', $data);
     }
 }

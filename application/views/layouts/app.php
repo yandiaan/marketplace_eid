@@ -22,6 +22,7 @@
 
     <!-- Navigation -->
     <?php $this->load->view('layouts/header'); ?>
+    <script type="text/javascript" src="<?= base_url('assets/src/js/jquery.min.js');?>"></script>
 
     <!-- Content -->
     <div class="mt-4">
@@ -78,7 +79,9 @@
     <?php $this->load->view('layouts/footer'); ?>
 
     <!-- Core JS -->
+
     <script src="<?= base_url('assets/dist/main.js'); ?>"></script>
+
 </body>
 
 </html>
