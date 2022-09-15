@@ -140,6 +140,18 @@ class Upload_File extends CI_Controller
         redirect('galeri');
     }
 
+    public function deletemultiple($id_galeri = null)
+    {
+        $file = $this->M_File->getOldFiles($id_galeri);
+
+        if (file_exists('.' . $file['image_path'])) {
+            unlink('.' . $file['image_path']);
+        }
+
+        if ($this->M_File->delete($id_galeri)) {
+            redirect('/galeri');
+        }
+    }
 
     public function delete($id_galeri = null)
     {

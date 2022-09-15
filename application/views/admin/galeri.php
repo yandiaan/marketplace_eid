@@ -31,7 +31,7 @@
                     </td>
                     <td class="text-center">
                         <a onclick="edit(<?= $galeri['id_produk'] ?>)" href="#" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
-                        <a onclick="return confirm('Are you want to delete ')" href="<?php echo base_url('api/admin/upload_file/delete/' . $galeri['id_galeri_produk']) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <a onclick="return confirm('Are you want to delete ')" href="<?php echo base_url('api/admin/upload_file/deletemultiple/' . $galeri['id_galeri_produk']) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

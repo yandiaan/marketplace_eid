@@ -5,6 +5,7 @@ function uploadBerkas($nama_file, $path_folder, $prefix)
     $ci = &get_instance();
 
     $root_folder = 'public/upload/' . $path_folder;
+    $token = base64_encode(random_bytes(3));
 
     $response['success'] = false;
     $response['file_name'] = '';
@@ -13,7 +14,7 @@ function uploadBerkas($nama_file, $path_folder, $prefix)
         $config['upload_path'] = $root_folder; //path folder file upload
         $config['allowed_types'] = 'jpg|jpeg|png'; //type file yang boleh di upload
         $config['max_size'] = '3000';
-        $config['file_name'] = $prefix . '_' . date('ymdhis'); //enkripsi file name upload
+        $config['file_name'] = $prefix . '_' . date('ymdhis') . $token; //enkripsi file name upload
         $ci->load->library('upload');
         $ci->upload->initialize($config);
         if ($ci->upload->do_upload($nama_file)) {

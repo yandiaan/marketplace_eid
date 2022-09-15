@@ -41,9 +41,10 @@
                     <h6 class="collapse-header">Custom Suplier</h6>
                     <a class="collapse-item" href="<?= base_url('admin'); ?>">CRUD Produk</a>
                     <a class="collapse-item" href="<?= base_url('upload') ?>">Upload/Update Banner</a>
+                    <a class="collapse-item" href="<?= base_url('galeri') ?>"> Form Tambah galeri Produk</a>
+                    <a class="collapse-item" href="<?= base_url('kategori') ?>"> CRUD Kategori</a>
                     <a class="collapse-item" href="cards.html"> Upload/update Logo</a>
                     <a class="collapse-item" href="cards.html"> CRUD Suplier</a>
-                    <a class="collapse-item" href="<?= base_url('galeri') ?>"> Form Tambah galeri Produk</a>
                     <a class="collapse-item" href="cards.html"> Get Profile Suplier with <br> Product By id login</a>
                 </div>
             </div>
