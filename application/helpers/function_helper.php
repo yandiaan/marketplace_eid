@@ -11,7 +11,7 @@ function uploadBerkas($nama_file, $path_folder, $prefix)
     $nama_berkas = "";
     if (!empty($_FILES[$nama_file]['name'])) {
         $config['upload_path'] = $root_folder; //path folder file upload
-        $config['allowed_types'] = 'pdf|gif|jpg|jpeg|png|jpeg|bmp'; //type file yang boleh di upload
+        $config['allowed_types'] = 'jpg|jpeg|png'; //type file yang boleh di upload
         $config['max_size'] = '3000';
         $config['file_name'] = $prefix . '_' . date('ymdhis'); //enkripsi file name upload
         $ci->load->library('upload');
