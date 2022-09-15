@@ -93,6 +93,7 @@ $route['api/admin/suplier/register']  = 'API/suplier_auth/register';
 $route['api/admin/suplier/update_profile']   = 'API/admin/suplier/update_profile';
 $route['api/admin/suplier/update_password']  = 'API/admin/suplier/update_password';
 $route['api/admin/suplier/upload_banner']  = 'API/admin/suplier/upload_banner';
+$route['api/admin/suplier/upload_logo']  = 'API/admin/suplier/upload_logo';
 
 
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
