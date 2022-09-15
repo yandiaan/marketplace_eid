@@ -49,7 +49,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url('api/admin/upload_file/save_galeri') ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo base_url('api/admin/upload_file/save_galerimultiple') ?>" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="InputEmail" class="col-sm-2 col-form-label">Nama Produk<small class="text-danger">*</small></label>

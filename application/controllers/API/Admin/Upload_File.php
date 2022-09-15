@@ -111,6 +111,34 @@ class Upload_File extends CI_Controller
         redirect('galeri');
     }
 
+    public function save_galerimultiple()
+    {
+        $count = $this->input->post('total');
+        $foto = [];
+        $nama = [];
+
+        for ($i = 0; $i < $count; $i++) {
+            if (!empty($_FILES['files' . $i . '']['name'])) {
+                if (!in_array($_FILES['files' . $i . '']['name'], $nama)) {
+                    $nama[$i] = $_FILES['files' . $i . '']['name'];
+                    $foto[$i] = uploadBerkas('files' . $i . '', 'galeri', 'banner')['file_name'];
+                } else {
+                    return "Terdapat data yang sama";
+                }
+            }
+        }
+
+        for ($j = 0; $j < $count; $j++) {
+            $data[$j] = [
+                'id_produk' => $this->input->post('input_produk'),
+                'image_path' => $foto[$j],
+            ];
+        }
+
+        $result = $this->M_File->get_createdatamultiple($data, $count);
+
+        redirect('galeri');
+    }
 
 
     public function delete($id_galeri = null)

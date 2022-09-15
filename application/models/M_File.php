@@ -119,4 +119,24 @@ class M_File extends CI_Model
     {
         return $this->db->delete('galeri_produk', array("id_galeri_produk" => $id_galeri));
     }
+
+    public function get_createdatamultiple($data, $count)
+    {
+        $response['success'] = false;
+        $response['message'] = null;
+        for ($i = 0; $i < $count; $i++) {
+            $return = $this->db->insert('galeri_produk', $data[$i]);
+        }
+
+        if ($return) {
+
+            $response['success'] = true;
+            $response['message'] = 'Data Berhasil Ditambahkan';
+        } else {
+            $response['success'] = false;
+            $response['message'] = 'Data Gagal Ditambahkan';
+        }
+
+        return $response;
+    }
 }
