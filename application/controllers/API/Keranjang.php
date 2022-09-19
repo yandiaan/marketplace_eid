@@ -55,16 +55,25 @@ class Keranjang extends RestController
                 'created_at'    => date('Y-m-d h:i:s'),
             ];
 
-            $this->cart->add_item($data);
+            $query = $this->cart->add_item($data);
 
-            $this->response([
-                'meta' => [
-                    'code'      => 200,
-                    'status'    => 'success',
-                    'message'   => 'Item berhasil ditambahkan pada keranjang',
-                ],
-                'data'  => $data,
-            ], 200);
+            if($query) {                
+                $this->response([
+                    'meta' => [
+                        'code'      => 200,
+                        'status'    => 'success',
+                        'message'   => 'Item berhasil ditambahkan pada keranjang',
+                    ]
+                ], 200);
+            } else {
+                $this->response([
+                    'meta' => [
+                        'code'      => 400,
+                        'status'    => 'error',
+                        'message'   => 'Terjadi kesalahan saat menambahkan item pada keranjang',
+                    ]
+                ], 400);
+            }
         }
     }
 
@@ -102,26 +111,80 @@ class Keranjang extends RestController
             // option values are ('' OR increment OR decrement)
             $method = $post['metode'];
 
-            $this->cart->update_quantity($data, $where, $method);
+            $query = $this->cart->update_quantity($data, $where, $method);
 
-            $this->response([
-                'meta' => [
-                    'code'      => 200,
-                    'status'    => 'success',
-                    'message'   => 'Jumlah item pada keranjang berhasil diperbarui',
-                ],
-                'data'  => $data,
-            ], 200);
+            if($query) {
+                $this->response([
+                    'meta' => [
+                        'code'      => 200,
+                        'status'    => 'success',
+                        'message'   => 'Jumlah item pada keranjang berhasil diperbarui',
+                    ]
+                ], 200);
+            } else {
+                $this->response([
+                    'meta' => [
+                        'code'      => 400,
+                        'status'    => 'error',
+                        'message'   => 'Terjadi kesalahan pada saat memperbarui keranjang',
+                    ]
+                ], 400);
+            }
+
         }
     }
 
     public function delete_item_post()
     {
-        //
+        $id = $this->input->post('id_keranjang') ?? [''];
+        
+        foreach($id as $key => $value) {
+            $where[$key] = $value;
+        }
+
+        $query = $this->cart->delete_item($where);
+
+        if($query) {
+            $this->response([
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Item berhasil dihapus pada keranjang',
+                ]
+            ], 200);
+        } else {
+            $this->response([
+                'meta' => [
+                    'code'      => 400,
+                    'status'    => 'error',
+                    'message'   => 'Terjadi kesalahan saat menghapus item pada keranjang',
+                ]
+            ], 400);
+        }
     }
 
-    public function epmty_cart_post()
+    public function empty_cart_post()
     {
-        // 
+        $id_pengguna = $this->input->post('id_pengguna');
+
+        $query = $this->cart->empty_cart($id_pengguna);
+
+        if($query) {
+            $this->response([
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Semua item pada keranjang berhasil dihapus',
+                ]
+            ], 200);
+        } else {
+            $this->response([
+                'meta' => [
+                    'code'      => 400,
+                    'status'    => 'error',
+                    'message'   => 'Terjadi kesalahan saat menghapus item pada keranjang',
+                ]
+            ], 400);
+        }
     }
 }

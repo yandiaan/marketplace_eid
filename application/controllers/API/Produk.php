@@ -14,7 +14,7 @@ class Produk extends RestController
 
     public function index_get()
     {
-        $slug = htmlspecialchars($this->input->get('browse', true));
+        $slug = htmlspecialchars($this->input->get('browse', true) ?? '');
 
         if ($slug) {
             $result = $this->produk->get_one($slug);
