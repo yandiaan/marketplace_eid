@@ -6,9 +6,10 @@ class Produk_model extends CI_Model
     public function get_all()
     {
         $this->db->select('produk.*,suplier.nama_toko , suplier.deskripsi AS deskripsi_toko , suplier.lokasi,suplier.banner,suplier.logo,suplier.join_at, produk_kategori.nama_kategori');
+        // $this->db->select('*');
         $this->db->from('produk');
-        $this->db->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori','left');
-        $this->db->join('suplier', 'suplier.id_suplier = produk.id_suplier', 'inner');
+        $this->db->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori', 'left');
+        $this->db->join('suplier', 'suplier.id_suplier = produk.id_suplier', 'left');
         $query = $this->db->get()->result_array();
 
         // Loop through the products array
@@ -22,15 +23,16 @@ class Produk_model extends CI_Model
         return $query;
     }
 
-    public function get_one($id)
+    public function get_one($slug)
     {
         $produk = $this->db->select('produk.* , suplier.nama_toko , suplier.deskripsi AS deskripsi_toko , suplier.lokasi,suplier.banner,suplier.logo,suplier.join_at, produk_kategori.nama_kategori')
-                    ->from('produk')
-                    ->join('suplier', 'suplier.id_suplier = produk.id_suplier')
-                    ->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori')
-                    ->where('id_produk',$id);
+            ->from('produk')
+            ->join('suplier', 'suplier.id_suplier = produk.id_suplier')
+            ->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori')
+            ->where('slug', $slug);
         $data = $produk->get()->result_array();
-        $data[0]['images'] = $this->db->get_where('galeri_produk',['id_produk' =>$id])->result_array();
+
+        $data[0]['images'] = $this->db->get_where('galeri_produk', ['id_produk' => $data[0]['id_produk']])->result_array();
         return $data;
     }
 
@@ -73,7 +75,7 @@ class Produk_model extends CI_Model
         $this->db->select('produk.*,suplier.nama_toko , suplier.deskripsi AS deskripsi_toko , suplier.lokasi,suplier.banner,suplier.logo,suplier.join_at, produk_kategori.nama_kategori');
         $this->db->from('produk');
         $this->db->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori', 'left');
-        $this->db->join('suplier', 'suplier.id_suplier = produk.id_suplier', 'inner');
+        $this->db->join('suplier', 'suplier.id_suplier = produk.id_suplier', 'left');
         $this->db->like('nama_produk', $data['nama']);
         $this->db->like('nama_kategori', $data['kategori']);
         // $this->db->like('lokasi', $data['lokasi']);

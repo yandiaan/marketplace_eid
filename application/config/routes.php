@@ -11,9 +11,11 @@ $route['register']              = 'Auth/register';
 $route['register/action']       = 'Auth/register/register_action';
 
 //admin
-$route['admin']                 = 'API/Admin/product/index';
-$route['upload']                = 'API/Admin/upload_file/index';
-$route['galeri']                = 'API/Admin/upload_file/galeri_index';
+$route['admin']                 = 'api/admin/product/index';
+$route['upload']                = 'api/admin/upload_file/index';
+$route['galeri']                = 'api/admin/upload_file/galeri_index';
+$route['kategori']              = 'api/admin/kategori/index';
+
 
 // Produk route
 $route['produk/(:any)']         = 'produk/detail/$1';
@@ -38,10 +40,18 @@ $route['api/register']          = 'API/auth/register';
 // api untuk suplier
 $route['api/admin/suplier/login']     = 'API/suplier_auth/login';
 $route['api/admin/suplier/register']  = 'API/suplier_auth/register';
+<<<<<<< HEAD
 $route['api/admin/suplier/update_profile']   = 'API/Admin/suplier/update_profile';
 $route['api/admin/suplier/update_password']  = 'API/Admin/suplier/update_password';
 $route['api/admin/suplier/upload_banner']  = 'API/Admin/suplier/upload_banner';
 $route['api/admin/suplier/upload_logo']  = 'API/Admin/suplier/upload_logo';
+=======
+$route['api/admin/suplier/update_profile']   = 'API/admin/suplier/update_profile';
+$route['api/admin/suplier/update_password']  = 'API/admin/suplier/update_password';
+$route['api/admin/suplier/upload_banner']  = 'API/admin/suplier/upload_banner';
+$route['api/admin/suplier/upload_logo']  = 'API/admin/suplier/upload_logo';
+
+>>>>>>> origin/rizki
 
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
 $route['api/suplier/all']               = 'API/suplier/all';

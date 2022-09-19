@@ -214,4 +214,55 @@ class Suplier extends RestController
             'data'  => $this->suplier->get_one($id),
         ], 200);
     }
+
+
+    public function upload_logo_post()
+    {
+        $id_suplier = $this->token_session->id_suplier;
+        $logo     = $_FILES['logo']['name'];
+
+        if ($logo) {
+            $location                   = 'public/' . 'upload/';
+            $config['upload_path']      = 'public/upload/';
+            $config['allowed_types']    = 'jpg|png|jpeg';
+            $config['max_size']         = '2000';
+            $config['file_name']        = 'logo_' . date('ymdhis');
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('logo')) {
+
+                // cari gambar berdasarkan id
+                $data['suplier'] = $this->db->select('logo')->get_where('suplier',['id_suplier' => $id_suplier])->row_array();
+                if ($data['suplier']['logo']) {
+                    unlink($data['suplier']['logo']);
+                }
+
+                $file_banner = $this->upload->data();
+                $this->db->set('logo', $location . $file_banner['file_name']);
+                $this->db->where('id_suplier', $id_suplier);
+                $this->db->update('suplier');
+            } else {
+                $this->response([
+                    'message' => 'Data yang anda input tidak valid !',
+                    'errors'  => $this->upload->display_errors(),
+                ], 422);
+            }
+        }else{
+            $this->response([
+                'message' => 'Data yang anda input tidak valid !',
+                'errors'  => 'Image logo tidak boleh kosong'
+            ], 422);
+        }
+
+        $dataAfterUploadBanner = $this->db->select('id_suplier,nama_toko,deskripsi,lokasi,banner,logo,join_at')->get_where('suplier', ['id_suplier' => $id_suplier])->result_array();
+
+        $this->response([
+            'meta' => [
+                'code'      => 200,
+                'status'    => 'success',
+                'message'   => 'logo berhasil diupload',
+            ],
+            'data'  => $dataAfterUploadBanner,
+        ], 200);
+    }
 }
