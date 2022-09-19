@@ -23,8 +23,6 @@ $route['checkout']              = 'checkout/index';
 $route['cart']                  = 'cart/index';
 $route['checkout-2']            = 'checkout/checkout_2';
 $route['produk/(:any)']         = 'produk/detail/$1';
-$route['pencarian']             = 'pencarian/index';
-$route['pencarian-produk']      = 'pencarian/pencarian_produk';
 $route['checkout']              = 'checkout/index';
 $route['checkout-2']            = 'checkout/checkout_2';
 
