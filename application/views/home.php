@@ -1861,4 +1861,5 @@
     </div>
     </div>
 </section>
+<script src="<?= base_url("assets/src/js/pages/homePage.js"); ?>"></script>
 <!-- /Join now -->
