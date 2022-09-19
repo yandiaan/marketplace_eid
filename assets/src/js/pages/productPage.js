@@ -1,9 +1,9 @@
-const ENDPOINT = "http://localhost/marketplace_eid/api/";
+const ENDPOINT = "http://localhost/marketplace_eid/api/produk?id=";
 
 function fetchDetailProduct(id) {
 	$(document).ready(function () {
 		$.ajax({
-			url: ENDPOINT + "produk?id=" + id,
+			url: ENDPOINT + id,
 			type: "GET",
 			dataType: "json",
 			success: function (res) {
