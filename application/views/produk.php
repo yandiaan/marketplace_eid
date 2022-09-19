@@ -807,5 +807,5 @@
 
 <script src="<?= base_url("assets/src/js/pages/ProductPage.js"); ?>"></script>
 <script>
-fetchDetailProduct(<?= $uid; ?>);
+fetchDetailProduct("<?= $slug; ?>");
 </script>

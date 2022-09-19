@@ -1,9 +1,9 @@
 const ENDPOINT = "http://localhost/marketplace_eid/api/produk?browse=";
 
-function fetchDetailProduct(id) {
+function fetchDetailProduct(slug) {
 	$(document).ready(function () {
 		$.ajax({
-			url: ENDPOINT + id,
+			url: ENDPOINT + slug,
 			type: "GET",
 			dataType: "json",
 			success: function (res) {
