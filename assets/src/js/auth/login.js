@@ -1,4 +1,6 @@
-const ENDPOINT = "http://localhost/marketplace_eid/api/";
+const ENDPOINT = "http://localhost/marketplace_eid/api/login";
+
+$("#errorMessage").hide();
 
 $("#loginForm").submit((e) => {
 	e.preventDefault();
@@ -9,16 +11,16 @@ $("#loginForm").submit((e) => {
 
 	$.ajax({
 		type: "POST",
-		url: ENDPOINT + "login",
+		url: ENDPOINT,
 		data: data,
 		success: (res) => {
-			$.session.set("accessToken", res.data.access_token);
-			alert("Berhasil Login Cuyy");
+			$.cookie("sessionToken", res.data.access_token);
 			window.location.reload();
 		},
 		dataType: "json",
-		error: () => {
-			alert("Gagal Login Cuyy");
+		error: (err) => {
+			$("#errorMessage").show("fast");
+			$("#errorMessage").text(err.responseJSON.message);
 		},
 	});
 });
