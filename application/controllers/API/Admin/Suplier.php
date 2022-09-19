@@ -23,6 +23,8 @@ class Suplier extends RestController
     }
 
     // Update profile
+
+
     public function update_profile_post()
     {
         // Call suplier profile rules from model
@@ -117,27 +119,33 @@ class Suplier extends RestController
     {
         $id_suplier = $this->token_session->id_suplier;
         $banner     = $_FILES['banner']['name'];
+        $location   = 'public/upload/suplier/';
 
         if ($banner) {
-            $location                   = 'public/' . 'upload/';
-            $config['upload_path']      = 'public/upload/';
-            $config['allowed_types']    = 'jpg|png|jpeg';
-            $config['max_size']         = '2000';
-            $config['file_name']        = 'banner_' . date('ymdhis');
+
+            $config = array(
+                "upload_path"   => 'public/upload/suplier/',
+                "allowed_types" => 'jpg|png|jpeg',
+                "max_size"      => '2048',
+                "file_name"     => 'banner_' . date('ymdhis')
+            );
+
             $this->load->library('upload', $config);
 
             if ($this->upload->do_upload('banner')) {
 
                 // cari gambar berdasarkan id
-                $data['suplier'] = $this->db->select('banner')->get_where('suplier', ['id_suplier' => $id_suplier])->row_array();
+                $data['suplier'] = $this->db->select('banner')
+                    ->get_where('suplier', ['id_suplier' => $id_suplier])->row_array();
+
+                // menghapus data gambar sebelumnya jika gambar sudah ada
                 if ($data['suplier']['banner']) {
                     unlink($data['suplier']['banner']);
                 }
 
-                $file_banner = $this->upload->data();
-                $this->db->set('banner', $location . $file_banner['file_name']);
-                $this->db->where('id_suplier', $id_suplier);
-                $this->db->update('suplier');
+                $data = ['banner' => $location . $this->upload->data('file_name')];
+
+                $this->suplier->update_profile($id_suplier, $data);
             } else {
                 $this->response([
                     'message' => 'Data yang anda input tidak valid !',

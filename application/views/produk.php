@@ -1,7 +1,8 @@
 <div class="container">
     <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="breadcrumb-item"><a href="#" class="nav-link">Home
+                </a></li>
             <li class="breadcrumb-item active fw-bold" aria-current="page">Product</li>
         </ol>
     </nav>
@@ -10,7 +11,7 @@
             <img src="https://via.placeholder.com/300" class="img-fluid w-100" alt="">
         </div>
         <div class="col-5">
-            <h3 class="fw-bolder">Aerozen Shower Toilet</h3>
+            <h3 class="fw-bolder" id="nama_produk"></h3>
             <div class="info-group">
                 <small class="sales-counter fw-bold me-3 text-secondary">Terjual 32</small>
                 <div class="rating d-inline fs-6 fw-bold border-start border-1 border-dark ps-3" data-value="3.5">
@@ -27,7 +28,7 @@
             </div>
             <div class="price">
                 <div>
-                    <h1 class="text-success fw-bold d-inline">Rp35.395.500</h1>
+                    <h1 class="text-success fw-bold d-inline" id="harga"></h1>
                     <small>/ Unit</small>
                 </div>
             </div>
@@ -59,6 +60,7 @@
             </div>
             <div class="variant row">
                 <div class="col-4">
+
                     <h6 class="fw-bold">Kuantitas</h6>
                 </div>
                 <div class="col-8 quantity">
@@ -68,8 +70,8 @@
                 </div>
             </div>
             <div class="confirm row justify-content-start mt-4">
-                <div class="col-4"><button class="w-100 btn btn-primary-eid">Beli Sekarang</button></div>
-                <div class="col-6"><button class="w-100 btn btn-outline-primary-eid">Masukkan Keranjang</button></div>
+                <div class="col-4"><button class="w-100 btn btn-primary">Beli Sekarang</button></div>
+                <div class="col-6"><button class="w-100 btn btn-outline-primary">Masukkan Keranjang</button></div>
             </div>
             <div class="row justify-content-space-between mt-2">
                 <div class="col">
@@ -87,11 +89,12 @@
                     <img src="<?= base_url("assets/icon/Dummy-Supplier.png"); ?>" alt="Supplier">
                 </div>
                 <div class="col-6">
-                    <h6>PT American Standard Indonesia</h6>
-                    <h6><i class="fa fa-location-dot"></i>Jakarta Pusat | 98% Rating toko</h6>
+                    <h6 id="nama_toko" class="fw-bold fs-5"></h6>
+                    <h6><i class="fa fa-location-dot"></i> <span id="lokasi"> Jakarta Pusat | 98% Rating toko</span>
+                    </h6>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-outline-primary-eid fs-6">
+                    <button class="btn btn-outline-primary fs-6">
                         Chat
                     </button>
                     <button class="btn btn-outline-secondary">
@@ -101,7 +104,7 @@
             </div>
         </div>
         <div class="col-2 align-self-end">
-            <button class="btn btn-outline-primary-eid">
+            <button class="btn btn-outline-primary">
                 <i class="fa fa-share"></i>
                 Share
             </button>
@@ -117,11 +120,14 @@
             </h2>
             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam voluptate
-                    molestias quisquam aliquid neque necessitatibus! Maiores suscipit eos eius amet dignissimos? Veniam
-                    nesciunt aliquam vitae recusandae architecto, rerum iste repellendus odit pariatur enim quos
-                    accusantium ad maxime alias dolore? Nobis distinctio similique voluptates praesentium commodi
-                    numquam ad sunt suscipit provident.
+                <div class="accordion-body px-5">
+                    <p id="deskripsi"></p>
+                    <div class="row">
+                        <div class="col-4">
+                            Kategori:
+                        </div>
+                        <div class="col-8" id="nama_kategori"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,42 +146,28 @@
                             <h6 class="fw-bold">Dimensi</h6>
                             <div class="row">
                                 <div class="col-4">Tinggi :</div>
-                                <div class="col-4">156 cm</div>
+                                <div class="col-4" id="tinggi"></div>
                             </div>
                             <div class="row">
                                 <div class="col-4">Lebar :</div>
-                                <div class="col-4">230 cm</div>
+                                <div class="col-4" id="lebar"></div>
                             </div>
                             <div class="row">
-                                <div class="col-4">Berat</div>
-                                <div class="col-4">7,48 kg</div>
+                                <div class="col-4">Berat:</div>
+                                <div class="col-4" id="berat"></div>
                             </div>
                         </div>
                         <div class="col-6">
                             <h6 class="fw-bold">Info Lebih Lanjut</h6>
                             <div class="row">
-                                <div class="col-4">Sales Uom :</div>
-                                <div class="col-4">SET</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">Product Weight :</div>
-                                <div class="col-4">39,71 kg</div>
-                            </div>
-                            <div class="row">
                                 <div class="col-4">Merk :</div>
-                                <div class="col-4">COTTO</div>
+                                <div class="col-4" id="brand"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-5">
                         <h6 class="fw-bold">Spesifikasi</h6>
-                        <ul class="specs">
-                            <li>Rough-in 30.5 cm
-                            </li>
-                            <li>Single flush</li>
-                            <li>
-                                Penggunaan air: 4.5 liter per siram</li>
-                        </ul>
+                        <p id="spesifikasi"></p>
                     </div>
                 </div>
             </div>
@@ -259,7 +251,7 @@
         </div>
         <div class="col-7 position-relative">
             <div class="review-form w-100 h-100 text-white bg-success px-5 py-3">
-                <h5 class="fw-bold">Review produk ini</h5>
+                <h5 class="fw-bold">Review produk ini </h5>
                 <div class="star-form text-warning my-3">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -270,7 +262,7 @@
                 <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
                     rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
                 <div class="w-100 d-flex mt-4">
-                    <button class="btn btn-primary-eid ms-auto">Kirim Ulasan</button>
+                    <button class="btn btn-primary ms-auto">Kirim Ulasan</button>
                 </div>
             </div>
         </div>
@@ -279,7 +271,7 @@
         <h6>Filter</h6>
         <div class="row justify-content-between">
             <div class="col-8">
-                <a class="btn btn-outline-primary-eid rounded-pill mx-1">Semua</a>
+                <a class="btn btn-outline-primary rounded-pill mx-1">Semua</a>
                 <a class="btn btn-outline-secondary rounded-pill mx-1">5 <i class="fa fa-star text-warning"></i> </a>
                 <a class="btn btn-outline-secondary rounded-pill mx-1">4 <i class="fa fa-star text-warning"></i> </a>
                 <a class="btn btn-outline-secondary rounded-pill mx-1">3 <i class="fa fa-star text-warning"></i> </a>
@@ -812,3 +804,29 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $.ajax({
+        url: "http://localhost/marketplace_eid/api/produk?id=<?= $uid ?>",
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+            var product = res.data[0]
+            $("#nama_produk").html(product.nama_produk);
+            $("#deskripsi").html(product.deskripsi);
+            $("#harga").html("Rp. " + product.harga);
+            $("#tinggi").html(product.tinggi + " cm");
+            $("#lebar").html(product.lebar + " cm");
+            $("#berat").html(product.berat + " kg");
+            $("#spesifikasi").html(product.spesifikasi);
+            $("#nama_toko").html(product.nama_toko);
+            $("#lokasi").html(product.lokasi);
+            $("#brand").html(product.brand);
+            $("#nama_kategori").html(product.nama_kategori);
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    });
+});
+</script>

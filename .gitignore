@@ -42,3 +42,8 @@ package-lock.json
 yarn.lock
 assets/dist/main.css
 assets/dist/main.js
+assets/dist/main.js.LICENSE.txt
+
+# public
+public/upload/suplier/*
+public/upload/galeri/*

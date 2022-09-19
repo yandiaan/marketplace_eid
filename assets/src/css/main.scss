@@ -3,17 +3,18 @@
 // default theme
 
 // font & icons
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
 
 // bootstrap
 @import '~bootstrap';
 
-@import "mixin/button";
+@import "custom/button";
+@import "custom/card";
 
 @import "theme";
 
 // page
+@import "page/home";
 @import "page/produk";
 @import "page/pencarian";
 @import "page/cart";

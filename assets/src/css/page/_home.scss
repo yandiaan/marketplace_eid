@@ -1,0 +1,61 @@
+#banner .carousel-control-prev,
+#banner .carousel-control-next {
+	display: none;
+}
+.carousel-control-next,
+.carousel-control-prev {
+	height: 40px;
+	width: 40px;
+	background-color: #fff;
+	opacity: 1;
+	cursor: pointer;
+	display: inline-block;
+	animation: arrow-banner 0.2s;
+	animation-fill-mode: forwards;
+}
+#banner:hover .carousel-control-prev,
+#banner:hover .carousel-control-next {
+	height: 40px;
+	width: 40px;
+	background-color: #fff !important;
+	opacity: 1;
+	cursor: pointer;
+	display: inline-block;
+	animation: arrow-banner 0.2s;
+	animation-fill-mode: forwards;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+	transform: scale(1.2);
+}
+.carousel-indicators li,
+.carousel-indicators li.active {
+	width: 10px !important;
+	height: 10px !important;
+	margin: 4px !important;
+	border-radius: 50% !important;
+	border-color: transparent !important;
+	border: none !important;
+}
+.carousel-indicators li {
+	background: rgba(255, 255, 255, 0.5) !important;
+}
+.carousel-indicators li.active {
+	background: #fff !important;
+}
+
+.special-rack,
+.popular-rack {
+	border-radius: 12px;
+	left: -15px;
+	top: 5px;
+	position: absolute;
+	z-index: -99;
+	width: 200px;
+	height: 425px;
+	background-color: #f1fcd6;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+}
