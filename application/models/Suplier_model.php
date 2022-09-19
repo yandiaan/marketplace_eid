@@ -92,10 +92,11 @@ class Suplier_model extends CI_Model
         return $query;
     }
 
-    public function get_products($id)
-    {
-        $query = $this->db->get_where('produk', ['id_suplier' => $id]);
-        return $query->result();
+
+    //  ======================================= Admin =========================================
+    public function get_suplier($id){
+        $this->db->select('suplier.id_suplier,suplier.nama_toko,suplier.deskripsi,suplier.lokasi,suplier.banner,suplier.logo,suplier.join_at');
+        return $this->db->get_where('suplier', ['id_suplier' => $id])->row_array();
     }
 
     public function update_profile($id, $data)

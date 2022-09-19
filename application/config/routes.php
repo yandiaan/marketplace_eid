@@ -59,7 +59,7 @@ $route['register']              = 'Auth/register';
 $route['register/action']       = 'Auth/register/register_action';
 
 //admin
-$route['admin']                 = 'api/admin/product/index';
+$route['admin']                 = 'api/admin/d_product/index';
 $route['upload']                = 'api/admin/upload_file/index';
 $route['galeri']                = 'api/admin/upload_file/galeri_index';
 $route['kategori']              = 'api/admin/kategori/index';
@@ -88,12 +88,13 @@ $route['api/login']             = 'API/auth';
 $route['api/register']          = 'API/auth/register';
 
 // api untuk suplier
-$route['api/admin/suplier/login']     = 'API/suplier_auth/login';
-$route['api/admin/suplier/register']  = 'API/suplier_auth/register';
+$route['api/admin/suplier/login']            = 'API/suplier_auth/login';
+$route['api/admin/suplier/register']         = 'API/suplier_auth/register';
 $route['api/admin/suplier/update_profile']   = 'API/admin/suplier/update_profile';
 $route['api/admin/suplier/update_password']  = 'API/admin/suplier/update_password';
-$route['api/admin/suplier/upload_banner']  = 'API/admin/suplier/upload_banner';
-$route['api/admin/suplier/upload_logo']  = 'API/admin/suplier/upload_logo';
+$route['api/admin/suplier/upload_banner']    = 'API/admin/suplier/upload_banner';
+$route['api/admin/suplier/upload_logo']      = 'API/admin/suplier/upload_logo';
+$route['api/admin/suplier/profile']          = 'API/admin/suplier/get_profil';
 
 
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
