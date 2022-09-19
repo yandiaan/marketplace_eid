@@ -1,4 +1,4 @@
-const ENDPOINT = "http://localhost/marketplace_eid/api/produk?id=";
+const ENDPOINT = "http://localhost/marketplace_eid/api/produk?browse=";
 
 function fetchDetailProduct(id) {
 	$(document).ready(function () {

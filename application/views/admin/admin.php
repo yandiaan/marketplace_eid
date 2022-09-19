@@ -9,7 +9,9 @@
             <tr>
                 <th>No</th>
                 <th>Nama Produk</th>
+                <th>Kategori</th>
                 <th>Deskripsi</th>
+                <th>Spesifikasi</th>
                 <th>Brand</th>
                 <th>Harga</th>
                 <th>Berat</th>
@@ -30,7 +32,13 @@
                         <?php echo $product['nama_produk'] ?>
                     </td>
                     <td>
+                        <?php echo $product['id_produk_kategori'] ?>
+                    </td>
+                    <td>
                         <?php echo $product['deskripsi'] ?>
+                    </td>
+                    <td>
+                        <?php echo $product['spesifikasi'] ?>
                     </td>
                     <td>
                         <?php echo $product['brand'] ?>
@@ -49,7 +57,7 @@
                     </td>
                     <td class="text-center">
                         <a onclick="edit(<?= $product['id_produk'] ?>)" href="#" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
-                        <a onclick="deleteConfirm('<?php echo site_url('api/admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <a onclick="deleteConfirm('<?php echo site_url('API/Admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -67,7 +75,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo site_url('api/admin/product/add') ?>" method="POST">
+            <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
@@ -76,17 +84,25 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="InputEmail" class="col-sm-2 col-form-label">Nama Kategori</label>
+                        <div class="col-sm-10">
+                            <select name="input_kategori" id="input_kategori" class="custom-select select2 form-control" required>
+                                <?= $kategori ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Deskripsi</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputPassword3" name="deskripsi">
                         </div>
                     </div>
-                    <!-- <div class="form-group row">
+                    <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Spesifikasi</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputPassword3" name="spesifikasi">
                         </div>
-                    </div> -->
+                    </div>
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Brand</label>
                         <div class="col-sm-10">
@@ -137,7 +153,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo site_url('api/admin/product/update') ?>" method="POST">
+            <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="id_produkU" id="id_produk" value="">
                     <div class="form-group row">
@@ -152,12 +168,12 @@
                             <input type="text" class="form-control" name="deskripsiU" id="deskripsi" value="">
                         </div>
                     </div>
-                    <!-- <div class="form-group row">
+                    <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Spesifikasi</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword3" name="spesifikasi">
+                            <input type="text" class="form-control" id="spesifikasi" name="spesifikasiU">
                         </div>
-                    </div> -->
+                    </div>
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Brand</label>
                         <div class="col-sm-10">
@@ -237,6 +253,7 @@
                 $('#id_produk').val(response.id_produk);
                 $('#nama_produk').val(response.nama_produk);
                 $('#deskripsi').val(response.deskripsi);
+                $('#spesifikasi').val(response.spesifikasi);
                 $('#brand').val(response.brand);
                 $('#harga').val(response.harga);
                 $('#berat').val(response.berat);

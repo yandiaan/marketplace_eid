@@ -14,29 +14,28 @@ class Produk extends RestController
 
     public function index_get()
     {
-        $id = htmlspecialchars($this->input->get('id', true));
+        $slug = htmlspecialchars($this->input->get('browse', true) ?? '');
 
-        if($id){
-            $result = $this->produk->get_one($id);
+        if ($slug) {
+            $result = $this->produk->get_one($slug ?? '');
             if ($result) {
                 $this->response([
                     'meta' => [
                         'code'    => 200,
                         'status'  => 'success',
-                        'message' => 'Success get data produk by id '.$id
+                        'message' => 'Success get data produk by slug ' . $slug
                     ],
                     'data'  => $result,
                 ], 200);
-            }else{
+            } else {
                 $this->response([
                     'meta'    => [
                         'code'    => 404,
-                        'message' => "Data dengan id $id tidak ditemukan",
+                        'message' => "Data dengan slug $slug tidak ditemukan",
                     ],
                 ], 404);
             }
-
-        }else {
+        } else {
             $result = $this->produk->get_all();
             $this->response([
                 'meta' => [
@@ -77,7 +76,7 @@ class Produk extends RestController
             ], 200);
         } else {
             $this->response([
-                'meta'    =>[
+                'meta'    => [
                     'code'    => 404,
                     'total'   => count($result),
                     'message' => 'Data yang anda tidak ditemukan',
@@ -85,6 +84,5 @@ class Produk extends RestController
                 'data' => $result
             ], 404);
         }
-
     }
 }

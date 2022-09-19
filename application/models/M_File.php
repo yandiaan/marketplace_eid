@@ -53,13 +53,13 @@ class M_File extends CI_Model
 
     public function getallgaleri()
     {
-        $get = $this->db->query('SELECT * FROM galeri_produk');
+        $get = $this->db->query('SELECT * FROM galeri_produk')->result_array();
 
-        if ($get->num_rows() > 0) {
-            return $get->result_array();
-        } else {
-            return null;
-        }
+        // if ($get->num_rows() > 0) {
+            return $get;
+        // } else {
+        //     return 0;
+        // }
     }
 
     public function get_Produk($id_produk = null)
