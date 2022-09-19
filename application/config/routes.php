@@ -24,7 +24,6 @@ $route['pencarian-produk']      = 'pencarian/pencarian_produk';
 $route['checkout']              = 'checkout/index';
 $route['cart']                  = 'cart/index';
 $route['checkout-2']            = 'checkout/checkout_2';
-$route['produk/(:any)']         = 'produk/detail/$1';
 $route['checkout']              = 'checkout/index';
 $route['checkout-2']            = 'checkout/checkout_2';
 
@@ -52,7 +51,7 @@ $route['api/suplier/all']               = 'API/suplier/all';
 $route['api/suplier/products/(:any)']   = 'API/suplier/products/$1';
 
 // API untuk produk
-$route['api/produk/(:any)'] = 'API/produk/$1';
+$route['api/produk'] = 'API/produk';
 $route['api/produk/filter'] = 'API/produk/filter';
 
 // API untuk keranjang
