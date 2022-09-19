@@ -807,7 +807,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $.ajax({
-        url: "http://localhost/marketplace_eid/api/produk?id=<?= $uid ?>",
+        url: "/api/produk?id=<?= $uid ?>",
         type: 'GET',
         dataType: 'json',
         success: function(res) {
