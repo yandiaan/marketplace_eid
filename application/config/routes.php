@@ -52,3 +52,10 @@ $route['api/suplier/products/(:any)']   = 'API/suplier/products/$1';
 // API untuk produk
 $route['api/produk/(:any)'] = 'API/produk/$1';
 $route['api/produk/filter'] = 'API/produk/filter';
+
+// API untuk keranjang
+$route['api/keranjang/get_item']        = 'API/keranjang/get_item';
+$route['api/keranjang/add_item']        = 'API/keranjang/add_item';
+$route['api/keranjang/update_quantity'] = 'API/keranjang/update_quantity';
+$route['api/keranjang/delete_item']     = 'API/keranjang/delete_item';
+$route['api/keranjang/empty_cart']      = 'API/keranjang/empty_cart';
