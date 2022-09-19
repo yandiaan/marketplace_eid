@@ -1,3 +1,5 @@
+let token = $.cookie("sessionToken");
+
 $("#cart").click(() => {
 	let cookie = $.cookie("sessionToken");
 	if (!cookie) {
@@ -5,6 +7,8 @@ $("#cart").click(() => {
 	}
 });
 
-$(document).ready(() => {
-	$("#modalLogin").modal("show");
-});
+if (!token) {
+	$(document).ready(() => {
+		$("#modalLogin").modal("show");
+	});
+}
