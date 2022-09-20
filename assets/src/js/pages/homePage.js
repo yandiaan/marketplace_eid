@@ -4,7 +4,3 @@ $("#cart").click(() => {
 		$("#modalLogin").modal("show");
 	}
 });
-
-$(document).ready(() => {
-	$("#modalLogin").modal("show");
-});

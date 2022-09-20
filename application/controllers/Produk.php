@@ -10,11 +10,11 @@ class Produk extends CI_Controller
         $this->load->view('layouts/app', $data);
     }
 
-    public function detail($uid)
+    public function detail($slug)
     {
         $data = array(
             'content' => 'produk',
-            'uid' => $uid
+            'slug' => $slug
         );
         $this->load->view('layouts/app', $data);
     }

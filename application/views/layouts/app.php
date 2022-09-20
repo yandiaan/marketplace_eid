@@ -18,6 +18,7 @@
 
 <body>
 
+    <script src="<?= base_url('assets/src/js/var.js');?>"></script>
     <div id="overlay" style="display: none"></div>
 
     <!-- Navigation -->

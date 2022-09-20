@@ -1,5 +1,3 @@
-const ENDPOINT = "http://localhost/marketplace_eid/api/login";
-
 $("#errorMessage").hide();
 
 $("#loginForm").submit((e) => {
@@ -11,7 +9,7 @@ $("#loginForm").submit((e) => {
 
 	$.ajax({
 		type: "POST",
-		url: ENDPOINT,
+		url: ENDPOINT + "login",
 		data: data,
 		success: (res) => {
 			$.cookie("sessionToken", res.data.access_token);

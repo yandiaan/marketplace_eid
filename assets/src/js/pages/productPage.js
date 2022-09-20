@@ -1,10 +1,7 @@
-const ENDPOINT = "http://localhost/marketplace_eid/api/produk?browse=";
-
-function fetchDetailProduct(id) {
-	console.log(id);
+function fetchDetailProduct(slug) {
 	$(document).ready(function () {
 		$.ajax({
-			url: ENDPOINT + id,
+			url: ENDPOINT + "produk?browse=" + slug,
 			type: "GET",
 			dataType: "json",
 			success: function (res) {
@@ -20,9 +17,34 @@ function fetchDetailProduct(id) {
 				$("#lokasi").html(product.lokasi);
 				$("#brand").html(product.brand);
 				$("#nama_kategori").html(product.nama_kategori);
+
+				$(".xzoom-main img")
+					.attr({
+						src: BASE_URL + product.images[0].image_path,
+						xoriginal: BASE_URL + product.images[0].image_path,
+					})
+					.removeClass("placeholder");
+
+				$.each(product.images, (i, val) => {
+					$(".xzoom-thumbs").append(
+						"<a href=" +
+							BASE_URL +
+							val.image_path +
+							"><img class='xzoom-gallery rounded' width='80' src=" +
+							BASE_URL +
+							val.image_path +
+							" alt='' /> </a>"
+					);
+				});
+				$(".xzoom, .xzoom-gallery").xzoom({
+					zoomWidth: 200,
+					zoomHeight: 200,
+					hover: true,
+					Xoffset: 25,
+				});
 			},
-			error: function (xhr, textStatus, errorThrown) {
-				console.log(errorThrown);
+			error: function () {
+				window.location.href = BASE_URL;
 			},
 		});
 	});
