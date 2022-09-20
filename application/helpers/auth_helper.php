@@ -9,7 +9,7 @@ function checkAuth()
     // echo $session_token;
     // die;
     try {
-        decode_jwt($session_token);
+        return decode_jwt($session_token);
         // echo "ada token dan valid";
     } catch (\Throwable $th) {
         $err =  json_encode(['message' => 'Invalid Token'], 404);
