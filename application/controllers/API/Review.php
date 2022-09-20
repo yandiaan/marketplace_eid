@@ -10,6 +10,7 @@ class Review extends RestController
     {
         parent::__construct();
         $header = $this->input->request_headers()['Authorization'];
+
         if (!$header) return $this->response(['message' => ' Token required'], 404);
 
         try {
@@ -38,10 +39,12 @@ class Review extends RestController
             // $file_review     = '';
 
             $data = [
-                'id_pengguna'         => $id_pengguna,
-                'id_produk'         => htmlspecialchars($id_produk),
-                'pesan'      => htmlspecialchars($pesan),
-                'rating'      => htmlspecialchars($rating),
+                'id_pengguna'  => $id_pengguna,
+                'id_produk'    => htmlspecialchars($id_produk),
+                'pesan'        => htmlspecialchars($pesan),
+                'rating'       => htmlspecialchars($rating),
+                'created_at'   => date('Y-m-d'),
+                'updated_at'   => date('Y-m-d')
             ];
 
             $this->db->insert('review', $data);
