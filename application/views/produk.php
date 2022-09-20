@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://unpkg.com/xzoom/dist/xzoom.css">
+<script src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
 <div class="container">
     <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -6,11 +8,18 @@
             <li class="breadcrumb-item active fw-bold" aria-current="page">Product</li>
         </ol>
     </nav>
-    <div class="row">
-        <div class="col-7">
-            <img src="https://via.placeholder.com/300" class="img-fluid w-100" alt="">
+    <div class="row justify-content-between">
+        <div class="col-6 row d-flex flex-row-reverse justify-content-center align-items-center">
+            <div class="col-9 xzoom-main">
+                <img src="" class="xzoom shadow-none rounded" xoriginal="" width="100%" class="img-fluid w-100"
+                    alt="image">
+            </div>
+            <div class="xzoom-thumbs d-flex flex-column col-2 me-3">
+
+            </div>
+
         </div>
-        <div class="col-5">
+        <div class="col-6">
             <h3 class="fw-bolder" id="nama_produk"></h3>
             <div class="info-group">
                 <small class="sales-counter fw-bold me-3 text-secondary">Terjual 32</small>
@@ -806,6 +815,7 @@
 </div>
 
 <script src="<?= base_url("assets/src/js/pages/ProductPage.js"); ?>"></script>
+
 <script>
 fetchDetailProduct("<?= $slug; ?>");
 </script>
