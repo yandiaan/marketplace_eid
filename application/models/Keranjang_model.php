@@ -112,12 +112,12 @@ class Keranjang_model extends CI_Model
                 'updated_at'    => date('Y-m-d h:i:s'),
             ];
 
-            $this->update_quantity($data, $where);
+            $query = $this->update_quantity($data, $where);
+            return $query; 
         } else {
-            $query = $this->db->set($data);
-            return $query->insert('keranjang');
+            $query = $this->db->set($data)->insert('keranjang');
+            return $this->db->affected_rows() < 1 ? false : true; 
         }
-
     }
 
     public function update_quantity($data, $where, $method = '')
@@ -138,16 +138,19 @@ class Keranjang_model extends CI_Model
                 break;
         }
         
-        return $query->update('keranjang');
+        $query->update('keranjang');
+        return $this->db->affected_rows() < 1 ? false : true;
     }
 
-    public function delete_item($data, $where)
+    public function delete_item($where)
     {
-        // 
+        $this->db->where_in('id_keranjang', $where)->delete('keranjang');
+        return $this->db->affected_rows() < 1 ? false : true;
     }
 
-    public function empty_cart($id_keranjang)
+    public function empty_cart($id_pengguna)
     {
-        // 
+        $this->db->delete('keranjang', ['id_pengguna' => $id_pengguna]);
+        return $this->db->affected_rows() < 1 ? false : true;
     }
 }
