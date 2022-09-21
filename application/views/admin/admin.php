@@ -57,7 +57,8 @@
                     </td>
                     <td class="text-center">
                         <a onclick="edit(<?= $product['id_produk'] ?>)" href="#" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
-                        <a onclick="deleteConfirm('<?php echo site_url('api/admin/D_produk/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <a onclick="deleteConfirm('<?php echo site_url('API/Admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -75,15 +76,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 <<<<<<< HEAD
             <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
-=======
-            <form action="<?php echo site_url('api/admin/D_produk/add') ?>" method="POST">
->>>>>>> 066f9bcf2af4d3970d7949a9c2ab271ca8e21425
-=======
-            <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
->>>>>>> 6a3b48abfce3ce06b2360cbefd13bb760fc8b432
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
@@ -161,15 +156,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 <<<<<<< HEAD
             <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
-=======
-            <form action="<?php echo site_url('api/admin/D_produk/update') ?>" method="POST">
->>>>>>> 066f9bcf2af4d3970d7949a9c2ab271ca8e21425
-=======
-            <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
->>>>>>> 6a3b48abfce3ce06b2360cbefd13bb760fc8b432
                 <div class="modal-body">
                     <input type="hidden" name="id_produkU" id="id_produk" value="">
                     <div class="form-group row">
