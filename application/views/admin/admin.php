@@ -57,9 +57,8 @@
                     </td>
                     <td class="text-center">
                         <a onclick="edit(<?= $product['id_produk'] ?>)" href="#" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
-                        <<<<<<<<< Temporary merge branch 1 <a onclick="deleteConfirm('<?php echo site_url('API/Admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                            =========
-                            <a onclick="deleteConfirm('<?php echo site_url('api/admin/D_produk/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <a onclick="deleteConfirm('<?php echo site_url('API/Admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -77,76 +76,70 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <<<<<<< HEAD <<<<<<< HEAD <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
-                =======
-                <form action="<?php echo site_url('api/admin/D_produk/add') ?>" method="POST">
-                    >>>>>>> 066f9bcf2af4d3970d7949a9c2ab271ca8e21425
-                    =======
-                    <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
-                        >>>>>>> 6a3b48abfce3ce06b2360cbefd13bb760fc8b432
-                        <div class="modal-body">
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama_produk">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="InputEmail" class="col-sm-2 col-form-label">Nama Kategori</label>
-                                <div class="col-sm-10">
-                                    <select name="input_kategori" id="input_kategori" class="custom-select select2 form-control" required>
-                                        <?= $kategori ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Deskripsi</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" name="deskripsi">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Spesifikasi</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" name="spesifikasi">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Brand</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" name="brand">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Harga</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" name="harga">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Berat</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" name="berat">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Lebar</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" name="lebar">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Tinggi</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" name="tinggi">
-                                </div>
-                            </div>
+            <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nama_produk">
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                    <div class="form-group row">
+                        <label for="InputEmail" class="col-sm-2 col-form-label">Nama Kategori</label>
+                        <div class="col-sm-10">
+                            <select name="input_kategori" id="input_kategori" class="custom-select select2 form-control" required>
+                                <?= $kategori ?>
+                            </select>
                         </div>
-                    </form>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="deskripsi">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Spesifikasi</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="spesifikasi">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Brand</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="brand">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Harga</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="harga">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Berat</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="berat">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Lebar</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="lebar">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Tinggi</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="tinggi">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -161,69 +154,63 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <<<<<<< HEAD <<<<<<< HEAD <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
-                =======
-                <form action="<?php echo site_url('api/admin/D_produk/update') ?>" method="POST">
-                    >>>>>>> 066f9bcf2af4d3970d7949a9c2ab271ca8e21425
-                    =======
-                    <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
-                        >>>>>>> 6a3b48abfce3ce06b2360cbefd13bb760fc8b432
-                        <div class="modal-body">
-                            <input type="hidden" name="id_produkU" id="id_produk" value="">
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama_produkU" id="nama_produk" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Deskripsi</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="deskripsiU" id="deskripsi" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Spesifikasi</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="spesifikasi" name="spesifikasiU">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Brand</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="brandU" id="brand">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Harga</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="hargaU" id="harga">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Berat</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="beratU" id="berat">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Lebar</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="lebarU" id="lebar">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Tinggi</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tinggiU" id="tinggi">
-                                </div>
-                            </div>
+            <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
+                <div class="modal-body">
+                    <input type="hidden" name="id_produkU" id="id_produk" value="">
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nama_produkU" id="nama_produk" value="">
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="deskripsiU" id="deskripsi" value="">
                         </div>
-                    </form>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Spesifikasi</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="spesifikasi" name="spesifikasiU">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Brand</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="brandU" id="brand">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Harga</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="hargaU" id="harga">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Berat</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="beratU" id="berat">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Lebar</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="lebarU" id="lebar">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Tinggi</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="tinggiU" id="tinggi">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
