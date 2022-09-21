@@ -1,3 +1,7 @@
+$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
+	$(".main-content").append(e);
+});
+
 const fetchSearchData = (title) => {
 	const settings = {
 		url: ENDPOINT + "produk/filter",
@@ -13,17 +17,20 @@ const fetchSearchData = (title) => {
 		},
 	};
 
-	$.ajax(settings)
-		.done((res) => {
-			const count = res.meta.total;
-			$(".resultText").html(
-				`Menampilkan <span class="count">${count}</span> produk untuk <b class="searchQuery"></b>`
-			);
-			$(".searchQuery").text(`"${title}"`);
-			const data = res.data;
-			$(".main-content").empty();
-			$.each(data, (index, item) => {
-				const el = `<div class="col-2">
+	$.ajax(settings).done((res) => {
+		const count = res.meta.total;
+		const data = res.data;
+		$(".resultText").html(
+			res.data.length > 0
+				? `Menampilkan <span class="count">${count}</span> produk <span class="searchQuery"></span>`
+				: res.meta.message
+		);
+		$(".searchInput").val() !== ""
+			? $(".searchQuery").html(`untuk <b>"${title}"</b>`)
+			: "";
+		$(".main-content").empty();
+		$.each(data, (index, item) => {
+			const el = `<div class="col-2">
                         <div class="card-product search-card" style="height: 400px">
                             <div class="thumbnail">
                                 <img src="${
@@ -32,8 +39,8 @@ const fetchSearchData = (title) => {
                             </div>
                             <div class="card-product-body">
                                 <a href="${BASE_URL}/produk/${
-					item.slug
-				}" class="product-title">${item.nama_produk}</a>
+				item.slug
+			}" class="product-title">${item.nama_produk}</a>
                                 <small class="d-block">L535 x W173mm</small>
                                 <div>
                                     <br>
@@ -59,30 +66,20 @@ const fetchSearchData = (title) => {
                             </div>
                         </div>
                     </div>`;
-				$(".main-content").append(el);
-			});
-		})
-		.fail((err) => {
-			$(".resultText").html(`Pencarian <b>${title}</b> Tidak Ditemukan! `);
+			$(".main-content").append(el);
 		});
+	});
 };
-
-// $(".submit-product").click(() => {
-// 	let input = $(".searchInput").val();
-// 	const url = new URL(window.location.href);
-// 	url.searchParams.set("search", input);
-// 	window.history.replaceState(null, null, url);
-// 	fetchSearchData(input);
-// });
-
-// $(".searchInput").change((event) => {
-// 	console.log(event.target.value);
-// });
 
 $(".searchInput").on("input", function (e) {
 	let input = e.target.value;
 	const url = new URL(window.location.href);
 	url.searchParams.set("search", input);
 	window.history.replaceState(null, null, url);
+	$(".main-content").empty();
+	$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
+		$(".main-content").append(e);
+	});
+
 	fetchSearchData(input);
 });
