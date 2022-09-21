@@ -143,8 +143,7 @@
                                 class="fa fa-search"></i></span>
 
                         <input type="text" class="form-control border-primary border-start-0 searchInput"
-                            placeholder="Cari Product" value="<?= $search ?>"
-                            aria-label="Recipient's username with two button addons">
+                            placeholder="Cari Product" value="<?= $search ?>">
                         <button class="btn btn-primary submit-product" type="button"> <i class="fa fa-cube"></i>
                             Product</button>
                         <button class="btn btn-outline-primary" type="button"> <i class="fa fa-store"></i>
@@ -155,8 +154,7 @@
                     <a href="" class="text-secondary fs-5"> <i class="fa fa-cart-shopping"></i> </a>
                 </div>
                 <div class="col-10">
-                    <h6 class="mt-3 text-secondary">Menampilkan <span class="count">0</span> produk untuk <b
-                            class="searchQuery"></b></h4>
+                    <h6 class="mt-3 text-secondary resultText"></h6>
                 </div>
                 <div class="col-2">
                     <div class="btn-group">

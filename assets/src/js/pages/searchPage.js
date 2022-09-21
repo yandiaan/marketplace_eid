@@ -13,14 +13,17 @@ const fetchSearchData = (title) => {
 		},
 	};
 
-	$.ajax(settings).done((res) => {
-		const count = res.meta.total;
-		$(".count").text(count);
-		$(".searchQuery").text(`"${title}"`);
-		const data = res.data;
-		$(".main-content").empty();
-		$.each(data, (index, item) => {
-			const el = `<div class="col-2">
+	$.ajax(settings)
+		.done((res) => {
+			const count = res.meta.total;
+			$(".resultText").html(
+				`Menampilkan <span class="count">${count}</span> produk untuk <b class="searchQuery"></b>`
+			);
+			$(".searchQuery").text(`"${title}"`);
+			const data = res.data;
+			$(".main-content").empty();
+			$.each(data, (index, item) => {
+				const el = `<div class="col-2">
                         <div class="card-product search-card" style="height: 400px">
                             <div class="thumbnail">
                                 <img src="${
@@ -28,9 +31,9 @@ const fetchSearchData = (title) => {
 																}" alt="product" class="img-thumbnail">
                             </div>
                             <div class="card-product-body">
-                                <a href="#" class="product-title">${
-																	item.nama_produk
-																}</a>
+                                <a href="${BASE_URL}/produk/${
+					item.slug
+				}" class="product-title">${item.nama_produk}</a>
                                 <small class="d-block">L535 x W173mm</small>
                                 <div>
                                     <br>
@@ -56,13 +59,28 @@ const fetchSearchData = (title) => {
                             </div>
                         </div>
                     </div>`;
-			$(".main-content").append(el);
+				$(".main-content").append(el);
+			});
+		})
+		.fail((err) => {
+			$(".resultText").html(`Pencarian <b>${title}</b> Tidak Ditemukan! `);
 		});
-	});
 };
 
-$(".submit-product").click(() => {
-	let input = $(".searchInput").val();
+// $(".submit-product").click(() => {
+// 	let input = $(".searchInput").val();
+// 	const url = new URL(window.location.href);
+// 	url.searchParams.set("search", input);
+// 	window.history.replaceState(null, null, url);
+// 	fetchSearchData(input);
+// });
+
+// $(".searchInput").change((event) => {
+// 	console.log(event.target.value);
+// });
+
+$(".searchInput").on("input", function (e) {
+	let input = e.target.value;
 	const url = new URL(window.location.href);
 	url.searchParams.set("search", input);
 	window.history.replaceState(null, null, url);
