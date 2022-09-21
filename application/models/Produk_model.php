@@ -35,6 +35,9 @@ class Produk_model extends CI_Model
         if(count($data) > 0) {
             $data[0]['images'] = $this->db->get_where('galeri_produk', ['id_produk' => $data[0]['id_produk']])->result_array();
         }
+        if(count($data) > 0) {
+            $data[0]['reviews'] = $this->db->select('nama_pengguna,pesan,rating,file_review,created_at')->get_where('review', ['id_produk' => $data[0]['id_produk']])->result_array();
+        }
         
         return $data;
     }
