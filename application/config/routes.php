@@ -22,11 +22,10 @@ $route['produk/(:any)']         = 'produk/detail/$1';
 $route['produk']               = '404';
 $route['pencarian']             = 'pencarian/index';
 $route['pencarian-produk']      = 'pencarian/pencarian_produk';
-$route['checkout']              = 'checkout/index';
 $route['cart']                  = 'cart/index';
 $route['checkout-2']            = 'checkout/checkout_2';
 $route['checkout']              = 'checkout/index';
-$route['checkout-2']            = 'checkout/checkout_2';
+
 
 // Suplier route
 $route['supplier/(:any)'] = 'supplier/index/$1';
@@ -61,3 +60,6 @@ $route['api/keranjang/add_item']        = 'API/keranjang/add_item';
 $route['api/keranjang/update_quantity'] = 'API/keranjang/update_quantity';
 $route['api/keranjang/delete_item']     = 'API/keranjang/delete_item';
 $route['api/keranjang/empty_cart']      = 'API/keranjang/empty_cart';
+
+
+$route['api/review'] = 'API/review/add';
