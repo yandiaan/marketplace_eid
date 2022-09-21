@@ -17,7 +17,7 @@ const fetchSearchData = (title) => {
 		const count = res.meta.total;
 		$(".count").text(count);
 		const data = res.data;
-
+		$(".main-content").empty();
 		$.each(data, (index, item) => {
 			console.log(item);
 			const el = `<div class="col-2">
@@ -60,3 +60,8 @@ const fetchSearchData = (title) => {
 		});
 	});
 };
+
+$(".submit-product").click(() => {
+	let input = $(".searchInput").val();
+	fetchSearchData(input);
+});

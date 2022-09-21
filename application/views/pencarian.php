@@ -142,9 +142,11 @@
                         <span class="input-group-text bg-white border-primary border-end-0 text-secondary"> <i
                                 class="fa fa-search"></i></span>
 
-                        <input type="text" class="form-control border-primary border-start-0" placeholder="Cari Product"
-                            value="<?= $search ?>" aria-label="Recipient's username with two button addons">
-                        <button class="btn btn-primary" type="button"> <i class="fa fa-cube"></i> Product</button>
+                        <input type="text" class="form-control border-primary border-start-0 searchInput"
+                            placeholder="Cari Product" value="<?= $search ?>"
+                            aria-label="Recipient's username with two button addons">
+                        <button class="btn btn-primary submit-product" type="button"> <i class="fa fa-cube"></i>
+                            Product</button>
                         <button class="btn btn-outline-primary" type="button"> <i class="fa fa-store"></i>
                             Suplier</button>
                     </div>
