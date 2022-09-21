@@ -76,10 +76,14 @@
                 </button>
             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
 =======
             <form action="<?php echo site_url('api/admin/D_produk/add') ?>" method="POST">
 >>>>>>> 066f9bcf2af4d3970d7949a9c2ab271ca8e21425
+=======
+            <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
+>>>>>>> 6a3b48abfce3ce06b2360cbefd13bb760fc8b432
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
@@ -158,10 +162,14 @@
                 </button>
             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
 =======
             <form action="<?php echo site_url('api/admin/D_produk/update') ?>" method="POST">
 >>>>>>> 066f9bcf2af4d3970d7949a9c2ab271ca8e21425
+=======
+            <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
+>>>>>>> 6a3b48abfce3ce06b2360cbefd13bb760fc8b432
                 <div class="modal-body">
                     <input type="hidden" name="id_produkU" id="id_produk" value="">
                     <div class="form-group row">
