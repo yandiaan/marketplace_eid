@@ -23,6 +23,8 @@ class Review extends RestController
     public function add_post()
     {
         $id_pengguna = $this->token_session->id_pengguna;
+        $nama_pengguna = $this->token_session->nama_pengguna;
+
         $this->form_validation->set_rules('id_produk', 'Produk', 'required|trim');
         $this->form_validation->set_rules('pesan', 'Pesan', 'required|trim');
         $this->form_validation->set_rules('rating', 'Rating', 'required|trim');
@@ -41,6 +43,7 @@ class Review extends RestController
             $data = [
                 'id_pengguna'  => $id_pengguna,
                 'id_produk'    => htmlspecialchars($id_produk),
+                'nama_pengguna'=> $nama_pengguna,
                 'pesan'        => htmlspecialchars($pesan),
                 'rating'       => htmlspecialchars($rating),
                 'created_at'   => date('Y-m-d'),

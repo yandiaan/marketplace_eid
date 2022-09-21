@@ -43,6 +43,7 @@ class Auth extends RestController
                         "iat"           => time(),
                         "exp"           => time() + getenv('JWT_TIME_EXP'),
                         "id_pengguna"   => $user['id_customer'],
+                        "nama_pengguna" => $user['nama_lengkap'],
                         "email"         => $email
                     );
 
