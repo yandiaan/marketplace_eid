@@ -260,6 +260,7 @@
         </div>
         <div class="col-7 position-relative">
             <div class="review-form w-100 h-100 text-white bg-success px-5 py-3">
+                <input type="hidden" name="id_produk" class="id-produk" value="">
                 <h5 class="fw-bold">Review produk ini </h5>
                 <div class="star-form text-warning my-3">
                     <i class="fa fa-star"></i>
@@ -271,7 +272,7 @@
                 <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
                     rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
                 <div class="w-100 d-flex mt-4">
-                    <button class="btn btn-primary ms-auto">Kirim Ulasan</button>
+                    <button class="btn btn-primary ms-auto submit-review">Kirim Ulasan</button>
                 </div>
             </div>
         </div>
@@ -693,4 +694,9 @@
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");
+</script>
+<script>
+$(".submit-review").click(() => {
+    addReview($('.id-produk').val())
+})
 </script>

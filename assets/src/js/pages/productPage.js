@@ -5,7 +5,8 @@ function fetchDetailProduct(slug) {
 			type: "GET",
 			dataType: "json",
 			success: function (res) {
-				var product = res.data[0];
+				let product = res.data[0];
+				$(".id-produk").val(product.id_produk);
 				$("#nama_produk").html(product.nama_produk);
 				$("#deskripsi").html(product.deskripsi);
 				$("#harga").html("Rp. " + product.harga);
@@ -72,6 +73,31 @@ function fetchDetailProduct(slug) {
 				window.location.href = BASE_URL;
 			},
 		});
+	});
+}
+
+function addReview(id) {
+	let token = $.cookie("sessionToken");
+	let form = new FormData();
+	form.append("id_produk", id);
+	form.append("pesan", $(".input-review").val());
+	form.append("rating", "5");
+
+	let settings = {
+		url: "http://localhost/marketplace_eid/api/review",
+		method: "POST",
+		timeout: 0,
+		headers: {
+			Authorization: "Bearer " + token,
+		},
+		processData: false,
+		mimeType: "multipart/form-data",
+		contentType: false,
+		data: form,
+	};
+
+	$.ajax(settings).done(function () {
+		window.location.reload;
 	});
 }
 
