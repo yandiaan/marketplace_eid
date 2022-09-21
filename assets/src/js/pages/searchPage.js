@@ -19,7 +19,6 @@ const fetchSearchData = (title) => {
 		const data = res.data;
 		$(".main-content").empty();
 		$.each(data, (index, item) => {
-			console.log(item);
 			const el = `<div class="col-2">
                         <div class="card-product search-card" style="height: 400px">
                             <div class="thumbnail">
@@ -63,5 +62,8 @@ const fetchSearchData = (title) => {
 
 $(".submit-product").click(() => {
 	let input = $(".searchInput").val();
+	const url = new URL(window.location.href);
+	url.searchParams.set("search", input);
+	window.history.replaceState(null, null, url);
 	fetchSearchData(input);
 });
