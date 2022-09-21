@@ -31,28 +31,21 @@ class Kategori extends CI_Controller
     public function edit()
     {
         $get = $this->input->post('id');
-        $data = $this->produk->getprodukbyid($get);
+        $data = $this->kategori->getkategoribyid($get);
         echo json_encode($data);
     }
 
     public function update()
     {
         $data = array(
-            'nama_produk' => $this->input->post('nama_produkU'),
-            'deskripsi' => $this->input->post('deskripsiU'),
-            // 'spesifikasi' => $this->input->post('spesifikasi'),
-            'brand' => $this->input->post('brandU'),
-            'harga' => $this->input->post('hargaU'),
-            'berat' => $this->input->post('beratU'),
-            'lebar' => $this->input->post('lebarU'),
-            'tinggi' => $this->input->post('tinggiU'),
+            'nama_kategori' => $this->input->post('nama_produk_kategoriU'),
         );
 
-        $id_produk = $this->input->post('id_produkU');
+        $id_produk = $this->input->post('id_produk_kategoriU');
 
-        $product = $this->produk->save_update($data, $id_produk);
+        $product = $this->kategori->save_update($data, $id_produk);
 
-        redirect('/admin');
+        redirect('/kategori');
     }
 
     public function delete($id_produk = null)
