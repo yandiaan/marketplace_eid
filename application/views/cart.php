@@ -30,7 +30,7 @@
                                         <input type="checkbox" class="form-check-input" name="all">
                                     </div>
                                     <div class="col-2">
-                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto" alt="">
+                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto img-fluid" alt="">
                                     </div>
                                     <div class="col-6">
                                         <h6>Aerozen Shower Toilet CEAS5312-
@@ -59,7 +59,7 @@
                                         <input type="checkbox" class="form-check-input" name="all">
                                     </div>
                                     <div class="col-2">
-                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto" alt="">
+                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto img-fluid" alt="">
                                     </div>
                                     <div class="col-6">
                                         <h6>Aerozen Shower Toilet CEAS5312-
@@ -88,7 +88,7 @@
                                         <input type="checkbox" class="form-check-input" name="all">
                                     </div>
                                     <div class="col-2">
-                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto" alt="">
+                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto img-fluid" alt="">
                                     </div>
                                     <div class="col-6">
                                         <h6>Aerozen Shower Toilet CEAS5312-

@@ -77,12 +77,12 @@ class Produk extends RestController
         } else {
             $this->response([
                 'meta'    => [
-                    'code'    => 404,
+                    'code'    => 200,
                     'total'   => count($result),
                     'message' => 'Data yang anda tidak ditemukan',
                 ],
                 'data' => $result
-            ], 404);
+            ], 200);
         }
     }
 }

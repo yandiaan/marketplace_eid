@@ -57,7 +57,7 @@
                     </td>
                     <td class="text-center">
                         <a onclick="edit(<?= $product['id_produk'] ?>)" href="#" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
-                        <a onclick="deleteConfirm('<?php echo site_url('API/Admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <a onclick="deleteConfirm('<?php echo site_url('api/admin/D_produk/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -243,7 +243,7 @@
         $.ajax({
             type: 'ajax',
             method: 'POST',
-            url: base_url + 'API/Admin/Product/edit',
+            url: base_url + 'API/Admin/D_produk/edit',
             data: {
                 id: id
             },

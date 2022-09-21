@@ -36,6 +36,7 @@
         var base_url = "<?php echo base_url(); ?>";
         var site_url = "<?php echo site_url(); ?>";
     </script>
+    <!-- test -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/jquery/jquery.min.js') ?>"></script>
