@@ -155,9 +155,8 @@
                     <a href="" class="text-secondary fs-5"> <i class="fa fa-cart-shopping"></i> </a>
                 </div>
                 <div class="col-10">
-                    <h6 class="mt-3 text-secondary">Menampilkan <span class="count">0</span> produk untuk <b>"E Shower
-                            Toilet Manual American
-                            Standard"</b></h4>
+                    <h6 class="mt-3 text-secondary">Menampilkan <span class="count">0</span> produk untuk <b
+                            class="searchQuery"></b></h4>
                 </div>
                 <div class="col-2">
                     <div class="btn-group">

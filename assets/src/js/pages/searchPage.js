@@ -16,6 +16,7 @@ const fetchSearchData = (title) => {
 	$.ajax(settings).done((res) => {
 		const count = res.meta.total;
 		$(".count").text(count);
+		$(".searchQuery").text(`"${title}"`);
 		const data = res.data;
 		$(".main-content").empty();
 		$.each(data, (index, item) => {
