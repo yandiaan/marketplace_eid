@@ -80,6 +80,5 @@ $(".searchInput").on("input", function (e) {
 	$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
 		$(".main-content").append(e);
 	});
-
 	fetchSearchData(input);
 });
