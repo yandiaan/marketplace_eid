@@ -8,13 +8,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <form class="container-fluid mx-3 mb-2 mb-lg-0" role="search">
-                <div id="dropdown-search" class="dropdown-center">
-                    <div class="input-group" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <input style="font-size: 14px" class="form-control" type="search"
-                            placeholder="Cari sekarang disini" aria-label="Search">
-                        <button class="btn btn-search" type="submit"><i class="fa fa-search"></i></button>
-                    </div>
+            <form class="container-fluid mx-3 mb-2 mb-lg-0" action="pencarian" method="GET" role="search">
+                <div class="input-group">
+                    <input style="font-size: 14px" class="form-control" name="search" type="search"
+                        placeholder="Cari sekarang disini" aria-label="Search">
+                    <button class="btn btn-search" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+                <!-- <div id="dropdown-search" data-bs-toggle="dropdown" role="button" aria-expanded="false"
+                    class="dropdown-center">
                     <ul class="dropdown-menu w-100">
                         <li>
                             <h6 class="dropdown-header">Dropdown header</h6>
@@ -34,7 +35,7 @@
                         <li><a class="dropdown-item" href="#">Action two</a></li>
                         <li><a class="dropdown-item" href="#">Action three</a></li>
                     </ul>
-                </div>
+                </div> -->
             </form>
 
             <button class="btn-cart me-4" id="cart">
