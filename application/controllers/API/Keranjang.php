@@ -14,8 +14,8 @@ class Keranjang extends RestController
 
     public function get_item_get()
     {
-        $id_pengguna = htmlspecialchars($this->input->get('id_pengguna', TRUE));
-        
+        $id_pengguna = htmlspecialchars($this->input->get('id_pengguna', TRUE) ?? '');
+
         $result = $this->cart->get_item($id_pengguna);
 
         $this->response([
@@ -42,7 +42,6 @@ class Keranjang extends RestController
                 'message'   => 'Validasi Gagal',
                 'errors'    => $this->form_validation->error_array(),
             ], 400);
-
         } else {
 
             $post = $this->input->post();
@@ -92,7 +91,6 @@ class Keranjang extends RestController
                 'message'   => 'Validasi Gagal',
                 'errors'    => $this->form_validation->error_array(),
             ], 400);
-
         } else {
 
             $post = $this->input->post();
@@ -102,12 +100,12 @@ class Keranjang extends RestController
                 'id_produk'     => $post['id_produk'],
                 'id_variasi'    => $post['id_variasi'] ?? null
             ];
-            
+
             $data = [
                 'jumlah'        => $post['jumlah'],
                 'updated_at'    => date('Y-m-d h:i:s'),
             ];
-            
+
             // option values are ('' OR increment OR decrement)
             $method = $post['metode'];
 

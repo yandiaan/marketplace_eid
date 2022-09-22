@@ -18,11 +18,15 @@
 
 <body>
 
+    <script src="<?= base_url('assets/src/js/var.js');?>"></script>
     <div id="overlay" style="display: none"></div>
 
     <!-- Navigation -->
-    <?php $this->load->view('layouts/header'); ?>
     <script type="text/javascript" src="<?= base_url('assets/src/js/jquery.min.js');?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+        integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <?php $this->load->view('layouts/header'); ?>
 
     <!-- Content -->
     <div class="mt-4">
@@ -30,7 +34,7 @@
     </div>
 
     <!-- Modal login -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="card shadow-lg p-4">
@@ -47,14 +51,16 @@
                                     style="font-size: 14px;  color: #66AA23;">Daftar</a>
                             </div>
                         </div>
-                        <form action="" class="mt-4">
+                        <form action="" id="loginForm" class="mt-4">
+                            <div id="errorMessage" class="alert alert-danger"></div>
                             <div class="mb-3">
                                 <input type="email" class="form-control" style="border-radius: 2px; font-size: 13px;"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                                    id="emailInput" aria-describedby="emailHelp" placeholder="Email">
                             </div>
                             <div class="mb-5">
-                                <input type="email" class="form-control" style="border-radius: 2px; font-size: 13px;"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+                                <input type="password" class="form-control" style="border-radius: 2px; font-size: 13px;"
+                                    id="passwordInput" aria-describedby="passHelp" autocomplete="on"
+                                    placeholder="Password">
                             </div>
                             <div class="mb-3 d-grid gap-2">
                                 <button type="submit" class="btn btn-sm btn-primary fw-semibold"
@@ -81,7 +87,7 @@
     <!-- Core JS -->
 
     <script src="<?= base_url('assets/dist/main.js'); ?>"></script>
-
+    <script src="<?= base_url('assets/src/js/auth/login.js'); ?>"></script>
 </body>
 
 </html>

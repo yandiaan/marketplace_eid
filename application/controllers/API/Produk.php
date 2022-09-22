@@ -17,7 +17,7 @@ class Produk extends RestController
         $slug = htmlspecialchars($this->input->get('browse', true) ?? '');
 
         if ($slug) {
-            $result = $this->produk->get_one($slug);
+            $result = $this->produk->get_one($slug ?? '');
             if ($result) {
                 $this->response([
                     'meta' => [
@@ -77,12 +77,12 @@ class Produk extends RestController
         } else {
             $this->response([
                 'meta'    => [
-                    'code'    => 404,
+                    'code'    => 200,
                     'total'   => count($result),
                     'message' => 'Data yang anda tidak ditemukan',
                 ],
                 'data' => $result
-            ], 404);
+            ], 200);
         }
     }
 }

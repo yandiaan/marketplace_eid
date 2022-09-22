@@ -99,7 +99,9 @@ class Suplier_auth extends RestController
                 'username'      => htmlspecialchars($username),
                 'nama_toko'     => htmlspecialchars($nama_toko),
                 'deskripsi'     => htmlspecialchars($deskripsi),
-                'lokasi'        => htmlspecialchars($lokasi)
+                'lokasi'        => htmlspecialchars($lokasi),
+                'join_at'       => date('Y-m-d'),
+                'updated_at'    => date('Y-m-d')
             ];
 
             $this->db->insert('suplier', $data);

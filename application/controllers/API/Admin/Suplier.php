@@ -23,6 +23,8 @@ class Suplier extends RestController
     }
 
     // Update profile
+
+
     public function update_profile_post()
     {
         // Call suplier profile rules from model
@@ -38,7 +40,6 @@ class Suplier extends RestController
                 'message'   => 'Validasi Gagal',
                 'errors'    => $this->form_validation->error_array(),
             ], 400);
-
         } else {
 
             $data = [
@@ -95,7 +96,6 @@ class Suplier extends RestController
                 'message'   => 'Validasi Gagal',
                 'errors'    => $this->form_validation->error_array(),
             ], 400);
-
         } else {
 
             $data = [
@@ -117,9 +117,9 @@ class Suplier extends RestController
 
     public function upload_banner_post()
     {
-        $id       = $this->token_session->id_suplier;
-        $banner   = $_FILES['banner']['name'];
-        $location = 'public/upload/suplier/';
+        $id_suplier = $this->token_session->id_suplier;
+        $banner     = $_FILES['banner']['name'];
+        $location   = 'public/upload/suplier/';
 
         if ($banner) {
 
@@ -136,8 +136,8 @@ class Suplier extends RestController
 
                 // cari gambar berdasarkan id
                 $data['suplier'] = $this->db->select('banner')
-                    ->get_where('suplier', ['id_suplier' => $id])->row_array();
-                
+                    ->get_where('suplier', ['id_suplier' => $id_suplier])->row_array();
+
                 // menghapus data gambar sebelumnya jika gambar sudah ada
                 if ($data['suplier']['banner']) {
                     unlink($data['suplier']['banner']);
@@ -145,8 +145,7 @@ class Suplier extends RestController
 
                 $data = ['banner' => $location . $this->upload->data('file_name')];
 
-                $this->suplier->update_profile($id, $data);
-
+                $this->suplier->update_profile($id_suplier, $data);
             } else {
                 $this->response([
                     'message' => 'Data yang anda input tidak valid !',
@@ -154,6 +153,8 @@ class Suplier extends RestController
                 ], 422);
             }
         }
+
+        $dataAfterUploadBanner = $this->suplier->get_suplier($id_suplier);
 
         $this->response([
             'meta' => [
@@ -161,57 +162,7 @@ class Suplier extends RestController
                 'status'    => 'success',
                 'message'   => 'Banner berhasil diupload',
             ],
-            'data'  => $this->suplier->get_one($id),
-        ], 200);
-    }
-
-    public function upload_logo_post()
-    {
-        $id       = $this->token_session->id_suplier;
-        $banner   = $_FILES['logo']['name'];
-        $location = 'public/upload/suplier/';
-
-        if ($banner) {
-
-            $config = array(
-                "upload_path"   => 'public/upload/suplier/',
-                "allowed_types" => 'jpg|png|jpeg',
-                "max_size"      => '2048',
-                "file_name"     => 'logo_' . date('ymdhis')
-            );
-
-            $this->load->library('upload', $config);
-
-            if ($this->upload->do_upload('logo')) {
-
-                // cari gambar berdasarkan id
-                $data['suplier'] = $this->db->select('logo')
-                    ->get_where('suplier', ['id_suplier' => $id])->row_array();
-                
-                // menghapus data gambar sebelumnya jika gambar sudah ada
-                if ($data['suplier']['logo']) {
-                    unlink($data['suplier']['logo']);
-                }
-
-                $data = ['logo' => $location . $this->upload->data('file_name')];
-
-                $this->suplier->update_profile($id, $data);
-
-            } else {
-                $this->response([
-                    'message' => 'Data yang anda input tidak valid !',
-                    'errors'  => $this->upload->display_errors(),
-                ], 422);
-            }
-        }
-
-        $this->response([
-            'meta' => [
-                'code'      => 200,
-                'status'    => 'success',
-                'message'   => 'Logo berhasil diupload',
-            ],
-            'data'  => $this->suplier->get_one($id),
+            'data'  => $dataAfterUploadBanner,
         ], 200);
     }
 
@@ -232,7 +183,7 @@ class Suplier extends RestController
             if ($this->upload->do_upload('logo')) {
 
                 // cari gambar berdasarkan id
-                $data['suplier'] = $this->db->select('logo')->get_where('suplier',['id_suplier' => $id_suplier])->row_array();
+                $data['suplier'] = $this->db->select('logo')->get_where('suplier', ['id_suplier' => $id_suplier])->row_array();
                 if ($data['suplier']['logo']) {
                     unlink($data['suplier']['logo']);
                 }
@@ -247,14 +198,14 @@ class Suplier extends RestController
                     'errors'  => $this->upload->display_errors(),
                 ], 422);
             }
-        }else{
+        } else {
             $this->response([
                 'message' => 'Data yang anda input tidak valid !',
                 'errors'  => 'Image logo tidak boleh kosong'
             ], 422);
         }
 
-        $dataAfterUploadBanner = $this->db->select('id_suplier,nama_toko,deskripsi,lokasi,banner,logo,join_at')->get_where('suplier', ['id_suplier' => $id_suplier])->result_array();
+        $dataAfterUploadBanner = $this->suplier->get_suplier($id_suplier);
 
         $this->response([
             'meta' => [
@@ -263,6 +214,22 @@ class Suplier extends RestController
                 'message'   => 'logo berhasil diupload',
             ],
             'data'  => $dataAfterUploadBanner,
+        ], 200);
+    }
+
+
+    // get profil suplier
+    public function get_profil_get()
+    {
+        $id_suplier = $this->token_session->id_suplier;
+
+        $this->response([
+            'meta' => [
+                'code'      => 200,
+                'status'    => 'success',
+                'message'   => 'logo berhasil diupload',
+            ],
+            'data'  => $this->suplier->get_suplier($id_suplier),
         ], 200);
     }
 }

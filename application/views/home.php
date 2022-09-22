@@ -1,5 +1,6 @@
 <!-- Carousel -->
 <section id="banner" class="container">
+
     <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
         <!-- Carousel indicators -->
         <ol class="carousel-indicators">
@@ -1861,4 +1862,5 @@
     </div>
     </div>
 </section>
+<script src="<?= base_url("assets/src/js/pages/homePage.js"); ?>"></script>
 <!-- /Join now -->
