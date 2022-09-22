@@ -11,107 +11,18 @@
     </section>
     <section class="mt-4">
         <div class="row justify-content-between">
-            <div class="col-8">
-                <table class="table border align-middle">
+            <div id="suplier-list" class="col-8">
+                <!-- <table class="table border align-middle">
                     <thead>
                         <tr>
-
-                            <th class="py-4">
+                            <th class="px-4 py-4">
                                 <input type="checkbox" class="me-3 form-check-input" name="all">
                                 PT American Standard
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="row align-items-center">
-                                    <div class="col-1">
-                                        <input type="checkbox" class="form-check-input" name="all">
-                                    </div>
-                                    <div class="col-2">
-                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto img-fluid" alt="">
-                                    </div>
-                                    <div class="col-6">
-                                        <h6>Aerozen Shower Toilet CEAS5312-
-                                            1000422CO</h5>
-                                            <small class="bg-warning p-1 text-white">Diskon 25%</small>
-                                            <small class="text-decoration-line-through">Rp35.395.500</small>
-                                            <h6 class="d-inline fw-bold text-primary">Rp30.395.500 </h6>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <button class="bg-white border-0 me-4">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                        <div class="quantity d-inline rounded-pill bg-primary p-2">
-                                            <button class="btn btn-light rounded-circle">-</button>
-                                            <span class="mx-2">1</span>
-                                            <button class="btn btn-light rounded-circle">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="row align-items-center">
-                                    <div class="col-1">
-                                        <input type="checkbox" class="form-check-input" name="all">
-                                    </div>
-                                    <div class="col-2">
-                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto img-fluid" alt="">
-                                    </div>
-                                    <div class="col-6">
-                                        <h6>Aerozen Shower Toilet CEAS5312-
-                                            1000422CO</h5>
-                                            <small class="bg-warning p-1 text-white">Diskon 25%</small>
-                                            <small class="text-decoration-line-through">Rp35.395.500</small>
-                                            <h6 class="d-inline fw-bold text-primary">Rp30.395.500 </h6>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <button class="bg-white border-0 me-4">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                        <div class="quantity d-inline rounded-pill bg-primary p-2">
-                                            <button class="btn btn-light rounded-circle">-</button>
-                                            <span class="mx-2">1</span>
-                                            <button class="btn btn-light rounded-circle">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="row align-items-center">
-                                    <div class="col-1">
-                                        <input type="checkbox" class="form-check-input" name="all">
-                                    </div>
-                                    <div class="col-2">
-                                        <img src="<?= base_url('assets/img/Product.png') ?>" class="w-auto img-fluid" alt="">
-                                    </div>
-                                    <div class="col-6">
-                                        <h6>Aerozen Shower Toilet CEAS5312-
-                                            1000422CO</h5>
-                                            <small class="bg-warning p-1 text-white">Diskon 25%</small>
-                                            <small class="text-decoration-line-through">Rp35.395.500</small>
-                                            <h6 class="d-inline fw-bold text-primary">Rp30.395.500 </h6>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <button class="bg-white border-0 me-4">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                        <div class="quantity d-inline rounded-pill bg-primary p-2">
-                                            <button class="btn btn-light rounded-circle">-</button>
-                                            <span class="mx-2">1</span>
-                                            <button class="btn btn-light rounded-circle">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <tbody id="suplier-item"></tbody>
+                </table> -->
             </div>
             <div class="col-4">
                 <div class="card">
@@ -121,12 +32,10 @@
                     <div class="card-body">
                         <div class="row justify-content-between border-bottom py-3 border-1">
                             <div class="col">
-                                <small class="fw-bold">Harga (3 Produk) :</small>
+                                <small id="total-items" class="fw-bold"></small>
                             </div>
                             <div class="col text-end">
-                                <small class="text-primary fw-bold">
-                                    Rp46.195.500
-                                </small>
+                                <small id="grand-total" class="text-primary fw-bold"></small>
                             </div>
                         </div>
                         <div class="confirm text-center w-100">
@@ -515,3 +424,152 @@
         </div>
     </section>
 </div>
+
+<script>
+// Indonesian Rupiah Currency
+const idr = new Intl.NumberFormat('id', {
+    style     : 'currency',
+    currency  : 'IDR',
+});
+
+// Load item group by suplier
+const loadSuplier = () => {
+    let ajax = $.ajax({
+        url     : "/api/keranjang/get_item",
+        method  : "GET",
+    });
+
+    ajax.done(function(res) {
+        $('#suplier-list').html('');
+        $.each(res.data.suplier, (key, value) => {
+            $('#suplier-list').append('<table class="table border align-middle">\
+                <thead>\
+                    <tr>\
+                        <th class="px-4 py-4">\
+                            <input type="checkbox" class="me-3 form-check-input" name="all">\
+                            '+value['nama_toko']+'\
+                        </th>\
+                    </tr>\
+                </thead>\
+                <tbody id="suplier-item-'+value['id_suplier']+'"></tbody>\
+            </table>')
+        });
+
+        loadSuplierItems();
+    });
+
+    ajax.fail(function(res, status, err) {
+        alert(err);
+    });
+}
+
+// Load items by suplier
+const loadSuplierItems = (method) => {
+    let ajax = $.ajax({
+        url     : "/api/keranjang/get_item",
+        method  : "GET",
+    });
+    
+    ajax.done((res) => {
+        if(method == 'update-quantity') {
+            refreshQuantityHtml(res.data);
+        } else {
+            $.each(res.data.items, function(key, value) {
+                $('#suplier-item-'+value['id_suplier']).append('<tr id="'+value['id_produk']+'">\
+                    <td class="px-4 py-3">\
+                        <div class="row align-items-center">\
+                            <div class="col-1">\
+                                <input type="checkbox" class="form-check-input" name="all">\
+                            </div>\
+                            <div class="col-2">\
+                                <img src="/assets/img/Product.png" class="w-auto img-fluid" alt="">\
+                            </div>\
+                            <div class="col-6">\
+                                <h6>'+value['nama_produk']+'</h6>\
+                                    <small class="bg-warning p-1 text-white fw-bold" style="font-size: 10px">Diskon 25%</small>\
+                                    <small class="text-decoration-line-through">'+idr.format(value['harga_total'])+'</small>\
+                                <h6 id="harga-total" class="d-inline fw-bold text-primary">'+idr.format(value['harga_total'])+'</h6>\
+                            </div>\
+                            <div class="col-3 d-flex justify-content-end">\
+                                <button class="bg-white border-0 me-4" onclick="deleteItems('+value['id_keranjang']+')">\
+                                    <i class="far fa-trash-alt text-secondary"></i>\
+                                </button>\
+                                <div class="quantity d-flex justify-content-between rounded-pill fw-bold bg-primary p-1">\
+                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-minus" onclick="updateQuantity('+value['id_produk']+', \'decrement\')"></button>\
+                                    <span id="jumlah" class="mx-2 text-white">'+value['jumlah']+'</span>\
+                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-plus" onclick="updateQuantity('+value['id_produk']+', \'increment\')"></button>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </td>\
+                </tr>');
+            });
+
+            refreshQuantityHtml(res.data);
+        }
+
+    });
+
+    ajax.fail((res, status, err) => {
+        alert(err); 
+    });
+}
+
+// Refresh html related to price
+const refreshPriceHtml = (data) => {
+    $('#total-items').html('Harga ('+data.total_items+' Produk) :');
+    $('#grand-total').text(idr.format(data.grand_total));
+}
+
+// Refresh html related to quantity
+const refreshQuantityHtml = (data) => {
+    $.each(data.items, function(key, value) {
+        let parent = $('tr#'+value['id_produk']);
+        parent.find('#jumlah').text(value['jumlah']);
+        parent.find('#harga-total').text(idr.format(value['harga_total']));
+        (value['jumlah'] < 2) ? parent.find('.fa-minus').addClass('disabled') : parent.find('.fa-minus').removeClass('disabled');
+    });
+
+    refreshPriceHtml(data);
+}
+
+// update item quantity
+const updateQuantity = (id, method) => {
+    let quantity = ($('#quantity').text()) ? $('#quantity').text() : '0';
+    let ajax = $.ajax({
+        url     : "/api/keranjang/update_quantity",
+        method  : "POST",
+        data    : { id_produk: id, metode: method, jumlah: quantity }
+    });
+
+    ajax.done((res) => {
+        loadSuplierItems('update-quantity');
+    });
+
+    ajax.fail((res, status, err) => {
+        alert(err);
+    });
+}
+
+// Delete item
+const deleteItems = (id) => {
+    let id_keranjang = [id];
+
+    let ajax = $.ajax({
+        url     : "/api/keranjang/delete_item",
+        method  : "POST",
+        data    : { id_keranjang: id_keranjang }
+    });
+
+    ajax.done((res) => {
+        loadSuplier();
+    });
+
+    ajax.fail((res, status, err) => {
+        alert(err);
+    });
+}
+
+// load cart items on page load
+loadSuplier();
+</script>

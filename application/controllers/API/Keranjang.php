@@ -10,11 +10,13 @@ class Keranjang extends RestController
         parent::__construct();
 
         $this->load->model('Keranjang_model', 'cart');
+
+        $this->userdata = checkAuth();
     }
 
     public function get_item_get()
     {
-        $id_pengguna = htmlspecialchars($this->input->get('id_pengguna', TRUE) ?? '');
+        $id_pengguna = htmlspecialchars($this->userdata->id_pengguna ?? '');
 
         $result = $this->cart->get_item($id_pengguna);
 
@@ -96,9 +98,9 @@ class Keranjang extends RestController
             $post = $this->input->post();
 
             $where = [
-                'id_pengguna'   => $post['id_pengguna'],
+                'id_pengguna'   => $this->userdata->id_pengguna,
                 'id_produk'     => $post['id_produk'],
-                'id_variasi'    => $post['id_variasi'] ?? null
+                'id_variasi'    => $post['id_variasi'] ?? '0'
             ];
 
             $data = [
