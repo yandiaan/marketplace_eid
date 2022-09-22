@@ -11,19 +11,7 @@
     </section>
     <section class="mt-4">
         <div class="row justify-content-between">
-            <div id="suplier-list" class="col-8">
-                <!-- <table class="table border align-middle">
-                    <thead>
-                        <tr>
-                            <th class="px-4 py-4">
-                                <input type="checkbox" class="me-3 form-check-input" name="all">
-                                PT American Standard
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="suplier-item"></tbody>
-                </table> -->
-            </div>
+            <div id="suplier-list" class="col-8"></div>
             <div class="col-4">
                 <div class="card">
                     <div class="card-header text-white bg-primary-eid text-center">
