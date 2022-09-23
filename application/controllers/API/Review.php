@@ -51,12 +51,17 @@ class Review extends RestController
             ];
 
             $this->db->insert('review', $data);
+            $get_review_after_post = $this->db->get_where('review', ['id_review' => $this->db->insert_id()])->row_array();
             $this->response([
                 'meta' => [
                     'code'      => 200,
                     'status'    => 'success',
                     'message'   => 'Berhasil memberi penilaian dan rating produk'
                 ],
+                'data' => [
+                    'nama_pengguna' => $get_review_after_post['nama_pengguna'],
+                    'pesan' => $get_review_after_post['pesan'],
+                ]
             ], 200);
         }
     }

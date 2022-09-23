@@ -470,7 +470,7 @@ const loadSuplierItems = (method) => {
                                 <input type="checkbox" class="form-check-input" name="all">\
                             </div>\
                             <div class="col-2">\
-                                <img src="/assets/img/Product.png" class="w-auto img-fluid" alt="">\
+                                <img src="'+BASE_URL+'/assets/img/Product.png" class="w-auto img-fluid" alt="">\
                             </div>\
                             <div class="col-6">\
                                 <h6>'+value['nama_produk']+'</h6>\

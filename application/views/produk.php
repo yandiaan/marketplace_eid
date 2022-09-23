@@ -689,33 +689,6 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD:application/views/dproduk.php
-<script type="text/javascript">
-$(document).ready(function() {
-    $.ajax({
-        url: "/api/produk?id=<?= $uid ?>",
-        type: 'GET',
-        dataType: 'json',
-        success: function(res) {
-            var product = res.data[0]
-            $("#nama_produk").html(product.nama_produk);
-            $("#deskripsi").html(product.deskripsi);
-            $("#harga").html("Rp. " + product.harga);
-            $("#tinggi").html(product.tinggi + " cm");
-            $("#lebar").html(product.lebar + " cm");
-            $("#berat").html(product.berat + " kg");
-            $("#spesifikasi").html(product.spesifikasi);
-            $("#nama_toko").html(product.nama_toko);
-            $("#lokasi").html(product.lokasi);
-            $("#brand").html(product.brand);
-            $("#nama_kategori").html(product.nama_kategori);
-        },
-        error: function(xhr, textStatus, errorThrown) {
-            console.log(errorThrown);
-        }
-    });
-});
-=======
 
 <script src="<?= base_url("assets/src/js/pages/ProductPage.js"); ?>"></script>
 
@@ -726,5 +699,4 @@ fetchDetailProduct("<?= $slug; ?>");
 $(".submit-review").click(() => {
     addReview($('.id-produk').val())
 })
->>>>>>> d95cfad64bfca5e83271a25d97ca6f0726414336:application/views/produk.php
 </script>
