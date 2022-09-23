@@ -81,3 +81,23 @@ label {
 	overflow-x: hidden;
 	height: 75vh;
 }
+
+// .review-form:hover > .validateLoginReview {
+// 	opacity: 0.75;
+// 	z-index: 10;
+// }
+
+.validateLoginReview {
+	transition: 0.5s ease-in-out;
+	border-radius: 20px 0 0 20px;
+	top: 0;
+	left: 0;
+	// opacity: 0;
+	// z-index: -20;
+	opacity: 0.75;
+	z-index: 10;
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-ms-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+}

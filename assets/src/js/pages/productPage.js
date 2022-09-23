@@ -135,11 +135,17 @@ function addReview(id) {
 		data: form,
 	};
 
-	$.ajax(settings).done(function () {
-		// alert("Berhasil Kirim Review");
-		$(".submit-review").prop("disabled", false);
-		$(".text-submit").html(`Kirim Ulasan`);
-	});
+	$.ajax(settings)
+		.done(function () {
+			alert("Berhasil Kirim Review");
+			$(".submit-review").prop("disabled", false);
+			$(".text-submit").html(`Kirim Ulasan`);
+		})
+		.fail(() => {
+			alert("Gagal Upload Data");
+			$(".submit-review").prop("disabled", false);
+			$(".text-submit").html(`Kirim Ulasan`);
+		});
 }
 
 const quantity = document.getElementById("quantity");

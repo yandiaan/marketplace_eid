@@ -258,24 +258,32 @@
 
             </div>
         </div>
-        <div class="col-7 position-relative">
-            <div class="review-form w-100 h-100 text-white bg-success px-5 py-3">
-                <input type="hidden" name="id_produk" class="id-produk" value="">
-                <h5 class="fw-bold">Review produk ini </h5>
-                <div class="star-form text-warning my-3">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
+        <div class="col-7">
+            <div class="position-relative review-form w-100 h-100 text-white bg-success px-5 py-3">
+                <div class="validateLoginReview bg-success w-100 h-100 position-absolute">
+                    <div class="d-flex flex-column h-100 opacity-100 align-items-center justify-content-center">
+                        <h2 class="opacity-100">Login Dulu</h2>
+                        <button class="btn btn-primary">Login</button>
+                    </div>
                 </div>
-                <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
-                    rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
-                <div class="w-100 d-flex mt-4">
-                    <button class="btn btn-primary ms-auto submit-review">
-                        <span class="text-submit">
-                            Kirim Ulasan</span>
-                    </button>
+                <div class="input-form">
+                    <input type="hidden" name="id_produk" class="id-produk" value="">
+                    <h5 class="fw-bold">Review produk ini </h5>
+                    <div class="star-form text-warning my-3">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
+                        rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
+                    <div class="w-100 d-flex mt-4">
+                        <button class="btn btn-primary ms-auto submit-review">
+                            <span class="text-submit">
+                                Kirim Ulasan</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -697,14 +705,23 @@
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");
+// var cookie = $.cookie("sessionToken");
+
+// if (cookie !== undefined) {
+//     $('.validateLoginReview').remove();
+// }
 
 $(".submit-review").click(() => {
-    $(".submit-review").prop("disabled", true);
-    $(".text-submit").html(
-        `<span class="spinner-border spinner-border-sm" role="status"></span>  Loading...`
-    );
-    addReview($(".id-produk").val());
-    updateReviewData("<?= $slug; ?>");
-
+    if (cookie === undefined) {
+        $("#modalLogin").modal("show");
+    } else {
+        $('.validateLoginReview').remove();
+        $(".submit-review").prop("disabled", true);
+        $(".text-submit").html(
+            `<span class="spinner-border spinner-border-sm" role="status"></span>  Loading...`
+        );
+        addReview($(".id-produk").val());
+        updateReviewData("<?= $slug; ?>");
+    }
 });
 </script>
