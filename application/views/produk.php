@@ -705,5 +705,6 @@ $(".submit-review").click(() => {
     );
     addReview($(".id-produk").val());
     updateReviewData("<?= $slug; ?>");
+
 });
 </script>

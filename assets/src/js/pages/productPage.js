@@ -136,7 +136,9 @@ function addReview(id) {
 	};
 
 	$.ajax(settings).done(function () {
-		alert("Berhasil Kirim Review");
+		// alert("Berhasil Kirim Review");
+		$(".submit-review").prop("disabled", false);
+		$(".text-submit").html(`Kirim Ulasan`);
 	});
 }
 
