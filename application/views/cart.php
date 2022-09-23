@@ -423,7 +423,7 @@ const idr = new Intl.NumberFormat('id', {
 // Load item group by suplier
 const loadSuplier = () => {
     let ajax = $.ajax({
-        url     : "/api/keranjang/get_item",
+        url     : ENDPOINT+"keranjang/get_item",
         method  : "GET",
     });
 
@@ -454,7 +454,7 @@ const loadSuplier = () => {
 // Load items by suplier
 const loadSuplierItems = (method) => {
     let ajax = $.ajax({
-        url     : "/api/keranjang/get_item",
+        url     : ENDPOINT+"keranjang/get_item",
         method  : "GET",
     });
     
@@ -525,7 +525,7 @@ const refreshQuantityHtml = (data) => {
 const updateQuantity = (id, method) => {
     let quantity = ($('#quantity').text()) ? $('#quantity').text() : '0';
     let ajax = $.ajax({
-        url     : "/api/keranjang/update_quantity",
+        url     : ENDPOINT+"keranjang/update_quantity",
         method  : "POST",
         data    : { id_produk: id, metode: method, jumlah: quantity }
     });
@@ -544,7 +544,7 @@ const deleteItems = (id) => {
     let id_keranjang = [id];
 
     let ajax = $.ajax({
-        url     : "/api/keranjang/delete_item",
+        url     : ENDPOINT+"keranjang/delete_item",
         method  : "POST",
         data    : { id_keranjang: id_keranjang }
     });
