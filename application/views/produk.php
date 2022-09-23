@@ -705,23 +705,13 @@
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");
-// var cookie = $.cookie("sessionToken");
-
-// if (cookie !== undefined) {
-//     $('.validateLoginReview').remove();
-// }
 
 $(".submit-review").click(() => {
-    if (cookie === undefined) {
-        $("#modalLogin").modal("show");
-    } else {
-        $('.validateLoginReview').remove();
-        $(".submit-review").prop("disabled", true);
-        $(".text-submit").html(
-            `<span class="spinner-border spinner-border-sm" role="status"></span>  Loading...`
-        );
-        addReview($(".id-produk").val());
-        updateReviewData("<?= $slug; ?>");
-    }
+    $(".submit-review").prop("disabled", true);
+    $(".text-submit").html(
+        `<span class="spinner-border spinner-border-sm" role="status"></span>  Loading...`
+    );
+    addReview($(".id-produk").val());
+    updateReviewData("<?= $slug; ?>");
 });
 </script>
