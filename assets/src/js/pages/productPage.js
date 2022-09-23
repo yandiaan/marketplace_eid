@@ -5,7 +5,8 @@ function fetchDetailProduct(slug) {
 			type: "GET",
 			dataType: "json",
 			success: function (res) {
-				var product = res.data[0];
+				let product = res.data[0];
+				$(".id-produk").val(product.id_produk);
 				$("#nama_produk").html(product.nama_produk);
 				$("#deskripsi").html(product.deskripsi);
 				$("#harga").html("Rp. " + product.harga);
@@ -36,6 +37,31 @@ function fetchDetailProduct(slug) {
 							" alt='' /> </a>"
 					);
 				});
+
+				$.each(product.reviews, (i, val) => {
+					$(".user-review").append(`<div class="row">
+												<div class="col-1 avatar">
+													<img src="${BASE_URL}/assets/img/Avatar.png";" alt="avatar" class="mx-auto w-100">
+												</div>
+												<div class="col-9 align-self-center">
+													<span>${val.nama_pengguna}</span>
+													<div class="star-form text-warning">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa-regular fa-star"></i>
+													</div>
+													<span class="text-secondary">
+														22 Februari 2022 09:45
+													</span>
+													<p class="text-right text-justify mt-3">
+														${val.pesan}
+													</p>
+												</div>
+											</div>`);
+				});
+
 				$(".xzoom, .xzoom-gallery").xzoom({
 					zoomWidth: 200,
 					zoomHeight: 200,
@@ -47,6 +73,31 @@ function fetchDetailProduct(slug) {
 				window.location.href = BASE_URL;
 			},
 		});
+	});
+}
+
+function addReview(id) {
+	let token = $.cookie("sessionToken");
+	let form = new FormData();
+	form.append("id_produk", id);
+	form.append("pesan", $(".input-review").val());
+	form.append("rating", "5");
+
+	let settings = {
+		url: "http://localhost/marketplace_eid/api/review",
+		method: "POST",
+		timeout: 0,
+		headers: {
+			Authorization: "Bearer " + token,
+		},
+		processData: false,
+		mimeType: "multipart/form-data",
+		contentType: false,
+		data: form,
+	};
+
+	$.ajax(settings).done(function () {
+		window.location.reload;
 	});
 }
 

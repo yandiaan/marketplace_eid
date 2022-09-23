@@ -24,11 +24,11 @@ class Keranjang_model extends CI_Model
                 ),
             ),
             'update_quantity' => array(
-                array(
-                        'field' => 'id_pengguna',
-                        'label' => 'ID Pengguna',
-                        'rules' => 'required'
-                ),
+                // array(
+                //         'field' => 'id_pengguna',
+                //         'label' => 'ID Pengguna',
+                //         'rules' => 'required'
+                // ),
                 array(
                         'field' => 'id_produk',
                         'label' => 'ID Produk',
@@ -47,7 +47,15 @@ class Keranjang_model extends CI_Model
 
     public function get_item($id_pengguna)
     {
-        $items = $this->db->select('k.id_keranjang, k.id_pengguna, k.id_produk, k.id_variasi, k.jumlah, p.nama_produk, p.harga as harga_satuan, (p.harga * k.jumlah) as harga_total')
+        $suplier = $this->db->select('s.id_suplier, s.nama_toko')
+            ->from('keranjang as k')
+            ->join('produk as p', 'p.id_produk = k.id_produk', 'left')
+            ->join('suplier as s', 's.id_suplier = p.id_suplier', 'left')
+            ->where('id_pengguna', $id_pengguna)
+            ->group_by('s.id_suplier')
+            ->get()->result_array();
+
+        $items = $this->db->select('k.id_keranjang, k.id_pengguna, k.id_produk, k.id_variasi, k.jumlah, p.id_suplier, p.nama_produk, p.harga as harga_satuan, (p.harga * k.jumlah) as harga_total')
              ->from('keranjang as k')
              ->join('produk as p', 'p.id_produk = k.id_produk', 'left')
              ->join('variasi as v', 'v.id_variasi = k.id_variasi', 'left')
@@ -86,6 +94,7 @@ class Keranjang_model extends CI_Model
         }
 
         $query = [
+            'suplier'       => $suplier,
             'items'         => $items,
             'total_items'   => $total_items,
             'grand_total'   => $grand_total,

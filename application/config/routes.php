@@ -11,10 +11,10 @@ $route['register']              = 'Auth/register';
 $route['register/action']       = 'Auth/register/register_action';
 
 //admin
-$route['admin']                 = 'api/admin/D_produk/index';
-$route['upload']                = 'api/admin/upload_file/index';
-$route['galeri']                = 'api/admin/upload_file/galeri_index';
-$route['kategori']              = 'api/admin/kategori/index';
+$route['admin']                 = 'API/Admin/D_Produk/index';
+$route['upload']                = 'API/Admin/Upload_file/index';
+$route['galeri']                = 'API/Admin/Upload_file/galeri_index';
+$route['kategori']              = 'API/Admin/kategori/index';
 
 
 // Produk route

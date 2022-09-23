@@ -260,6 +260,7 @@
         </div>
         <div class="col-7 position-relative">
             <div class="review-form w-100 h-100 text-white bg-success px-5 py-3">
+                <input type="hidden" name="id_produk" class="id-produk" value="">
                 <h5 class="fw-bold">Review produk ini </h5>
                 <div class="star-form text-warning my-3">
                     <i class="fa fa-star"></i>
@@ -271,7 +272,7 @@
                 <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
                     rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
                 <div class="w-100 d-flex mt-4">
-                    <button class="btn btn-primary ms-auto">Kirim Ulasan</button>
+                    <button class="btn btn-primary ms-auto submit-review">Kirim Ulasan</button>
                 </div>
             </div>
         </div>
@@ -303,131 +304,6 @@
         </div>
     </div>
     <div class="user-review w-75">
-        <div class="row">
-            <div class="col-1 avatar">
-                <img src="<?= base_url("assets/img/Avatar.png"); ?>" alt="avatar" class="mx-auto w-100">
-            </div>
-            <div class="col-9 align-self-center">
-                <span>Dian Setiawan</span>
-                <div class="star-form text-warning">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <span class="text-secondary">
-                    22 Februari 2022 09:45
-                </span>
-                <p class="text-right text-justify mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-1 avatar">
-                <img src="<?= base_url("assets/img/Avatar.png"); ?>" alt="avatar" class="mx-auto w-100">
-            </div>
-            <div class="col-9 align-self-center">
-                <span>Dian Setiawan</span>
-                <div class="star-form text-warning">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <span class="text-secondary">
-                    22 Februari 2022 09:45
-                </span>
-                <p class="text-right text-justify mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-1 avatar">
-                <img src="<?= base_url("assets/img/Avatar.png"); ?>" alt="avatar" class="mx-auto w-100">
-            </div>
-            <div class="col-9 align-self-center">
-                <span>Dian Setiawan</span>
-                <div class="star-form text-warning">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <span class="text-secondary">
-                    22 Februari 2022 09:45
-                </span>
-                <p class="text-right text-justify mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-1 avatar">
-                <img src="<?= base_url("assets/img/Avatar.png"); ?>" alt="avatar" class="mx-auto w-100">
-            </div>
-            <div class="col-9 align-self-center">
-                <span>Dian Setiawan</span>
-                <div class="star-form text-warning">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <span class="text-secondary">
-                    22 Februari 2022 09:45
-                </span>
-                <p class="text-right text-justify mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-1 avatar">
-                <img src="<?= base_url("assets/img/Avatar.png"); ?>" alt="avatar" class="mx-auto w-100">
-            </div>
-            <div class="col-9 align-self-center">
-                <span>Dian Setiawan</span>
-                <div class="star-form text-warning">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <span class="text-secondary">
-                    22 Februari 2022 09:45
-                </span>
-                <p class="text-right text-justify mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
     </div>
     <div class="product mt-5">
         <h5 class="fw-semibold">
@@ -813,6 +689,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD:application/views/dproduk.php
 <script type="text/javascript">
 $(document).ready(function() {
     $.ajax({
@@ -838,4 +715,16 @@ $(document).ready(function() {
         }
     });
 });
+=======
+
+<script src="<?= base_url("assets/src/js/pages/ProductPage.js"); ?>"></script>
+
+<script>
+fetchDetailProduct("<?= $slug; ?>");
+</script>
+<script>
+$(".submit-review").click(() => {
+    addReview($('.id-produk').val())
+})
+>>>>>>> d95cfad64bfca5e83271a25d97ca6f0726414336:application/views/produk.php
 </script>

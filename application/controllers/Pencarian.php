@@ -6,7 +6,10 @@ class Pencarian extends CI_Controller
 
     public function index()
     {
-        $data = ['content' => 'pencarian'];
+        $data = [
+            'content' => 'pencarian',
+            'search' => (isset($_GET['search']) ) ? $_GET['search'] : "",
+    ];
         $this->load->view('layouts/app', $data);
     }
 
