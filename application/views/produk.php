@@ -272,7 +272,10 @@
                 <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
                     rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
                 <div class="w-100 d-flex mt-4">
-                    <button class="btn btn-primary ms-auto submit-review">Kirim Ulasan</button>
+                    <button class="btn btn-primary ms-auto submit-review">
+                        <span class="text-submit">
+                            Kirim Ulasan</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -694,9 +697,13 @@
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");
-</script>
-<script>
+
 $(".submit-review").click(() => {
-    addReview($('.id-produk').val())
-})
+    $(".submit-review").prop("disabled", true);
+    $(".text-submit").html(
+        `<span class="spinner-border spinner-border-sm" role="status"></span>  Loading...`
+    );
+    addReview($(".id-produk").val());
+    updateReviewData("<?= $slug; ?>");
+});
 </script>
