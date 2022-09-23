@@ -11,12 +11,19 @@ class Keranjang extends RestController
 
         $this->load->model('Keranjang_model', 'cart');
 
-        $this->userdata = checkAuth();
+        $header = $this->input->request_headers()['Authorization'];
+        if (!$header) return $this->response(['message' => ' Token required'], 404);
+
+        try {
+            $this->token_session = decode_jwt($header);
+        } catch (\Throwable $th) {
+            $this->response(['message' => 'Invalid Token'], 404);
+        }
     }
 
     public function get_item_get()
     {
-        $id_pengguna = htmlspecialchars($this->userdata->id_pengguna ?? '');
+         $id_pengguna = $this->token_session->id_pengguna;
 
         $result = $this->cart->get_item($id_pengguna);
 
@@ -98,7 +105,7 @@ class Keranjang extends RestController
             $post = $this->input->post();
 
             $where = [
-                'id_pengguna'   => $this->userdata->id_pengguna,
+                'id_pengguna'   =>   $this->token_session->id_pengguna,
                 'id_produk'     => $post['id_produk'],
                 'id_variasi'    => $post['id_variasi'] ?? '0'
             ];
@@ -165,7 +172,7 @@ class Keranjang extends RestController
 
     public function empty_cart_post()
     {
-        $id_pengguna = $this->input->post('id_pengguna');
+        $id_pengguna = $this->token_session->id_pengguna;
 
         $query = $this->cart->empty_cart($id_pengguna);
 
