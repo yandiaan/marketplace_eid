@@ -6,12 +6,22 @@ class M_Produk extends CI_Model
     function __construct()
     {
         parent::__construct();
-        // $this->load->helper('function_helper');
     }
 
     public function getall()
     {
         $get = $this->db->query('SELECT * FROM produk');
+
+        if ($get->num_rows() > 0) {
+            return $get->result_array();
+        } else {
+            return null;
+        }
+    }
+
+    public function getAllVariasi()
+    {
+        $get = $this->db->query('SELECT * FROM variasi');
 
         if ($get->num_rows() > 0) {
             return $get->result_array();
@@ -85,6 +95,11 @@ class M_Produk extends CI_Model
         return $this->db->delete('produk', array("id_produk" => $id_produk));
     }
 
+    public function delete_variasi($id_variasi)
+    {
+        return $this->db->delete('variasi', array("id_variasi" => $id_variasi));
+    }
+
     public function get_editkategori($role_id)
     {
         $data = $this->db->query("SELECT pf.id, pf.name FROM project_role_users pru
@@ -99,5 +114,10 @@ class M_Produk extends CI_Model
             $data[] = array("id" => $project['id'], "text" => $project['name']);
         }
         return $data;
+    }
+
+    public function save_variasi($data)
+    {
+        return $this->db->insert('variasi', $data);
     }
 }
