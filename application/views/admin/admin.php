@@ -57,7 +57,8 @@
                     </td>
                     <td class="text-center">
                         <a onclick="edit(<?= $product['id_produk'] ?>)" href="#" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
-                        <a onclick="deleteConfirm('<?php echo site_url('api/admin/D_produk/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <a onclick="deleteConfirm('<?php echo site_url('API/Admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -75,6 +76,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+<<<<<<<<< Temporary merge branch 1
+<<<<<<< HEAD
             <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group row">
@@ -153,6 +156,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+<<<<<<<<< Temporary merge branch 1
+<<<<<<< HEAD
             <form action="<?php echo site_url('API/Admin/product/update') ?>" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="id_produkU" id="id_produk" value="">
