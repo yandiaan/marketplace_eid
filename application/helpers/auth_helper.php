@@ -13,7 +13,7 @@ function checkAuth()
         // echo "ada token dan valid";
     } catch (\Throwable $th) {
         $err =  json_encode(['message' => 'Invalid Token'], 404);
-        delete_cookie("session_token");
+        delete_cookie("sessionToken");
         redirect("/");
     }
 }
