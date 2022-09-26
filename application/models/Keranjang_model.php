@@ -24,11 +24,6 @@ class Keranjang_model extends CI_Model
                 ),
             ),
             'update_quantity' => array(
-                // array(
-                //         'field' => 'id_pengguna',
-                //         'label' => 'ID Pengguna',
-                //         'rules' => 'required'
-                // ),
                 array(
                         'field' => 'id_produk',
                         'label' => 'ID Produk',
@@ -129,31 +124,32 @@ class Keranjang_model extends CI_Model
         }
     }
 
-    public function update_quantity($data, $where, $method = '')
+    public function update_quantity($data, $where)
     {
-        switch($method) {
-            case 'increment':
-                $query = $this->db->set('jumlah', 'jumlah+1', false)
-                    ->set('updated_at', $data['updated_at'])
-                    ->where($where);
-                break;
-            case 'decrement':
-                $query = $this->db->set('jumlah', 'jumlah-1', false)
-                    ->set('updated_at', $data['updated_at'])
-                    ->where($where);
-                break;
-            default:
-                $query = $this->db->set($data)->where($where);
-                break;
-        }
-        
-        $query->update('keranjang');
+        // switch($method) {
+        //     case 'increment':
+        //         $query = $this->db->set('jumlah', 'jumlah+1', false)
+        //             ->set('updated_at', $data['updated_at'])
+        //             ->where($where);
+        //         break;
+        //     case 'decrement':
+        //         $query = $this->db->set('jumlah', 'jumlah-1', false)
+        //             ->set('updated_at', $data['updated_at'])
+        //             ->where($where);
+        //         break;
+        //     default:
+        //         $query = $this->db->set($data)->where($where);
+        //         break;
+        // }
+
+        $this->db->set($data)->where($where)->update('keranjang');
         return $this->db->affected_rows() < 1 ? false : true;
     }
 
-    public function delete_item($where)
+    public function delete_item($id_pengguna, $where)
     {
-        $this->db->where_in('id_keranjang', $where)->delete('keranjang');
+        $this->db->where('id_pengguna', $id_pengguna)
+             ->where_in('id_keranjang', $where)->delete('keranjang');
         return $this->db->affected_rows() < 1 ? false : true;
     }
 

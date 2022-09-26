@@ -6,15 +6,13 @@ const idr = new Intl.NumberFormat('id', {
 
 // Set header before ajax request
 $.ajaxSetup({
-    beforeSend: (xhr) => {
-        xhr.setRequestHeader('Authorization', $.cookie("sessionToken"));
-    }
+    headers: { 'Authorization': "Bearer " + $.cookie("sessionToken") }
 });
 
 // Load item group by suplier
 const loadSuplier = () => {
     let ajax = $.ajax({
-        url     : `${ENDPOINT}/keranjang/get_item`,
+        url     : `${ENDPOINT}keranjang/get_item`,
         method  : "GET",
     });
 
@@ -44,7 +42,7 @@ const loadSuplier = () => {
 // Load items by suplier
 const loadSuplierItems = (method) => {
     let ajax = $.ajax({
-        url     : `${ENDPOINT}/keranjang/get_item`,
+        url     : `${ENDPOINT}keranjang/get_item`,
         method  : "GET",
     });
     
@@ -73,9 +71,9 @@ const loadSuplierItems = (method) => {
                                     <i class="far fa-trash-alt text-secondary"></i>\
                                 </button>\
                                 <div class="quantity d-flex justify-content-between rounded-pill fw-bold bg-primary p-1">\
-                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-minus" onclick="updateQuantity(${value['id_produk']}, \'decrement\')"></button>\
+                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-minus" onclick="updateQuantity(${value['id_produk']}, 'decrement')"></button>\
                                     <span id="jumlah" class="mx-2 text-white">${value['jumlah']}</span>\
-                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-plus" onclick="updateQuantity(${value['id_produk']}, \'increment\')"></button>\
+                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-plus" onclick="updateQuantity(${value['id_produk']}, 'increment')"></button>\
                                 </div>\
                             </div>\
                         </div>\
@@ -112,13 +110,23 @@ const refreshQuantityHtml = (data) => {
 }
 
 // update item quantity
-const updateQuantity = (id, method) => {
-    // let quantity = ($('#quantity').text()) ? $('#quantity').text() : '0';
-    let quantity = $('#quantity').text() || '0';
+const updateQuantity = (id_produk, metode) => {
+    let parent = $(`tr#${id_produk}`);
+    let jumlah = parent.find('#jumlah').text();
+
+    switch (metode) {
+        case 'increment':
+            jumlah = parseInt(jumlah) + 1;
+            break;
+        case 'decrement':
+            jumlah = parseInt(jumlah) - 1;
+            break;
+    }
+
     let ajax = $.ajax({
-        url     : `${ENDPOINT}/keranjang/update_quantity`,
+        url     : `${ENDPOINT}keranjang/update_quantity`,
         method  : "POST",
-        data    : { id_produk: id, metode: method, jumlah: quantity },
+        data    : { id_produk: id_produk, jumlah: jumlah },
     });
 
     ajax.done((res) => {
@@ -135,7 +143,7 @@ const deleteItems = (id) => {
     let id_keranjang = [id];
 
     let ajax = $.ajax({
-        url     : `${ENDPOINT}/keranjang/delete_item`,
+        url     : `${ENDPOINT}keranjang/delete_item`,
         method  : "POST",
         data    : { id_keranjang: id_keranjang },
     });

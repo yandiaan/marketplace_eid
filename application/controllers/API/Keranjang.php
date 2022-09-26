@@ -5,18 +5,26 @@ use chriskacerguis\RestServer\RestController;
 
 class Keranjang extends RestController
 {
-    function __construct()
+    public $token_session;
+    public function __construct()
     {
         parent::__construct();
+        $header = $this->input->request_headers()['Authorization'];
 
+        if (!$header) return $this->response(['message' => ' Token required'], 404);
+        
+        try {
+            $this->token_session = decode_jwt($header);
+        } catch (\Throwable $th) {
+            return $this->response(['message' => 'Invalid Token'], 404);
+        }
+        
         $this->load->model('Keranjang_model', 'cart');
-
-        $this->userdata = checkAuth();
     }
 
     public function get_item_get()
     {
-        $id_pengguna = htmlspecialchars($this->userdata->id_pengguna ?? '');
+        $id_pengguna = $this->token_session->id_pengguna;
 
         $result = $this->cart->get_item($id_pengguna);
 
@@ -44,12 +52,13 @@ class Keranjang extends RestController
                 'message'   => 'Validasi Gagal',
                 'errors'    => $this->form_validation->error_array(),
             ], 400);
+
         } else {
 
             $post = $this->input->post();
 
             $data = [
-                'id_pengguna'   => $post['id_pengguna'],
+                'id_pengguna'   => $this->token_session->id_pengguna,
                 'id_produk'     => $post['id_produk'],
                 'jumlah'        => $post['jumlah'],
                 'id_variasi'    => $post['id_variasi'] ?? null,
@@ -93,14 +102,15 @@ class Keranjang extends RestController
                 'message'   => 'Validasi Gagal',
                 'errors'    => $this->form_validation->error_array(),
             ], 400);
+
         } else {
 
             $post = $this->input->post();
 
             $where = [
-                'id_pengguna'   => $this->userdata->id_pengguna,
+                'id_pengguna'   => $this->token_session->id_pengguna,
                 'id_produk'     => $post['id_produk'],
-                'id_variasi'    => $post['id_variasi'] ?? '0'
+                'id_variasi'    => $post['id_variasi'] ?? null
             ];
 
             $data = [
@@ -108,10 +118,7 @@ class Keranjang extends RestController
                 'updated_at'    => date('Y-m-d h:i:s'),
             ];
 
-            // option values are ('' OR increment OR decrement)
-            $method = $post['metode'];
-
-            $query = $this->cart->update_quantity($data, $where, $method);
+            $query = $this->cart->update_quantity($data, $where);
 
             if($query) {
                 $this->response([
@@ -136,13 +143,15 @@ class Keranjang extends RestController
 
     public function delete_item_post()
     {
-        $id = $this->input->post('id_keranjang') ?? [''];
+        $id_keranjang = $this->input->post('id_keranjang') ?? [''];
         
-        foreach($id as $key => $value) {
+        foreach($id_keranjang as $key => $value) {
             $where[$key] = $value;
         }
 
-        $query = $this->cart->delete_item($where);
+        $id_pengguna = $this->token_session->id_pengguna;
+
+        $query = $this->cart->delete_item($id_pengguna, $where);
 
         if($query) {
             $this->response([
@@ -165,7 +174,7 @@ class Keranjang extends RestController
 
     public function empty_cart_post()
     {
-        $id_pengguna = $this->input->post('id_pengguna');
+        $id_pengguna = $this->token_session->id_pengguna;
 
         $query = $this->cart->empty_cart($id_pengguna);
 
