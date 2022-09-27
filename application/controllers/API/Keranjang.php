@@ -20,15 +20,6 @@ class Keranjang extends RestController
         }
         
         $this->load->model('Keranjang_model', 'cart');
-
-        $header = $this->input->request_headers()['Authorization'];
-        if (!$header) return $this->response(['message' => ' Token required'], 404);
-
-        try {
-            $this->token_session = decode_jwt($header);
-        } catch (\Throwable $th) {
-            $this->response(['message' => 'Invalid Token'], 404);
-        }
     }
 
     public function get_item_get()

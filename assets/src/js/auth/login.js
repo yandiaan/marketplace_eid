@@ -12,7 +12,7 @@ $("#loginForm").submit((e) => {
 		url: ENDPOINT + "login",
 		data: data,
 		success: (res) => {
-			$.cookie("sessionToken", res.data.access_token);
+			$.cookie("sessionToken", res.data.access_token, { path: "/" });
 			window.location.reload();
 		},
 		dataType: "json",
