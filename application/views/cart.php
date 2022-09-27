@@ -18,16 +18,16 @@
                         <h5 class="fw-bold my-2">Rincian Belanja</h5>
                     </div>
                     <div class="card-body">
-                        <div class="row justify-content-between border-bottom py-3 border-1">
-                            <div class="col">
-                                <small id="total-items" class="fw-bold"></small>
-                            </div>
-                            <div class="col text-end">
-                                <small id="grand-total" class="text-primary fw-bold"></small>
-                            </div>
+                        <div class="d-flex justify-content-between py-3">
+                            <small id="total-items" class="fw-bold"></small>
+                            <small id="grand-total" class="text-primary fw-bold"></small>
+                        </div>
+                        <div class="d-flex justify-content-between border-bottom pb-3">
+                            <small class="fw-bold">Total Diskon Barang</small>
+                            <small id="total-diskon" class="text-primary fw-bold">Rp. 0</small>
                         </div>
                         <div class="confirm text-center w-100">
-                            <button class="btn btn-danger rounded-pill mt-3">Buat Pesanan</button>
+                            <button style="font-size:14px" class="btn btn-primary rounded-pill fw-bold mt-3">Buat Pesanan</button>
                         </div>
                     </div>
                 </div>

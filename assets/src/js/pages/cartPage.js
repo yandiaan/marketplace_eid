@@ -18,6 +18,12 @@ const loadSuplier = () => {
 
     ajax.done((res) => {
         $('#suplier-list').html('');
+
+        if(res.data.total_items < 1) {
+            emptyCart(res.data);
+            return;
+        }
+        
         $.each(res.data.suplier, (key, value) => {
             $('#suplier-list').append(`<table class="table table-bordered align-middle">\
                 <thead id="suplier-${value['id_suplier']}">\
@@ -95,9 +101,21 @@ const loadSuplierItems = (method) => {
     });
 }
 
+const emptyCart = (data) => {
+    $('#suplier-list').append(`<table class="table table-borderless align-middle">\
+        <tbody>
+            <tr>\
+                <td style="padding:80px 0px" class="fw-bold text-center">Keranjang belanja anda masih kosong</td>\
+            </tr>\
+        </tbody>\
+    </table>`);
+
+    refreshPriceHtml(data);
+}
+
 // Refresh html related to price
 const refreshPriceHtml = (data) => {
-    $('#total-items').html(`Harga (${data.total_items} Produk) :`);
+    $('#total-items').html(`Total Harga (${data.total_items} Barang)`);
     $('#grand-total').text(idr.format(data.grand_total));
 }
 
