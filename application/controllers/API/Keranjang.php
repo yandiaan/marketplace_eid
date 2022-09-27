@@ -223,7 +223,7 @@ class Keranjang extends RestController
                     $this->response([
                 'message' => 'Data yang anda input tidak valid !',
                 'errors'  => 'id keranjang tidak ditemukan'
-            ], 422);
+            ], 404);
                 }
         }
 
