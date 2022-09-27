@@ -9,7 +9,7 @@ class Upload_File extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('M_File');
-        $this->load->helper('function_helper');
+        $this->load->helper('upload_helper');
     }
 
     public function index()
