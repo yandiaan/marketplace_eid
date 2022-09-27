@@ -9,7 +9,7 @@ function fetchDetailProduct(slug) {
 				$(".id-produk").val(product.id_produk);
 				$("#nama_produk").html(product.nama_produk);
 				$("#deskripsi").html(product.deskripsi);
-				$("#harga").html("Rp. " + product.harga);
+				$("#harga").html(rupiah(product.harga));
 				$("#tinggi").html(product.tinggi + " cm");
 				$("#lebar").html(product.lebar + " cm");
 				$("#berat").html(product.berat + " kg");

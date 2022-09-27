@@ -1,9 +1,3 @@
-// Indonesian Rupiah Currency
-const idr = new Intl.NumberFormat('id', {
-    style     : 'currency',
-    currency  : 'IDR',
-});
-
 // Set header before ajax request
 $.ajaxSetup({
     headers: { 'Authorization': "Bearer " + $.cookie("sessionToken") }
@@ -74,8 +68,8 @@ const loadSuplierItems = (method) => {
                             <div class="col-6">\
                                 <h6>${value['nama_produk']}</h6>\
                                     <small class="bg-warning p-1 text-white fw-bold" style="font-size: 10px">Diskon 25%</small>\
-                                    <small class="text-decoration-line-through">${idr.format(value['harga_total'])}</small>\
-                                <h6 id="harga-total" class="d-inline fw-bold text-primary">${idr.format(value['harga_total'])}</h6>\
+                                    <small class="text-decoration-line-through">${rupiah(value['harga_total'])}</small>\
+                                <h6 id="harga-total" class="d-inline fw-bold text-primary">${rupiah(value['harga_total'])}</h6>\
                             </div>\
                             <div class="col-3 d-flex justify-content-end">\
                                 <button class="bg-white border-0 me-4" onclick="deleteItems(${value['id_keranjang']})">\
@@ -116,7 +110,7 @@ const emptyCart = (data) => {
 // Refresh html related to price
 const refreshPriceHtml = (data) => {
     $('#total-items').html(`Total Harga (${data.total_items} Barang)`);
-    $('#grand-total').text(idr.format(data.grand_total));
+    $('#grand-total').text(rupiah(data.grand_total));
 }
 
 // Refresh html related to quantity
@@ -124,7 +118,7 @@ const refreshQuantityHtml = (data) => {
     $.each(data.items, (key, value) => {
         let parent = $(`tr#${value['id_produk']}`);
         parent.find('#jumlah').text(value['jumlah']);
-        parent.find('#harga-total').text(idr.format(value['harga_total']));
+        parent.find('#harga-total').text(rupiah(value['harga_total']));
         (value['jumlah'] < 2) ? parent.find('.fa-minus').addClass('disabled') : parent.find('.fa-minus').removeClass('disabled');
     });
 
