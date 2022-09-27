@@ -1,2 +1,2 @@
-const ENDPOINT = "http://localhost/marketplace_eid/api/";
-const BASE_URL = "http://localhost/marketplace_eid";
+const ENDPOINT = "http://localhost:8888/api/";
+const BASE_URL = "http://localhost:8888/";
