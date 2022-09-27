@@ -608,8 +608,6 @@
 <script>
     fetchDetailProduct("<?= $slug; ?>");
 
-
-
     $(".submit-review").click(() => {
         if (!token) {
             $("#modalLogin").modal("show");
