@@ -19,12 +19,17 @@ const loadSuplier = () => {
     ajax.done((res) => {
         $('#suplier-list').html('');
         $.each(res.data.suplier, (key, value) => {
-            $('#suplier-list').append(`<table class="table border align-middle">\
-                <thead>\
+            $('#suplier-list').append(`<table class="table table-bordered align-middle">\
+                <thead id="suplier-${value['id_suplier']}">\
                     <tr>\
-                        <th class="px-4 py-4">\
-                            <input type="checkbox" class="me-3 form-check-input" name="all">\
-                            ${value['nama_toko']}\
+                        <th class="px-4 py-4 d-flex justify-content-between">\
+                            <div>
+                                <input type="checkbox" class="me-3 form-check-input" name="all" checked>\
+                                ${value['nama_toko']}\
+                            </div>
+                            <div>
+                                <small class="text-danger">Hapus</small>
+                            </div>
                         </th>\
                     </tr>\
                 </thead>\
@@ -55,7 +60,7 @@ const loadSuplierItems = (method) => {
                     <td class="px-4 py-3">\
                         <div class="row align-items-center">\
                             <div class="col-1">\
-                                <input type="checkbox" class="form-check-input" name="all">\
+                                <input type="checkbox" class="form-check-input" name="id_keranjang[]" value="${value['id_keranjang']}" checked>\
                             </div>\
                             <div class="col-2">\
                                 <img src="${BASE_URL}/assets/img/Product.png" class="w-auto img-fluid" alt="">\
@@ -80,7 +85,6 @@ const loadSuplierItems = (method) => {
                     </td>\
                 </tr>`);
             });
-
             refreshQuantityHtml(res.data);
         }
 
@@ -139,8 +143,8 @@ const updateQuantity = (id_produk, metode) => {
 }
 
 // Delete item
-const deleteItems = (id) => {
-    let id_keranjang = [id];
+const deleteItems = (id_keranjang) => {
+    id_keranjang = [id_keranjang];
 
     let ajax = $.ajax({
         url     : `${ENDPOINT}keranjang/delete_item`,
