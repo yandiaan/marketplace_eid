@@ -704,10 +704,6 @@ fetchDetailProduct("<?= $slug; ?>");
 
 
 $(".submit-review").click(() => {
-<<<<<<< HEAD
-    addReview($('.id-produk').val())
-})
-=======
     if (!token) {
         $("#modalLogin").modal("show");
     } else {
@@ -719,5 +715,4 @@ $(".submit-review").click(() => {
         updateReviewData("<?= $slug; ?>");
     }
 });
->>>>>>> 33f7e4a4fce5318d201bfd52dd8ce952123f099f
 </script>
