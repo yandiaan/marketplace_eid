@@ -116,7 +116,6 @@ function updateReviewData(slug) {
 }
 
 function addReview(id) {
-	let token = $.cookie("sessionToken");
 	let form = new FormData();
 	form.append("id_produk", id);
 	form.append("pesan", $(".input-review").val());
@@ -135,9 +134,16 @@ function addReview(id) {
 		data: form,
 	};
 
-	$.ajax(settings).done(function () {
-		alert("Berhasil Kirim Review");
-	});
+	$.ajax(settings)
+		.done(function () {
+			alert("Berhasil Kirim Review");
+			$(".submit-review").prop("disabled", false);
+			$(".text-submit").html(`Kirim Ulasan`);
+		})
+		.fail(() => {
+			alert("Gagal menambahkan review");
+			window.location.reload();
+		});
 }
 
 const quantity = document.getElementById("quantity");

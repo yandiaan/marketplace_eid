@@ -15,8 +15,6 @@
 // 	false
 // );
 
-let token = $.cookie("sessionToken");
-
 if (token !== undefined) {
 	$("#authButtonGroup").html(profileButton());
 }

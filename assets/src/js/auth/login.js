@@ -15,7 +15,10 @@ $("#loginForm").submit((e) => {
 		url: ENDPOINT + "login",
 		data: data,
 		success: (res) => {
-			$.cookie("sessionToken", res.data.access_token, { expires: date });
+			$.cookie("sessionToken", res.data.access_token, {
+				path: "/",
+				expires: date,
+			});
 			window.location.reload();
 		},
 		dataType: "json",

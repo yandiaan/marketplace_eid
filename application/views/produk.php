@@ -260,12 +260,7 @@
         </div>
         <div class="col-7">
             <div class="position-relative review-form w-100 h-100 text-white bg-success px-5 py-3">
-                <div class="validateLoginReview bg-success w-100 h-100 position-absolute">
-                    <div class="d-flex flex-column h-100 opacity-100 align-items-center justify-content-center">
-                        <h2 class="opacity-100">Login Dulu</h2>
-                        <button class="btn btn-primary">Login</button>
-                    </div>
-                </div>
+
                 <div class="input-form">
                     <input type="hidden" name="id_produk" class="id-produk" value="">
                     <h5 class="fw-bold">Review produk ini </h5>
@@ -706,12 +701,18 @@
 <script>
 fetchDetailProduct("<?= $slug; ?>");
 
+
+
 $(".submit-review").click(() => {
-    $(".submit-review").prop("disabled", true);
-    $(".text-submit").html(
-        `<span class="spinner-border spinner-border-sm" role="status"></span>  Loading...`
-    );
-    addReview($(".id-produk").val());
-    updateReviewData("<?= $slug; ?>");
+    if (!token) {
+        $("#modalLogin").modal("show");
+    } else {
+        $(".submit-review").prop("disabled", true);
+        $(".text-submit").html(
+            `<span class="spinner-border spinner-border-sm" role="status"></span>  Loading...`
+        );
+        addReview($(".id-produk").val());
+        updateReviewData("<?= $slug; ?>");
+    }
 });
 </script>
