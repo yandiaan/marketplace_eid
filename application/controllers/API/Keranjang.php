@@ -211,14 +211,20 @@ class Keranjang extends RestController
             ], 422);
         }else{
               $this->db->set('is_checked',(int)$checked)->where('id_keranjang',$id_keranjang)->update('keranjang');
-
-              $this->response([
-                'meta' => [
-                    'code'      => 200,
-                    'status'    => 'success',
-                    'message'   => 'Berhasil memberi checklist pada keranjang'
-                ],
-            ], 200);
+              if($this->db->affected_rows() > 1){
+                  $this->response([
+                      'meta' => [
+                          'code'      => 200,
+                          'status'    => 'success',
+                          'message'   => 'Berhasil memberi checklist pada keranjang'
+                        ],
+                    ], 200);
+                }else {
+                    $this->response([
+                'message' => 'Data yang anda input tidak valid !',
+                'errors'  => 'id keranjang tidak ditemukan'
+            ], 422);
+                }
         }
 
 
