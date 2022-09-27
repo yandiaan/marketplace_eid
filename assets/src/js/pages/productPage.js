@@ -76,8 +76,46 @@ function fetchDetailProduct(slug) {
 	});
 }
 
+function updateReviewData(slug) {
+	$.ajax({
+		url: ENDPOINT + "produk?browse=" + slug,
+		type: "GET",
+		dataType: "json",
+		success: function (res) {
+			$(".user-review").empty();
+			let { reviews } = res.data[0];
+
+			$.each(reviews, (i, val) => {
+				$(".user-review").append(`<div class="row">
+											<div class="col-1 avatar">
+												<img src="${BASE_URL}/assets/img/Avatar.png";" alt="avatar" class="mx-auto w-100">
+											</div>
+											<div class="col-9 align-self-center">
+												<span>${val.nama_pengguna}</span>
+												<div class="star-form text-warning">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa-regular fa-star"></i>
+												</div>
+												<span class="text-secondary">
+													22 Februari 2022 09:45
+												</span>
+												<p class="text-right text-justify mt-3">
+													${val.pesan}
+												</p>
+											</div>
+										</div>`);
+			});
+		},
+		error: function () {
+			window.location.href = BASE_URL;
+		},
+	});
+}
+
 function addReview(id) {
-	let token = $.cookie("sessionToken");
 	let form = new FormData();
 	form.append("id_produk", id);
 	form.append("pesan", $(".input-review").val());
@@ -96,9 +134,16 @@ function addReview(id) {
 		data: form,
 	};
 
-	$.ajax(settings).done(function () {
-		window.location.reload;
-	});
+	$.ajax(settings)
+		.done(function () {
+			alert("Berhasil Kirim Review");
+			$(".submit-review").prop("disabled", false);
+			$(".text-submit").html(`Kirim Ulasan`);
+		})
+		.fail(() => {
+			alert("Gagal menambahkan review");
+			window.location.reload();
+		});
 }
 
 const quantity = document.getElementById("quantity");

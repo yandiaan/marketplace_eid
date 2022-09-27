@@ -15,8 +15,17 @@
 // 	false
 // );
 
-let token = $.cookie("sessionToken");
-
 if (token !== undefined) {
-	$("#authButtonGroup").html(profileButton());
+	$("#authButtonGroup").html(
+		`<a href='${
+			BASE_URL + "/profile"
+		}' class='btn-cart'><i class='fa fa-user'></i></a>` +
+			`<a href='${BASE_URL}' class='btn-cart logout'><i class='fa fa-right-from-bracket'></i></a>`
+	);
 }
+
+$(".logout").click((e) => {
+	e.preventDefault();
+	$.removeCookie("sessionToken", { path: "/" });
+	window.location.reload();
+});

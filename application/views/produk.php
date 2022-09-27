@@ -258,21 +258,27 @@
 
             </div>
         </div>
-        <div class="col-7 position-relative">
-            <div class="review-form w-100 h-100 text-white bg-success px-5 py-3">
-                <input type="hidden" name="id_produk" class="id-produk" value="">
-                <h5 class="fw-bold">Review produk ini </h5>
-                <div class="star-form text-warning my-3">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
-                    rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
-                <div class="w-100 d-flex mt-4">
-                    <button class="btn btn-primary ms-auto submit-review">Kirim Ulasan</button>
+        <div class="col-7">
+            <div class="position-relative review-form w-100 h-100 text-white bg-success px-5 py-3">
+
+                <div class="input-form">
+                    <input type="hidden" name="id_produk" class="id-produk" value="">
+                    <h5 class="fw-bold">Review produk ini </h5>
+                    <div class="star-form text-warning my-3">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
+                        rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
+                    <div class="w-100 d-flex mt-4">
+                        <button class="btn btn-primary ms-auto submit-review">
+                            <span class="text-submit">
+                                Kirim Ulasan</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -694,9 +700,24 @@
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");
-</script>
-<script>
+
+
+
 $(".submit-review").click(() => {
+<<<<<<< HEAD
     addReview($('.id-produk').val())
 })
+=======
+    if (!token) {
+        $("#modalLogin").modal("show");
+    } else {
+        $(".submit-review").prop("disabled", true);
+        $(".text-submit").html(
+            `<span class="spinner-border spinner-border-sm" role="status"></span>  Loading...`
+        );
+        addReview($(".id-produk").val());
+        updateReviewData("<?= $slug; ?>");
+    }
+});
+>>>>>>> 33f7e4a4fce5318d201bfd52dd8ce952123f099f
 </script>
