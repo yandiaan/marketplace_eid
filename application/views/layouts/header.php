@@ -58,8 +58,5 @@
 </nav>
 
 <script>
-function profileButton() {
-    return "<a href='<?= base_url('profile'); ?>' class='btn-cart'><i class='fa fa-user'></i></a>";
-}
 </script>
 <script src="<?= base_url("assets/src/js/auth/header.js"); ?>"></script>
