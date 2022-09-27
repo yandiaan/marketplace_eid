@@ -1,4 +1,4 @@
-const ENDPOINT = "http://localhost/marketplace_eid/api/register";
+const ENDPOINT = "/api/register";
 
 $("#registerForm").submit((e) => {
 	e.preventDefault();
@@ -18,7 +18,7 @@ $("#registerForm").submit((e) => {
 		data: data,
 		success: (res) => {
 			alert("Berhasil Mendaftar Akun!!!");
-			window.location.href = "http://localhost/marketplace_eid/";
+			window.location.href = "/";
 			$("#modalLogin").modal("show");
 		},
 		dataType: "json",
