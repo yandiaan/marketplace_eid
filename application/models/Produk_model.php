@@ -33,6 +33,9 @@ class Produk_model extends CI_Model
         $data = $produk->get()->result_array();
         
         if(count($data) > 0) {
+            $data[0]['variasi'] = $this->db->select('id_produk,model_variasi,harga')->get_where('variasi', ['id_produk' => $data[0]['id_produk']])->result_array();
+        }
+        if(count($data) > 0) {
             $data[0]['images'] = $this->db->get_where('galeri_produk', ['id_produk' => $data[0]['id_produk']])->result_array();
         }
         if(count($data) > 0) {

@@ -17,6 +17,7 @@
                 <th>Berat</th>
                 <th>Lebar</th>
                 <th>Tinggi</th>
+                <th>Variasi</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -55,9 +56,15 @@
                     <td>
                         <?php echo $product['tinggi'] ?>
                     </td>
+                    <td><?php if ($product['is_variation'] != 1) { ?>
+                            <a href="<?= site_url('API/Admin/D_produk/variasi/' . $product['id_produk']) ?>" class="btn btn-small text-success"><i class="fas fa-edit"></i>Add</a>
+                        <?php } else {
+                            echo $product['is_variation'];
+                        } ?>
+                    </td>
                     <td class="text-center">
-                        <a onclick="edit(<?= $product['id_produk'] ?>)" href="#" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
-                        <a onclick="deleteConfirm('<?php echo site_url('API/Admin/product/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        <a href="<?= site_url('API/Admin/D_produk/edit/' . $product['id_produk']) ?>" class="btn btn-small text-warning" id="update"><i class="fas fa-edit"></i> Edit</a>
+                        <a onclick="deleteConfirm('<?php echo site_url('API/Admin/D_produk/delete/' . $product['id_produk']) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 
                     </td>
                 </tr>
@@ -76,9 +83,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-<<<<<<<<< Temporary merge branch 1
-<<<<<<< HEAD
-            <form action="<?php echo base_url('API/Admin/product/add') ?>" method="POST">
+            <form action="<?php echo base_url('API/Admin/D_Produk/add') ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Produk</label>
@@ -146,6 +151,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Modal update-->
 <div class="modal fade" id="modal-update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -219,6 +225,8 @@
     </div>
 </div>
 
+=======
+>>>>>>> ee4c4f31e097ddec9fb6b6de26ba7915eb38e795
 <!-- Logout Delete Confirmation-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -242,33 +250,5 @@
     function deleteConfirm(url) {
         $('#btn-delete').attr('href', url);
         $('#deleteModal').modal('show');
-    }
-
-    function edit(id) {
-        $.ajax({
-            type: 'ajax',
-            method: 'POST',
-            url: base_url + 'API/Admin/D_produk/edit',
-            data: {
-                id: id
-            },
-            dataType: 'json',
-            success: function(response) {
-                console.log(response);
-                $('#id_produk').val(response.id_produk);
-                $('#nama_produk').val(response.nama_produk);
-                $('#deskripsi').val(response.deskripsi);
-                $('#spesifikasi').val(response.spesifikasi);
-                $('#brand').val(response.brand);
-                $('#harga').val(response.harga);
-                $('#berat').val(response.berat);
-                $('#lebar').val(response.lebar);
-                $('#tinggi').val(response.tinggi);
-                $('#modal-update').modal('show');
-            },
-            error: function(xmlresponse) {
-                console.log(xmlresponse);
-            }
-        });
     }
 </script>

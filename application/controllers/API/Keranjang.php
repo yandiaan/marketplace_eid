@@ -24,7 +24,7 @@ class Keranjang extends RestController
 
     public function get_item_get()
     {
-        $id_pengguna = $this->token_session->id_pengguna;
+         $id_pengguna = $this->token_session->id_pengguna;
 
         $result = $this->cart->get_item($id_pengguna);
 
@@ -195,5 +195,38 @@ class Keranjang extends RestController
                 ]
             ], 400);
         }
+    }
+
+    public function checked_cart_post() {
+        $id_keranjang = $this->input->post('id_keranjang');
+        $checked = $this->input->post('checked');
+
+        $this->form_validation->set_rules('id_keranjang', 'Keranjang', 'required|trim');
+        $this->form_validation->set_rules('checked', 'Checked', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->response([
+                'message' => 'Data yang anda input tidak valid !',
+                'errors'  => $this->form_validation->error_array(),
+            ], 422);
+        }else{
+              $this->db->set('is_checked',(int)$checked)->where('id_keranjang',$id_keranjang)->update('keranjang');
+              if($this->db->affected_rows() > 1){
+                  $this->response([
+                      'meta' => [
+                          'code'      => 200,
+                          'status'    => 'success',
+                          'message'   => 'Berhasil memberi checklist pada keranjang'
+                        ],
+                    ], 200);
+                }else {
+                    $this->response([
+                'message' => 'Data yang anda input tidak valid !',
+                'errors'  => 'id keranjang tidak ditemukan'
+            ], 404);
+                }
+        }
+
+
     }
 }

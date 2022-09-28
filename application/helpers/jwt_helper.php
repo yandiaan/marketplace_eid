@@ -7,6 +7,7 @@ function decode_jwt($header)
 {
     $key = getenv('JWT_SECRET_KEY');
     $token = explode(' ', $header)[1];
+    JWT::$leeway = 60;
     $decoded = JWT::decode($token, new Key($key, 'HS256'));
 
     return $decoded;

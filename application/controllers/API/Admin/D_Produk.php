@@ -19,6 +19,13 @@ class D_produk extends CI_Controller
         $this->load->view('admin/layouts/app', $data);
     }
 
+    public function index_variasi()
+    {
+        $data = ['content' => 'admin/variasi'];
+        $data["variasi"] = $this->produk->getAllVariasi();
+        $this->load->view('admin/layouts/app', $data);
+    }
+
     public function getSelectKategori($kategori = null)
     {
         $return = '<option value="">Pilih Kategori</option>';
@@ -30,6 +37,7 @@ class D_produk extends CI_Controller
         }
         return $return;
     }
+
 
     public function add()
     {
@@ -50,46 +58,51 @@ class D_produk extends CI_Controller
         redirect('/admin');
     }
 
-    public function edit()
+    public function add_variasi()
     {
-        $get = $this->input->post('id');
-        $data = $this->produk->getprodukbyid($get);
+        $data = array(
+            'id_produk' => $this->input->post('id_produk'),
+            'model_variasi' => $this->input->post('model'),
+            'harga' => $this->input->post('harga')
+        );
 
-        $setparent = $this->_getParent_kategori($data['id_produk_kategori']);
-        $data['kategori_name'] = $setparent;
-
-        echo json_encode($data);
+        $product = $this->produk->save_variasi($data);
+        redirect('/variasi');
     }
 
-    public function _getParent_kategori($id_kategori)
+    public function edit($id)
     {
+        $data = $this->produk->getprodukbyid($id);
+        $view = ['content' => 'admin/E_Produk'];
+        $view['cats'] = $this->db->get('produk_kategori')->result();
+        $view['data'] = $data;
+        $this->load->view('admin/layouts/app', $view);
+    }
 
-        $return = '';
-        $get = $this->produk->get_editkategori($id_kategori);
+    public function variasi($id)
+    {
+        $data = $this->produk->getprodukbyid($id);
 
-        if (!empty($get)) {
-            foreach ($get as $rows) {
-                $return .= '<option value="' . $rows['id_produk_kategori'] . '" ' . ($rows['id'] == $id_parent ? 'selected' : '') . '>' . $rows['text'] . '</option>';
-            }
-        }
-
-        return $return;
+        $view = ['content' => 'admin/E_Variasi'];
+        $view['data'] = $data;
+        $this->load->view('admin/layouts/app', $view);
     }
 
     public function update()
     {
         $data = array(
-            'nama_produk' => $this->input->post('nama_produkU'),
-            'deskripsi' => $this->input->post('deskripsiU'),
-            // 'spesifikasi' => $this->input->post('spesifikasi'),
-            'brand' => $this->input->post('brandU'),
-            'harga' => $this->input->post('hargaU'),
-            'berat' => $this->input->post('beratU'),
-            'lebar' => $this->input->post('lebarU'),
-            'tinggi' => $this->input->post('tinggiU'),
+            'nama_produk' => $this->input->post('nama_produk'),
+            'id_produk_kategori' => $this->input->post('input_kategori'),
+            'deskripsi' => $this->input->post('deskripsi'),
+            'spesifikasi' => $this->input->post('spesifikasi'),
+            'brand' => $this->input->post('brand'),
+            'harga' => $this->input->post('harga'),
+            'berat' => $this->input->post('berat'),
+            'lebar' => $this->input->post('lebar'),
+            'tinggi' => $this->input->post('tinggi'),
         );
 
-        $id_produk = $this->input->post('id_produkU');
+        $id_produk = $this->input->post('id_produk');
 
         $product = $this->produk->save_update($data, $id_produk);
 
@@ -100,6 +113,13 @@ class D_produk extends CI_Controller
     {
         if ($this->produk->delete($id_produk)) {
             redirect('/admin');
+        }
+    }
+
+    public function delete_variasi($id_variasi = null)
+    {
+        if ($this->produk->delete_variasi($id_variasi)) {
+            redirect('/variasi');
         }
     }
 }

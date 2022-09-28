@@ -11,10 +11,11 @@ $route['register']              = 'Auth/register';
 $route['register/action']       = 'Auth/register/register_action';
 
 //admin
-$route['admin']                 = 'api/admin/D_produk/index';
-$route['upload']                = 'api/admin/upload_file/index';
-$route['galeri']                = 'api/admin/upload_file/galeri_index';
-$route['kategori']              = 'api/admin/kategori/index';
+$route['admin']                 = 'API/Admin/D_Produk/index';
+$route['variasi']               = 'API/Admin/D_Produk/index_variasi';
+$route['upload']                = 'API/Admin/Upload_file/index';
+$route['galeri']                = 'API/Admin/Upload_file/galeri_index';
+$route['kategori']              = 'API/Admin/kategori/index';
 
 
 // Produk route
@@ -60,6 +61,8 @@ $route['api/keranjang/add_item']        = 'API/keranjang/add_item';
 $route['api/keranjang/update_quantity'] = 'API/keranjang/update_quantity';
 $route['api/keranjang/delete_item']     = 'API/keranjang/delete_item';
 $route['api/keranjang/empty_cart']      = 'API/keranjang/empty_cart';
+$route['api/keranjang/checked_cart']      = 'API/keranjang/checked_cart';
+
 
 
 $route['api/review'] = 'API/review/add';
