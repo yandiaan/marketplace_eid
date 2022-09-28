@@ -197,36 +197,95 @@ class Keranjang extends RestController
         }
     }
 
-    public function checked_cart_post() {
-        $id_keranjang = $this->input->post('id_keranjang');
-        $checked = $this->input->post('checked');
+    public function check_item_post()
+    {
+        // Call cart is checked rules from model
+        $rules = $this->cart->rules('check_item');
 
-        $this->form_validation->set_rules('id_keranjang', 'Keranjang', 'required|trim');
-        $this->form_validation->set_rules('checked', 'Checked', 'required|trim');
+        // Set the rules
+        $this->form_validation->set_rules($rules);
 
         if ($this->form_validation->run() == false) {
+
             $this->response([
                 'message' => 'Data yang anda input tidak valid !',
                 'errors'  => $this->form_validation->error_array(),
             ], 422);
-        }else{
-              $this->db->set('is_checked',(int)$checked)->where('id_keranjang',$id_keranjang)->update('keranjang');
-              if($this->db->affected_rows() > 1){
-                  $this->response([
-                      'meta' => [
-                          'code'      => 200,
-                          'status'    => 'success',
-                          'message'   => 'Berhasil memberi checklist pada keranjang'
-                        ],
-                    ], 200);
-                }else {
-                    $this->response([
-                'message' => 'Data yang anda input tidak valid !',
-                'errors'  => 'id keranjang tidak ditemukan'
-            ], 404);
-                }
+
+        } else {
+
+            $post = $this->input->post();
+
+            $where = [
+                'id_pengguna'   => $this->token_session->id_pengguna,
+                'id_keranjang'  => $post['id_keranjang'],
+            ];
+
+            $data['is_checked'] = (int)$post['is_checked'];
+
+            $query = $this->cart->check_item($data, $where);
+
+            if($query){
+                $this->response([
+                    'meta' => [
+                        'code'      => 200,
+                        'status'    => 'success',
+                        'message'   => 'Berhasil memberi checklist pada keranjang'
+                    ],
+                ], 200);
+            } else {
+                $this->response([
+                    'message' => 'Data yang anda input tidak valid !',
+                    'errors'  => 'id keranjang tidak ditemukan'
+                ], 404);
+            }
+
         }
+    }
 
+    public function check_all_item_post()
+    {
+        // Call cart is checked rules from model
+        $rules = $this->cart->rules('check_all_item');
 
+        // Set the rules
+        $this->form_validation->set_rules($rules);
+
+        if ($this->form_validation->run() == false) {
+
+            $this->response([
+                'message' => 'Data yang anda input tidak valid !',
+                'errors'  => $this->form_validation->error_array(),
+            ], 422);
+
+        } else {
+
+            $post = $this->input->post();
+
+            $where = [
+                'id_pengguna'   => $this->token_session->id_pengguna,
+                'id_suplier'    => $post['id_suplier']
+            ];
+
+            $data['is_checked'] = (int)$post['is_checked'];
+
+            $query = $this->cart->check_all_item($data, $where);
+
+            if($query){
+                $this->response([
+                    'meta' => [
+                        'code'      => 200,
+                        'status'    => 'success',
+                        'message'   => 'Berhasil memberi checklist pada keranjang'
+                    ],
+                ], 200);
+            } else {
+                $this->response([
+                    'message' => 'Data yang anda input tidak valid !',
+                    'errors'  => 'id keranjang tidak ditemukan'
+                ], 404);
+            }
+
+        }
     }
 }
