@@ -16,7 +16,7 @@ class Keranjang extends RestController
         try {
             $this->token_session = decode_jwt($header);
         } catch (\Throwable $th) {
-            return $this->response(['message' => 'Invalid Token'], 404);
+            return $this->response(['message' => 'Invalid Token'], 401);
         }
         
         $this->load->model('Keranjang_model', 'cart');

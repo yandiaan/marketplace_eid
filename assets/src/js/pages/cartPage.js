@@ -152,6 +152,7 @@ const updateQuantity = (id_produk, metode) => {
     });
 
     ajax.fail((res, status, err) => {
+        console.log(res);
         alert(err);
     });
 }
