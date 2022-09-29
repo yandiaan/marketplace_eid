@@ -696,7 +696,7 @@
     </div>
 </div>
 
-<script src="<?= base_url("assets/src/js/pages/ProductPage.js"); ?>"></script>
+<script src="<?= base_url("assets/src/js/pages/productPage.js"); ?>"></script>
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");

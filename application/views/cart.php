@@ -10,7 +10,45 @@
         </div>
     </section>
     <section class="mt-4">
-        <div class="row justify-content-between">
+        <div id="cart-placeholder" class="row justify-content-between">
+            <p class="card-text placeholder-glow col-8">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+                <br><br>
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+            </p>
+            <p class="card-text placeholder-glow col-4">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+                <br><br>
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+            </p>
+        </div>
+        <div id="cart-content" class="row justify-content-between" style="display:none">
             <div id="suplier-list" class="col-8"></div>
             <div class="col-4">
                 <div class="card">
@@ -27,7 +65,7 @@
                             <small id="total-diskon" class="text-primary fw-bold">Rp. 0</small>
                         </div>
                         <div class="confirm text-center w-100">
-                            <button style="font-size:14px" class="btn btn-primary rounded-pill fw-bold mt-3">Buat Pesanan</button>
+                            <button style="font-size:14px" class="btn btn-primary rounded-pill fw-bold mt-3 checkout">Buat Pesanan</button>
                         </div>
                     </div>
                 </div>
