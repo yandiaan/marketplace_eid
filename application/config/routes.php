@@ -65,5 +65,9 @@ $route['api/keranjang/check_item']      = 'API/keranjang/check_item';
 $route['api/keranjang/check_all_item']  = 'API/keranjang/check_all_item';
 
 
-
+// API Review
 $route['api/review'] = 'API/review/add';
+
+// API checkout
+$route['api/transaksi'] = 'API/transaksi/checkout';
+
