@@ -110,7 +110,7 @@ class Keranjang extends RestController
             $where = [
                 'id_pengguna'   => $this->token_session->id_pengguna,
                 'id_produk'     => $post['id_produk'],
-                'id_variasi'    => $post['id_variasi'] ?? null
+                'id_variasi'    => ($post['id_variasi'] == '0') ? null : $post['id_variasi']
             ];
 
             $data = [
