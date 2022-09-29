@@ -34,7 +34,7 @@ const loadItems = (method) => {
                                     ${value['nama_toko']}
                                 </div>
                                 <div>
-                                    <small class="text-danger">Hapus</small>
+                                    <small id="delete-suplier-${value['id_suplier']}" role="button" class="text-danger" onclick="deleteCheckedItems(${value['id_suplier']})">Hapus</small>
                                 </div>
                             </th>
                         </tr>
@@ -181,6 +181,25 @@ const deleteItems = (id_keranjang) => {
     }
 }
 
+// Delete item
+const deleteCheckedItems = (id_suplier) => {
+    if(confirm('Apakah anda yakin menghapus item yang dipilih pada keranjang?') == true) {
+        let ajax = $.ajax({
+            url     : `${ENDPOINT}keranjang/delete_checked_item`,
+            method  : "POST",
+            data    : { id_suplier: id_suplier },
+        });
+
+        ajax.done((res) => {
+            loadItems();
+        });
+    
+        ajax.fail((res, status, err) => {
+            alert(err);
+        });
+    }
+}
+
 const checkItem = (id_keranjang, is_checked) => {
     let ajax = $.ajax({
         url     : `${ENDPOINT}keranjang/check_item`,
@@ -233,11 +252,14 @@ const checkboxItemStatus = (data, method) => {
         let checkbox = $(`#suplier-item-${value['id_suplier']}`).find('input[type="checkbox"]');
         let checkedBox = checkbox.filter(':checked').length;
         let suplierCheckbox = $(`#suplier-checkbox-${value['id_suplier']}`).find('input[type="checkbox"]');
+        let deleteBtn = $(`#delete-suplier-${value['id_suplier']}`);
     
         if(checkedBox < 1) {
             suplierCheckbox.prop('checked', false);
+            deleteBtn.hide();
         } else {
             suplierCheckbox.prop('checked', true);
+            deleteBtn.show();
         }
 
     });

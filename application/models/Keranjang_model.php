@@ -175,6 +175,20 @@ class Keranjang_model extends CI_Model
         return $this->db->affected_rows() < 1 ? false : true;
     }
 
+    public function delete_checked_item($id_pengguna, $id_suplier)
+    {
+        // get data produk by suplier
+        $produk = $this->db->get_where('produk', ['id_suplier' => $id_suplier])->result_array();
+
+        foreach($produk as $key => $value) {
+            $id_produk[] = $value['id_produk'];
+        }
+
+        $this->db->where('id_pengguna', $id_pengguna)
+             ->where('is_checked', '1')->where_in('id_produk', $id_produk)->delete('keranjang');
+        return $this->db->affected_rows() < 1 ? false : true;
+    }
+
     public function empty_cart($id_pengguna)
     {
         $this->db->delete('keranjang', ['id_pengguna' => $id_pengguna]);
