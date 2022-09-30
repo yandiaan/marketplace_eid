@@ -7,12 +7,17 @@ class Cart extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('cookie');
-        checkAuth();
+        $this->userdata = checkAuth();
+        $this->load->model('Keranjang_model', 'cart');
     }
 
     public function index()
     {
-        $data = ['content' => 'cart'];
+        $data = [
+            'content' => 'cart',
+            'cart' => $this->cart->get_item($this->userdata->id_pengguna),
+        ];
+
         $this->load->view('layouts/app', $data);
     }
 

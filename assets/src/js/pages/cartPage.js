@@ -48,7 +48,7 @@ const loadItems = (method) => {
                 let checkedVal = (value['is_checked'] == '1') ? '0' : '1';
                 let variasi    = (value['variasi'] == null) ? '' : `<small class="text-muted">${value['variasi']['model']}</small><br>`;
 
-                $(`#suplier-item-${value['id_suplier']}`).append(`<tr id="${value['id_produk']}">0
+                $(`#suplier-item-${value['id_suplier']}`).append(`<tr id="${value['id_produk']}">
                     <td class="px-4 py-3">
                         <div class="row align-items-center">
                             <div id="item-checkbox-${value['id_keranjang']}" class="col-1">
@@ -85,7 +85,7 @@ const loadItems = (method) => {
     });
 
     ajax.fail((res, status, err) => {
-        alert(err); 
+        failToast(err); 
     });
 
     ajax.always(() => {
@@ -155,8 +155,7 @@ const updateQuantity = (id_produk, id_variasi, metode) => {
     });
 
     ajax.fail((res, status, err) => {
-        console.log(res);
-        alert(err);
+        failToast(err); 
     });
 }
 
@@ -176,7 +175,7 @@ const deleteItems = (id_keranjang) => {
         });
     
         ajax.fail((res, status, err) => {
-            alert(err);
+            failToast(err); 
         });
     }
 }
@@ -195,7 +194,7 @@ const deleteCheckedItems = (id_suplier) => {
         });
     
         ajax.fail((res, status, err) => {
-            alert(err);
+            failToast(err); 
         });
     }
 }
@@ -212,7 +211,7 @@ const checkItem = (id_keranjang, is_checked) => {
     });
 
     ajax.fail((res, status, err) => {
-        alert(err);
+        failToast(err); 
     });
 }
 
@@ -229,7 +228,7 @@ const checkAllItemsBySuplier = (id_suplier) => {
     });
 
     ajax.fail((res, status, err) => {
-        alert(err);
+        failToast(err); 
     });
 }
 

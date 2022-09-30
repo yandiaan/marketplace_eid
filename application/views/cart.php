@@ -10,43 +10,75 @@
         </div>
     </section>
     <section class="mt-4">
-        <div id="cart-placeholder" class="row justify-content-between">
-            <p class="card-text placeholder-glow col-8">
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-                <br><br>
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-            </p>
-            <p class="card-text placeholder-glow col-4">
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-                <br><br>
-                <span class="placeholder col-7"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-4"></span>
-                <span class="placeholder col-6"></span>
-                <span class="placeholder col-8"></span>
-            </p>
+        <div id="cart-placeholder" class="row justify-content-between">            
+            <div class="col-8">
+                <?php foreach($cart['suplier'] as $suplier): ?>
+                <table class="table table-bordered align-middle">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-4">
+                                <div class="row card-text placeholder-glow justify-content-between">
+                                    <div class="col-9">
+                                        <span class="placeholder col-1"></span>
+                                        <span class="placeholder col-9"></span>
+                                    </div>
+                                    <div class="col-3 text-end">
+                                        <span class="placeholder col-4"></span>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($cart['items'] as $items): ?>
+                        <?php if($items['id_suplier'] == $suplier['id_suplier']) { ?>
+                        <tr>
+                            <td class="px-4 py-3">
+                                <div class="row align-items-center card-text placeholder-glow">
+                                    <div class="col-1">
+                                        <a href="#" tabindex="-1" class="btn btn-sm btn-secondary disabled placeholder"></a>
+                                    </div>
+                                    <div class="col-2">
+                                        <span style="padding: 40px" class="placeholder col-12"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span class="placeholder col-7"></span>
+                                        <span class="placeholder col-4"></span>
+                                        <span class="placeholder col-4"></span>
+                                        <span class="placeholder col-6"></span>
+                                        <span class="placeholder col-8"></span>
+                                    </div>
+                                    <div class="col-3 d-flex justify-content-end">
+                                        <a href="#" tabindex="-1" class="btn btn-sm btn-secondary me-4 disabled placeholder col-3"></a>
+                                        <a href="#" tabindex="-1" class="btn btn-sm btn-secondary disabled placeholder col-6"></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <?php endforeach; ?>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header text-white bg-primary-eid text-center">
+                        <h5 class="fw-bold my-2">Rincian Belanja</h5>
+                    </div>
+                    <div class="card-body card-text placeholder-glow">
+                        <div class="py-3">
+                            <span class="placeholder col-10"></span>
+                        </div>
+                        <div class="border-bottom pb-3">
+                            <span class="placeholder col-9"></span>
+                        </div>
+                        <div class="confirm text-center w-100">
+                            <a href="#" tabindex="-1" class="mt-3 btn btn-sm btn-secondary rounded-pill disabled placeholder col-4"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="cart-content" class="row justify-content-between" style="display:none">
             <div id="suplier-list" class="col-8"></div>
