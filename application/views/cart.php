@@ -12,7 +12,6 @@
     <section class="mt-4">
         <div id="cart-placeholder" class="row justify-content-between">            
             <div class="col-8">
-                <?php foreach($cart['suplier'] as $suplier): ?>
                 <table class="table table-bordered align-middle">
                     <thead>
                         <tr>
@@ -30,8 +29,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($cart['items'] as $items): ?>
-                        <?php if($items['id_suplier'] == $suplier['id_suplier']) { ?>
                         <tr>
                             <td class="px-4 py-3">
                                 <div class="row align-items-center card-text placeholder-glow">
@@ -55,11 +52,50 @@
                                 </div>
                             </td>
                         </tr>
-                        <?php } ?>
-                        <?php endforeach; ?>
                     </tbody>
                 </table>
-                <?php endforeach; ?>
+                <table class="table table-bordered align-middle">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-4">
+                                <div class="row card-text placeholder-glow justify-content-between">
+                                    <div class="col-9">
+                                        <span class="placeholder col-1"></span>
+                                        <span class="placeholder col-9"></span>
+                                    </div>
+                                    <div class="col-3 text-end">
+                                        <span class="placeholder col-4"></span>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-4 py-3">
+                                <div class="row align-items-center card-text placeholder-glow">
+                                    <div class="col-1">
+                                        <a href="#" tabindex="-1" class="btn btn-sm btn-secondary disabled placeholder"></a>
+                                    </div>
+                                    <div class="col-2">
+                                        <span style="padding: 40px" class="placeholder col-12"></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span class="placeholder col-7"></span>
+                                        <span class="placeholder col-4"></span>
+                                        <span class="placeholder col-4"></span>
+                                        <span class="placeholder col-6"></span>
+                                        <span class="placeholder col-8"></span>
+                                    </div>
+                                    <div class="col-3 d-flex justify-content-end">
+                                        <a href="#" tabindex="-1" class="btn btn-sm btn-secondary me-4 disabled placeholder col-3"></a>
+                                        <a href="#" tabindex="-1" class="btn btn-sm btn-secondary disabled placeholder col-6"></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="col-4">
                 <div class="card">
