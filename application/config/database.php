@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'marketplace-eid',
+	'hostname' => 'database',
+	'username' => 'marketplace_eid',
+	'password' => 'marketplace_eid',
+	'database' => 'marketplace_eid',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
