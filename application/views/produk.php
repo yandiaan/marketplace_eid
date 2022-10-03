@@ -1,26 +1,30 @@
+<!-- <style>
+body {
+    background: #f1f1f1;
+}
+</style> -->
+
 <link rel="stylesheet" href="https://unpkg.com/xzoom/dist/xzoom.css">
 <script src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
+
 <div class="container">
-    <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" class="nav-link">Home
-                </a></li>
-            <li class="breadcrumb-item active fw-bold" aria-current="page">Product</li>
+    <nav class="border-bottom" aria-label="breadcrumb">
+        <ol style="font-size: 14px" class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" class="nav-link">Home</a></li>
+            <li id="breadcrumb-kategori" class="breadcrumb-item"></li>
+            <li id="breadcrumb-produk" class="breadcrumb-item active fw-bold" aria-current="page"></li>
         </ol>
     </nav>
-    <div class="row justify-content-between">
-        <div class="col-6 row d-flex flex-row-reverse justify-content-center align-items-center">
-            <div class="col-9 xzoom-main">
+    <div class="row justify-content-between pt-4">
+        <div class="col-5 flex-row-reverse justify-content-center">
+            <div class="xzoom-main">
                 <img src="" class="xzoom shadow-none rounded" xoriginal="" width="100%" class="img-fluid w-100"
                     alt="image">
             </div>
-            <div class="xzoom-thumbs d-flex flex-column col-2 me-3">
-
-            </div>
-
+            <div class="xzoom-thumbs d-flex align-items-center mt-3"></div>
         </div>
-        <div class="col-6">
-            <h3 class="fw-bolder" id="nama_produk"></h3>
+        <div class="col-7">
+            <h4 class="fw-bolder" id="nama_produk"></h4>
             <div class="info-group">
                 <small class="sales-counter fw-bold me-3 text-secondary">Terjual 32</small>
                 <div class="rating d-inline fs-6 fw-bold border-start border-1 border-dark ps-3" data-value="3.5">
@@ -37,51 +41,37 @@
             </div>
             <div class="price">
                 <div>
-                    <h1 class="text-success fw-bold d-inline" id="harga"></h1>
+                    <h2 class="text-success fw-bold d-inline" id="harga"></h2>
                     <small>/ Unit</small>
                 </div>
             </div>
             <div class="variant row">
-                <div class="col-4">
-                    <h6 class="fw-bold">Warna</h6>
-                </div>
-                <div class="col-8">
-                    <h6 class="fw-light">Pilih Warna</h6>
-                    <input type="radio" name="color" id="red" value="red" />
-                    <label for="red"><span class="red"></span></label>
-
-                    <input type="radio" name="color" id="green" />
-                    <label for="green"><span class="green"></span></label>
-
-                    <input type="radio" name="color" id="yellow" />
-                    <label for="yellow"><span class="yellow"></span></label>
-                </div>
-            </div>
-            <div class="variant row">
-                <div class="col-4">
+                <div class="col-3">
                     <h6 class="fw-bold">Versi</h6>
                 </div>
-                <div class="col-8">
-                    <h6 class="fw-light">Pilih versi</h6>
-                    <button class="btn btn-outline-secondary versi">CEAS5312-1000422CO</button>
-                    <button class="btn btn-outline-secondary mt-2 versi">CHA01120-1CACTP07B</button>
-                </div>
+                <div id="versi" class="col-9"></div>
             </div>
             <div class="variant row">
-                <div class="col-4">
-
+                <div class="col-3">
                     <h6 class="fw-bold">Kuantitas</h6>
                 </div>
-                <div class="col-8 quantity">
+                <div class="col-9 d-flex align-items-center quantity">
                     <button disabled class="btn btn-secondary rounded-circle" id="decrement">-</button>
-                    <span class="mx-2" id="quantity">1</span>
+                    <span class="mx-3" id="quantity">1</span>
                     <button class="btn btn-secondary rounded-circle" id="increment">+</button>
                 </div>
             </div>
-            <div class="confirm row justify-content-start mt-4">
-                <div class="col-4"><button class="w-100 btn btn-primary">Beli Sekarang</button></div>
-                <div class="col-6"><button class="w-100 btn btn-outline-primary">Masukkan Keranjang</button></div>
+            <div class="confirm d-flex justify-content-between mt-4">
+                <div>
+                    <button class="btn btn-primary me-2">Beli Sekarang</button>
+                    <button class="btn btn-outline-primary">Masukkan Keranjang</button>
+                </div>
+
+                <button style="font-size:14px" class="btn text-success"><i class="fas fa-fw fa-share"></i> Bagikan</button>
             </div>
+
+            <hr>
+
             <div class="row justify-content-space-between mt-2">
                 <div class="col">
                     <img src="<?= base_url("assets/icon/ship.png"); ?>" alt="shipping">
@@ -91,36 +81,29 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-between">
-        <div class="card card-supplier col-8 mt-4">
-            <div class="row align-items-center">
-                <div class="col-2">
-                    <img src="<?= base_url("assets/icon/Dummy-Supplier.png"); ?>" alt="Supplier">
-                </div>
-                <div class="col-6">
-                    <h6 id="nama_toko" class="fw-bold fs-5"></h6>
-                    <h6><i class="fa fa-location-dot"></i> <span id="lokasi"> Jakarta Pusat | 98% Rating toko</span>
-                    </h6>
-                </div>
-                <div class="col-4">
-                    <button class="btn btn-outline-primary fs-6">
-                        Chat
-                    </button>
-                    <button class="btn btn-outline-secondary">
-                        Kunjungi Toko
-                    </button>
+    <div class="border rounded-3 mt-3 p-4">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-8">
+                <div class="d-flex align-items-center">
+                    <img src="<?= base_url("assets/icon/Dummy-Supplier.png"); ?>" alt="Supplier" class="img-thumbnail rounded-circle">
+                    <div class="ms-4">
+                        <span style="font-size: 16px" id="nama_toko" class="fw-bold"></span><br>
+                        <small class="text-muted"><i class="fa fa-sm fa-fw fa-location-dot"></i> <span id="lokasi"> Jakarta Pusat | 98% Rating toko</span></small>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-2 align-self-end">
-            <button class="btn btn-outline-primary">
-                <i class="fa fa-share"></i>
-                Share
-            </button>
+            <div class="col-4 text-end">
+                <button class="btn btn-primary me-2">
+                    <i class="fas fa-fw fa-comment-dots"></i> Chat Sekarang
+                </button>
+                <button class="btn btn-outline-primary">
+                    <i class="fas fa-fw fa-store-alt"></i> Kunjungi Toko
+                </button>
+            </div>
         </div>
     </div>
-    <div class="mt-5 accordion accordion-flush mb-5" id="accordionFlushExample">
-        <div class="accordion-item">
+    <div class="accordion accordion-flush mt-4" id="accordionFlushExample">
+        <div class="accordion-item my-2 pb-2">
             <h2 class="accordion-header" id="flush-headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -140,7 +123,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item my-2 pb-2">
             <h2 class="accordion-header" id="flush-headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -181,7 +164,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item my-2 pb-2">
             <h2 class="accordion-header" id="flush-headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -198,119 +181,111 @@
             </div>
         </div>
     </div>
-    <div class="row align-items-center">
-        <div class="col-5">
-            <h3 class="fw-semibold">Ulasan (20)</h3>
-            <div class="w-100 row align-items-center">
-                <div class="col-4 text-center py-5">
-                    <h1 class="d-inline fw-bolder">3.5</h1>
-                    <span>/ 5</span>
-                    <div class="star-group mx-1 text-warning">
-                        <i class="fa fa-star text-warning"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-stroke"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                </div>
-                <div class="rate col-8">
-                    <div class="rate-item d-flex align-items-center">
-                        <span><i class="fa fa-star text-warning me-1"></i>5</span>
-                        <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-50" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="bg-white rounded-3 mt-3 p-4">            
+        <div class="row">
+            <div class="col-5">
+                <h3 class="fw-semibold">Ulasan (20)</h3>
+                <hr>
+                <div class="w-100 row align-items-center">
+                    <div class="col-4 text-center py-5">
+                        <h1 class="d-inline fw-bolder">3.5</h1>
+                        <span>/ 5</span>
+                        <div class="star-group mx-1 text-warning">
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
                         </div>
-                        <span class="text-secondary">10</span>
                     </div>
-                    <div class="rate-item d-flex align-items-center">
-                        <span><i class="fa fa-star text-warning me-1"></i>4</span>
-                        <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-0" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="rate col-8">
+                        <div class="rate-item d-flex align-items-center">
+                            <span><i class="fa fa-star text-warning me-1"></i>5</span>
+                            <div class="progress w-75 mx-2">
+                                <div class="progress-bar bg-success w-50" role="progressbar" aria-label="Basic example"
+                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-secondary">10</span>
                         </div>
-                        <span class="text-secondary">0</span>
-                    </div>
-                    <div class="rate-item d-flex align-items-center">
-                        <span><i class="fa fa-star text-warning me-1"></i>3</span>
-                        <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-0" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="rate-item d-flex align-items-center">
+                            <span><i class="fa fa-star text-warning me-1"></i>4</span>
+                            <div class="progress w-75 mx-2">
+                                <div class="progress-bar bg-success w-0" role="progressbar" aria-label="Basic example"
+                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-secondary">0</span>
                         </div>
-                        <span class="text-secondary">0</span>
-                    </div>
-                    <div class="rate-item d-flex align-items-center">
-                        <span><i class="fa fa-star text-warning me-1"></i>2</span>
-                        <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-75" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="rate-item d-flex align-items-center">
+                            <span><i class="fa fa-star text-warning me-1"></i>3</span>
+                            <div class="progress w-75 mx-2">
+                                <div class="progress-bar bg-success w-0" role="progressbar" aria-label="Basic example"
+                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-secondary">0</span>
                         </div>
-                        <span class="text-secondary">10</span>
-                    </div>
-                    <div class="rate-item d-flex align-items-center">
-                        <span><i class="fa fa-star text-warning me-1"></i>1</span>
-                        <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-75" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="rate-item d-flex align-items-center">
+                            <span><i class="fa fa-star text-warning me-1"></i>2</span>
+                            <div class="progress w-75 mx-2">
+                                <div class="progress-bar bg-success w-75" role="progressbar" aria-label="Basic example"
+                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-secondary">10</span>
                         </div>
-                        <span class="text-secondary">10</span>
+                        <div class="rate-item d-flex align-items-center">
+                            <span><i class="fa fa-star text-warning me-1"></i>1</span>
+                            <div class="progress w-75 mx-2">
+                                <div class="progress-bar bg-success w-75" role="progressbar" aria-label="Basic example"
+                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-secondary">10</span>
+                        </div>
                     </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-7">
-            <div class="position-relative review-form w-100 h-100 text-white bg-success px-5 py-3">
-
-                <div class="input-form">
-                    <input type="hidden" name="id_produk" class="id-produk" value="">
-                    <h5 class="fw-bold">Review produk ini </h5>
-                    <div class="star-form text-warning my-3">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
-                        rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
-                    <div class="w-100 d-flex mt-4">
-                        <button class="btn btn-primary ms-auto submit-review">
-                            <span class="text-submit">
-                                Kirim Ulasan</span>
-                        </button>
-                    </div>
+    
                 </div>
             </div>
+            <div class="col-7">
+                <div class="review-form text-white bg-success p-4">
+                    <div class="input-form">
+                        <input type="hidden" name="id_produk" class="id-produk" value="">
+                        <h5 class="fw-bold">Review produk ini </h5>
+                        <div class="star-form text-warning my-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
+                            rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
+                        <div class="w-100 d-flex mt-4">
+                            <button class="btn btn-primary ms-auto submit-review">
+                                <span class="text-submit">
+                                    Kirim Ulasan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="mt-5">
-        <h6>Filter</h6>
+
+        <hr>
+
         <div class="row justify-content-between">
-            <div class="col-8">
-                <a class="btn btn-outline-primary rounded-pill mx-1">Semua</a>
-                <a class="btn btn-outline-secondary rounded-pill mx-1">5 <i class="fa fa-star text-warning"></i> </a>
-                <a class="btn btn-outline-secondary rounded-pill mx-1">4 <i class="fa fa-star text-warning"></i> </a>
-                <a class="btn btn-outline-secondary rounded-pill mx-1">3 <i class="fa fa-star text-warning"></i> </a>
-                <a class="btn btn-outline-secondary rounded-pill mx-1">2 <i class="fa fa-star text-warning"></i> </a>
-                <a class="btn btn-outline-secondary rounded-pill mx-1">1 <i class="fa fa-star text-warning"></i> </a>
-                <p class="mt-3">
-                    <a class="btn btn-outline-secondary rounded-pill mx-1">Dengan Media</a>
-                    <a class="btn btn-outline-secondary rounded-pill mx-1">Dengan Komentar</a>
-                </p>
-            </div>
-            <div class="col-2">
-                <span>Urutkan Berdasarkan</span>
-                <select class="form-select border-success" aria-label="Default select example">
-                    <option selected>Terbaru</option>
-                    <option value="1">Huruf</option>
-                    <option value="2">Waktu</option>
-                    <option value="3">Harga</option>
-                </select>
+            <div class="col-12">
+                <a class="btn btn-success rounded-pill mx-1">Semua</a>
+                <a class="btn btn-outline-success rounded-pill mx-1">5 <i class="fa fa-star text-warning"></i> </a>
+                <a class="btn btn-outline-success rounded-pill mx-1">4 <i class="fa fa-star text-warning"></i> </a>
+                <a class="btn btn-outline-success rounded-pill mx-1">3 <i class="fa fa-star text-warning"></i> </a>
+                <a class="btn btn-outline-success rounded-pill mx-1">2 <i class="fa fa-star text-warning"></i> </a>
+                <a class="btn btn-outline-success rounded-pill mx-1">1 <i class="fa fa-star text-warning"></i> </a>
+                <a class="btn btn-outline-success rounded-pill mx-1">Dengan Media</a>
+                <a class="btn btn-outline-success rounded-pill mx-1">Dengan Komentar</a>
             </div>
         </div>
+        <div class="user-review mt-4 w-100 scrollable">
+        </div>
     </div>
-    <div class="user-review w-75">
-    </div>
+
     <div class="product mt-5">
         <h5 class="fw-semibold">
             Produk lain dari toko ini

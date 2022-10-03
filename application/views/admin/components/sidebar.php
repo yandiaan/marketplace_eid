@@ -1,9 +1,14 @@
  <style>
-     .active-green {
-         color: #a2db5e;
-     }
- </style>
+    #sidebar ul.dropdown-menu li.active a,
+    #sidebar ul.dropdown-menu li a:hover {
+        color: #A2DB5E;
+    }
 
+    #sidebar li.active a.has-dropdown  {
+        color: #A2DB5E;
+    }
+ </style>
+ 
  <div class="main-sidebar">
      <aside id="sidebar-wrapper">
          <div class="sidebar-brand">

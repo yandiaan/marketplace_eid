@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/node_modules/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/node_modules/summernote/dist/summernote-bs4.css">
-    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/extensions/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/extensions/summernote/dist/summernote-bs4.css">
+    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/extensions/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/extensions/owl.carousel/dist/assets/owl.theme.default.min.css">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/style.css">
@@ -24,7 +24,7 @@
 <body>
     <div id="app">
         <div class="main-wrapper">
-            <div class="navbar-bg" style="background-color:#a2db5e ;"></div>
+            <div style="background:#A2DB5E" class="navbar-bg"></div>
 
             <!-- start Navbar Components -->
             <?php $this->load->view('admin/components/navbar') ?>
@@ -353,21 +353,21 @@
                                             <div class="text-title mb-2">July</div>
                                             <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                                 <li class="media">
-                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/node_modules/flag-icon-css/flags/4x3/id.svg" alt="image" width="40">
+                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/extensions/flag-icon-css/flags/4x3/id.svg" alt="image" width="40">
                                                     <div class="media-body ml-3">
                                                         <div class="media-title">Indonesia</div>
                                                         <div class="text-small text-muted">3,282 <i class="fas fa-caret-down text-danger"></i></div>
                                                     </div>
                                                 </li>
                                                 <li class="media">
-                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/node_modules/flag-icon-css/flags/4x3/my.svg" alt="image" width="40">
+                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/extensions/flag-icon-css/flags/4x3/my.svg" alt="image" width="40">
                                                     <div class="media-body ml-3">
                                                         <div class="media-title">Malaysia</div>
                                                         <div class="text-small text-muted">2,976 <i class="fas fa-caret-down text-danger"></i></div>
                                                     </div>
                                                 </li>
                                                 <li class="media">
-                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/node_modules/flag-icon-css/flags/4x3/us.svg" alt="image" width="40">
+                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/extensions/flag-icon-css/flags/4x3/us.svg" alt="image" width="40">
                                                     <div class="media-body ml-3">
                                                         <div class="media-title">United States</div>
                                                         <div class="text-small text-muted">1,576 <i class="fas fa-caret-up text-success"></i></div>
@@ -379,21 +379,21 @@
                                             <div class="text-title mb-2">August</div>
                                             <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                                 <li class="media">
-                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/node_modules/flag-icon-css/flags/4x3/id.svg" alt="image" width="40">
+                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/extensions/flag-icon-css/flags/4x3/id.svg" alt="image" width="40">
                                                     <div class="media-body ml-3">
                                                         <div class="media-title">Indonesia</div>
                                                         <div class="text-small text-muted">3,486 <i class="fas fa-caret-up text-success"></i></div>
                                                     </div>
                                                 </li>
                                                 <li class="media">
-                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/node_modules/flag-icon-css/flags/4x3/ps.svg" alt="image" width="40">
+                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/extensions/flag-icon-css/flags/4x3/ps.svg" alt="image" width="40">
                                                     <div class="media-body ml-3">
                                                         <div class="media-title">Palestine</div>
                                                         <div class="text-small text-muted">3,182 <i class="fas fa-caret-up text-success"></i></div>
                                                     </div>
                                                 </li>
                                                 <li class="media">
-                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/node_modules/flag-icon-css/flags/4x3/de.svg" alt="image" width="40">
+                                                    <img class="img-fluid mt-1 img-shadow" src="<?= base_url('/assets/admin') ?>/extensions/flag-icon-css/flags/4x3/de.svg" alt="image" width="40">
                                                     <div class="media-body ml-3">
                                                         <div class="media-title">Germany</div>
                                                         <div class="text-small text-muted">2,317 <i class="fas fa-caret-down text-danger"></i></div>
@@ -556,11 +556,11 @@
     <script src="<?= base_url('admin') ?>/js/stisla.js"></script>
 
     <!-- JS Libraies -->
-    <script src="<?= base_url('/assets/admin') ?>/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/node_modules/chart.js/dist/Chart.min.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/node_modules/summernote/dist/summernote-bs4.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+    <script src="<?= base_url('/assets/admin') ?>/extensions/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="<?= base_url('/assets/admin') ?>/extensions/chart.js/dist/Chart.min.js"></script>
+    <script src="<?= base_url('/assets/admin') ?>/extensions/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="<?= base_url('/assets/admin') ?>/extensions/summernote/dist/summernote-bs4.js"></script>
+    <script src="<?= base_url('/assets/admin') ?>/extensions/chocolat/dist/js/jquery.chocolat.min.js"></script>
 
     <!-- Template JS File -->
     <script src="<?= base_url('/assets/admin') ?>/js/scripts.js"></script>
