@@ -110,7 +110,7 @@ class Keranjang extends RestController
             $where = [
                 'id_pengguna'   => $this->token_session->id_pengguna,
                 'id_produk'     => $post['id_produk'],
-                'id_variasi'    => $post['id_variasi'] ?? null
+                'id_variasi'    => ($post['id_variasi'] == '0') ? null : $post['id_variasi']
             ];
 
             $data = [
@@ -152,6 +152,32 @@ class Keranjang extends RestController
         $id_pengguna = $this->token_session->id_pengguna;
 
         $query = $this->cart->delete_item($id_pengguna, $where);
+
+        if($query) {
+            $this->response([
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Item berhasil dihapus pada keranjang',
+                ]
+            ], 200);
+        } else {
+            $this->response([
+                'meta' => [
+                    'code'      => 400,
+                    'status'    => 'error',
+                    'message'   => 'Terjadi kesalahan saat menghapus item pada keranjang',
+                ]
+            ], 400);
+        }
+    }
+
+    public function delete_checked_item_post()
+    {
+        $id_suplier = $this->input->post('id_suplier');
+        $id_pengguna = $this->token_session->id_pengguna;
+
+        $query = $this->cart->delete_checked_item($id_pengguna, $id_suplier);
 
         if($query) {
             $this->response([

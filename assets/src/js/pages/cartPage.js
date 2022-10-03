@@ -34,7 +34,7 @@ const loadItems = (method) => {
                                     ${value['nama_toko']}
                                 </div>
                                 <div>
-                                    <small class="text-danger">Hapus</small>
+                                    <small id="delete-suplier-${value['id_suplier']}" role="button" class="text-danger" onclick="deleteCheckedItems(${value['id_suplier']})">Hapus</small>
                                 </div>
                             </th>
                         </tr>
@@ -46,7 +46,9 @@ const loadItems = (method) => {
             $.each(res.data.items, (key, value) => {
                 let is_checked = (value['is_checked'] == '1') ? 'checked' : '';
                 let checkedVal = (value['is_checked'] == '1') ? '0' : '1';
-                $(`#suplier-item-${value['id_suplier']}`).append(`<tr id="${value['id_produk']}">0
+                let variasi    = (value['variasi'] == null) ? '' : `<small class="text-muted">${value['variasi']['model']}</small><br>`;
+
+                $(`#suplier-item-${value['id_suplier']}`).append(`<tr id="${value['id_produk']}">
                     <td class="px-4 py-3">
                         <div class="row align-items-center">
                             <div id="item-checkbox-${value['id_keranjang']}" class="col-1">
@@ -56,19 +58,20 @@ const loadItems = (method) => {
                                 <img src="${BASE_URL + value['image_path']}" class="w-auto img-fluid" alt="">
                             </div>
                             <div class="col-6">
-                                <h6>${value['nama_produk']}</h6>
-                                    <small class="bg-warning p-1 text-white fw-bold" style="font-size: 10px">Diskon 25%</small>
-                                    <small class="text-decoration-line-through">${rupiah(value['harga_total'])}</small>
-                                <h6 id="harga-total" class="d-inline fw-bold text-primary">${rupiah(value['harga_total'])}</h6>
+                                <h6 class="m-0">${value['nama_produk']}</h6>
+                                ${variasi}
+                                <small class="bg-warning p-1 text-white fw-bold" style="font-size: 10px">Diskon 25%</small>
+                                <small class="text-decoration-line-through">${rupiah(value['harga_satuan'])}</small>
+                                <h6 id="harga-total" class="d-inline fw-bold text-primary">${rupiah(value['harga_satuan'])}</h6>
                             </div>
                             <div class="col-3 d-flex justify-content-end">
                                 <button class="bg-white border-0 me-4" onclick="deleteItems(${value['id_keranjang']})">
                                     <i class="far fa-trash-alt text-secondary"></i>
                                 </button>
                                 <div class="quantity d-flex justify-content-between rounded-pill fw-bold bg-primary p-1">
-                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-minus" onclick="updateQuantity(${value['id_produk']}, 'decrement')"></button>
+                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-minus" onclick="updateQuantity(${value['id_produk']}, ${value['id_variasi']}, 'decrement')"></button>
                                     <span id="jumlah" class="mx-2 text-white">${value['jumlah']}</span>
-                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-plus" onclick="updateQuantity(${value['id_produk']}, 'increment')"></button>
+                                    <button class="btn btn-light text-primary rounded-circle fas fa-xs fa-plus" onclick="updateQuantity(${value['id_produk']}, ${value['id_variasi']}, 'increment')"></button>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +85,7 @@ const loadItems = (method) => {
     });
 
     ajax.fail((res, status, err) => {
-        alert(err); 
+        failToast(err); 
     });
 
     ajax.always(() => {
@@ -120,7 +123,6 @@ const refreshQuantityHtml = (data) => {
     $.each(data.items, (key, value) => {
         let parent = $(`tr#${value['id_produk']}`);
         parent.find('#jumlah').text(value['jumlah']);
-        parent.find('#harga-total').text(rupiah(value['harga_total']));
         (value['jumlah'] < 2) ? parent.find('.fa-minus').addClass('disabled') : parent.find('.fa-minus').removeClass('disabled');
     });
 
@@ -128,9 +130,10 @@ const refreshQuantityHtml = (data) => {
 }
 
 // update item quantity
-const updateQuantity = (id_produk, metode) => {
+const updateQuantity = (id_produk, id_variasi, metode) => {
     let parent = $(`tr#${id_produk}`);
     let jumlah = parent.find('#jumlah').text();
+    id_variasi = (id_variasi == null) ? '0' : id_variasi;
 
     switch (metode) {
         case 'increment':
@@ -144,7 +147,7 @@ const updateQuantity = (id_produk, metode) => {
     let ajax = $.ajax({
         url     : `${ENDPOINT}keranjang/update_quantity`,
         method  : "POST",
-        data    : { id_produk: id_produk, jumlah: jumlah },
+        data    : { id_produk: id_produk, id_variasi: id_variasi, jumlah: jumlah },
     });
 
     ajax.done((res) => {
@@ -152,8 +155,7 @@ const updateQuantity = (id_produk, metode) => {
     });
 
     ajax.fail((res, status, err) => {
-        console.log(res);
-        alert(err);
+        failToast(err); 
     });
 }
 
@@ -173,7 +175,26 @@ const deleteItems = (id_keranjang) => {
         });
     
         ajax.fail((res, status, err) => {
-            alert(err);
+            failToast(err); 
+        });
+    }
+}
+
+// Delete item
+const deleteCheckedItems = (id_suplier) => {
+    if(confirm('Apakah anda yakin menghapus item yang dipilih pada keranjang?') == true) {
+        let ajax = $.ajax({
+            url     : `${ENDPOINT}keranjang/delete_checked_item`,
+            method  : "POST",
+            data    : { id_suplier: id_suplier },
+        });
+
+        ajax.done((res) => {
+            loadItems();
+        });
+    
+        ajax.fail((res, status, err) => {
+            failToast(err); 
         });
     }
 }
@@ -190,7 +211,7 @@ const checkItem = (id_keranjang, is_checked) => {
     });
 
     ajax.fail((res, status, err) => {
-        alert(err);
+        failToast(err); 
     });
 }
 
@@ -207,7 +228,7 @@ const checkAllItemsBySuplier = (id_suplier) => {
     });
 
     ajax.fail((res, status, err) => {
-        alert(err);
+        failToast(err); 
     });
 }
 
@@ -230,11 +251,14 @@ const checkboxItemStatus = (data, method) => {
         let checkbox = $(`#suplier-item-${value['id_suplier']}`).find('input[type="checkbox"]');
         let checkedBox = checkbox.filter(':checked').length;
         let suplierCheckbox = $(`#suplier-checkbox-${value['id_suplier']}`).find('input[type="checkbox"]');
+        let deleteBtn = $(`#delete-suplier-${value['id_suplier']}`);
     
         if(checkedBox < 1) {
             suplierCheckbox.prop('checked', false);
+            deleteBtn.hide();
         } else {
             suplierCheckbox.prop('checked', true);
+            deleteBtn.show();
         }
 
     });

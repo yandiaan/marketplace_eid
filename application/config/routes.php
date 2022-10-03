@@ -60,6 +60,7 @@ $route['api/keranjang/get_item']        = 'API/keranjang/get_item';
 $route['api/keranjang/add_item']        = 'API/keranjang/add_item';
 $route['api/keranjang/update_quantity'] = 'API/keranjang/update_quantity';
 $route['api/keranjang/delete_item']     = 'API/keranjang/delete_item';
+$route['api/keranjang/delete_checked_item']     = 'API/keranjang/delete_checked_item';
 $route['api/keranjang/empty_cart']      = 'API/keranjang/empty_cart';
 $route['api/keranjang/check_item']      = 'API/keranjang/check_item';
 $route['api/keranjang/check_all_item']  = 'API/keranjang/check_all_item';
