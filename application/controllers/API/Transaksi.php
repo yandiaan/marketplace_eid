@@ -76,7 +76,7 @@ class Transaksi extends RestController
                 'created_at'   => date('Y-m-d h:i:s'),
                 'updated_at'   => date('Y-m-d h:i:s'),
             ]);
-            $this->db->delete('keranjang', ['id_keranjang' => $item['id_keranjang']]);
+            // $this->db->delete('keranjang', ['id_keranjang' => $item['id_keranjang']]);
         }
 
         // Set your Merchant Server Key
@@ -122,6 +122,8 @@ class Transaksi extends RestController
                     'payment_url' => $paymentUrl
                 ]
             ], 200);
+
+            redirect($paymentUrl,'reflesh');
         }
         catch (Exception $e) {
             echo $e;
