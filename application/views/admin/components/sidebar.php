@@ -1,3 +1,14 @@
+ <style>
+    #sidebar ul.dropdown-menu li.active a,
+    #sidebar ul.dropdown-menu li a:hover {
+        color: #A2DB5E;
+    }
+
+    #sidebar li.active a.has-dropdown  {
+        color: #A2DB5E;
+    }
+ </style>
+ 
  <div class="main-sidebar">
      <aside id="sidebar-wrapper">
          <div class="sidebar-brand">
@@ -8,7 +19,7 @@
          <div class="sidebar-brand sidebar-brand-sm">
              <a href="index.html">St</a>
          </div>
-         <ul class="sidebar-menu">
+         <ul id="sidebar" class="sidebar-menu">
              <li class="menu-header">Dashboard</li>
              <li class="nav-item dropdown active">
                  <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>

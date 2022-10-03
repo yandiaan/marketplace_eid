@@ -24,7 +24,7 @@
 <body>
     <div id="app">
         <div class="main-wrapper">
-            <div class="navbar-bg"></div>
+            <div style="background:#A2DB5E" class="navbar-bg"></div>
 
             <!-- start Navbar Components -->
             <?php $this->load->view('admin/components/navbar') ?>
