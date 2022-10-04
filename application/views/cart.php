@@ -133,7 +133,7 @@
                             <small id="total-diskon" class="text-primary fw-bold">Rp. 0</small>
                         </div>
                         <div class="confirm text-center w-100">
-                            <button style="font-size:14px" class="btn btn-primary rounded-pill fw-bold mt-3 checkout">Buat Pesanan</button>
+                            <a href="<?php echo base_url('checkout') ?>" style="font-size:14px" class="btn btn-primary rounded-pill fw-bold mt-3 checkout">Buat Pesanan</a>
                         </div>
                     </div>
                 </div>

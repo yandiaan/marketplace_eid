@@ -7,11 +7,16 @@
     #sidebar li.active a.has-dropdown  {
         color: #A2DB5E;
     }
+
+    body.sidebar-mini .main-sidebar .sidebar-menu > li.active > a {
+        background-color: #A2DB5E;
+        color: #fff !important;
+    }
  </style>
  
  <div class="main-sidebar">
      <aside id="sidebar-wrapper">
-         <div class="sidebar-brand">
+         <div class="sidebar-brand my-3">
              <a href="index.html">
                  <img src="https://estimator.id/assets/img/logo.png" alt="Logo Estimator">
              </a>
