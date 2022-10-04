@@ -51,6 +51,10 @@ $route['api/admin/suplier/upload_banner']    = 'API/admin/suplier/upload_banner'
 $route['api/admin/suplier/upload_logo']      = 'API/admin/suplier/upload_logo';
 $route['api/admin/suplier/profile']          = 'API/admin/suplier/get_profil';
 
+// api untuk suplier menambah produk
+$route['api/admin/produk/store']             = 'API/Admin/Produk/store_produk';
+$route['api/admin/produk/galeri/store']      = 'API/Admin/Galeri_produk/store_galeri_produk';
+
 
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
 $route['api/suplier/all']               = 'API/suplier/all';

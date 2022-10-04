@@ -31,17 +31,17 @@ class Produk_model extends CI_Model
             ->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori')
             ->where('slug', $slug);
         $data = $produk->get()->result_array();
-        
-        if(count($data) > 0) {
+
+        if (count($data) > 0) {
             $data[0]['variasi'] = $this->db->select('id_produk,model_variasi,harga')->get_where('variasi', ['id_produk' => $data[0]['id_produk']])->result_array();
         }
-        if(count($data) > 0) {
+        if (count($data) > 0) {
             $data[0]['images'] = $this->db->get_where('galeri_produk', ['id_produk' => $data[0]['id_produk']])->result_array();
         }
-        if(count($data) > 0) {
+        if (count($data) > 0) {
             $data[0]['reviews'] = $this->db->select('nama_pengguna,pesan,rating,file_review,created_at')->get_where('review', ['id_produk' => $data[0]['id_produk']])->result_array();
         }
-        
+
         return $data;
     }
 
@@ -85,8 +85,8 @@ class Produk_model extends CI_Model
         $this->db->from('produk');
         $this->db->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori', 'left');
         $this->db->join('suplier', 'suplier.id_suplier = produk.id_suplier', 'left');
-        $this->db->like('nama_produk', $data['nama']);
-        $this->db->like('nama_kategori', $data['kategori']);
+        $this->db->like('deskripsi', $data['nama']);
+        $this->db->like('Deskripsi_kategori', $data['kategori']);
         // $this->db->like('lokasi', $data['lokasi']);
         $this->db->like('brand', $data['merek']);
         $this->db->having('harga >=', $data['harga_min']);
@@ -108,5 +108,68 @@ class Produk_model extends CI_Model
         } catch (Exception $e) {
             return $this->db->error();
         }
+    }
+
+
+    /**
+     * =====================================================================
+     * Model for Admin Suplier Produk
+     * =====================================================================
+     * **/
+
+
+    public function rules($params)
+    {
+        $validation = [
+            'add_produk' => [
+                [
+                    'field' => 'id_produk_kategori',
+                    'label' => 'Kategori Produk',
+                    'rules' => 'required'
+                ],
+                [
+                    'field' => 'nama_produk',
+                    'label' => 'Nama Produk',
+                    'rules' => 'required'
+                ],
+                [
+                    'field' => 'deskripsi',
+                    'label' => 'Deskripsi Produk',
+                    'rules' => 'required'
+                ],
+                [
+                    'field' => 'spesifikasi',
+                    'label' => 'Spesifikasi Produk',
+                    'rules' => 'required'
+                ],
+                [
+                    'field' => 'brand',
+                    'label' => 'Brand Produk',
+                    'rules' => 'required'
+                ],
+                [
+                    'field' => 'harga',
+                    'label' => 'Harga Produk',
+                    'rules' => 'required'
+                ],
+                [
+                    'field' => 'berat',
+                    'label' => 'Berat Produk',
+                    'rules' => 'required'
+                ],
+                [
+                    'field' => 'lebar',
+                    'label' => 'Lebar Produk',
+                    'rules' => 'required'
+                ],
+                [
+                    'field' => 'tinggi',
+                    'label' => 'Tinggi Produk',
+                    'rules' => 'required'
+                ],
+            ]
+        ];
+
+        return $validation[$params];
     }
 }
