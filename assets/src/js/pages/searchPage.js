@@ -1,8 +1,17 @@
-$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
-	$(".main-content").append(e);
-});
+const url = new URL(window.location.href);
 
-const fetchSearchData = (title) => {
+const productParams = url.searchParams.get('search');
+const suplierParams = url.searchParams.get('suplier');
+
+$(document).ready(() => {
+    searchProduct(productParams);
+})
+
+
+const searchProduct = (title) => {
+	$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
+		$(".main-content").append(e);
+	});
 	const settings = {
 		url: ENDPOINT + "produk/filter",
 		method: "POST",
@@ -33,23 +42,15 @@ const fetchSearchData = (title) => {
 			const el = `<div class="col-2">
                         <div class="card-product search-card" style="height: 400px">
                             <div class="thumbnail">
-                                <img src="${
-																	BASE_URL + item.images[0].image_path
-																}" alt="product" class="img-thumbnail">
+                                <img src="${BASE_URL + item.images[0].image_path}" alt="product" class="img-thumbnail">
                             </div>
                             <div class="card-product-body">
-                                <a href="${BASE_URL}/produk/${
-				item.slug
-			}" class="product-title">${item.nama_produk}</a>
+                                <a href="${BASE_URL}/produk/${item.slug}" class="product-title">${item.nama_produk}</a>
                                 <small class="d-block">L535 x W173mm</small>
                                 <div>
                                     <br>
-                                    <span class="fw-bold">Rp. ${
-																			item.harga
-																		} <small class="fw-light">/
-                                            Unit</small></span>
+                                    <span class="fw-bold">Rp. ${item.harga} <small class="fw-light">/Unit</small></span>
                                 </div>
-    
                                 <div class="product-location text-right">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -71,14 +72,40 @@ const fetchSearchData = (title) => {
 	});
 };
 
+let submitProduct = $(".submit-product");
+let submitSuplier = $(".submit-suplier");
+
+submitProduct.click(()=>{
+	submitProduct.data("active", true);
+	submitSuplier.data("active", false);
+	submitProduct.removeClass("btn-outline-primary").addClass("btn-primary");
+	submitSuplier.removeClass("btn-primary").addClass("btn-outline-primary");
+})
+
+submitSuplier.click(()=>{
+	submitProduct.data("active", false);
+	submitSuplier.data("active", true);
+	submitSuplier.removeClass("btn-outline-primary").addClass("btn-primary");
+	submitProduct.removeClass("btn-primary").addClass("btn-outline-primary");
+})
+
+
 $(".searchInput").on("input", function (e) {
-	let input = e.target.value;
-	const url = new URL(window.location.href);
-	url.searchParams.set("search", input);
-	window.history.replaceState(null, null, url);
-	$(".main-content").empty();
-	$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
-		$(".main-content").append(e);
-	});
-	fetchSearchData(input);
+	if($(".submit-product").data("active") === true){
+		let input = e.target.value;
+		
+		url.searchParams.set("search", input);
+		window.history.replaceState(null, null, url);
+		$(".main-content").empty();
+		
+		searchProduct(input);
+	}else if($(".submit-suplier").data("active") === true){
+		let input = e.target.value;
+		
+		url.searchParams.delete("search");
+		url.searchParams.set("suplier", input);
+		window.history.replaceState(null, null, url);
+		$(".main-content").empty();
+        
+	}
 });

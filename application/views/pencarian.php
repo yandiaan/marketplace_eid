@@ -144,9 +144,9 @@
 
                         <input type="search" class="form-control border-primary border-start-0 searchInput"
                             placeholder="Cari Product" value="<?= $search ?>">
-                        <button class="btn btn-primary submit-product" type="button"> <i class="fa fa-cube"></i>
+                        <button class="btn btn-primary submit-product" data-active="" type="button"> <i class="fa fa-cube"></i>
                             Product</button>
-                        <button class="btn btn-outline-primary" type="button"> <i class="fa fa-store"></i>
+                        <button class="btn btn-outline-primary submit-suplier" data-active="" type="button"> <i class="fa fa-store"></i>
                             Suplier</button>
                     </div>
                 </div>
@@ -182,8 +182,3 @@
     </div>
 </div>
 <script src="<?= base_url("assets/src/js/pages/searchPage.js"); ?>"></script>
-<script>
-$(document).ready(() => {
-    fetchSearchData("<?= $search; ?>");
-})
-</script>
