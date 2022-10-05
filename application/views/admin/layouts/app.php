@@ -12,13 +12,6 @@
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 
-
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/extensions/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/extensions/summernote/dist/summernote-bs4.css">
-    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/extensions/owl.carousel/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/extensions/owl.carousel/dist/assets/owl.theme.default.min.css">
-
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/style.css">
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/components.css">
@@ -66,13 +59,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="<?= base_url('/assets/admin') ?>/js/stisla.js"></script>
-
-    <!-- JS Libraies -->
-    <script src="<?= base_url('/assets/admin') ?>/extensions/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/extensions/chart.js/dist/Chart.min.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/extensions/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/extensions/summernote/dist/summernote-bs4.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/extensions/chocolat/dist/js/jquery.chocolat.min.js"></script>
 
     <!-- Template JS File -->
     <script src="<?= base_url('/assets/admin') ?>/js/scripts.js"></script>
