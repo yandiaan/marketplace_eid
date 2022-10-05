@@ -85,8 +85,8 @@ class Produk_model extends CI_Model
         $this->db->from('produk');
         $this->db->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori', 'left');
         $this->db->join('suplier', 'suplier.id_suplier = produk.id_suplier', 'left');
-        $this->db->like('deskripsi', $data['nama']);
-        $this->db->like('Deskripsi_kategori', $data['kategori']);
+        // $this->db->like('deskripsi', $data['nama']);
+        // $this->db->like('Deskripsi_kategori', $data['kategori']);
         // $this->db->like('lokasi', $data['lokasi']);
         $this->db->like('brand', $data['merek']);
         $this->db->having('harga >=', $data['harga_min']);
