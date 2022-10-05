@@ -8,11 +8,6 @@ class Keranjang_model extends CI_Model
         $rules = array(
             'add_item' => array(
                 array(
-                        'field' => 'id_pengguna',
-                        'label' => 'ID Pengguna',
-                        'rules' => 'required'
-                ),
-                array(
                         'field' => 'id_produk',
                         'label' => 'ID Produk',
                         'rules' => 'required'

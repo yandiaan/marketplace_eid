@@ -82,7 +82,7 @@
             </div>
             <div class="confirm row justify-content-start mt-4">
                 <div class="col-4"><button class="w-100 btn btn-primary">Beli Sekarang</button></div>
-                <div class="col-6"><button class="w-100 btn btn-outline-primary">Masukkan Keranjang</button></div>
+                <div class="col-6"><button class="w-100 btn btn-outline-primary submit-cart">Masukkan Keranjang</button></div>
             </div>
             <div class="row justify-content-space-between mt-2">
                 <div class="col">

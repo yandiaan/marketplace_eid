@@ -189,3 +189,33 @@ decrement.addEventListener("click", () => {
 	}
 	quantity.innerHTML = val;
 });
+
+$(".submit-cart").click(()=>{
+	if (quantity.innerHTML > 0) {
+	var cart = new FormData();
+	cart.append("jumlah", $("#quantity").text());
+	cart.append("id_variasi", null);
+	cart.append("id_produk", $(".id-produk").val());
+
+
+	var settings = {
+	url: ENDPOINT + "keranjang/add_item",
+	method: "POST",
+	headers: {
+		Authorization: "Bearer " + token,
+	},
+	processData: false,
+	contentType: false,
+	mimeType: "multipart/form-data",
+	data: cart,
+	};
+
+	$.ajax(settings).done( (res) => {
+		alert("Sukses menambah data");
+	console.log(res);
+	}).fail(()=>{
+		alert("gagal menambah data");
+	});
+	}else{
+		alert("data tidak bisa kosong");
+	}})
