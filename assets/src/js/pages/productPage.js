@@ -6,10 +6,14 @@ function fetchDetailProduct(slug) {
 			dataType: "json",
 			success: function (res) {
 				let product = res.data[0];
+
+				$("#breadcrumb-kategori").html(product.nama_kategori);
+				$("#breadcrumb-produk").html(product.nama_produk);
+
 				$(".id-produk").val(product.id_produk);
 				$("#nama_produk").html(product.nama_produk);
 				$("#deskripsi").html(product.deskripsi);
-				$("#harga").html("Rp. " + product.harga);
+				$("#harga").html(rupiah(product.harga));
 				$("#tinggi").html(product.tinggi + " cm");
 				$("#lebar").html(product.lebar + " cm");
 				$("#berat").html(product.berat + " kg");
@@ -31,37 +35,52 @@ function fetchDetailProduct(slug) {
 						"<a href=" +
 							BASE_URL +
 							val.image_path +
-							"><img class='xzoom-gallery rounded' width='80' src=" +
+							"><img class='xzoom-gallery img-fluid rounded' width='80' src=" +
 							BASE_URL +
 							val.image_path +
 							" alt='' /> </a>"
 					);
 				});
 
-				$.each(product.reviews, (i, val) => {
-					$(".user-review").append(`<div class="row">
-												<div class="col-1 avatar">
-													<img src="${BASE_URL}/assets/img/Avatar.png";" alt="avatar" class="mx-auto w-100">
-												</div>
-												<div class="col-9 align-self-center">
-													<span>${val.nama_pengguna}</span>
-													<div class="star-form text-warning">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa-regular fa-star"></i>
-													</div>
-													<span class="text-secondary">
-														22 Februari 2022 09:45
-													</span>
-													<p class="text-right text-justify mt-3">
-														${val.pesan}
-													</p>
-												</div>
-											</div>`);
-				});
+				$.each(product.variasi, (i, val) => {
+					$("#versi").append(
+						`<button class="btn btn-sm btn-outline-success versi w-auto">${val.model_variasi}</button>`
+					);
+				})
 
+				if(product.reviews.length < 1) {
+					$(".user-review").append(
+						`<div class="d-flex justify-content-center py-5">
+							<h6 class="fw-bold text-muted">Belum ada penilaian</h6>
+						</div>`
+					)
+				} else {
+					$.each(product.reviews, (i, val) => {
+						$(".user-review").append(
+						`<div class="row">
+							<div class="col-1 avatar">
+								<img src="${BASE_URL}/assets/img/Avatar.png";" alt="avatar" class="mx-auto w-100">
+							</div>
+							<div class="col-9 align-self-center">
+								<span>${val.nama_pengguna}</span>
+								<div class="star-form text-warning">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa-regular fa-star"></i>
+								</div>
+								<span class="text-secondary">
+									22 Februari 2022 09:45
+								</span>
+								<p class="text-right text-justify mt-3">
+									${val.pesan}
+								</p>
+							</div>
+						</div>`);
+					});
+				}
+											
 				$(".xzoom, .xzoom-gallery").xzoom({
 					zoomWidth: 200,
 					zoomHeight: 200,
