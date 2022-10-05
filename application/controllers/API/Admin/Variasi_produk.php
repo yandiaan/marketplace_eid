@@ -12,20 +12,20 @@ class Variasi_produk extends RestController
         parent::__construct();
         $this->load->model('Variasi_produk_model', 'variasi_produk');
 
-        // $header = $this->input->request_headers()['Authorization'];
-        // if (!$header) return $this->response(['message' => ' Token required'], 404);
+        $header = $this->input->request_headers()['Authorization'];
+        if (!$header) return $this->response(['message' => ' Token required'], 404);
 
-        // try {
-        //     $this->token_session = decode_jwt($header);
-        // } catch (\Throwable $th) {
-        //     $this->response(['message' => 'Invalid Token'], 404);
-        // }
+        try {
+            $this->token_session = decode_jwt($header);
+        } catch (\Throwable $th) {
+            $this->response(['message' => 'Invalid Token'], 404);
+        }
     }
 
     public function store_variasi_post()
     {
-        // $id_suplier   = $this->token_session->id_suplier;
-
+        $id_suplier   = $this->token_session->id_suplier;
+        
         $this->form_validation->set_rules($this->variasi_produk->rules('add_variasi'));
         if ($this->form_validation->run() == false) {
             $this->response([
@@ -36,7 +36,16 @@ class Variasi_produk extends RestController
             $id_produk       = $this->input->post('id_produk', true);
             $model_variasi   = $this->input->post('model_variasi', true);
             $harga           = $this->input->post('harga', true);
+    
+            $produk = $this->db->get_where('produk',['id_produk' => $id_produk, 'id_suplier' => $id_suplier])->result_array();
 
+            if(count($produk) < 1) {
+                $this->response([
+                    'message' => 'Anda tidak memiliki akses untuk produk ini !',
+                    'errors'  => 401,
+                ], 401);
+            }
+            
             $data = [
                 'id_produk'      => htmlspecialchars($id_produk),
                 'model_variasi'  => htmlspecialchars($model_variasi),
