@@ -4,7 +4,8 @@
          color: #A2DB5E;
      }
 
-    #sidebar li.active a.has-dropdown  {
+    #sidebar li.active a.has-dropdown,
+    #sidebar li.single.active a {
         color: #A2DB5E;
     }
 
@@ -27,8 +28,7 @@
              </a>
          </div>
          <ul class="sidebar-menu mt-5">
-             <li class="active-one"><a class="nav-link active-one" href="credits.html"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
-             <!-- <li class="menu-header">Dashboard</li> -->
+             <li class="nav-item single"><a class="nav-link" href="<?= base_url('suplier/dashboard') ?>"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
              <li class="nav-item dropdown ">
                  <a href="#" class="nav-link has-dropdown"><i class="fas fa-truck"></i><span>Pengiriman</span></a>
                  <ul class="dropdown-menu">
@@ -43,11 +43,11 @@
                      <li><a class="nav-link" href="#">Pembatalan</a></li>
                  </ul>
              </li>
-             <li class="nav-item dropdown ">
+             <li class="nav-item dropdown">
                  <a href="#" class="nav-link has-dropdown"><i class="fas fa-shopping-bag"></i><span>Produk</span></a>
                  <ul class="dropdown-menu">
-                     <li><a class="nav-link" href="#">Produk Saya</a></li>
-                     <li><a class="nav-link" href="#">Tambah Produk Baru</a></li>
+                     <li><a class="nav-link" href="<?= base_url('suplier/list-produk') ?>">Produk Saya</a></li>
+                     <li><a class="nav-link" href="<?= base_url('suplier/tambah-produk-baru') ?>">Tambah Produk Baru</a></li>
                      <li><a class="nav-link" href="#">Wilayah Produk</a></li>
                      <li><a class="nav-link" href="#">Penilaian Produk</a></li>
                  </ul>
@@ -74,11 +74,22 @@
                  </ul>
              </li>
          </ul>
-
-         <!-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-             <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                 <i class="fas fa-rocket"></i> Documentation
-             </a>
-         </div> -->
      </aside>
  </div>
+
+<script>
+$(function() {
+    var current = window.location.href;
+    $('.sidebar-menu li a').each(function(){
+        if($(this).attr('href') == current){
+            $(this).parents('.nav-item').addClass('active');
+        }
+    });
+
+    $('.dropdown-menu li a').each(function(){
+        if($(this).attr('href') == current){
+            $(this).parents('li').addClass('active');
+        }
+    });
+})
+</script>
