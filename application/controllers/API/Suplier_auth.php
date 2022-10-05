@@ -29,7 +29,7 @@ class Suplier_auth extends RestController
                 if (password_verify($password, $user['password'])) {
                     $payload = array(
                         "iat"           => time(),
-                        "exp"           => time() + getenv('JWT_TIME_EXP'),
+                        // "exp"           => time() + getenv('JWT_TIME_EXP'),
                         "id_suplier"    => $user['id_suplier'],
                         "username"      => $user['username'],
                         "email"         => $email

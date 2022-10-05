@@ -23,6 +23,49 @@ class Produk extends RestController
     }
 
 
+    public function get_all_produk_get()
+    {
+
+        $id_produk = htmlspecialchars($this->input->get('browse', true) ?? '');
+        $id_suplier = $this->token_session->id_suplier;
+
+        if ($id_produk) {
+            $where  = [
+                'produk.id_suplier'  => $id_suplier,
+                'produk.id_produk'   => $id_produk
+            ];
+            $result = $this->produk->get_one_bysuplier($where);
+
+            if ($result) {
+                $this->response([
+                    'meta' => [
+                        'code'    => 200,
+                        'status'  => 'success',
+                        'message' => 'Success get data produk by id_produk ' . $id_produk
+                    ],
+                    'data'  => $result,
+                ], 200);
+            } else {
+                $this->response([
+                    'meta'    => [
+                        'code'    => 404,
+                        'message' => "Data dengan id_produk $id_produk tidak ditemukan",
+                    ],
+                ], 404);
+            }
+        } else {
+            $result     = $this->db->get_where('produk', ['id_suplier' => $id_suplier])->result_array();
+
+            $this->response([
+                'meta' => [
+                    'code'    => 200,
+                    'status'  => 'success',
+                    'message' => 'Success get data produk by suplier'
+                ],
+                'data'  => $result,
+            ], 200);
+        }
+    }
 
     public function store_produk_post()
     {
@@ -33,7 +76,7 @@ class Produk extends RestController
                 'message' => 'Data yang anda input tidak valid !',
                 'errors'  => $this->form_validation->error_array(),
             ], 422);
-        }else{
+        } else {
             $id_suplier           = $this->token_session->id_suplier;
             $id_produk_kategori   = $this->input->post('id_produk_kategori', true);
             $nama_produk          = $this->input->post('nama_produk', true);
@@ -48,7 +91,7 @@ class Produk extends RestController
 
             $data = [
                 'id_suplier'           => $id_suplier,
-                'slug'                 => url_title($nama_produk, 'dash', true),
+                'slug'                 => url_title($nama_produk, 'dash', true) . '-' . base64_encode(rand(1, 1000)),
                 'id_produk_kategori'   => htmlspecialchars($id_produk_kategori),
                 'nama_produk'          => htmlspecialchars($nama_produk),
                 'deskripsi'            => htmlspecialchars($deskripsi),
@@ -62,6 +105,15 @@ class Produk extends RestController
                 'created_at'           => date('Y-m-d'),
                 'updated_at'           => date('Y-m-d')
             ];
+
+
+            $slug_in_db_produk = $this->db->get_where('produk', ['slug' => $data['slug']])->result_array();
+            if (count($slug_in_db_produk) > 0) {
+                $this->response([
+                    'message' => 'Ganti nama judul produk anda !',
+                    'errors'  => 'slug dengan nama produk tersebut sudah terdaftar !',
+                ], 400);
+            }
 
 
             $this->db->insert('produk', $data);
