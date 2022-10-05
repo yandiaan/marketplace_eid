@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-8">
                     <h6 class="fw-light">Pilih versi</h6>
-                    <div class="row">
+                    <div class="row w-50">
                         <button class="btn btn-outline-secondary versi">CEAS5312-1000422CO</button>
                         <button class="btn btn-outline-secondary mt-2 versi">CHA01120-1CACTP07B</button>
                     </div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-8 quantity">
                     <button disabled class="btn btn-secondary rounded-circle" id="decrement">-</button>
-                    <span class="mx-2" id="quantity">1</span>
+                    <span class="mx-2" id="quantity">0</span>
                     <button class="btn btn-secondary rounded-circle" id="increment">+</button>
                 </div>
             </div>
