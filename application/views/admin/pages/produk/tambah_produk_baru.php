@@ -102,7 +102,7 @@
                 <div class="col-10">
                     <div class="row">
                         <div class="col-2">
-                            <input id="foto-utama" type="file" hidden />
+                            <input id="foto-utama" type="file" name="galeriProduk[]" hidden />
                             <label for="foto-utama" class="text-center">
                                 <div class="img-upload-box d-flex align-items-center justify-content-center mb-2">
                                     <i class="far fa-image"></i>
@@ -113,7 +113,7 @@
     
                         <div class="col-2">
                             <input id="foto-1" type="file" hidden />
-                            <label for="foto-1" class="text-center">
+                            <label for="foto-1" class="text-center" name="galeriProduk[]">
                                 <div class="img-upload-box d-flex align-items-center justify-content-center mb-2">
                                     <i class="far fa-image"></i>
                                 </div>
@@ -123,7 +123,7 @@
     
                         <div class="col-2">
                             <input id="foto-2" type="file" hidden />
-                            <label for="foto-2" class="text-center">
+                            <label for="foto-2" class="text-center" name="galeriProduk[]">
                                 <div class="img-upload-box d-flex align-items-center justify-content-center mb-2">
                                     <i class="far fa-image"></i>
                                 </div>
