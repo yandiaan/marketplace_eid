@@ -13,14 +13,14 @@ class Galeri_produk extends RestController
         $this->load->model('produk_model', 'produk');
         $this->load->model('Galeri_produk_model', 'galeri_produk');
 
-        // $header = $this->input->request_headers()['Authorization'];
-        // if (!$header) return $this->response(['message' => ' Token required'], 404);
+        $header = $this->input->request_headers()['Authorization'];
+        if (!$header) return $this->response(['message' => ' Token required'], 404);
 
-        // try {
-        //     $this->token_session = decode_jwt($header);
-        // } catch (\Throwable $th) {
-        //     $this->response(['message' => 'Invalid Token'], 404);
-        // }
+        try {
+            $this->token_session = decode_jwt($header);
+        } catch (\Throwable $th) {
+            $this->response(['message' => 'Invalid Token'], 404);
+        }
     }
     public function random()
     {
