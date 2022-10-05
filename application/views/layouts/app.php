@@ -85,9 +85,13 @@
     <?php $this->load->view('layouts/footer'); ?>
 
     <!-- Core JS -->
-
     <script src="<?= base_url('assets/dist/main.js'); ?>"></script>
     <script src="<?= base_url('assets/src/js/auth/login.js'); ?>"></script>
+
+    <!-- Extensions & Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="<?= base_url('assets/src/js/toast.js') ?>"></script>
+
 </body>
 
 </html>

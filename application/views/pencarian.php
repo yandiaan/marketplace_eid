@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
         <div class="col-3">
-            <h6 class="fw-bold align-items-center"><i class="fa fa-filter me-2"></i>Filter</h6>
             <div class="sidebar">
                 <div class="accordion accordion-flush">
                     <div class="accordion-item">
@@ -12,30 +11,30 @@
                                 Lokasi
                             </button>
                         </h2>
-                        <div id="filter-1" class="accordion-collapse collapse show pt-2 pb-5"
+                        <div id="filter-1" class="accordion-collapse collapse show pt-2 pb-3"
                             aria-labelledby="panelsStayOpen-headingOne">
+                            <input type="search" name="location" class="form-control form-control-sm mt-2 border-0 border-bottom rounded-2"
+                                placeholder="Cari Lokasi">
                             <div class="accordion-body">
-                                <input type="text" name="location" class="form-control py-1 mb-2"
-                                    placeholder="Cari Lokasi">
                                 <div class="location-group">
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location" checked>
-                                        <h6 class="d-inline">Semua Lokasi</h6>
+                                        <span class="d-inline">Semua Lokasi</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">Jakarta</h6>
+                                        <span class="d-inline">Jakarta</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">D.I. Yogyakarta</h6>
+                                        <span class="d-inline">D.I. Yogyakarta</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">Bandung</h6>
+                                        <span class="d-inline">Bandung</span>
                                     </div>
                                 </div>
-                                <div class="more w-100 text mx-auto justify-content-center d-flex mt-2">
+                                <div class="more w-100 text mx-auto justify-content-center d-flex mt-3">
                                     <a href="#" class="link-primary text-center fw-semibold">Lihat Selengkapnya</a>
                                 </div>
                             </div>
@@ -52,11 +51,11 @@
                         <div id="filter-2" class="accordion-collapse collapse show"
                             aria-labelledby="panelsStayOpen-headingTwo">
                             <div class="accordion-body category-list mb-3">
-                                <button class="btn btn-primary p-0 d-block mb-1">Semua Kategori</button>
-                                <button class="btn btn-light p-0 d-block mb-1">Dinding</button>
-                                <button class="btn btn-light p-0 d-block mb-1">Elektrikal</button>
-                                <button class="btn btn-light p-0 d-block mb-1">lantai</button>
-                                <button class="btn btn-light p-0 d-block mb-1">Mekanikal</button>
+                                <button class="text-start btn btn-sm btn-primary px-3 w-100 mb-1">Semua Kategori</button>
+                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Dinding</button>
+                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Elektrikal</button>
+                                <button class="text-start btn btn-sm btn-light w-100 mb-1">lantai</button>
+                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Mekanikal</button>
                             </div>
                         </div>
                     </div>
@@ -74,35 +73,35 @@
                                 <div class="material-group">
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location" checked>
-                                        <h6 class="d-inline"> Semua Merk</h6>
+                                        <span class="d-inline"> Semua Merk</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">American Standard</h6>
+                                        <span class="d-inline">American Standard</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">Duma</h6>
+                                        <span class="d-inline">Duma</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">Ethylum</h6>
+                                        <span class="d-inline">Ethylum</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">Formax Roof</h6>
+                                        <span class="d-inline">Formax Roof</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">Formax Roof</h6>
+                                        <span class="d-inline">Formax Roof</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">Formax Roof</h6>
+                                        <span class="d-inline">Formax Roof</span>
                                     </div>
                                     <div class="item-location">
                                         <input type="checkbox" class="form-check-input" name="location">
-                                        <h6 class="d-inline">Formax Roof</h6>
+                                        <span class="d-inline">Formax Roof</span>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +136,7 @@
         </div>
         <div class="col-9">
             <div class="row mb-4 justify-content-between align-items-center">
-                <div class="col-10">
+                <div class="col-12">
                     <div class=" input-group search-input-group">
                         <span class="input-group-text bg-white border-primary border-end-0 text-secondary"> <i
                                 class="fa fa-search"></i></span>
@@ -150,14 +149,11 @@
                             Suplier</button>
                     </div>
                 </div>
-                <div class="col-1">
-                    <a href="" class="text-secondary fs-5"> <i class="fa fa-cart-shopping"></i> </a>
-                </div>
                 <div class="col-10">
-                    <h6 class="mt-3 text-secondary resultText"></h6>
+                    <h6 class="mt-4 text-secondary resultText"></h6>
                 </div>
-                <div class="col-2">
-                    <div class="btn-group">
+                <div class="col-2 text-end">
+                    <div class="btn-group border-bottom mt-4">
                         <button type="button" class="btn btn-white dropdown-toggle"
                             onMouseOver="this.style.borderColor='#fff'" onMouseOut="this.style.borderColor='#ffF'"
                             data-bs-toggle="dropdown" aria-expanded="false">

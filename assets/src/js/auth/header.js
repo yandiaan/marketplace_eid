@@ -24,6 +24,12 @@ if (token !== undefined) {
 	);
 }
 
+$("#cart").click((e) => {
+	if(token !== undefined) {
+		window.location = BASE_URL + '/cart';
+	}
+});
+
 $(".logout").click((e) => {
 	e.preventDefault();
 	$.removeCookie("sessionToken", { path: "/" });

@@ -70,16 +70,16 @@ label {
 	list-style-position: inside;
 }
 .review-form {
-	border-radius: 20px 0 0 20px;
+	border-radius: 20px;
 }
 
 .input-review::placeholder {
 	color: #f4f4f4;
 }
 .user-review {
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
-	height: 75vh;
+	max-height: 75vh;
 }
 
 .review-form:hover > .validateLoginReview {
@@ -106,4 +106,36 @@ label {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.versi {
+	margin-bottom: 10px;
+	margin-right: 7px;
+}
+
+// scroll
+
+.scrollable::-webkit-scrollbar {
+	width: 5px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+	// box-shadow: inset 0 0 1px grey;
+	background-color: #f1f1f1;
+	border-radius: 10px;
+}
+
+/* Handle */
+.scrollable::-webkit-scrollbar-thumb {
+	background: #66aa23;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+/* Handle on hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+	background: #4f831b;
 }

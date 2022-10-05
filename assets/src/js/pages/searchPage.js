@@ -39,12 +39,13 @@ const searchProduct = (title) => {
 			: "";
 		$(".main-content").empty();
 		$.each(data, (index, item) => {
-			const el = `<div class="col-2">
-                        <div class="card-product search-card" style="height: 400px">
+			const el = `<div class="col-lg-3">
+                        <div class="card-product search-card h-100">
                             <div class="thumbnail">
                                 <img src="${BASE_URL + item.images[0].image_path}" alt="product" class="img-thumbnail">
                             </div>
                             <div class="card-product-body">
+<<<<<<< HEAD
                                 <a href="${BASE_URL}/produk/${item.slug}" class="product-title">${item.nama_produk}</a>
                                 <small class="d-block">L535 x W173mm</small>
                                 <div>
@@ -63,6 +64,19 @@ const searchProduct = (title) => {
                                     </svg>
     
                                     <span class="fw-bold">${item.lokasi}</span>
+=======
+                                <a href="${BASE_URL}/produk/${item.slug}" class="product-title truncate-2">${item.nama_produk}</a>
+								<div class="product-supplier mt-2">
+                                	<small class="truncate-2"><i class="fas fa-store-alt"></i> ${item.nama_toko}</small>
+								</div>
+                                <div>
+                                    <br>
+                                    <span class="fw-bold product-price">${rupiah(item.harga)} <small class="fw-light">/Unit</small></span>
+                                </div>
+    
+                                <div class="text-start">
+									<span style="font-size: 10px" class="product-location text-muted fw-bold">${item.lokasi}</span>
+>>>>>>> rizki
                                 </div>
                             </div>
                         </div>
