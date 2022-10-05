@@ -6,7 +6,7 @@ use chriskacerguis\RestServer\RestController;
 
 class Produk extends RestController
 {
-    public $token_session;
+    private $token_session;
     public function __construct()
     {
         parent::__construct();
