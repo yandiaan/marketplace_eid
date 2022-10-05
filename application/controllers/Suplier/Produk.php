@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller
+class produk extends CI_Controller
 
 {
     public $userdata;
@@ -14,7 +14,12 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data['content'] = 'admin/pages/dashboard';
+        return $this->load->view('admin/layouts/app');
+    }
+
+    public function tambah_produk_baru()
+    {
+        $data['content'] = 'admin/pages/produk/tambah_produk_baru';
         return $this->load->view('admin/layouts/app', $data);
     }
 }
