@@ -63,8 +63,10 @@
                 </div>
                 <div class="col-8">
                     <h6 class="fw-light">Pilih versi</h6>
-                    <button class="btn btn-outline-secondary versi">CEAS5312-1000422CO</button>
-                    <button class="btn btn-outline-secondary mt-2 versi">CHA01120-1CACTP07B</button>
+                    <div class="row">
+                        <button class="btn btn-outline-secondary versi">CEAS5312-1000422CO</button>
+                        <button class="btn btn-outline-secondary mt-2 versi">CHA01120-1CACTP07B</button>
+                    </div>
                 </div>
             </div>
             <div class="variant row">
@@ -700,8 +702,6 @@
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");
-
-
 
 $(".submit-review").click(() => {
     if (!token) {
