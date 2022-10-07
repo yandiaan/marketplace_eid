@@ -55,8 +55,11 @@ $route['api/admin/suplier/profile']          = 'API/admin/suplier/get_profil';
 
 // api untuk suplier menambah produk
 $route['api/admin/produk/store']             = 'API/Admin/Produk/store_produk';
+$route['api/admin/produk/all']               = 'API/Admin/Produk/get_all_produk';
 $route['api/admin/produk/galeri/store']      = 'API/Admin/Galeri_produk/store_galeri_produk';
 
+// api untuk suplier menambah variasi produk
+$route['api/admin/produk/variasi/store']      = 'API/Admin/Variasi_produk/store_variasi';
 
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
 $route['api/suplier/all']               = 'API/suplier/all';

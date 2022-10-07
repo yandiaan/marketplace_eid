@@ -45,6 +45,28 @@ class Produk_model extends CI_Model
         return $data;
     }
 
+    public function get_one_bysuplier($where)
+    {
+        $produk = $this->db->select('produk.* , suplier.nama_toko , suplier.deskripsi AS deskripsi_toko , suplier.lokasi,suplier.banner,suplier.logo,suplier.join_at, produk_kategori.nama_kategori')
+            ->from('produk')
+            ->join('suplier', 'suplier.id_suplier = produk.id_suplier')
+            ->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori')
+            ->where($where);
+        $data = $produk->get()->result_array();
+
+        if (count($data) > 0) {
+            $data[0]['variasi'] = $this->db->select('id_produk,model_variasi,harga')->get_where('variasi', ['id_produk' => $data[0]['id_produk']])->result_array();
+        }
+        if (count($data) > 0) {
+            $data[0]['images'] = $this->db->get_where('galeri_produk', ['id_produk' => $data[0]['id_produk']])->result_array();
+        }
+        if (count($data) > 0) {
+            $data[0]['reviews'] = $this->db->select('nama_pengguna,pesan,rating,file_review,created_at')->get_where('review', ['id_produk' => $data[0]['id_produk']])->result_array();
+        }
+
+        return $data;
+    }
+
     public function min_price()
     {
         $this->db->select_min('harga', 'min_price');
@@ -85,8 +107,8 @@ class Produk_model extends CI_Model
         $this->db->from('produk');
         $this->db->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori', 'left');
         $this->db->join('suplier', 'suplier.id_suplier = produk.id_suplier', 'left');
-        $this->db->like('deskripsi', $data['nama']);
-        $this->db->like('Deskripsi_kategori', $data['kategori']);
+        $this->db->like('nama_produk', $data['nama']);
+        $this->db->like('nama_kategori', $data['kategori']);
         // $this->db->like('lokasi', $data['lokasi']);
         $this->db->like('brand', $data['merek']);
         $this->db->having('harga >=', $data['harga_min']);
@@ -131,6 +153,11 @@ class Produk_model extends CI_Model
                     'field' => 'nama_produk',
                     'label' => 'Nama Produk',
                     'rules' => 'required'
+                ],
+                [
+                    'field' => 'slug',
+                    'label' => 'Slug',
+                    'rules' => 'unique:produk'
                 ],
                 [
                     'field' => 'deskripsi',

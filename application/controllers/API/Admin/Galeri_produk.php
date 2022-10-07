@@ -22,11 +22,6 @@ class Galeri_produk extends RestController
             $this->response(['message' => 'Invalid Token'], 404);
         }
     }
-    public function random()
-    {
-
-        return base64_encode(random_bytes(3));
-    }
 
     public function store_galeri_produk_post()
     {
