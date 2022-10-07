@@ -20,7 +20,8 @@ $route['kategori']              = 'API/Admin/kategori/index';
 // Admin
 $route['suplier/dashboard/login']     = 'Suplier/Auth';
 $route['suplier/dashboard']           = 'Suplier/Dashboard';
-$route['suplier/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
+$route['suplier/dashboard/list-produk']         = 'Suplier/Produk/index';
+$route['suplier/dashboard/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
 
 
 

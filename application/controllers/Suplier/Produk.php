@@ -14,8 +14,11 @@ class produk extends CI_Controller
 
     public function index()
     {
-        return $this->load->view('admin/layouts/app');
+        $data['content'] = 'admin/pages/produk/index';
+        $data['produks'] = $this->db->get_where('produk', ['id_suplier' => $this->userdata->id_suplier])->result();
+        return $this->load->view('admin/layouts/app', $data);
     }
+
 
     public function tambah_produk_baru()
     {
