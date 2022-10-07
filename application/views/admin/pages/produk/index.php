@@ -41,7 +41,7 @@
                                 <td style="text-align:center;"><?php echo $produk->berat ?></td>
                                 <td style="text-align:center;">
                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                        <a href="#" class="btn btn-warning">Edit</a>
+                                        <a href="<?php echo base_url('suplier/dashboard/edit-produk/' . $produk->id_produk) ?>" class="btn btn-warning">Edit</a>
                                         <a href="#" class="btn btn-success">Detail</a>
                                         <a href="#" class="btn btn-danger">Delete</a>
                                     </div>

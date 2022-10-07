@@ -25,4 +25,10 @@ class produk extends CI_Controller
         $data['content'] = 'admin/pages/produk/tambah_produk_baru';
         return $this->load->view('admin/layouts/app', $data);
     }
+
+    public function edit($id_produk)
+    {
+        $data['content'] = 'admin/pages/produk/edit_produk';
+        return $this->load->view('admin/layouts/app', $data);
+    }
 }
