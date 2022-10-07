@@ -15,6 +15,11 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/style.css">
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/components.css">
+    <!-- <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/datatables.min.css"> -->
+    <!-- <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/datatables.boostrap4.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
@@ -58,11 +63,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/js/stisla.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 
     <!-- Template JS File -->
     <script src="<?= base_url('/assets/admin') ?>/js/scripts.js"></script>
     <script src="<?= base_url('/assets/admin') ?>/js/custom.js"></script>
+    <script src="<?= base_url('/assets/admin') ?>/js/stisla.js"></script>
 
     <!-- Page Specific JS File -->
     <script src="<?= base_url('/assets/admin') ?>/js/page/index.js"></script>

@@ -10,11 +10,51 @@ class produk extends CI_Controller
         parent::__construct();
         $this->load->helper('cookie');
         $this->userdata = checkAuthSuplier();
+        $this->load->model('M_Produk', 'produk');
     }
 
     public function index()
     {
         return $this->load->view('admin/layouts/app');
+    }
+
+    public function list_produk()
+    {
+        $data['content'] = 'admin/pages/produk/list_produk';
+        return $this->load->view('admin/layouts/app', $data);
+    }
+
+    public function DatatableProduk()
+    {
+        $list = $this->produk->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $produks) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $produks->id_produk_kategori;
+            $row[] = $produks->nama_produk;
+            $row[] = $produks->brand;
+            $row[] = $produks->harga;
+            $row[] = $produks->berat;
+            $row[] = '<div class="btn-group mb-3" role="group" aria-label="Basic example">
+            <a href="#" class="btn btn-warning">Edit</a>
+            <a href="#" class="btn btn-success">Detail</a>
+            <a href="#" class="btn btn-danger">Delete</a>
+          </div>';
+
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->produk->count_all(),
+            "recordsFiltered" => $this->produk->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
     }
 
     public function tambah_produk_baru()
