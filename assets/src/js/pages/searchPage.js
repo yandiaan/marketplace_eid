@@ -1,12 +1,11 @@
 const url = new URL(window.location.href);
 
-const productParams = url.searchParams.get('search');
-const suplierParams = url.searchParams.get('suplier');
+const productParams = url.searchParams.get("search");
+const suplierParams = url.searchParams.get("suplier");
 
 $(document).ready(() => {
-    searchProduct(productParams);
-})
-
+	searchProduct(productParams);
+});
 
 const searchProduct = (title) => {
 	$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
@@ -39,23 +38,33 @@ const searchProduct = (title) => {
 			: "";
 		$(".main-content").empty();
 		$.each(data, (index, item) => {
-			const el = `<div class="col-2">
-                        <div class="card-product search-card h-100">
-                            <div class="thumbnail" style="">
-                                <img src="${BASE_URL + item.images[0].image_path}" alt="product" class="img-thumbnail">
-                            </div>
+			const el = `<div class="col-3">
+                        <div class="card-product search-card">
                             <div class="card-product-body">
-                                <a href="${BASE_URL}/produk/${item.slug}" class="product-title truncate-2">${item.nama_produk}</a>
+							<div class="thumbnail" style="">
+                                <img src="${
+																	BASE_URL + item.images[0].image_path
+																}" alt="product" class="img-thumbnail" style="object-fit: cover;height: 150px;" />
+                            </div>
+                                <a href="${BASE_URL}/produk/${
+				item.slug
+			}" class="product-title truncate-2">${item.nama_produk}</a>
 								<div class="product-supplier mt-2">
-                                	<small class="truncate-2"><i class="fas fa-store-alt"></i> ${item.nama_toko}</small>
+                                	<small class="truncate-2"><i class="fas fa-store-alt"></i> ${
+																		item.nama_toko
+																	}</small>
 								</div>
                                 <div>
                                     <br>
-                                    <span class="fw-bold product-price">${rupiah(item.harga)} <small class="fw-light">/Unit</small></span>
+                                    <span class="fw-bold product-price">${rupiah(
+																			item.harga
+																		)} <small class="fw-light">/Unit</small></span>
                                 </div>
     
                                 <div class="text-start">
-									<span style="font-size: 10px" class="product-location text-muted fw-bold">${item.lokasi}</span>
+									<span style="font-size: 10px" class="product-location text-muted fw-bold">${
+										item.lokasi
+									}</span>
                                 </div>
                             </div>
                         </div>
@@ -65,40 +74,52 @@ const searchProduct = (title) => {
 	});
 };
 
+const setParams = (key, value) => {
+	if (key === "search") {
+		url.searchParams.delete("suplier");
+	} else if (key === "suplier") {
+		url.searchParams.delete("search");
+	}
+	url.searchParams.set(key, value);
+	window.history.replaceState(null, null, url);
+};
+
 let submitProduct = $(".submit-product");
 let submitSuplier = $(".submit-suplier");
 
-submitProduct.click(()=>{
+submitProduct.click(() => {
 	submitProduct.data("active", true);
 	submitSuplier.data("active", false);
 	submitProduct.removeClass("btn-outline-primary").addClass("btn-primary");
 	submitSuplier.removeClass("btn-primary").addClass("btn-outline-primary");
-})
+	let input = $(".searchInput").val();
+	setParams("search", input);
+	searchProduct(input);
+});
 
-submitSuplier.click(()=>{
+submitSuplier.click(() => {
 	submitProduct.data("active", false);
 	submitSuplier.data("active", true);
 	submitSuplier.removeClass("btn-outline-primary").addClass("btn-primary");
 	submitProduct.removeClass("btn-primary").addClass("btn-outline-primary");
-})
-
+	let input = $(".searchInput").val();
+	setParams("suplier", input);
+});
 
 $(".searchInput").on("input", function (e) {
-	if($(".submit-product").data("active") === true){
+	if ($(".submit-product").data("active") === true) {
 		let input = e.target.value;
-		
 		url.searchParams.set("search", input);
 		window.history.replaceState(null, null, url);
 		$(".main-content").empty();
-		
+
 		searchProduct(input);
-	}else if($(".submit-suplier").data("active") === true){
+	} else if ($(".submit-suplier").data("active") === true) {
 		let input = e.target.value;
-		
+
 		url.searchParams.delete("search");
 		url.searchParams.set("suplier", input);
 		window.history.replaceState(null, null, url);
 		$(".main-content").empty();
-        
 	}
 });

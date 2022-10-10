@@ -194,7 +194,6 @@ $(".submit-cart").click(()=>{
 	if (quantity.innerHTML > 0) {
 	var cart = new FormData();
 	cart.append("jumlah", $("#quantity").text());
-	cart.append("id_variasi", null);
 	cart.append("id_produk", $(".id-produk").val());
 
 
