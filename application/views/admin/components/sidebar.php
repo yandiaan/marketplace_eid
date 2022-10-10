@@ -4,15 +4,15 @@
          color: #A2DB5E;
      }
 
-    #sidebar li.active a.has-dropdown,
-    #sidebar li.single.active a {
-        color: #A2DB5E;
-    }
+     #sidebar li.active a.has-dropdown,
+     #sidebar li.single.active a {
+         color: #A2DB5E;
+     }
 
-    body.sidebar-mini .main-sidebar .sidebar-menu > li.active > a {
-        background-color: #A2DB5E;
-        color: #fff !important;
-    }
+     body.sidebar-mini .main-sidebar .sidebar-menu>li.active>a {
+         background-color: #A2DB5E;
+         color: #fff !important;
+     }
  </style>
 
  <div id="sidebar" class="main-sidebar">
@@ -46,8 +46,8 @@
              <li class="nav-item dropdown">
                  <a href="#" class="nav-link has-dropdown"><i class="fas fa-shopping-bag"></i><span>Produk</span></a>
                  <ul class="dropdown-menu">
-                     <li><a class="nav-link" href="<?= base_url('suplier/list-produk') ?>">Produk Saya</a></li>
-                     <li><a class="nav-link" href="<?= base_url('suplier/tambah-produk-baru') ?>">Tambah Produk Baru</a></li>
+                     <li><a class="nav-link" href="<?= base_url('suplier/dashboard/list-produk') ?>">Produk Saya</a></li>
+                     <li><a class="nav-link" href="<?= base_url('suplier/dashboard/tambah-produk-baru') ?>">Tambah Produk Baru</a></li>
                      <li><a class="nav-link" href="#">Wilayah Produk</a></li>
                      <li><a class="nav-link" href="#">Penilaian Produk</a></li>
                  </ul>
@@ -77,19 +77,19 @@
      </aside>
  </div>
 
-<script>
-$(function() {
-    var current = window.location.href;
-    $('.sidebar-menu li a').each(function(){
-        if($(this).attr('href') == current){
-            $(this).parents('.nav-item').addClass('active');
-        }
-    });
+ <script>
+     $(function() {
+         var current = window.location.href;
+         $('.sidebar-menu li a').each(function() {
+             if ($(this).attr('href') == current) {
+                 $(this).parents('.nav-item').addClass('active');
+             }
+         });
 
-    $('.dropdown-menu li a').each(function(){
-        if($(this).attr('href') == current){
-            $(this).parents('li').addClass('active');
-        }
-    });
-})
-</script>
+         $('.dropdown-menu li a').each(function() {
+             if ($(this).attr('href') == current) {
+                 $(this).parents('li').addClass('active');
+             }
+         });
+     })
+ </script>

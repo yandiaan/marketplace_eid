@@ -20,14 +20,15 @@ $route['kategori']              = 'API/Admin/kategori/index';
 // Admin
 $route['suplier/dashboard/login']     = 'Suplier/Auth';
 $route['suplier/dashboard']           = 'Suplier/Dashboard';
-$route['suplier/list-produk']         = 'Suplier/Produk/list_produk';
-$route['suplier/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
+$route['suplier/dashboard/list-produk']         = 'Suplier/Produk/index';
+$route['suplier/dashboard/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
+$route['suplier/dashboard/edit-produk/(:any)']  = 'Suplier/Produk/edit/$1';
 
 
 
 // Produk route
 $route['produk/(:any)']         = 'produk/detail/$1';
-$route['produk']               = '404';
+$route['produk']                = '404';
 $route['pencarian']             = 'pencarian/index';
 $route['pencarian-produk']      = 'pencarian/pencarian_produk';
 $route['cart']                  = 'cart/index';
