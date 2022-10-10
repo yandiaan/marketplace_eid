@@ -74,6 +74,73 @@ const searchProduct = (title) => {
 	});
 };
 
+const getSupplier = () => {
+	var settings = {
+		url: ENDPOINT + "suplier/all",
+		method: "GET",
+	};
+
+	$.ajax(settings).done(function (response) {
+		let items = response.data;
+		console.log(items);
+		let el = (nama_toko, logo, lokasi, produks) => {
+			return `<div class="col-6">
+						<div class="card p-3">
+							<div class="row align-items-center justify-content-between">
+								<div class="col-1">
+									<img src="${
+										logo !== null ? logo : BASE_URL + "/assets/img/Avatar.png"
+									}" alt="avatar" class="avatar"
+										style="width: 35px; height: 35px;" />
+								</div>
+								<div class="col-6">
+									<div class="d-flex fs-6 flex-column">
+										<small class="text-primary fw-bold" style="font-size: 11px;">${nama_toko}</small>
+										<small style="font-size: 9.5px;">${lokasi}</small>
+									</div>
+								</div>
+								<div class="col-4">
+									<button class="btn btn-outline-primary" style="font-size: 12px;">Lihat Suplier</button>
+								</div>
+							</div>
+							<div class="row mt-4">
+								${produks.map(({ images, nama_produk, harga }) => {
+									return `<div class="col-4">
+									<div class="card-product search-card">
+										<div class="card-product-body">
+											<div class="thumbnail">
+												<img src="${BASE_URL + "/assets/img/Rectangle 6.png"}" alt="product"
+													class="img-thumbnail" style="object-fit: cover;height: 100px;" />
+											</div>
+											<a href="" class="product-title truncate-2" style="font-size: 12px;">${nama_produk}</a>
+											<div class="product-supplier mt-2">
+												<small class="truncate-2" style="font-size: 9px;"><i
+														class="fas fa-store-alt"></i>Toko Hura
+													Hura</small>
+											</div>
+											<div>
+												<br>
+												<span class="fw-bold product-price" style="font-size: 10px;">${rupiah(harga)}
+													<small class="fw-light">/Unit</small></span>
+											</div>
+											<div class="text-start">
+												<span style="font-size: 10px"
+													class="product-location text-muted fw-bold">Jakarta</span>
+											</div>
+										</div>
+									</div>
+								</div>`;
+								})}
+							</div>
+						</div>
+					</div>`;
+		};
+		items.map(({ nama_toko, logo, lokasi, produks }) => {
+			$(".main-content").append(el(nama_toko, logo, lokasi, produks));
+		});
+	});
+};
+
 const setParams = (key, value) => {
 	if (key === "search") {
 		url.searchParams.delete("suplier");
@@ -104,6 +171,8 @@ submitSuplier.click(() => {
 	submitProduct.removeClass("btn-primary").addClass("btn-outline-primary");
 	let input = $(".searchInput").val();
 	setParams("suplier", input);
+	$(".main-content").empty();
+	getSupplier();
 });
 
 $(".searchInput").on("input", function (e) {
