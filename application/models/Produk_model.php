@@ -10,6 +10,7 @@ class Produk_model extends CI_Model
         $this->db->from('produk');
         $this->db->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori', 'left');
         $this->db->join('suplier', 'suplier.id_suplier = produk.id_suplier', 'left');
+        $this->db->where('delete_at', null);
         $query = $this->db->get()->result_array();
 
         // Loop through the products array
@@ -29,7 +30,7 @@ class Produk_model extends CI_Model
             ->from('produk')
             ->join('suplier', 'suplier.id_suplier = produk.id_suplier')
             ->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori')
-            ->where('slug', $slug);
+            ->where(['slug' => $slug, 'delete_at' => null]);
         $data = $produk->get()->result_array();
 
         if (count($data) > 0) {
@@ -55,13 +56,26 @@ class Produk_model extends CI_Model
         $data = $produk->get()->result_array();
 
         if (count($data) > 0) {
-            $data[0]['variasi'] = $this->db->select('id_produk,model_variasi,harga')->get_where('variasi', ['id_produk' => $data[0]['id_produk']])->result_array();
+            $data[0]['variasi'] = $this->db->select('id_variasi,id_produk,model_variasi,harga')->get_where('variasi', ['id_produk' => $data[0]['id_produk']])->result_array();
         }
         if (count($data) > 0) {
             $data[0]['images'] = $this->db->get_where('galeri_produk', ['id_produk' => $data[0]['id_produk']])->result_array();
         }
         if (count($data) > 0) {
             $data[0]['reviews'] = $this->db->select('nama_pengguna,pesan,rating,file_review,created_at')->get_where('review', ['id_produk' => $data[0]['id_produk']])->result_array();
+        }
+
+        return $data;
+    }
+    public function get_all_bysuplier($where)
+    {
+        $produk = $this->db->select('produk.* , produk_kategori.nama_kategori')
+            ->from('produk')
+            ->join('produk_kategori', 'produk_kategori.id_produk_kategori = produk.id_produk_kategori')
+            ->where($where);
+        $data = $produk->get()->result_array();
+        if (count($data) > 0) {
+            $data[0]['images'] = $this->db->get_where('galeri_produk', ['id_produk' => $data[0]['id_produk']])->result_array();
         }
 
         return $data;
@@ -114,6 +128,7 @@ class Produk_model extends CI_Model
         $this->db->having('harga >=', $data['harga_min']);
         $this->db->having('harga <=', $data['harga_max']);
         $this->db->order_by('created_at', $data['sort']);
+        $this->db->where('delete_at', null);
 
         $query = $this->db->get()->result_array();
 

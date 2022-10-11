@@ -64,6 +64,8 @@ $route['api/suplier/filter']               = 'API/suplier/filter';
 // API untuk produk
 $route['api/produk'] = 'API/produk';
 $route['api/produk/filter'] = 'API/produk/filter';
+$route['api/kategori'] = 'API/kategori';
+
 
 // API untuk keranjang
 $route['api/keranjang/get_item']        = 'API/keranjang/get_item';
