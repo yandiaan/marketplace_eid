@@ -20,13 +20,15 @@ $route['kategori']              = 'API/Admin/kategori/index';
 // Admin
 $route['suplier/dashboard/login']     = 'Suplier/Auth';
 $route['suplier/dashboard']           = 'Suplier/Dashboard';
-$route['suplier/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
+$route['suplier/dashboard/list-produk']         = 'Suplier/Produk/index';
+$route['suplier/dashboard/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
+$route['suplier/dashboard/edit-produk/(:any)']  = 'Suplier/Produk/edit/$1';
 
 
 
 // Produk route
 $route['produk/(:any)']         = 'produk/detail/$1';
-$route['produk']               = '404';
+$route['produk']                = '404';
 $route['pencarian']             = 'pencarian/index';
 $route['pencarian-produk']      = 'pencarian/pencarian_produk';
 $route['cart']                  = 'cart/index';
@@ -54,8 +56,11 @@ $route['api/admin/suplier/profile']          = 'API/admin/suplier/get_profil';
 
 // api untuk suplier menambah produk
 $route['api/admin/produk/store']             = 'API/Admin/Produk/store_produk';
+$route['api/admin/produk/all']               = 'API/Admin/Produk/get_all_produk';
 $route['api/admin/produk/galeri/store']      = 'API/Admin/Galeri_produk/store_galeri_produk';
 
+// api untuk suplier menambah variasi produk
+$route['api/admin/produk/variasi/store']      = 'API/Admin/Variasi_produk/store_variasi';
 
 $route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
 $route['api/suplier/all']               = 'API/suplier/all';
@@ -81,4 +86,3 @@ $route['api/review'] = 'API/review/add';
 
 // API checkout
 $route['api/transaksi'] = 'API/transaksi/checkout';
-
