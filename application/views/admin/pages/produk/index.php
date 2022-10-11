@@ -53,7 +53,7 @@
                                     <a href="#" class="btn btn-success">Detail</a>
                                     <form action="<?php echo base_url('suplier/dashboard/delete-produk/' . $produk->id_produk) ?>" method="post" id="delProduk-<?= $produk->id_produk ?>">
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button class="btn btn-danger" data-confirm="Hapus Data?|Apakah Anda yakin?" data-confirm-yes="submitDel(<?= $produk->id_produk ?>)">Delete</button>
+                                        <button class="btn btn-danger" data-confirm="Hapus Data?|Apakah Anda yakin ingin menghapus produk ini?<br>semua data yang bersangkutan dengan produk ini akan terhapus." data-confirm-yes="submitDel(<?= $produk->id_produk ?>)">Delete</button>
                                     </form>
                                 </div>
                             </td>
