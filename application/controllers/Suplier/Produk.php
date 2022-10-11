@@ -31,4 +31,28 @@ class produk extends CI_Controller
         $data['content'] = 'admin/pages/produk/edit_produk';
         return $this->load->view('admin/layouts/app', $data);
     }
+
+    public function delete($id_produk)
+    {
+        $this->db->where('id_produk', $id_produk);
+        $this->db->delete('produk');
+        redirect('suplier/dashboard/list-produk');
+    }
+
+    public function arsip($id_produk)
+    {
+        $date = date("Y-m-d h:i:s");
+        $this->db->set('delete_at', $date);
+        $this->db->where('id_produk', $id_produk);
+        $this->db->update('produk');
+        redirect('suplier/dashboard/list-produk');
+    }
+
+    public function bukaArsip($id_produk)
+    {
+        $this->db->set('delete_at', NULL);
+        $this->db->where('id_produk', $id_produk);
+        $this->db->update('produk');
+        redirect('suplier/dashboard/list-produk');
+    }
 }
