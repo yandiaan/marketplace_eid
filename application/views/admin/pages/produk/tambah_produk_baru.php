@@ -31,7 +31,23 @@
     font-size: 28px;
     color: #A3A3A3;
 }
+
+.img-box {
+    border: 1px solid #A2DB5E;
+    border-radius: 0.2em;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    overflow: hidden;
+}
+.img-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
 </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.css" integrity="sha512-+VDbDxc9zesADd49pfvz7CgsOl2xREI/7gnzcdyA9XjuTxLXrdpuz21VVIqc5HPfZji2CypSbxx1lgD7BgBK5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div class="section-header">
     <h1>Tambah Produk baru</h1>
@@ -100,38 +116,47 @@
                     <label>Foto Produk</label>
                 </div>
                 <div class="col-10">
-                    <div class="row">
+                    <!-- <div id="galeri-produk" class="row d-none">
                         <div class="col-2">
                             <input id="foto-utama" type="file" name="galeriProduk[]" hidden />
-                            <label for="foto-utama" class="text-center">
-                                <div class="img-upload-box d-flex align-items-center justify-content-center mb-2">
+                            <label for="foto-utama" class="text-center" style="display:block">
+                                <div class="img-upload-box d-flex align-items-center justify-content-center">
                                     <i class="far fa-image"></i>
                                 </div>
-                                <span>*Foto Utama</span>
                             </label>
+                            <div id="box-foto-utama" class="img-box mb-2" style="display:none;">
+                                <img id="preview-foto-utama">
+                            </div>
+                            <span>*Foto Utama</span>
                         </div>
     
                         <div class="col-2">
                             <input id="foto-1" type="file" hidden />
-                            <label for="foto-1" class="text-center" name="galeriProduk[]">
-                                <div class="img-upload-box d-flex align-items-center justify-content-center mb-2">
+                            <label for="foto-1" class="text-center" style="display:block">
+                                <div class="img-upload-box d-flex align-items-center justify-content-center">
                                     <i class="far fa-image"></i>
                                 </div>
-                                <span>Gambar 1</span>
                             </label>
+                            <div id="box-foto-1" class="img-box mb-2" style="display:none;">
+                                <img id="preview-foto-1">
+                            </div>
+                            <span>Foto 1</span>
                         </div>
     
                         <div class="col-2">
                             <input id="foto-2" type="file" hidden />
-                            <label for="foto-2" class="text-center" name="galeriProduk[]">
-                                <div class="img-upload-box d-flex align-items-center justify-content-center mb-2">
+                            <label for="foto-2" class="text-center" style="display:block">
+                                <div class="img-upload-box d-flex align-items-center justify-content-center">
                                     <i class="far fa-image"></i>
                                 </div>
-                                <span>Gambar 2</span>
                             </label>
+                            <div id="box-foto-2" class="img-box mb-2" style="display:none;">
+                                <img id="preview-foto-2">
+                            </div>
+                            <span>Foto 2</span>
                         </div>
     
-                        <div class="col-2">
+                        <div id="add-more-img" class="col-2">
                             <label class="text-center">
                                 <div class="add-more-img d-flex align-items-center justify-content-center mb-2">
                                     <i style="font-size: 28px" class="fas fa-plus-circle"></i>
@@ -139,7 +164,22 @@
                                 <span>Tambah lebih</span>
                             </label>
                         </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-12">
+                            <input id="foto-produk" type="file" name="galeriProduk[]" multiple/>
+                            <!-- <label for="foto-produk" class="text-center">
+                                <span class="btn btn-primary">Unggah Foto Produk</span> <span id="img-total" class="ml-3 fw-bold text-muted"></span>
+                            </label> -->
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                    <div id="img-preview" class="row"></div>
                 </div>
             </div>
         </div>
@@ -149,42 +189,51 @@
         <div class="card-header pt-4">
             <h6>Informasi Penjualan</h6>
         </div>
-        <div class="card-body p-5">
+        <div class="card-body p-5 col-9">
             <div class="form-group row">
-                <div class="col-2 d-flex align-items-center">
+                <div class="col-3 d-flex align-items-center">
                     <label>Satuan Produk</label>
                 </div>
-                <div class="col-10">
-                    <select name="satuan_produk" id="satuan_produk" class="form-control col-8">
+                <div class="col-9">
+                    <select name="satuan_produk" id="satuan_produk" class="form-control">
                         <option value="">Pilih Satuan Produk</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="col-2 d-flex align-items-center">
+                <div class="col-3 d-flex align-items-center">
                     <label>Harga Dasar</label>
                 </div>
-                <div class="col-10">
-                    <input type="text" name="harga_dasar" id="harga_dasar" class="form-control col-8" placeholder="Masukkan Harga Dasar">
+                <div class="col-9">
+                    <input type="text" name="harga_dasar" id="harga_dasar" class="form-control" placeholder="Masukkan Harga Dasar">
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="col-2 d-flex align-items-center">
+                <div class="col-3 d-flex align-items-center">
                     <label>Variasi Produk</label>
                 </div>
-                <div class="col-10">
-                    <button class="btn btn-block btn-outline-primary col-8"><i class="fas fa-plus-circle"></i> Aktifkan Variasi</button>
+                <div class="col-9 daftar-variasi">
+                    <button id="tambahVariasi" class="btn btn-block btn-outline-primary"><i class="fas fa-plus-circle"></i> Tambah Variasi</button>
+                </div>
+            </div>
+
+            <div id="daftar-foto-variasi" class="form-group row" style="display:none">
+                <div class="col-3 d-flex align-items-center">
+                    <label>Foto Variasi</label>
+                </div>
+                <div class="col-9">
+                    <div id="foto-variasi" class="row"></div>
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="col-2 d-flex align-items-center">
+                <div class="col-3 d-flex align-items-center">
                     <label>Tags</label>
                 </div>
-                <div class="col-10">
-                    <button class="btn btn-block btn-outline-primary col-8"><i class="fas fa-plus-circle"></i> Tambah Tag</button>
+                <div class="col-9">
+                    <button class="btn btn-block btn-outline-primary"><i class="fas fa-plus-circle"></i> Tambah Tag</button>
                 </div>
             </div>
         </div>
@@ -241,3 +290,138 @@
         <button type="submit" class="btn btn-primary">Simpan & Tampilkan</button>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js" integrity="sha512-ooSWpxJsiXe6t4+PPjCgYmVfr1NS5QXJACcR/FPpsdm6kqG1FmQ2SVyg2RXeVuCRBLr0lWHnWJP6Zs1Efvxzww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+$(document).ready(() => {
+    window.onbeforeunload = function() {
+        return "Data will be lost if you leave the page, are you sure?";
+    };
+
+    window.onload = function() {
+        localStorage.clear();
+    };
+    
+    var cropper, $fileInput;
+
+    $fileInput = document.querySelector('input[type="file"]');
+    $fileInput.addEventListener("change" , (e) => { uploadImage(e) });
+
+    const uploadImage = (e) => {
+        const preview = $('#img-preview');
+        preview.empty();
+        $.each(e.target.files, (key, value) => {
+            let file    = e.target.files[key];
+            var src     = URL.createObjectURL(file);
+
+            if(key == 0){
+                key = 'utama';
+            }
+
+            preview.append(`
+                <div class="col-3 mb-3 text-center">
+                    <img id="foto-${key}" src="${src}" class="img-fluid">
+                    <span>Foto ${key}</span>
+                </div>`);
+        });
+    };
+
+    $('#tambahVariasi').click(() => {
+        if(localStorage.getItem('total_variasi') == undefined) {
+            localStorage.setItem('total_variasi', '1');
+        }
+        
+        var total_var = localStorage.getItem('total_variasi');
+        $('.daftar-variasi').prepend(
+            `<div class="form-group row mb-3">
+                <div class="col-7">
+                    <input type="text" class="form-control form-control-sm" id="variasi_${total_var}" name="variasi[]" placeholder="Masukkan Nama Variasi" />
+                </div>
+                <div class="col-5">
+                    <input type="number" class="form-control form-control-sm" placeholder="Rp" />
+                </div>
+            </div>`
+        );
+
+        addVariasiImgBox(total_var);
+        localStorage.setItem('total_variasi', parseInt(total_var) + 1);
+    });
+
+    $(document).on("input", 'input[type="text"]', function(e) {
+        let name = e.target.id;
+        let span = $(`span[for="${name}"]`);
+        span.text(e.target.value);
+    });
+
+    function addVariasiImgBox(i) {
+        $('#daftar-foto-variasi').show();
+
+        $('#foto-variasi').append(
+            `<div class="col-3 text-center mb-3">
+                <input id="foto-variasi-${i}" type="file" name="foto_variasi[]" hidden />
+                <label for="foto-variasi-${i}" class="text-center" style="display:block">
+                    <div class="img-upload-box d-flex align-items-center justify-content-center">
+                        <i class="far fa-image"></i>
+                    </div>
+                </label>
+                <div id="box-foto-variasi-${i}" class="img-box mb-2" style="display:none;">
+                    <img id="preview-foto-variasi-${i}">
+                </div>
+                <span for="variasi_${i}">Variasi</span>
+            </div>`
+        );
+    }
+
+    // $('.add-more-img').click(() => {
+    //     let image = $('.img-upload-box');
+    //     let div = $('#galeri-produk').find('div:last-child').prev();
+
+    //     let html = `<div class="col-2">
+    //                     <input id="foto-${image.length}" type="file" hidden />
+    //                     <label for="foto-${image.length}" class="text-center" style="display:block">
+    //                         <div class="img-upload-box d-flex align-items-center justify-content-center">
+    //                             <i class="far fa-image"></i>
+    //                         </div>
+    //                     </label>
+    //                     <div id="box-foto-${image.length}" class="img-box mb-2" style="display:none;">
+    //                         <img id="preview-foto-${image.length}">
+    //                     </div>
+    //                     <span>Foto ${image.length}</span>
+    //                 </div>`;
+        
+    //     $(html).insertAfter(div);
+    // });
+
+    // const convertBase64 = (file) => {
+    //     return new Promise((resolve, reject) => {
+    //         const fileReader = new FileReader();
+    //         fileReader.readAsDataURL(file);
+
+    //         fileReader.onload = () => {
+    //             resolve(fileReader.result);
+    //         };
+
+    //         fileReader.onerror = (error) => {
+    //             reject(error);
+    //         };
+    //     });
+    // };
+
+    // const uploadImage = async (e) => {
+    //     let file      = e.target.files[0];
+    //     let base64    = await convertBase64(file);
+    //     let preview   = document.getElementById('preview-' + e.target.id);
+    //     let imgBox    = document.getElementById('box-' + e.target.id);
+    //     let label     = document.querySelector('label[for="'+ e.target.id +'"]');
+        
+    //     preview.src   = base64;
+    //     label.style.display = "none";
+    //     imgBox.style.display = "block";
+    // };
+
+    // for (var i = 0 ; i < $fileInput.length; i++) {
+    //     $fileInput[i].addEventListener("change" , (e) => { uploadImage(e) });
+    // }
+});
+</script>
