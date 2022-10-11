@@ -129,7 +129,7 @@ class Produk extends RestController
                     'message'   => 'Yey berhasil menambah data produk'
                 ],
                 'data' => [
-                    'user'      => $get_produk_after_add
+                    'produk'      => $get_produk_after_add
                 ],
 
             ], 200);

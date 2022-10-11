@@ -1,50 +1,55 @@
 <style>
-.img-upload-box {
-    cursor: pointer;
-    border: 1px solid #A2DB5E;
-    border-radius: 0.2em;
-    border-style: dashed;
-    padding: 0.2em 0.4em;
-    width: 100px;
-    height: 100px;
-    background: #fff;
-}
-.img-upload-box i {
-    font-size: 28px;
-    color: #A2DB5E;
-}
-.img-upload-box:hover,
-.add-more-img:hover {
-    background: #F8FAFB;
-}
-.add-more-img {
-    cursor: pointer;
-    border: 1px solid #A3A3A3;
-    border-style: dashed;
-    border-radius: 0.2em;
-    padding: 0.2em 0.4em;
-    width: 100px;
-    height: 100px;
-    background: #fff;
-}
-.add-more-img i {
-    font-size: 28px;
-    color: #A3A3A3;
-}
+    .img-upload-box {
+        cursor: pointer;
+        border: 1px solid #A2DB5E;
+        border-radius: 0.2em;
+        border-style: dashed;
+        padding: 0.2em 0.4em;
+        width: 100px;
+        height: 100px;
+        background: #fff;
+    }
 
-.img-box {
-    border: 1px solid #A2DB5E;
-    border-radius: 0.2em;
-    width: 100px;
-    height: 100px;
-    background: #fff;
-    overflow: hidden;
-}
-.img-box img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
+    .img-upload-box i {
+        font-size: 28px;
+        color: #A2DB5E;
+    }
+
+    .img-upload-box:hover,
+    .add-more-img:hover {
+        background: #F8FAFB;
+    }
+
+    .add-more-img {
+        cursor: pointer;
+        border: 1px solid #A3A3A3;
+        border-style: dashed;
+        border-radius: 0.2em;
+        padding: 0.2em 0.4em;
+        width: 100px;
+        height: 100px;
+        background: #fff;
+    }
+
+    .add-more-img i {
+        font-size: 28px;
+        color: #A3A3A3;
+    }
+
+    .img-box {
+        border: 1px solid #A2DB5E;
+        border-radius: 0.2em;
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .img-box img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.css" integrity="sha512-+VDbDxc9zesADd49pfvz7CgsOl2xREI/7gnzcdyA9XjuTxLXrdpuz21VVIqc5HPfZji2CypSbxx1lgD7BgBK5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -70,8 +75,7 @@
                         <label>Nama Produk</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Masukkan Nama Produk"
-                            min-length="8" max-length="255" required>
+                        <input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Masukkan Nama Produk" min-length="8" max-length="255" required>
                     </div>
                 </div>
 
@@ -80,8 +84,7 @@
                         <label>Merek</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" name="brand" id="brand" class="form-control col-8" placeholder="Masukkan Merek Produk"
-                            max-length="100" required>
+                        <input type="text" name="brand" id="brand" class="form-control col-8" placeholder="Masukkan Merek Produk" max-length="100" required>
                     </div>
                 </div>
 
@@ -92,8 +95,8 @@
                     <div class="col-10">
                         <select name="id_produk_kategori" id="id_produk_kategori" class="form-control" required>
                             <option value="">Pilih Kategori</option>
-                            <?php foreach($k_produk as $k): ?>
-                            <option value="<?php echo $k->id_produk_kategori ?>"><?php echo $k->nama_kategori ?></option>
+                            <?php foreach ($k_produk as $k) : ?>
+                                <option value="<?php echo $k->id_produk_kategori ?>"><?php echo $k->nama_kategori ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -173,7 +176,7 @@
                         </div> -->
                         <div class="row">
                             <div class="col-12">
-                                <input id="foto-produk" type="file" name="galeriProduk[]" multiple/>
+                                <input id="foto-produk" type="file" name="galeriProduk[]" multiple />
                                 <!-- <label for="foto-produk" class="text-center">
                                     <span class="btn btn-primary">Unggah Foto Produk</span> <span id="img-total" class="ml-3 fw-bold text-muted"></span>
                                 </label> -->
@@ -305,8 +308,7 @@
                         <label>Minimal Order</label>
                     </div>
                     <div class="col-10">
-                        <input type="number" name="min_order" id="min_order" class="form-control col-4" value="1"
-                            min="1" required>
+                        <input type="number" name="min_order" id="min_order" class="form-control col-4" value="1" min="1" required>
                     </div>
                 </div>
 
@@ -332,47 +334,50 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js" integrity="sha512-ooSWpxJsiXe6t4+PPjCgYmVfr1NS5QXJACcR/FPpsdm6kqG1FmQ2SVyg2RXeVuCRBLr0lWHnWJP6Zs1Efvxzww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-$(document).ready(() => {
-    window.onbeforeunload = function() {
-        return "Data will be lost if you leave the page, are you sure?";
-    };
+    console.log('tambah ' + tokenSuplier)
+    $(document).ready(() => {
+        window.onbeforeunload = function() {
+            return "Data will be lost if you leave the page, are you sure?";
+        };
 
-    window.onload = function() {
-        localStorage.clear();
-    };
-    
-    var cropper, $fileInput;
+        window.onload = function() {
+            localStorage.clear();
+        };
 
-    $fileInput = document.querySelector('input[type="file"]');
-    $fileInput.addEventListener("change" , (e) => { uploadImage(e) });
+        var cropper, $fileInput;
 
-    const uploadImage = (e) => {
-        const preview = $('#img-preview');
-        preview.empty();
-        $.each(e.target.files, (key, value) => {
-            let file    = e.target.files[key];
-            var src     = URL.createObjectURL(file);
+        $fileInput = document.querySelector('input[type="file"]');
+        $fileInput.addEventListener("change", (e) => {
+            uploadImage(e)
+        });
 
-            if(key == 0){
-                key = 'utama';
-            }
+        const uploadImage = (e) => {
+            const preview = $('#img-preview');
+            preview.empty();
+            $.each(e.target.files, (key, value) => {
+                let file = e.target.files[key];
+                var src = URL.createObjectURL(file);
 
-            preview.append(`
+                if (key == 0) {
+                    key = 'utama';
+                }
+
+                preview.append(`
                 <div class="col-3 mb-3 text-center">
                     <img id="foto-${key}" src="${src}" class="img-fluid">
                     <span>Foto ${key}</span>
                 </div>`);
-        });
-    };
+            });
+        };
 
-    $('#tambahVariasi').click(() => {
-        if(localStorage.getItem('total_variasi') == undefined) {
-            localStorage.setItem('total_variasi', '1');
-        }
-        
-        var total_var = localStorage.getItem('total_variasi');
-        $('.daftar-variasi').prepend(
-            `<div class="form-group row mb-3">
+        $('#tambahVariasi').click(() => {
+            if (localStorage.getItem('total_variasi') == undefined) {
+                localStorage.setItem('total_variasi', '1');
+            }
+
+            var total_var = localStorage.getItem('total_variasi');
+            $('.daftar-variasi').prepend(
+                `<div class="form-group row mb-3">
                 <div class="col-7">
                     <input type="text" class="form-control form-control-sm" id="variasi_${total_var}" name="variasi[]" placeholder="Masukkan Nama Variasi" />
                 </div>
@@ -380,23 +385,23 @@ $(document).ready(() => {
                     <input type="number" class="form-control form-control-sm" placeholder="Rp" />
                 </div>
             </div>`
-        );
+            );
 
-        addVariasiImgBox(total_var);
-        localStorage.setItem('total_variasi', parseInt(total_var) + 1);
-    });
+            addVariasiImgBox(total_var);
+            localStorage.setItem('total_variasi', parseInt(total_var) + 1);
+        });
 
-    $(document).on("input", 'input[type="text"]', function(e) {
-        let name = e.target.id;
-        let span = $(`span[for="${name}"]`);
-        span.text(e.target.value);
-    });
+        $(document).on("input", 'input[type="text"]', function(e) {
+            let name = e.target.id;
+            let span = $(`span[for="${name}"]`);
+            span.text(e.target.value);
+        });
 
-    function addVariasiImgBox(i) {
-        $('#daftar-foto-variasi').show();
+        function addVariasiImgBox(i) {
+            $('#daftar-foto-variasi').show();
 
-        $('#foto-variasi').append(
-            `<div class="col-3 text-center mb-3">
+            $('#foto-variasi').append(
+                `<div class="col-3 text-center mb-3">
                 <input id="foto-variasi-${i}" type="file" name="foto_variasi[]" hidden />
                 <label for="foto-variasi-${i}" class="text-center" style="display:block">
                     <div class="img-upload-box d-flex align-items-center justify-content-center">
@@ -408,95 +413,98 @@ $(document).ready(() => {
                 </div>
                 <span for="variasi_${i}">Variasi</span>
             </div>`
-        );
-    }
-
-    $.ajaxSetup({
-        headers: { 'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjU0NzMzNzIsImlkX3N1cGxpZXIiOiIxIiwidXNlcm5hbWUiOiJ0b2tvIHJpemtpIiwiZW1haWwiOiJ0b2tvcml6a2lAZ21haWwuY29tIn0.ZrhrL3204d7ejeapSKYNp3wUx34m3jLdLckU62lfndw" }
-    });
-
-    $("#tambahProdukForm").validate({
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.parent().append(error);
-
-        },
-        highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-        },
-        
-        submitHandler: function() {
-            let ajax = $.ajax({
-                url     : "/api/admin/produk/store",
-                method  : "POST",
-                data    : $('#tambahProdukForm').serialize(),
-            });
-
-            ajax.done((res) => {
-                console.log(res);
-                alert(res.meta.message);
-                window.location.href = '/suplier/dashboard/list-produk';
-            });
-
-            ajax.fail((res, status, err) => {
-                alert(err);
-            });
+            );
         }
+
+
+        $.ajaxSetup({
+            headers: {
+                'Authorization': "Bearer " + tokenSuplier
+            }
+        });
+
+        $("#tambahProdukForm").validate({
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.parent().append(error);
+
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+
+            submitHandler: function() {
+                let ajax = $.ajax({
+                    url: ENDPOINT + 'admin/produk/store',
+                    method: "POST",
+                    data: $('#tambahProdukForm').serialize(),
+                });
+
+                ajax.done((res) => {
+                    console.log(res);
+                    alert(res.meta.message);
+                    window.location.href = BASE_URL + '/suplier/dashboard/list-produk';
+                });
+
+                ajax.fail((res, status, err) => {
+                    alert(err);
+                });
+            }
+        });
+
+        // $('.add-more-img').click(() => {
+        //     let image = $('.img-upload-box');
+        //     let div = $('#galeri-produk').find('div:last-child').prev();
+
+        //     let html = `<div class="col-2">
+        //                     <input id="foto-${image.length}" type="file" hidden />
+        //                     <label for="foto-${image.length}" class="text-center" style="display:block">
+        //                         <div class="img-upload-box d-flex align-items-center justify-content-center">
+        //                             <i class="far fa-image"></i>
+        //                         </div>
+        //                     </label>
+        //                     <div id="box-foto-${image.length}" class="img-box mb-2" style="display:none;">
+        //                         <img id="preview-foto-${image.length}">
+        //                     </div>
+        //                     <span>Foto ${image.length}</span>
+        //                 </div>`;
+
+        //     $(html).insertAfter(div);
+        // });
+
+        // const convertBase64 = (file) => {
+        //     return new Promise((resolve, reject) => {
+        //         const fileReader = new FileReader();
+        //         fileReader.readAsDataURL(file);
+
+        //         fileReader.onload = () => {
+        //             resolve(fileReader.result);
+        //         };
+
+        //         fileReader.onerror = (error) => {
+        //             reject(error);
+        //         };
+        //     });
+        // };
+
+        // const uploadImage = async (e) => {
+        //     let file      = e.target.files[0];
+        //     let base64    = await convertBase64(file);
+        //     let preview   = document.getElementById('preview-' + e.target.id);
+        //     let imgBox    = document.getElementById('box-' + e.target.id);
+        //     let label     = document.querySelector('label[for="'+ e.target.id +'"]');
+
+        //     preview.src   = base64;
+        //     label.style.display = "none";
+        //     imgBox.style.display = "block";
+        // };
+
+        // for (var i = 0 ; i < $fileInput.length; i++) {
+        //     $fileInput[i].addEventListener("change" , (e) => { uploadImage(e) });
+        // }
     });
-
-    // $('.add-more-img').click(() => {
-    //     let image = $('.img-upload-box');
-    //     let div = $('#galeri-produk').find('div:last-child').prev();
-
-    //     let html = `<div class="col-2">
-    //                     <input id="foto-${image.length}" type="file" hidden />
-    //                     <label for="foto-${image.length}" class="text-center" style="display:block">
-    //                         <div class="img-upload-box d-flex align-items-center justify-content-center">
-    //                             <i class="far fa-image"></i>
-    //                         </div>
-    //                     </label>
-    //                     <div id="box-foto-${image.length}" class="img-box mb-2" style="display:none;">
-    //                         <img id="preview-foto-${image.length}">
-    //                     </div>
-    //                     <span>Foto ${image.length}</span>
-    //                 </div>`;
-        
-    //     $(html).insertAfter(div);
-    // });
-
-    // const convertBase64 = (file) => {
-    //     return new Promise((resolve, reject) => {
-    //         const fileReader = new FileReader();
-    //         fileReader.readAsDataURL(file);
-
-    //         fileReader.onload = () => {
-    //             resolve(fileReader.result);
-    //         };
-
-    //         fileReader.onerror = (error) => {
-    //             reject(error);
-    //         };
-    //     });
-    // };
-
-    // const uploadImage = async (e) => {
-    //     let file      = e.target.files[0];
-    //     let base64    = await convertBase64(file);
-    //     let preview   = document.getElementById('preview-' + e.target.id);
-    //     let imgBox    = document.getElementById('box-' + e.target.id);
-    //     let label     = document.querySelector('label[for="'+ e.target.id +'"]');
-        
-    //     preview.src   = base64;
-    //     label.style.display = "none";
-    //     imgBox.style.display = "block";
-    // };
-
-    // for (var i = 0 ; i < $fileInput.length; i++) {
-    //     $fileInput[i].addEventListener("change" , (e) => { uploadImage(e) });
-    // }
-});
 </script>

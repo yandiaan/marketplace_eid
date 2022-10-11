@@ -68,7 +68,6 @@
     </div>
 </div>
 
-<script src="assets/js/page/modules-datatables.js"></script>
 
 <script>
     function submitDel(id) {

@@ -77,19 +77,3 @@
      </aside>
  </div>
 
- <script>
-     $(function() {
-         var current = window.location.href;
-         $('.sidebar-menu li a').each(function() {
-             if ($(this).attr('href') == current) {
-                 $(this).parents('.nav-item').addClass('active');
-             }
-         });
-
-         $('.dropdown-menu li a').each(function() {
-             if ($(this).attr('href') == current) {
-                 $(this).parents('li').addClass('active');
-             }
-         });
-     })
- </script>
