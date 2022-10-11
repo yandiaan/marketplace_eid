@@ -23,6 +23,7 @@ $route['suplier/dashboard']           = 'Suplier/Dashboard';
 $route['suplier/dashboard/list-produk']         = 'Suplier/Produk/index';
 $route['suplier/dashboard/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
 $route['suplier/dashboard/edit-produk/(:any)']  = 'Suplier/Produk/edit/$1';
+$route['suplier/dashboard/delete-produk/(:any)']  = 'Suplier/Produk/delete/$1';
 
 
 

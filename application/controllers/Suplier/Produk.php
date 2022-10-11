@@ -31,4 +31,11 @@ class produk extends CI_Controller
         $data['content'] = 'admin/pages/produk/edit_produk';
         return $this->load->view('admin/layouts/app', $data);
     }
+
+    public function delete($id_produk)
+    {
+        $this->db->where('id_produk', $id_produk);
+        $this->db->delete('produk');
+        redirect('suplier/dashboard/list-produk');
+    }
 }

@@ -43,7 +43,7 @@
                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                         <a href="<?php echo base_url('suplier/dashboard/edit-produk/' . $produk->id_produk) ?>" class="btn btn-warning">Edit</a>
                                         <a href="#" class="btn btn-success">Detail</a>
-                                        <a href="#" class="btn btn-danger">Delete</a>
+                                        <a href="<?php echo base_url('suplier/dashboard/delete-produk/' . $produk->id_produk) ?>" class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>
