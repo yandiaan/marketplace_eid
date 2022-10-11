@@ -124,7 +124,7 @@ class Produk_model extends CI_Model
         $this->db->like('nama_produk', $data['nama']);
         $this->db->like('nama_kategori', $data['kategori']);
         // $this->db->like('lokasi', $data['lokasi']);
-        $this->db->like('brand', $data['merek']);
+        $this->db->like('brand', );
         $this->db->having('harga >=', $data['harga_min']);
         $this->db->having('harga <=', $data['harga_max']);
         $this->db->order_by('created_at', $data['sort']);

@@ -50,6 +50,7 @@ $route['api/admin/suplier/update_password']  = 'API/admin/suplier/update_passwor
 $route['api/admin/suplier/upload_banner']    = 'API/admin/suplier/upload_banner';
 $route['api/admin/suplier/upload_logo']      = 'API/admin/suplier/upload_logo';
 $route['api/admin/suplier/profile']          = 'API/admin/suplier/get_profil';
+$route['api/admin/suplier/distribusi']       = 'API/admin/Wilayah_distribusi/store_wilayah_distribusi';
 
 // api untuk suplier menambah produk
 $route['api/admin/produk/store']             = 'API/Admin/Produk/store_produk';
@@ -57,7 +58,7 @@ $route['api/admin/produk/all']               = 'API/Admin/Produk/get_all_produk'
 $route['api/admin/produk/galeri/store']      = 'API/Admin/Galeri_produk/store_galeri_produk';
 
 // api untuk suplier menambah variasi produk
-$route['api/admin/produk/variasi/store']      = 'API/Admin/Variasi_produk/store_variasi';
+$route['api/admin/produk/variasi/store']     = 'API/Admin/Variasi_produk/store_variasi';
 
 // api untuk halaman pengguna
 
