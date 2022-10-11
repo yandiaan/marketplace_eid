@@ -8,8 +8,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <form class="container-fluid mx-3 mb-2 mb-lg-0" action="pencarian" method="GET" role="search">
-                <div class="input-group visually-hidden">
+            <form class="container-fluid mx-3 mb-2 mb-lg-0" action="<?= base_url("pencarian"); ?>" method="GET"
+                role="search">
+                <div class="input-group search-bar">
                     <input style="font-size: 14px" class="form-control" name="search" type="search"
                         placeholder="Cari sekarang disini" aria-label="Search">
                     <button class="btn btn-search" type="submit"><i class="fa fa-search"></i></button>

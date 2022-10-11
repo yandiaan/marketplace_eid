@@ -1,28 +1,50 @@
 const url = new URL(window.location.href);
 
+$(".search-bar").addClass("visually-hidden");
+
 const productParams = url.searchParams.get("search");
 const suplierParams = url.searchParams.get("suplier");
 
-$(document).ready(() => {
-	searchProduct(productParams);
+const filter = {
+	nama: "",
+	kategori: "",
+	lokasi: "",
+	merek: "",
+	harga_min: "",
+	harga_max: "",
+	sort: "",
+};
+
+$(".category-item").click((e) => {
+	$(".category-list")
+		.find(".btn-primary")
+		.removeClass("btn-primary")
+		.addClass("btn-light");
+	$(e.target).addClass("btn-primary");
+	if ($(e.target).text() === "Semua Kategori") {
+		filterProduct("kategori", "");
+	} else {
+		filterProduct("kategori", $(e.target).text());
+	}
 });
 
-const searchProduct = (title) => {
+$(document).ready(() => {
+	if (url.search.includes("search")) {
+		filterProduct("nama", productParams);
+	} else if (url.search.includes("suplier")) {
+		getSupplier();
+	}
+});
+
+const filterProduct = (key, value) => {
 	$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
 		$(".main-content").append(e);
 	});
+	filter[key] = value;
 	const settings = {
 		url: ENDPOINT + "produk/filter",
 		method: "POST",
-		data: {
-			nama: title,
-			kategori: "",
-			lokasi: "",
-			merek: "",
-			harga_min: "",
-			harga_max: "",
-			sort: "",
-		},
+		data: { ...filter },
 	};
 
 	$.ajax(settings).done((res) => {
@@ -34,7 +56,7 @@ const searchProduct = (title) => {
 				: res.meta.message
 		);
 		$(".searchInput").val() !== ""
-			? $(".searchQuery").html(`untuk <b>"${title}"</b>`)
+			? $(".searchQuery").html(`untuk <b>"${value}"</b>`)
 			: "";
 		$(".main-content").empty();
 		$.each(data, (index, item) => {
@@ -82,9 +104,14 @@ const getSupplier = () => {
 
 	$.ajax(settings).done(function (response) {
 		let items = response.data;
-		console.log(items);
+		const count = items.length;
+		$(".resultText").html(
+			response.data.length > 0
+				? `Menampilkan <span class="count">${count}</span> toko <span class="searchQuery"></span>`
+				: response.meta.message
+		);
 		let el = (nama_toko, logo, lokasi, produks) => {
-			return `<div class="col-6">
+			return `<div class="col-6 mb-4">
 						<div class="card p-3">
 							<div class="row align-items-center justify-content-between">
 								<div class="col-1">
@@ -155,13 +182,17 @@ let submitProduct = $(".submit-product");
 let submitSuplier = $(".submit-suplier");
 
 submitProduct.click(() => {
+	$.get(`${BASE_URL}/assets/comps/skeleton.html`, (e) => {
+		$(".main-content").append(e);
+	});
+	$(".main-content").empty();
 	submitProduct.data("active", true);
 	submitSuplier.data("active", false);
 	submitProduct.removeClass("btn-outline-primary").addClass("btn-primary");
 	submitSuplier.removeClass("btn-primary").addClass("btn-outline-primary");
 	let input = $(".searchInput").val();
 	setParams("search", input);
-	searchProduct(input);
+	filterProduct("nama", input);
 });
 
 submitSuplier.click(() => {
@@ -182,7 +213,7 @@ $(".searchInput").on("input", function (e) {
 		window.history.replaceState(null, null, url);
 		$(".main-content").empty();
 
-		searchProduct(input);
+		filterProduct("nama", input);
 	} else if ($(".submit-suplier").data("active") === true) {
 		let input = e.target.value;
 

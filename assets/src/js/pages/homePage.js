@@ -5,8 +5,6 @@ $("#cart").click(() => {
 	}
 });
 
-$(".input-group").removeClass("visually-hidden");
-
 $(document).ready(() => {
 	var settings = {
 		url: ENDPOINT + "produk",
