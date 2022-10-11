@@ -69,9 +69,10 @@ class Suplier_model extends CI_Model
         return $query;
     }
     
-    public function get_all()
+    public function filter_all($data)
     {
         $this->db->select('suplier.id_suplier,suplier.nama_toko,suplier.deskripsi,suplier.lokasi,suplier.banner,suplier.logo,suplier.updated_at');
+        $this->db->like('suplier.nama_toko', $data['nama_toko']);
         $query = $this->db->get('suplier')->result_array();
 
         // Loop through the products array

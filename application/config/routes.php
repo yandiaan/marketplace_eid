@@ -10,12 +10,6 @@ $route['login']                 = 'Auth/login';
 $route['register']              = 'Auth/register';
 $route['register/action']       = 'Auth/register/register_action';
 
-//admin awan
-$route['admin']                 = 'API/Admin/D_Produk/index';
-$route['variasi']               = 'API/Admin/D_Produk/index_variasi';
-$route['upload']                = 'API/Admin/Upload_file/index';
-$route['galeri']                = 'API/Admin/Upload_file/galeri_index';
-$route['kategori']              = 'API/Admin/kategori/index';
 
 // Admin
 $route['suplier/dashboard/login']     = 'Suplier/Auth';
@@ -62,9 +56,10 @@ $route['api/admin/produk/galeri/store']      = 'API/Admin/Galeri_produk/store_ga
 // api untuk suplier menambah variasi produk
 $route['api/admin/produk/variasi/store']      = 'API/Admin/Variasi_produk/store_variasi';
 
-$route['api/suplier/get/(:any)']        = 'API/suplier/first/$1';
-$route['api/suplier/all']               = 'API/suplier/all';
-$route['api/suplier/products/(:any)']   = 'API/suplier/products/$1';
+// api untuk halaman pengguna
+
+$route['api/suplier/get/(:any)']           = 'API/suplier/first/$1';
+$route['api/suplier/filter']               = 'API/suplier/filter';
 
 // API untuk produk
 $route['api/produk'] = 'API/produk';

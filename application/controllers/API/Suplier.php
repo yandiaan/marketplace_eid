@@ -35,9 +35,13 @@ class Suplier extends RestController
     }
 
     // Get all supplier
-    public function all_get()
+    public function filter_post()
     {
-        $data = $this->suplier->get_all();
+        $filter = [
+            'nama_toko'       => $this->input->post('nama_toko'),
+        ];
+
+        $data = $this->suplier->filter_all($filter);
 
         if (count($data) < 1) {
             $this->response([
@@ -56,27 +60,4 @@ class Suplier extends RestController
             ], 200);
         }
     }
-
-    // Get all supplier product
-    public function products_get($id)
-    {
-        $data = $this->suplier->get_products($id);
-
-        if (count($data) < 1) {
-            $this->response([
-                'code'      => 404,
-                'message'   => 'Produk tidak ditemukan',
-            ], 404);
-        } else {
-            $this->response([
-                'meta' => [
-                    'code'      => 200,
-                    'status'    => 'success',
-                    'message'   => 'Success get all produk suplier'
-                ],
-                'data'  => $data,
-            ], 200);
-        }
-    }
-    
-    }
+}
