@@ -22,7 +22,10 @@ class produk extends CI_Controller
 
     public function tambah_produk_baru()
     {
-        $data['content'] = 'admin/pages/produk/tambah_produk_baru';
+        $data = [
+            'content'   => 'admin/pages/produk/tambah_produk_baru',
+            'k_produk'  => $this->db->get('produk_kategori')->result()
+        ];
         return $this->load->view('admin/layouts/app', $data);
     }
 
