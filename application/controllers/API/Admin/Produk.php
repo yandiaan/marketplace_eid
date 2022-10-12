@@ -32,7 +32,7 @@ class Produk extends RestController
         if ($id_produk) {
             $where  = [
                 'produk.id_suplier'  => $id_suplier,
-                'produk.id_produk'   => $id_produk
+                'produk.id_produk'   => $id_produk,
             ];
             $result = $this->produk->get_one_bysuplier($where);
 
@@ -54,7 +54,10 @@ class Produk extends RestController
                 ], 404);
             }
         } else {
-            $result     = $this->db->get_where('produk', ['id_suplier' => $id_suplier])->result_array();
+            $where  = [
+                'produk.id_suplier'  => $id_suplier,
+            ];
+            $result     = $this->produk->get_all_bysuplier($where);
 
             $this->response([
                 'meta' => [
