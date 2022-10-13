@@ -28,38 +28,56 @@ $(document).ready(() => {
 	};
 
 	$.ajax(settings).done((res) => {
-		let data = res.data;
-		data.map(({ nama_kategori, brand }) => {
-			$(".category-list").append(`<button
-			class="text-start category-item target btn btn-sm btn-light w-100 mb-1">${nama_kategori}</button>`);
-			$(".category-item").click((e) => {
-				$(".category-list")
-					.find(".btn-primary")
-					.removeClass("btn-primary")
-					.addClass("btn-light");
-				$(e.target).addClass("btn-primary");
-				$(".main-content").empty();
-				if (e.target.innerText === "Semua Kategori") {
-					filterProduct("kategori", "");
-				} else {
-					filterProduct("kategori", $(e.target).text());
-				}
-			});
+		let data = res.data.sort((a, b) =>
+			a.nama_kategori > b.nama_kategori && a.brand > b.brand ? 1 : -1
+		);
+		let kategori = [];
+		let brands = [];
 
+		data.map(({ nama_kategori, brand }) => {
+			kategori.push(nama_kategori);
+			brands.push(brand);
+		});
+
+		const filteredKategori = [...new Set(kategori)];
+		const filteredBrand = [...new Set(brands)];
+
+		filteredKategori.map((kategori) => {
+			$(".category-list").append(
+				`<button class="text-start category-item target btn btn-sm btn-light w-100 mb-1">${kategori}</button>`
+			);
+		});
+
+		filteredBrand.map((merk) => {
 			$(".material-group").append(`<button
-			class="text-start item-brand target btn btn-sm btn-light w-100 mb-1">${brand}</button>`);
-			$(".item-brand").click((e) => {
-				$(".material-group")
-					.find(".btn-primary")
-					.removeClass("btn-primary")
-					.addClass("btn-light");
-				$(e.target).addClass("btn-primary");
-				if (e.target.innerText === "Semua Merk") {
-					filterProduct("merek", "");
-				} else {
-					filterProduct("merek", $(e.target).text());
-				}
-			});
+			class="text-start item-brand target btn btn-sm btn-light w-100 mb-1">${merk}</button>`);
+		});
+
+		$(".category-item").click((e) => {
+			$(".category-list")
+				.find(".btn-primary")
+				.removeClass("btn-primary")
+				.addClass("btn-light");
+			$(e.target).addClass("btn-primary");
+			$(".main-content").empty();
+			if (e.target.innerText === "Semua Kategori") {
+				filterProduct("kategori", "");
+			} else {
+				filterProduct("kategori", $(e.target).text());
+			}
+		});
+
+		$(".item-brand").click((e) => {
+			$(".material-group")
+				.find(".btn-primary")
+				.removeClass("btn-primary")
+				.addClass("btn-light");
+			$(e.target).addClass("btn-primary");
+			if (e.target.innerText === "Semua Merk") {
+				filterProduct("merek", "");
+			} else {
+				filterProduct("merek", $(e.target).text());
+			}
 		});
 	});
 });

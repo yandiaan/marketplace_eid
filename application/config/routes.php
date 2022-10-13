@@ -26,9 +26,10 @@ $route['suplier/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
 
 // Produk route
 $route['produk/(:any)']         = 'produk/detail/$1';
-$route['produk']               = '404';
+$route['produk']                = '404';
 $route['pencarian']             = 'pencarian/index';
 $route['pencarian-produk']      = 'pencarian/pencarian_produk';
+$route['rekomendasi']           = 'rekomendasi/index';
 $route['cart']                  = 'cart/index';
 $route['checkout-2']            = 'checkout/checkout_2';
 $route['checkout']              = 'checkout/index';
@@ -81,4 +82,3 @@ $route['api/review'] = 'API/review/add';
 
 // API checkout
 $route['api/transaksi'] = 'API/transaksi/checkout';
-
