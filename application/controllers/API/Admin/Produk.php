@@ -99,7 +99,7 @@ class Produk extends RestController
 
             return '<div class="btn-group">
                         <a href="'.base_url('suplier/dashboard/edit-produk/' . $data['id_produk']).'" class="btn btn-sm btn-link text-info"><i class="fas fa-edit"></i> Ubah</a>
-                        <button class="btn btn-sm btn-link text-danger" data-confirm="Hapus Data?|Apakah Anda yakin?" data-confirm-yes="submitDel('.$data['id_produk'].')"><i class="fas fa-trash-alt"></i> Hapus</button>
+                        <button class="btn btn-sm btn-link text-danger delete-data" data-id_produk="'.$data['id_produk'].'"><i class="fas fa-trash-alt"></i> Hapus</button>
                         '.$arsipBtn.'
                     </div>';
         });
