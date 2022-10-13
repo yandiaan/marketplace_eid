@@ -12,7 +12,6 @@
     <div class="card">
       <div class="card-body">
         <div class="table-responsive">
-          <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Aw, yeah!</button> -->
           <table class="table dataTable" id="datatable">
             <thead>
               <tr>
@@ -30,6 +29,8 @@
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
   </div>
 </section>

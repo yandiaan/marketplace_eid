@@ -3,39 +3,35 @@ $(document).ready(() => {
 		headers: { Authorization: "Bearer " + tokenSuplier },
 	});
 
-	var table = $("#datatable").DataTable({
-		processing: true,
-		serverSide: true,
-		ajax: `${ENDPOINT}admin/produk/datatables`,
-		columns: [
-			{ data: "id_produk" },
-			{ data: "nama_produk" },
-			{ data: "brand" },
-			{ data: "harga" },
-			{ data: "berat" },
-			{ data: "action" },
-		],
-		columnDefs: [
-			{
-				searchable: false,
-				orderable: false,
-				targets: 0,
-			},
-		],
-		order: [[1, "asc"]],
-	});
+    var table = $('#datatable').DataTable({
+        processing  : true,
+        serverSide  : true,
+        ajax        : `${ENDPOINT}admin/produk/datatables`,
+        columns     : [
+            { "data"  : "id_produk" },
+            { "data"  : "nama_produk" },
+            { "data"  : "brand" },
+            { "data"  : "harga" },
+            { "data"  : "berat" },
+            { "data"  : "action" },
+        ],
+        columnDefs: [
+            {
+                searchable: false,
+                orderable: false,
+                targets: 0,
+            },
+        ],
+        order: [[1, 'asc']],
+    });
 
-	// table
-	// 	.on("order.dt search.dt", function () {
-	// 		let i = 1;
-
-	// 		table
-	// 			.cells(null, 0, { search: "applied", order: "applied" })
-	// 			.every(function (cell) {
-	// 				this.data(i++);
-	// 			});
-	// 	})
-	// 	.draw();
+    table.on('order.dt search.dt', function () {
+        let i = 1;
+ 
+        table.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
+            this.data(i++);
+        });
+    }).draw();
 });
 
 function submitDel(id) {
