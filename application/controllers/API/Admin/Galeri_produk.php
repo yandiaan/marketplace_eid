@@ -30,7 +30,7 @@ class Galeri_produk extends RestController
         if (!$id_produk) {
             $this->response([
                 'message' => 'Id produk wajib diisi !',
-                'error'  => 'id produk null',
+                'error'   => 'id produk null',
             ], 404);
         }
 

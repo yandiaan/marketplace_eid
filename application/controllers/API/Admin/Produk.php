@@ -3,6 +3,8 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
+use Ozdemir\Datatables\Datatables;
+use Ozdemir\Datatables\DB\CodeigniterAdapter;
 
 class Produk extends RestController
 {
@@ -32,7 +34,7 @@ class Produk extends RestController
         if ($id_produk) {
             $where  = [
                 'produk.id_suplier'  => $id_suplier,
-                'produk.id_produk'   => $id_produk
+                'produk.id_produk'   => $id_produk,
             ];
             $result = $this->produk->get_one_bysuplier($where);
 
@@ -54,7 +56,10 @@ class Produk extends RestController
                 ], 404);
             }
         } else {
-            $result     = $this->db->get_where('produk', ['id_suplier' => $id_suplier])->result_array();
+            $where  = [
+                'produk.id_suplier'  => $id_suplier,
+            ];
+            $result     = $this->produk->get_all_bysuplier($where);
 
             $this->response([
                 'meta' => [
@@ -67,6 +72,41 @@ class Produk extends RestController
         }
     }
 
+    public function get_datatables_get()
+    {
+        $dt = new Datatables(new CodeigniterAdapter);
+
+        $query = $this->db->select('id_produk, nama_produk, brand, harga, berat, delete_at')
+            ->where('id_suplier', $this->token_session->id_suplier)
+            ->get_compiled_select('produk', FALSE);
+        
+        $dt->query($query);
+
+        $dt->edit('harga', function ($data) {
+            return '<span class="badge badge-primary">Rp '.number_format($data['harga'],'0',',','.').'</span>';
+        });
+
+        $dt->edit('berat', function ($data) {
+            return '<span class="badge badge-light">'.$data['berat'].' kg</span>';
+        });
+
+        $dt->add('action', function ($data) {
+            if($data['delete_at'] == NULL) {
+                $arsipBtn = '<a href="'.base_url('suplier/dashboard/arsip-produk/' . $data['id_produk']).'" class="btn btn-sm btn-link">Arsipkan</a>';
+            } else {
+                $arsipBtn = '<a href="'.base_url('suplier/dashboard/bukaarsip-produk/' . $data['id_produk']).'" class="btn btn-sm btn-link">Tampilkan</a>';
+            }
+
+            return '<div class="btn-group">
+                        <a href="'.base_url('suplier/dashboard/edit-produk/' . $data['id_produk']).'" class="btn btn-sm btn-link text-info"><i class="fas fa-edit"></i> Ubah</a>
+                        <button class="btn btn-sm btn-link text-danger" data-confirm="Hapus Data?|Apakah Anda yakin?" data-confirm-yes="submitDel('.$data['id_produk'].')"><i class="fas fa-trash-alt"></i> Hapus</button>
+                        '.$arsipBtn.'
+                    </div>';
+        });
+
+        echo $dt->generate();
+    }
+
     public function store_produk_post()
     {
         $this->form_validation->set_rules($this->produk->rules('add_produk'));
@@ -77,6 +117,11 @@ class Produk extends RestController
                 'errors'  => $this->form_validation->error_array(),
             ], 422);
         } else {
+
+            if(isset($_POST['archive'])) {
+                $delete_at = date('Y-m-d h:i:s');
+            }
+
             $id_suplier           = $this->token_session->id_suplier;
             $id_produk_kategori   = $this->input->post('id_produk_kategori', true);
             $nama_produk          = $this->input->post('nama_produk', true);
@@ -102,8 +147,9 @@ class Produk extends RestController
                 'lebar'                => htmlspecialchars($lebar),
                 'tinggi'               => htmlspecialchars($tinggi),
                 'garansi'              => htmlspecialchars($garansi) == "" ? null : htmlspecialchars($garansi),
-                'created_at'           => date('Y-m-d'),
-                'updated_at'           => date('Y-m-d')
+                'delete_at'            => $delete_at ?? null,
+                'created_at'           => date('Y-m-d h:i:s'),
+                'updated_at'           => date('Y-m-d h:i:s')
             ];
 
 
@@ -129,6 +175,33 @@ class Produk extends RestController
                     'user'      => $get_produk_after_add
                 ],
 
+            ], 200);
+        }
+    }
+
+    public function delete_produk_post()
+    {
+        $id_suplier = $this->token_session->id_suplier;
+        $id_produk  = $this->input->post('id_produk');
+
+        if(! isset($id_produk)) {
+            $this->response([
+                'code'      => 400,
+                'status'    => 'error',
+                'message'   => 'Data yang anda input tidak valid !',
+            ], 400);
+        } else {
+            $this->db
+                ->where('id_produk', $id_produk)
+                ->where('id_suplier', $id_suplier)
+                ->delete('produk');
+
+            $this->response([
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Yey berhasil menghapus data produk'
+                ],
             ], 200);
         }
     }

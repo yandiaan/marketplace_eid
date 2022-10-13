@@ -14,18 +14,19 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    
+     <!-- Navigation -->
+    <script type="text/javascript" src="<?= base_url('assets/src/js/jquery.min.js');?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+        integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?= base_url('assets/src/js/var.js');?>"></script>
 </head>
 
 <body>
 
     <div id="overlay" style="display: none"></div>
 
-    <!-- Navigation -->
-    <script type="text/javascript" src="<?= base_url('assets/src/js/jquery.min.js');?>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
-        integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="<?= base_url('assets/src/js/var.js');?>"></script>
     <?php $this->load->view('layouts/header'); ?>
 
     <!-- Content -->
