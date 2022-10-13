@@ -78,7 +78,7 @@
  </div>
 
  <script>
-     $(function() {
+     $(document).ready(() => {
          var current = window.location.href;
          $('.sidebar-menu li a').each(function() {
              if ($(this).attr('href') == current) {
