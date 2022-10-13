@@ -1,58 +1,51 @@
 <style>
-    .img-upload-box {
-        cursor: pointer;
-        border: 1px solid #A2DB5E;
-        border-radius: 0.2em;
-        border-style: dashed;
-        padding: 0.2em 0.4em;
-        width: 100px;
-        height: 100px;
-        background: #fff;
-    }
+.img-upload-box {
+    cursor: pointer;
+    border: 1px solid #A2DB5E;
+    border-radius: 0.2em;
+    border-style: dashed;
+    padding: 0.2em 0.4em;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+}
+.img-upload-box i {
+    font-size: 28px;
+    color: #A2DB5E;
+}
+.img-upload-box:hover,
+.add-more-img:hover {
+    background: #F8FAFB;
+}
+.add-more-img {
+    cursor: pointer;
+    border: 1px solid #A3A3A3;
+    border-style: dashed;
+    border-radius: 0.2em;
+    padding: 0.2em 0.4em;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+}
+.add-more-img i {
+    font-size: 28px;
+    color: #A3A3A3;
+}
 
-    .img-upload-box i {
-        font-size: 28px;
-        color: #A2DB5E;
-    }
-
-    .img-upload-box:hover,
-    .add-more-img:hover {
-        background: #F8FAFB;
-    }
-
-    .add-more-img {
-        cursor: pointer;
-        border: 1px solid #A3A3A3;
-        border-style: dashed;
-        border-radius: 0.2em;
-        padding: 0.2em 0.4em;
-        width: 100px;
-        height: 100px;
-        background: #fff;
-    }
-
-    .add-more-img i {
-        font-size: 28px;
-        color: #A3A3A3;
-    }
-
-    .img-box {
-        border: 1px solid #A2DB5E;
-        border-radius: 0.2em;
-        width: 100px;
-        height: 100px;
-        background: #fff;
-        overflow: hidden;
-    }
-
-    .img-box img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-    }
+.img-box {
+    border: 1px solid #A2DB5E;
+    border-radius: 0.2em;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    overflow: hidden;
+}
+.img-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
 </style>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.css" integrity="sha512-+VDbDxc9zesADd49pfvz7CgsOl2xREI/7gnzcdyA9XjuTxLXrdpuz21VVIqc5HPfZji2CypSbxx1lgD7BgBK5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div class="section-header">
     <h1>Tambah Produk baru</h1>
@@ -75,7 +68,8 @@
                         <label>Nama Produk</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Masukkan Nama Produk" min-length="8" max-length="255" required>
+                        <input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Masukkan Nama Produk"
+                            min-length="8" max-length="255" required>
                     </div>
                 </div>
 
@@ -84,7 +78,8 @@
                         <label>Merek</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" name="brand" id="brand" class="form-control col-8" placeholder="Masukkan Merek Produk" max-length="100" required>
+                        <input type="text" name="brand" id="brand" class="form-control col-8" placeholder="Masukkan Merek Produk"
+                            max-length="100" required>
                     </div>
                 </div>
 
@@ -107,7 +102,7 @@
                         <label>Deskripsi Produk</label>
                     </div>
                     <div class="col-10">
-                        <textarea name="deskripsi" id="deskripsi" class="form-control" required></textarea>
+                        <textarea name="deskripsi" id="deskripsi" class="summernote-simple" required></textarea>
                     </div>
                 </div>
 
@@ -116,7 +111,7 @@
                         <label>Detail Spesifikasi</label>
                     </div>
                     <div class="col-10">
-                        <textarea name="spesifikasi" id="spesifikasi" class="form-control" required></textarea>
+                        <textarea name="spesifikasi" id="spesifikasi" class="summernote-simple" required></textarea>
                     </div>
                 </div>
 
@@ -317,7 +312,7 @@
                         <label>Detail Garansi</label>
                     </div>
                     <div class="col-10">
-                        <textarea name="garansi" id="garansi" class="form-control" required></textarea>
+                        <textarea name="garansi" id="garansi" class="summernote-simple" required></textarea>
                     </div>
                 </div>
             </div>
@@ -325,59 +320,54 @@
 
         <div class="mt-2 text-right">
             <a href="#" class="btn bg-white shadow-sm mr-2">Kembali</a>
-            <!-- <button type="submit" class="btn bg-white shadow-sm mr-2" name="archive">Simpan & Arsipkan</button> -->
-            <button type="submit" class="btn btn-primary">Simpan & Tampilkan</button>
+            <button type="submit" class="btn bg-white shadow-sm mr-2" name="archive">Simpan & Arsipkan</button>
+            <button type="submit" class="btn btn-primary" name="publish">Simpan & Tampilkan</button>
         </div>
     </form>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js" integrity="sha512-ooSWpxJsiXe6t4+PPjCgYmVfr1NS5QXJACcR/FPpsdm6kqG1FmQ2SVyg2RXeVuCRBLr0lWHnWJP6Zs1Efvxzww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 <script>
-    console.log('tambah ' + tokenSuplier)
-    $(document).ready(() => {
-        window.onbeforeunload = function() {
-            return "Data will be lost if you leave the page, are you sure?";
-        };
+$(document).ready(() => {
+    window.onbeforeunload = function() {
+        return "Data will be lost if you leave the page, are you sure?";
+    };
 
-        window.onload = function() {
-            localStorage.clear();
-        };
+    window.onload = function() {
+        localStorage.clear();
+    };
+    
+    var cropper, $fileInput;
 
-        var cropper, $fileInput;
+    $fileInput = document.querySelector('input[type="file"]');
+    $fileInput.addEventListener("change" , (e) => { uploadImage(e) });
 
-        $fileInput = document.querySelector('input[type="file"]');
-        $fileInput.addEventListener("change", (e) => {
-            uploadImage(e)
-        });
+    const uploadImage = (e) => {
+        const preview = $('#img-preview');
+        preview.empty();
+        $.each(e.target.files, (key, value) => {
+            let file    = e.target.files[key];
+            var src     = URL.createObjectURL(file);
 
-        const uploadImage = (e) => {
-            const preview = $('#img-preview');
-            preview.empty();
-            $.each(e.target.files, (key, value) => {
-                let file = e.target.files[key];
-                var src = URL.createObjectURL(file);
+            if(key == 0){
+                key = 'utama';
+            }
 
-                if (key == 0) {
-                    key = 'utama';
-                }
-
-                preview.append(`
+            preview.append(`
                 <div class="col-3 mb-3 text-center">
                     <img id="foto-${key}" src="${src}" class="img-fluid">
                     <span>Foto ${key}</span>
                 </div>`);
-            });
-        };
+        });
+    };
 
-        $('#tambahVariasi').click(() => {
-            if (localStorage.getItem('total_variasi') == undefined) {
-                localStorage.setItem('total_variasi', '1');
-            }
-
-            var total_var = localStorage.getItem('total_variasi');
-            $('.daftar-variasi').prepend(
-                `<div class="form-group row mb-3">
+    $('#tambahVariasi').click(() => {
+        if(localStorage.getItem('total_variasi') == undefined) {
+            localStorage.setItem('total_variasi', '1');
+        }
+        
+        var total_var = localStorage.getItem('total_variasi');
+        $('.daftar-variasi').prepend(
+            `<div class="form-group row mb-3">
                 <div class="col-7">
                     <input type="text" class="form-control form-control-sm" id="variasi_${total_var}" name="variasi[]" placeholder="Masukkan Nama Variasi" />
                 </div>
@@ -385,23 +375,23 @@
                     <input type="number" class="form-control form-control-sm" placeholder="Rp" />
                 </div>
             </div>`
-            );
+        );
 
-            addVariasiImgBox(total_var);
-            localStorage.setItem('total_variasi', parseInt(total_var) + 1);
-        });
+        addVariasiImgBox(total_var);
+        localStorage.setItem('total_variasi', parseInt(total_var) + 1);
+    });
 
-        $(document).on("input", 'input[type="text"]', function(e) {
-            let name = e.target.id;
-            let span = $(`span[for="${name}"]`);
-            span.text(e.target.value);
-        });
+    $(document).on("input", 'input[type="text"]', function(e) {
+        let name = e.target.id;
+        let span = $(`span[for="${name}"]`);
+        span.text(e.target.value);
+    });
 
-        function addVariasiImgBox(i) {
-            $('#daftar-foto-variasi').show();
+    function addVariasiImgBox(i) {
+        $('#daftar-foto-variasi').show();
 
-            $('#foto-variasi').append(
-                `<div class="col-3 text-center mb-3">
+        $('#foto-variasi').append(
+            `<div class="col-3 text-center mb-3">
                 <input id="foto-variasi-${i}" type="file" name="foto_variasi[]" hidden />
                 <label for="foto-variasi-${i}" class="text-center" style="display:block">
                     <div class="img-upload-box d-flex align-items-center justify-content-center">
@@ -413,52 +403,49 @@
                 </div>
                 <span for="variasi_${i}">Variasi</span>
             </div>`
-            );
+        );
+    }
+
+    $.ajaxSetup({
+        headers: { 'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjU0NzMzNzIsImlkX3N1cGxpZXIiOiIxIiwidXNlcm5hbWUiOiJ0b2tvIHJpemtpIiwiZW1haWwiOiJ0b2tvcml6a2lAZ21haWwuY29tIn0.ZrhrL3204d7ejeapSKYNp3wUx34m3jLdLckU62lfndw" }
+    });
+
+    $("#tambahProdukForm").validate({
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.parent().append(error);
+
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        },
+        
+        submitHandler: function() {
+            let ajax = $.ajax({
+                url     : "/api/admin/produk/store",
+                method  : "POST",
+                data    : $('#tambahProdukForm').serialize(),
+            });
+
+            ajax.done((res) => {
+                console.log(res);
+                alert(res.meta.message);
+                window.location.href = '/suplier/dashboard/list-produk';
+            });
+
+            ajax.fail((res, status, err) => {
+                alert(err);
+            });
         }
+    });
 
-
-        $.ajaxSetup({
-            headers: {
-                'Authorization': "Bearer " + tokenSuplier
-            }
-        });
-
-        $("#tambahProdukForm").validate({
-            errorElement: 'span',
-            errorPlacement: function(error, element) {
-                error.addClass('invalid-feedback');
-                element.parent().append(error);
-
-            },
-            highlight: function(element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            },
-
-            submitHandler: function() {
-                let ajax = $.ajax({
-                    url: ENDPOINT + 'admin/produk/store',
-                    method: "POST",
-                    data: $('#tambahProdukForm').serialize(),
-                });
-
-                ajax.done((res) => {
-                    console.log(res);
-                    alert(res.meta.message);
-                    window.location.href = BASE_URL + '/suplier/dashboard/list-produk';
-                });
-
-                ajax.fail((res, status, err) => {
-                    alert(err);
-                });
-            }
-        });
-
-        // $('.add-more-img').click(() => {
-        //     let image = $('.img-upload-box');
-        //     let div = $('#galeri-produk').find('div:last-child').prev();
+    // $('.add-more-img').click(() => {
+    //     let image = $('.img-upload-box');
+    //     let div = $('#galeri-produk').find('div:last-child').prev();
 
         //     let html = `<div class="col-2">
         //                     <input id="foto-${image.length}" type="file" hidden />
@@ -503,8 +490,8 @@
         //     imgBox.style.display = "block";
         // };
 
-        // for (var i = 0 ; i < $fileInput.length; i++) {
-        //     $fileInput[i].addEventListener("change" , (e) => { uploadImage(e) });
-        // }
-    });
+    // for (var i = 0 ; i < $fileInput.length; i++) {
+    //     $fileInput[i].addEventListener("change" , (e) => { uploadImage(e) });
+    // }
+});
 </script>

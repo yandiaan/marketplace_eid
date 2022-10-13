@@ -15,7 +15,8 @@
 		"chriskacerguis/codeigniter-restserver": "^3.1",
 		"firebase/php-jwt": "^6.3",
 		"vlucas/phpdotenv": "^3.6",
-		"midtrans/midtrans-php": "^2.5"
+		"midtrans/midtrans-php": "^2.5",
+		"ozdemir/datatables": "^2.3"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
