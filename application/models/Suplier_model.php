@@ -54,10 +54,14 @@ class Suplier_model extends CI_Model
         $this->db->select('suplier.id_suplier,suplier.nama_toko,suplier.deskripsi,suplier.lokasi,suplier.banner,suplier.logo,suplier.updated_at');
         $query = $this->db->get_where('suplier', ['id_suplier' => $id])->row_array();
 
+        $wilayah_distribusi = $this->db->select('provinsi,kota')->get_where('wilayah_distribusi', ['id_suplier' => $query['id_suplier']])->result_array();
+        $query['wilayah_distribusi'] = $wilayah_distribusi;
+
         // Loop through the products array
         $this->db->where('id_suplier', $query['id_suplier']);
         $produks = $this->db->get_where('produk', ['delete_at' => null])->result_array();
         $query['produks'] = $produks;
+
 
         foreach ($produks as $j => $produk) {
             $this->db->where('id_produk', $produk['id_produk']);

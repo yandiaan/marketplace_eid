@@ -22,4 +22,19 @@ class Wilayah_distribusi_model extends CI_Model
 
         return $validation[$params];
     }
+
+
+    public function get_one($id)
+    {
+        $query = $this->db->get_where('wilayah_distribusi', ['id_wilayah_distribusi' => $id])->row_array();
+
+        return $query;
+    }
+
+    public function get_all($id)
+    {
+        $query = $this->db->get_where('wilayah_distribusi', ['id_suplier' => $id])->result_array();
+
+        return $query;
+    }
 }

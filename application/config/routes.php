@@ -50,6 +50,8 @@ $route['api/admin/suplier/update_password']  = 'API/admin/suplier/update_passwor
 $route['api/admin/suplier/upload_banner']    = 'API/admin/suplier/upload_banner';
 $route['api/admin/suplier/upload_logo']      = 'API/admin/suplier/upload_logo';
 $route['api/admin/suplier/profile']          = 'API/admin/suplier/get_profil';
+
+$route['api/admin/suplier/distribusi']       = 'API/admin/Wilayah_distribusi/index';
 $route['api/admin/suplier/distribusi']       = 'API/admin/Wilayah_distribusi/store_wilayah_distribusi';
 
 // api untuk suplier menambah produk
