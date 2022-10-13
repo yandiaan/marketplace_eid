@@ -5,6 +5,8 @@ $("#cart").click(() => {
 	}
 });
 
+$(".input-group").removeClass("visually-hidden");
+
 $(document).ready(() => {
 	var settings = {
 		url: ENDPOINT + "produk",
@@ -25,7 +27,9 @@ $(document).ready(() => {
 										class="img-thumbnail">
 								</div>
 								<div class="card-product-body">
-									<a href="${BASE_URL}/produk/${val.slug}" class="product-title">${val.nama_produk}</a>
+									<a href="${BASE_URL}/produk/${val.slug}" class="product-title">${
+				val.nama_produk
+			}</a>
 									<div class="mt-2 d-flex align-items-center">
 										<svg width="16" height="15" viewBox="0 0 16 15" fill="none"
 											xmlns="http://www.w3.org/2000/svg">
