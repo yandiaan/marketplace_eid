@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(document).ready(function() {
     $.ajaxSetup({
         headers: { 'Authorization': "Bearer " + $.cookie('sessionTokenSuplier') }
     });
@@ -30,14 +30,14 @@ $(document).ready(() => {
         order: [[1, 'asc']],
     });
 
-    $(document).on('click', '.delete-data', (e) => {
+    $(document).on('click', '.delete-data', function() {
         $('#deleteModal').modal('show');
-        var id_produk = $('.delete-data').parent().data('id_produk');
+        var id_produk = $(this).parent().data('id_produk');
         $('#deleteModal').find('#delete_id_produk').val(id_produk);
     });
     
-    $('#delete_id_produk').on('click', (e) => {
-        let id_produk = $('#delete_id_produk').val();
+    $('#delete_id_produk').on('click', function() {
+        let id_produk = $(this).val();
     
         let ajax = $.ajax({
             url     : `${ENDPOINT}admin/produk/delete`,
@@ -56,8 +56,8 @@ $(document).ready(() => {
         });
     });
 
-    $(document).on('click', '.arsip-data', (e) => {
-        let id_produk = $('.arsip-data').parent().data('id_produk');
+    $(document).on('click', '.arsip-data', function() {
+        let id_produk = $(this).parent().data('id_produk');
     
         let ajax = $.ajax({
             url     : `${ENDPOINT}admin/produk/arsip`,

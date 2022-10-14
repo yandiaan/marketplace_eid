@@ -121,8 +121,8 @@
                             <label>Foto Produk</label>
                         </div>
                         <div class="col-10">
-                            <!-- <div id="galeri-produk" class="row d-none">
-                                <div class="col-2">
+                            <div id="galeri-produk" class="row">
+                                <div class="col-2 text-center mb-4">
                                     <input id="foto-utama" type="file" name="galeriProduk[]" hidden />
                                     <label for="foto-utama" class="text-center" style="display:block">
                                         <div class="img-upload-box d-flex align-items-center justify-content-center">
@@ -135,7 +135,7 @@
                                     <span>*Foto Utama</span>
                                 </div>
             
-                                <div class="col-2">
+                                <div class="col-2 text-center mb-4">
                                     <input id="foto-1" type="file" hidden />
                                     <label for="foto-1" class="text-center" style="display:block">
                                         <div class="img-upload-box d-flex align-items-center justify-content-center">
@@ -148,7 +148,7 @@
                                     <span>Foto 1</span>
                                 </div>
             
-                                <div class="col-2">
+                                <div class="col-2 text-center mb-4">
                                     <input id="foto-2" type="file" hidden />
                                     <label for="foto-2" class="text-center" style="display:block">
                                         <div class="img-upload-box d-flex align-items-center justify-content-center">
@@ -161,21 +161,13 @@
                                     <span>Foto 2</span>
                                 </div>
             
-                                <div id="add-more-img" class="col-2">
+                                <div id="add-more-img" class="col-2 mb-4">
                                     <label class="text-center">
                                         <div class="add-more-img d-flex align-items-center justify-content-center mb-2">
                                             <i style="font-size: 28px" class="fas fa-plus-circle"></i>
                                         </div>
-                                        <span>Tambah lebih</span>
+                                        <span>Tambah lagi</span>
                                     </label>
-                                </div>
-                            </div> -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <input id="foto-produk" type="file" name="galeriProduk[]" multiple/>
-                                    <!-- <label for="foto-produk" class="text-center">
-                                        <span class="btn btn-primary">Unggah Foto Produk</span> <span id="img-total" class="ml-3 fw-bold text-muted"></span>
-                                    </label> -->
                                 </div>
                             </div>
                         </div>
@@ -241,7 +233,8 @@
                             <label>Harga Dasar</label>
                         </div>
                         <div class="col-9">
-                            <input type="number" name="harga" id="harga" class="form-control" placeholder="Masukkan Harga Dasar" min="1000" required>
+                            <input type="number" name="harga" id="harga" class="form-control price" placeholder="Masukkan Harga Dasar" min="1000" required>
+                            <small></small>
                         </div>
                     </div>
 
@@ -250,7 +243,7 @@
                             <label>Variasi Produk</label>
                         </div>
                         <div class="col-9 daftar-variasi">
-                            <button id="tambahVariasi" class="btn btn-block btn-outline-primary"><i class="fas fa-plus-circle"></i> Tambah Variasi</button>
+                            <button type="button" id="tambahVariasi" class="btn btn-block btn-outline-primary"><i class="fas fa-plus-circle"></i> Tambah Variasi</button>
                         </div>
                     </div>
 
@@ -268,7 +261,7 @@
                             <label>Tags</label>
                         </div>
                         <div class="col-9">
-                            <button class="btn btn-block btn-outline-primary"><i class="fas fa-plus-circle"></i> Tambah Tag</button>
+                            <button type="button" class="btn btn-block btn-outline-primary"><i class="fas fa-plus-circle"></i> Tambah Tag</button>
                         </div>
                     </div>
                 </div>
@@ -321,7 +314,7 @@
             </div>
 
             <div class="mt-2 text-right">
-                <a href="#" class="btn bg-white shadow-sm mr-2">Kembali</a>
+                <button type="reset" class="btn bg-light shadow-sm mr-2">Reset</a>
                 <button type="submit" class="btn bg-white shadow-sm mr-2" name="archive">Simpan & Arsipkan</button>
                 <button type="submit" class="btn btn-primary" name="publish">Simpan & Tampilkan</button>
             </div>
@@ -329,55 +322,32 @@
     </div>
 </section>
 
-<script>
-    // $('.add-more-img').click(() => {
-    //     let image = $('.img-upload-box');
-    //     let div = $('#galeri-produk').find('div:last-child').prev();
+<div class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" id="cropImageModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Crop Gambar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-0">
+                <img id="image-to-crop" src="" alt="" class="img-fluid">
+            </div>
+            <div class="modal-footer br">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="crop-image">Crop Image</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    //     let html = `<div class="col-2">
-    //                     <input id="foto-${image.length}" type="file" hidden />
-    //                     <label for="foto-${image.length}" class="text-center" style="display:block">
-    //                         <div class="img-upload-box d-flex align-items-center justify-content-center">
-    //                             <i class="far fa-image"></i>
-    //                         </div>
-    //                     </label>
-    //                     <div id="box-foto-${image.length}" class="img-box mb-2" style="display:none;">
-    //                         <img id="preview-foto-${image.length}">
-    //                     </div>
-    //                     <span>Foto ${image.length}</span>
-    //                 </div>`;
-        
-    //     $(html).insertAfter(div);
-    // });
-
-    // const convertBase64 = (file) => {
-    //     return new Promise((resolve, reject) => {
-    //         const fileReader = new FileReader();
-    //         fileReader.readAsDataURL(file);
-
-    //         fileReader.onload = () => {
-    //             resolve(fileReader.result);
-    //         };
-
-    //         fileReader.onerror = (error) => {
-    //             reject(error);
-    //         };
-    //     });
-    // };
-
-    // const uploadImage = async (e) => {
-    //     let file      = e.target.files[0];
-    //     let base64    = await convertBase64(file);
-    //     let preview   = document.getElementById('preview-' + e.target.id);
-    //     let imgBox    = document.getElementById('box-' + e.target.id);
-    //     let label     = document.querySelector('label[for="'+ e.target.id +'"]');
-        
-    //     preview.src   = base64;
-    //     label.style.display = "none";
-    //     imgBox.style.display = "block";
-    // };
-
-    // for (var i = 0 ; i < $fileInput.length; i++) {
-    //     $fileInput[i].addEventListener("change" , (e) => { uploadImage(e) });
-    // }
+<script type="text/javascript">
+    window.onbeforeunload = function() {
+        return "Data will be lost if you leave the page, are you sure?";
+    };
+    
+    window.onload = function() {
+        localStorage.clear();
+    };
 </script>

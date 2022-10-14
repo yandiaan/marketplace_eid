@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 
     <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" integrity="sha512-0SPWAwpC/17yYyZ/4HSllgaK7/gg9OlVozq8K7rf3J8LvCjYEEIfzzpnA2/SSjpGIunCSD18r3UhvDcu/xncWA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <?php if(isset($css)) { ?>    
     <?php $i=0; foreach($css as $key => $value): ?>
     <link rel="stylesheet" href="<?php echo base_url($value) ?>"></script>
@@ -71,8 +72,6 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/sb-1.3.4/datatables.min.js"></script>
 
     <!-- Core Js -->
-    <script src="<?= base_url('/assets/admin') ?>/js/extensions/popper.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/js/extensions/moment.min.js"></script>
     <script src="<?= base_url('/assets/admin') ?>/js/stisla.js"></script>
 
     <!-- Template JS File -->
@@ -81,6 +80,7 @@
     <script src="<?= base_url('/assets/src') ?>/js/var.js"></script>
 
     <!-- Page Specific JS File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js" integrity="sha512-ooSWpxJsiXe6t4+PPjCgYmVfr1NS5QXJACcR/FPpsdm6kqG1FmQ2SVyg2RXeVuCRBLr0lWHnWJP6Zs1Efvxzww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <?php if(isset($js)) { ?>   
     <?php $i=0; foreach($js as $key => $value): ?>
     <script src="<?php echo base_url($value) ?>"></script>
