@@ -97,7 +97,7 @@ class Keranjang_model extends CI_Model
 
             // Get image of product
             $items[$key]['image_path'] = $this->db->select('image_path as path')
-                ->get_where('galeri_produk', $where)->row_array()['path'];
+                ->get_where('galeri_produk', ['id_produk'  => $value['id_produk'],])->row_array()['path'];
 
             if ($value['is_checked'] == '1') {
                 $total_harga[]  = $value['harga_total'];

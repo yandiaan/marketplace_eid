@@ -52,12 +52,8 @@
                         <div id="filter-2" class="accordion-collapse collapse show"
                             aria-labelledby="panelsStayOpen-headingTwo">
                             <div class="accordion-body category-list mb-3">
-                                <button class="text-start btn btn-sm btn-primary px-3 w-100 mb-1">Semua
+                                <button class="text-start category-item btn btn-sm btn-primary px-3 w-100 mb-1">Semua
                                     Kategori</button>
-                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Dinding</button>
-                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Elektrikal</button>
-                                <button class="text-start btn btn-sm btn-light w-100 mb-1">lantai</button>
-                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Mekanikal</button>
                             </div>
                         </div>
                     </div>
@@ -73,38 +69,8 @@
                             aria-labelledby="panelsStayOpen-headingThree">
                             <div class="accordion-body material-list">
                                 <div class="material-group">
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location" checked>
-                                        <span class="d-inline"> Semua Merk</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">American Standard</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Duma</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Ethylum</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Formax Roof</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Formax Roof</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Formax Roof</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Formax Roof</span>
-                                    </div>
+                                    <button class="text-start item-brand target btn btn-sm btn-primary w-100 mb-1">Semua
+                                        Merk</button>
                                 </div>
                             </div>
                         </div>
