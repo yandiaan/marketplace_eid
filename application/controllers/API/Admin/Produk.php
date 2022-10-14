@@ -76,30 +76,27 @@ class Produk extends RestController
     {
         $dt = new Datatables(new CodeigniterAdapter);
 
-        $query = $this->db->select('id_produk, nama_produk, brand, harga, berat, delete_at')
+        $query = $this->db->select('slug, id_produk, nama_produk, brand, harga, berat, delete_at')
             ->where('id_suplier', $this->token_session->id_suplier)
             ->get_compiled_select('produk', FALSE);
-        
         $dt->query($query);
-
+        $dt->hide('slug');
         $dt->edit('harga', function ($data) {
-            return '<span class="badge badge-primary">Rp '.number_format($data['harga'],'0',',','.').'</span>';
+            return '<span class="badge badge-success">Rp '.number_format($data['harga'],'0',',','.').'</span>';
         });
-
         $dt->edit('berat', function ($data) {
             return '<span class="badge badge-light">'.$data['berat'].' kg</span>';
         });
-
         $dt->add('action', function ($data) {
             if($data['delete_at'] == NULL) {
-                $arsipBtn = '<a href="'.base_url('suplier/dashboard/arsip-produk/' . $data['id_produk']).'" class="btn btn-sm btn-link">Arsipkan</a>';
+                $arsipBtn = '<button class="btn btn-sm btn-light arsip-data"><i class="far fa-eye-slash"></i> Arsipkan</button>';
             } else {
-                $arsipBtn = '<a href="'.base_url('suplier/dashboard/bukaarsip-produk/' . $data['id_produk']).'" class="btn btn-sm btn-link">Tampilkan</a>';
+                $arsipBtn = '<button class="btn btn-sm btn-primary arsip-data"><i class="far fa-eye"></i> Tampilkan</button>';
             }
 
-            return '<div class="btn-group">
-                        <a href="'.base_url('suplier/dashboard/edit-produk/' . $data['id_produk']).'" class="btn btn-sm btn-link text-info"><i class="fas fa-edit"></i> Ubah</a>
-                        <button class="btn btn-sm btn-link text-danger delete-data" data-id_produk="'.$data['id_produk'].'"><i class="fas fa-trash-alt"></i> Hapus</button>
+            return '<div data-id_produk="'.$data['id_produk'].'">
+                        <a href="'.base_url('suplier/dashboard/edit-produk/' . $data['slug']).'" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Ubah</a>
+                        <button class="btn btn-sm btn-danger delete-data"><i class="fas fa-trash-alt"></i> Hapus</button>
                         '.$arsipBtn.'
                     </div>';
         });
@@ -195,6 +192,39 @@ class Produk extends RestController
                 ->where('id_produk', $id_produk)
                 ->where('id_suplier', $id_suplier)
                 ->delete('produk');
+
+            $this->response([
+                'meta' => [
+                    'code'      => 200,
+                    'status'    => 'success',
+                    'message'   => 'Yey berhasil menghapus data produk'
+                ],
+            ], 200);
+        }
+    }
+
+    public function arsip_produk_post()
+    {
+        $id_suplier = $this->token_session->id_suplier;
+        $id_produk  = $this->input->post('id_produk');
+
+        if(! isset($id_produk)) {
+            $this->response([
+                'code'      => 400,
+                'status'    => 'error',
+                'message'   => 'Data yang anda input tidak valid !',
+            ], 400);
+        } else {
+            $delete_at = date('Y-m-d h:i:s');
+            $this_produk = $this->db->get_where('produk', ['id_produk' => $id_produk])->row();
+            if( $this_produk->delete_at != NULL ) {
+                $delete_at = NULL;
+            }
+
+            $this->db->set('delete_at', $delete_at)
+                ->where('id_produk', $id_produk)
+                ->where('id_suplier', $id_suplier)
+                ->update('produk');
 
             $this->response([
                 'meta' => [
