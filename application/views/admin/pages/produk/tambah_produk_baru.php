@@ -5,8 +5,8 @@
         border-radius: 0.2em;
         border-style: dashed;
         padding: 0.2em 0.4em;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         background: #fff;
     }
     .img-upload-box i {
@@ -23,8 +23,8 @@
         border-style: dashed;
         border-radius: 0.2em;
         padding: 0.2em 0.4em;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         background: #fff;
     }
     .add-more-img i {
@@ -33,17 +33,47 @@
     }
 
     .img-box {
+        position: relative;
         border: 1px solid #A2DB5E;
         border-radius: 0.2em;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         background: #fff;
         overflow: hidden;
     }
     .img-box img {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         object-fit: cover;
+    }
+    .img-label {
+        display: none;
+        position: absolute;
+        background: rgb(30, 30, 30);
+        background: rgba(30, 30, 30, .5);
+        color: #fff;
+        bottom: 0;
+        width: 100%;
+    }
+    .img-action {
+        display: none;
+        position: absolute;
+        background: rgb(30, 30, 30);
+        background: rgba(30, 30, 30, .5);
+        bottom: 0;
+        width: 100%;
+    }
+    .img-action button{
+        color: #fff;
+        background: none;
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
+    .img-action button:hover{
+        color: #fff !important;
     }
 </style>
 
@@ -122,51 +152,65 @@
                         </div>
                         <div class="col-10">
                             <div id="galeri-produk" class="row">
-                                <div class="col-2 text-center mb-4">
+                                <div class="col-2">
                                     <input id="foto-utama" type="file" name="galeriProduk[]" hidden />
-                                    <label for="foto-utama" class="text-center" style="display:block">
+                                    <label for="foto-utama" style="display:block">
                                         <div class="img-upload-box d-flex align-items-center justify-content-center">
-                                            <i class="far fa-image"></i>
+                                            <span>*Foto Utama</span>
                                         </div>
                                     </label>
                                     <div id="box-foto-utama" class="img-box mb-2" style="display:none;">
-                                        <img id="preview-foto-utama">
+                                        <a><img id="preview-foto-utama"></a>
+                                        <div class="img-label">
+                                            <div class="d-flex justify-content-center py-1">Utama</div>
+                                        </div>
+                                        <div class="img-action">
+                                            <div class="d-flex justify-content-center py-1">
+                                                <button class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span>*Foto Utama</span>
                                 </div>
             
-                                <div class="col-2 text-center mb-4">
-                                    <input id="foto-1" type="file" hidden />
-                                    <label for="foto-1" class="text-center" style="display:block">
+                                <div class="col-2">
+                                    <input id="foto-1" type="file" name="galeriProduk[]" hidden />
+                                    <label for="foto-1" style="display:block">
                                         <div class="img-upload-box d-flex align-items-center justify-content-center">
-                                            <i class="far fa-image"></i>
+                                            <span>Foto 1</span>
                                         </div>
                                     </label>
                                     <div id="box-foto-1" class="img-box mb-2" style="display:none;">
-                                        <img id="preview-foto-1">
+                                        <a><img id="preview-foto-1"></a>
+                                        <div class="img-action">
+                                            <div class="d-flex justify-content-center py-1">
+                                                <button class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span>Foto 1</span>
                                 </div>
             
-                                <div class="col-2 text-center mb-4">
-                                    <input id="foto-2" type="file" hidden />
-                                    <label for="foto-2" class="text-center" style="display:block">
+                                <div class="col-2">
+                                    <input id="foto-2" type="file" name="galeriProduk[]" hidden />
+                                    <label for="foto-2" style="display:block">
                                         <div class="img-upload-box d-flex align-items-center justify-content-center">
-                                            <i class="far fa-image"></i>
+                                            <span>Foto 2</span>
                                         </div>
                                     </label>
                                     <div id="box-foto-2" class="img-box mb-2" style="display:none;">
-                                        <img id="preview-foto-2">
+                                        <a><img id="preview-foto-2"></a>
+                                        <div class="img-action">
+                                            <div class="d-flex justify-content-center py-1">
+                                                <button class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span>Foto 2</span>
                                 </div>
             
-                                <div id="add-more-img" class="col-2 mb-4">
+                                <div id="add-more-img" class="col-2">
                                     <label class="text-center">
                                         <div class="add-more-img d-flex align-items-center justify-content-center mb-2">
                                             <i style="font-size: 28px" class="fas fa-plus-circle"></i>
                                         </div>
-                                        <span>Tambah lagi</span>
                                     </label>
                                 </div>
                             </div>
