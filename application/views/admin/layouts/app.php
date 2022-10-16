@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 
     <!-- Page Specific CSS -->
-    <?php if(isset($css)) { ?>    
-    <?php $i=0; foreach($css as $key => $value): ?>
-    <link rel="stylesheet" href="<?php echo base_url($value) ?>"></script>
-    <?php endforeach; ?>
+    <?php if (isset($css)) { ?>
+        <?php $i = 0;
+        foreach ($css as $key => $value) : ?>
+            <link rel="stylesheet" href="<?php echo base_url($value) ?>">
+            </script>
+        <?php endforeach; ?>
     <?php } ?>
-    
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/style.css">
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/components.css">
@@ -81,10 +83,11 @@
     <script src="<?= base_url('/assets/src') ?>/js/var.js"></script>
 
     <!-- Page Specific JS File -->
-    <?php if(isset($js)) { ?>   
-    <?php $i=0; foreach($js as $key => $value): ?>
-    <script src="<?php echo base_url($value) ?>"></script>
-    <?php endforeach; ?>
+    <?php if (isset($js)) { ?>
+        <?php $i = 0;
+        foreach ($js as $key => $value) : ?>
+            <script src="<?php echo base_url($value) ?>"></script>
+        <?php endforeach; ?>
     <?php } ?>
 </body>
 

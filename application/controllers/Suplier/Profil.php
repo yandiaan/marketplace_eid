@@ -118,4 +118,34 @@ class profil extends CI_Controller
         }
         redirect('suplier/dashboard/profil-toko');
     }
+
+    public function wilayah()
+    {
+        $data['content'] = 'admin/pages/toko/wilayah';
+        $data['wilayahs'] = $this->db->get_where('wilayah_distribusi', ['id_suplier' => $this->userdata->id_suplier])->result();
+        $data['provinsi'] = $this->db->get('provinces');
+        $data['kota'] = $this->db->get('cities');
+        return $this->load->view('admin/layouts/app', $data);
+    }
+
+    public function add_wilayah()
+    {
+
+        $data = [
+            'id_suplier' => $this->userdata->id_suplier,
+            'provinsi'   => $this->input->post('provinsi'),
+            'kota'  => $this->input->post('kota'),
+            'created_at' => date('Y-m-d h:i:s')
+        ];
+
+        $this->db->insert('wilayah_distribusi', $data);
+        redirect('suplier/dashboard/wilayah-toko');
+    }
+
+    public function delete($id_wilayah)
+    {
+        $this->db->where('id_wilayah_distribusi', $id_wilayah);
+        $this->db->delete('wilayah_distribusi');
+        redirect('suplier/dashboard/wilayah-toko');
+    }
 }

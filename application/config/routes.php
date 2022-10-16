@@ -22,7 +22,8 @@ $route['suplier/dashboard/bukaarsip-produk/(:any)']  = 'Suplier/Produk/bukaArsip
 $route['suplier/dashboard/delete-produk/(:any)']  = 'Suplier/Produk/delete/$1';
 
 $route['suplier/dashboard/profil-toko'] = 'Suplier/Profil/index';
-// $route['suplier/dashboard/update-profil/(:any)'] = 'Suplier/Profil/update/$1';
+$route['suplier/dashboard/wilayah-toko'] = 'Suplier/Profil/wilayah';
+$route['suplier/dashboard/delete-wilayah/(:any)']  = 'Suplier/Profil/delete/$1';
 
 
 
