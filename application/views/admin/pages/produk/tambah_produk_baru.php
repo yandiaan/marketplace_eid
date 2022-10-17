@@ -166,7 +166,7 @@
                                         </div>
                                         <div class="img-action">
                                             <div class="d-flex justify-content-center py-1">
-                                                <button class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                                <button type="button" class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +183,7 @@
                                         <a><img id="preview-foto-1"></a>
                                         <div class="img-action">
                                             <div class="d-flex justify-content-center py-1">
-                                                <button class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                                <button type="button" class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
                                             </div>
                                         </div>
                                     </div>
@@ -200,7 +200,7 @@
                                         <a><img id="preview-foto-2"></a>
                                         <div class="img-action">
                                             <div class="d-flex justify-content-center py-1">
-                                                <button class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                                <button type="button" class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
                                             </div>
                                         </div>
                                     </div>

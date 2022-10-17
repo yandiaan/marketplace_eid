@@ -76,13 +76,21 @@ $(document).ready(function() {
                                 <a><img id="preview-foto-${image.length}"></a>
                                 <div class="img-action">
                                     <div class="d-flex justify-content-center py-1">
-                                        <button class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                        <button type="button" class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
                                     </div>
                                 </div>
                             </div>
                         </div>`;
             $(html).insertBefore(div);
         });
+
+        // // Delete image box
+        // $(document).on('click', '.delete-image', function() {
+        //     var parent = $(this).parents('.img-box');
+        //     var input = $(this).closest('input[name="galeriProduk[]"]');
+        //     console.log(parent);
+        //     parent.hide();
+        // });
 
         // Add Variasi form
         $('#tambahVariasi').click(function() {
