@@ -13,7 +13,8 @@
                         </h2>
                         <div id="filter-1" class="accordion-collapse collapse show pt-2 pb-3"
                             aria-labelledby="panelsStayOpen-headingOne">
-                            <input type="search" name="location" class="form-control form-control-sm mt-2 border-0 border-bottom rounded-2"
+                            <input type="search" name="location"
+                                class="form-control form-control-sm mt-2 border-0 border-bottom rounded-2"
                                 placeholder="Cari Lokasi">
                             <div class="accordion-body">
                                 <div class="location-group">
@@ -51,11 +52,8 @@
                         <div id="filter-2" class="accordion-collapse collapse show"
                             aria-labelledby="panelsStayOpen-headingTwo">
                             <div class="accordion-body category-list mb-3">
-                                <button class="text-start btn btn-sm btn-primary px-3 w-100 mb-1">Semua Kategori</button>
-                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Dinding</button>
-                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Elektrikal</button>
-                                <button class="text-start btn btn-sm btn-light w-100 mb-1">lantai</button>
-                                <button class="text-start btn btn-sm btn-light w-100 mb-1">Mekanikal</button>
+                                <button class="text-start category-item btn btn-sm btn-primary px-3 w-100 mb-1">Semua
+                                    Kategori</button>
                             </div>
                         </div>
                     </div>
@@ -71,38 +69,8 @@
                             aria-labelledby="panelsStayOpen-headingThree">
                             <div class="accordion-body material-list">
                                 <div class="material-group">
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location" checked>
-                                        <span class="d-inline"> Semua Merk</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">American Standard</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Duma</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Ethylum</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Formax Roof</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Formax Roof</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Formax Roof</span>
-                                    </div>
-                                    <div class="item-location">
-                                        <input type="checkbox" class="form-check-input" name="location">
-                                        <span class="d-inline">Formax Roof</span>
-                                    </div>
+                                    <button class="text-start item-brand target btn btn-sm btn-primary w-100 mb-1">Semua
+                                        Merk</button>
                                 </div>
                             </div>
                         </div>
@@ -140,12 +108,13 @@
                     <div class=" input-group search-input-group">
                         <span class="input-group-text bg-white border-primary border-end-0 text-secondary"> <i
                                 class="fa fa-search"></i></span>
-
                         <input type="search" class="form-control border-primary border-start-0 searchInput"
                             placeholder="Cari Product" value="<?= $search ?>">
-                        <button class="btn btn-primary submit-product" type="button"> <i class="fa fa-cube"></i>
+                        <button class="btn btn-primary submit-product" data-active="true" type="button"> <i
+                                class="fa fa-cube"></i>
                             Product</button>
-                        <button class="btn btn-outline-primary" type="button"> <i class="fa fa-store"></i>
+                        <button class="btn btn-outline-primary submit-suplier" data-active="" type="button"> <i
+                                class="fa fa-store"></i>
                             Suplier</button>
                     </div>
                 </div>
@@ -178,8 +147,3 @@
     </div>
 </div>
 <script src="<?= base_url("assets/src/js/pages/searchPage.js"); ?>"></script>
-<script>
-$(document).ready(() => {
-    fetchSearchData("<?= $search; ?>");
-})
-</script>

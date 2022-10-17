@@ -46,18 +46,18 @@ function fetchDetailProduct(slug) {
 					$("#versi").append(
 						`<button class="btn btn-sm btn-outline-success versi w-auto">${val.model_variasi}</button>`
 					);
-				})
+				});
 
-				if(product.reviews.length < 1) {
+				if (product.reviews.length < 1) {
 					$(".user-review").append(
 						`<div class="d-flex justify-content-center py-5">
 							<h6 class="fw-bold text-muted">Belum ada penilaian</h6>
 						</div>`
-					)
+					);
 				} else {
 					$.each(product.reviews, (i, val) => {
 						$(".user-review").append(
-						`<div class="row">
+							`<div class="row">
 							<div class="col-1 avatar">
 								<img src="${BASE_URL}/assets/img/Avatar.png";" alt="avatar" class="mx-auto w-100">
 							</div>
@@ -77,10 +77,11 @@ function fetchDetailProduct(slug) {
 									${val.pesan}
 								</p>
 							</div>
-						</div>`);
+						</div>`
+						);
 					});
 				}
-											
+
 				$(".xzoom, .xzoom-gallery").xzoom({
 					zoomWidth: 200,
 					zoomHeight: 200,
@@ -158,6 +159,7 @@ function addReview(id) {
 			alert("Berhasil Kirim Review");
 			$(".submit-review").prop("disabled", false);
 			$(".text-submit").html(`Kirim Ulasan`);
+			$(".input-review").val("");
 		})
 		.fail(() => {
 			alert("Gagal menambahkan review");
@@ -188,4 +190,35 @@ decrement.addEventListener("click", () => {
 		val -= 1;
 	}
 	quantity.innerHTML = val;
+});
+
+$(".submit-cart").click(() => {
+	if (quantity.innerHTML > 0) {
+		var cart = new FormData();
+		cart.append("jumlah", $("#quantity").text());
+		cart.append("id_produk", $(".id-produk").val());
+
+		var settings = {
+			url: ENDPOINT + "keranjang/add_item",
+			method: "POST",
+			headers: {
+				Authorization: "Bearer " + token,
+			},
+			processData: false,
+			contentType: false,
+			mimeType: "multipart/form-data",
+			data: cart,
+		};
+
+		$.ajax(settings)
+			.done((res) => {
+				alert("Sukses menambah data");
+				console.log(res);
+			})
+			.fail(() => {
+				alert("gagal menambah data");
+			});
+	} else {
+		alert("data tidak bisa kosong");
+	}
 });

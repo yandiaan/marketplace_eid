@@ -50,17 +50,13 @@
                 </div>
                 <div class="col-9 d-flex align-items-center quantity">
                     <button disabled class="btn btn-secondary rounded-circle" id="decrement">-</button>
-                    <span class="mx-3" id="quantity">1</span>
+                    <span class="mx-2" id="quantity">0</span>
                     <button class="btn btn-secondary rounded-circle" id="increment">+</button>
                 </div>
             </div>
-            <div class="confirm d-flex justify-content-between mt-4">
-                <div>
-                    <button class="btn btn-primary me-2">Beli Sekarang</button>
-                    <button class="btn btn-outline-primary">Masukkan Keranjang</button>
-                </div>
-
-                <button style="font-size:14px" class="btn text-success"><i class="fas fa-fw fa-share"></i> Bagikan</button>
+            <div class="confirm row justify-content-start mt-4">
+                <div class="col-4"><button class="w-100 btn btn-primary">Beli Sekarang</button></div>
+                <div class="col-6"><button class="w-100 btn btn-outline-primary submit-cart">Masukkan Keranjang</button></div>
             </div>
 
             <hr>
@@ -666,8 +662,6 @@
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");
-
-
 
 $(".submit-review").click(() => {
     if (!token) {

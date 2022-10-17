@@ -23,6 +23,7 @@ $route['produk/(:any)']         = 'produk/detail/$1';
 $route['produk']                = '404';
 $route['pencarian']             = 'pencarian/index';
 $route['pencarian-produk']      = 'pencarian/pencarian_produk';
+$route['rekomendasi']           = 'rekomendasi/index';
 $route['cart']                  = 'cart/index';
 $route['checkout-2']            = 'checkout/checkout_2';
 $route['checkout']              = 'checkout/index';
