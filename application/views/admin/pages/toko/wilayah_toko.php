@@ -34,7 +34,7 @@
                                             <button class="btn btn-warning edit_wilayah" data-kota="<?= $wilayah->kota; ?>" data-provinsi="<?= $wilayah->provinsi ?>" data-id="<?= $wilayah->id_wilayah_distribusi ?>">Edit</button>
                                             <form action="<?php echo base_url('suplier/dashboard/delete-wilayah-toko/' . $wilayah->id_wilayah_distribusi) ?>" method="post" id="delProduk-<?= $wilayah->id_wilayah_distribusi ?>">
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button class="btn btn-danger" data-confirm="Hapus Data?|Apakah Anda yakin ingin menghapus produk ini?<br>semua data yang bersangkutan dengan produk ini akan terhapus." data-confirm-yes="submitDel(<?= $wilayah->id_wilayah_distribusi ?>)">Delete</button>
+                                                <button class="btn btn-danger" data-confirm="Hapus Data?|Apakah Anda yakin ingin menghapus Wilayah Toko ini?<br>semua data yang bersangkutan dengan wilayah ini akan terhapus." data-confirm-yes="submitDel(<?= $wilayah->id_wilayah_distribusi ?>)">Delete</button>
                                             </form>
                                         </div>
                                     </td>

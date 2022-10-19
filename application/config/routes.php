@@ -23,8 +23,6 @@ $route['suplier/dashboard/delete-produk/(:any)']  = 'Suplier/Produk/delete/$1';
 
 $route['suplier/dashboard/profil-toko'] = 'Suplier/Profil/index';
 $route['suplier/dashboard/wilayah-toko'] = 'Suplier/Profil/wilayah_toko';
-$route['suplier/dashboard/tambah-wilayah-toko'] = 'Suplier/Profil/tambah_wilayah_toko';
-$route['suplier/dashboard/edit-wilayah-toko/(:any)']  = 'Suplier/Profil/edit_wilayah/$1';
 $route['suplier/dashboard/delete-wilayah-toko/(:any)']  = 'Suplier/Profil/delete_wilayah/$1';
 
 
