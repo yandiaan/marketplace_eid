@@ -11,7 +11,6 @@
         <div class="card">
             <div class="card-body">
                 <button class="btn btn-lg btn-success mb-4" data-toggle="modal" data-target="#exampleModal">Tambah Wilayah</button>
-                <!-- <a href="<?= base_url('suplier/dashboard/tambah-wilayah-toko') ?>" class="btn btn-lg btn-success mb-4">Tambah Wilayah</a> -->
                 <div class="table-responsive">
                     <table class="table table-striped dataTable" id="tabel-wilayah">
                         <thead>
@@ -32,7 +31,6 @@
                                     <td style="text-align:center;"><?php echo $wilayah->kota ?></td>
                                     <td style="text-align:center;">
                                         <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                            <!-- <a href="<?php echo base_url('suplier/dashboard/edit-wilayah-toko/' . $wilayah->id_wilayah_distribusi) ?>" data-id="" class="btn btn-warning">Edit</a> -->
                                             <button class="btn btn-warning edit_wilayah" data-kota="<?= $wilayah->kota; ?>" data-provinsi="<?= $wilayah->provinsi ?>" data-id="<?= $wilayah->id_wilayah_distribusi ?>">Edit</button>
                                             <form action="<?php echo base_url('suplier/dashboard/delete-wilayah-toko/' . $wilayah->id_wilayah_distribusi) ?>" method="post" id="delProduk-<?= $wilayah->id_wilayah_distribusi ?>">
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -152,7 +150,6 @@
         var kota = $(this).data('kota');
         var provinsi = $(this).data('provinsi');
 
-        // console.log(kota)
         $('#modaledit').modal('show');
         $(".wilayah_id").val(id);
         $(".wilayah_kota").val(kota);
