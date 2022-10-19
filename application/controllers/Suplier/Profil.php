@@ -119,18 +119,24 @@ class profil extends CI_Controller
         redirect('suplier/dashboard/profil-toko');
     }
 
-    public function wilayah()
+    public function wilayah_toko()
     {
-        $data['content'] = 'admin/pages/toko/wilayah';
+        $data['content'] = 'admin/pages/toko/wilayah_toko';
         $data['wilayahs'] = $this->db->get_where('wilayah_distribusi', ['id_suplier' => $this->userdata->id_suplier])->result();
         $data['provinsi'] = $this->db->get('provinces');
         $data['kota'] = $this->db->get('cities');
         return $this->load->view('admin/layouts/app', $data);
     }
 
+    public function tambah_wilayah_toko()
+    {
+        $data['content'] = 'admin/pages/toko/tambah_wilayah_toko';
+        $data['provinsi'] = $this->db->get('provinces');
+        $data['kota'] = $this->db->get('cities');
+        return $this->load->view('admin/layouts/app', $data);
+    }
     public function add_wilayah()
     {
-
         $data = [
             'id_suplier' => $this->userdata->id_suplier,
             'provinsi'   => $this->input->post('provinsi'),
@@ -142,10 +148,35 @@ class profil extends CI_Controller
         redirect('suplier/dashboard/wilayah-toko');
     }
 
-    public function delete($id_wilayah)
+    public function delete_wilayah($id_wilayah)
     {
         $this->db->where('id_wilayah_distribusi', $id_wilayah);
         $this->db->delete('wilayah_distribusi');
+        redirect('suplier/dashboard/wilayah-toko');
+    }
+
+    public function edit_wilayah($id_wilayah)
+    {
+        $data['content'] = 'admin/pages/toko/edit_wilayah_toko';
+        $data['provinsi'] = $this->db->get('provinces');
+        $data['kota'] = $this->db->get('cities');
+        $data['hasil'] = $this->db->get_where('wilayah_distribusi', ['id_wilayah_distribusi' => $id_wilayah])->row_array();
+
+        return $this->load->view('admin/layouts/app', $data);
+    }
+
+    public function update_wilayah_toko()
+    {
+        $id_wilayah_toko = $this->input->post('id_wilayah_toko');
+        $data = [
+            'id_suplier' => $this->userdata->id_suplier,
+            'provinsi'   => $this->input->post('provinsi'),
+            'kota'  => $this->input->post('kota'),
+            'created_at' => date('Y-m-d h:i:s')
+        ];
+        $this->db->where('id_wilayah_distribusi', $id_wilayah_toko);
+        $this->db->update('wilayah_distribusi', $data);
+
         redirect('suplier/dashboard/wilayah-toko');
     }
 }

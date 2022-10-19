@@ -3,7 +3,7 @@
         <h1>Wilayah Toko</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="#">Wilayah</a></div>
+            <div class="breadcrumb-item"><a href="#">Wilayah Toko</a></div>
         </div>
     </div>
 
@@ -11,6 +11,7 @@
         <div class="card">
             <div class="card-body">
                 <button class="btn btn-lg btn-success mb-4" data-toggle="modal" data-target="#exampleModal">Tambah Wilayah</button>
+                <!-- <a href="<?= base_url('suplier/dashboard/tambah-wilayah-toko') ?>" class="btn btn-lg btn-success mb-4">Tambah Wilayah</a> -->
                 <div class="table-responsive">
                     <table class="table table-striped dataTable" id="tabel-wilayah">
                         <thead>
@@ -31,8 +32,9 @@
                                     <td style="text-align:center;"><?php echo $wilayah->provinsi ?></td>
                                     <td style="text-align:center;">
                                         <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                            <a href="<?php echo base_url('suplier/dashboard/edit-produk/' . $wilayah->id_wilayah_distribusi) ?>" class="btn btn-warning">Edit</a>
-                                            <form action="<?php echo base_url('suplier/dashboard/delete-wilayah/' . $wilayah->id_wilayah_distribusi) ?>" method="post" id="delProduk-<?= $wilayah->id_wilayah_distribusi ?>">
+                                            <a href="<?php echo base_url('suplier/dashboard/edit-wilayah-toko/' . $wilayah->id_wilayah_distribusi) ?>" data-id="" class="btn btn-warning">Edit</a>
+                                            <!-- <button class="btn btn-warning edit_wilayah" data-kota="<?= $wilayah->kota; ?>" data-provinsi="<?= $wilayah->provinsi ?>" data-id="<?= $wilayah->id_wilayah_distribusi ?>">Edit</button> -->
+                                            <form action="<?php echo base_url('suplier/dashboard/delete-wilayah-toko/' . $wilayah->id_wilayah_distribusi) ?>" method="post" id="delProduk-<?= $wilayah->id_wilayah_distribusi ?>">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button class="btn btn-danger" data-confirm="Hapus Data?|Apakah Anda yakin ingin menghapus produk ini?<br>semua data yang bersangkutan dengan produk ini akan terhapus." data-confirm-yes="submitDel(<?= $wilayah->id_wilayah_distribusi ?>)">Delete</button>
                                             </form>
@@ -48,6 +50,7 @@
     </div>
 </section>
 
+<!-- Modal Tambah  -->
 <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -85,6 +88,48 @@
     </div>
 </div>
 
+<!-- Modal Edit  -->
+<div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Edit Skill</h4>
+            </div>
+            <form action="<?= base_url('Suplier/Profil/update_wilayah_toko') ?>" method="POST">
+                <div class="card">
+                    <div class="card-header">
+                        <h6>Informasi Wilayah</h6>
+                    </div>
+                    <div class="card-body">
+                        <input type="hidden" name="id_wilayah_toko" class="wilayah_id">
+                        <div class="form-group">
+                            <label>Provinsi</label>
+                            <select class="form-control" id="inputProvinsi" name="provinsi" class="wilayah_provinsi">
+                                <?php foreach ($provinsi->result() as $row) { ?>
+                                    <option value="<?= $row->prov_name ?>"> <?= $row->prov_name ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Kota</label>
+                            <select class="form-control" id="inputProvinsi" name="kota">
+                                <?php foreach ($kota->result() as $row) { ?>
+                                    <option value="<?= $row->city_name ?>" <?php echo ($row->city_name == $hasil['kota']) ? 'selected' : ''; ?>> <?= $row->city_name ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 text-right">
+                    <a href="<?= base_url('suplier/dashboard/wilayah-toko') ?>" class="btn bg-white shadow-sm mr-2">Kembali</a>
+                    <button type="submit" class="btn btn-primary">Simpan & Tampilkan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
         var table = $('#tabel-wilayah').DataTable({
@@ -104,4 +149,16 @@
     function submitDel(id) {
         $('#delProduk-' + id).submit()
     }
+
+    $(document).on("click", '.edit_wilayah', function(e) {
+        var id = $(this).data('id');
+        var kota = $(this).data('kota');
+        var provinsi = $(this).data('provinsi');
+
+        $(".wilayah_id").val(id);
+        $(".wilayah_kota").val(kota);
+        $(".wilayah_provinsi").val(provinsi);
+
+        $('#modaledit').modal('show');
+    });
 </script>
