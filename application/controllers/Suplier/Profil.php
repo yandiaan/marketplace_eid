@@ -128,13 +128,6 @@ class profil extends CI_Controller
         return $this->load->view('admin/layouts/app', $data);
     }
 
-    public function tambah_wilayah_toko()
-    {
-        $data['content'] = 'admin/pages/toko/tambah_wilayah_toko';
-        $data['provinsi'] = $this->db->get('provinces');
-        $data['kota'] = $this->db->get('cities');
-        return $this->load->view('admin/layouts/app', $data);
-    }
     public function add_wilayah()
     {
         $data = [
@@ -153,16 +146,6 @@ class profil extends CI_Controller
         $this->db->where('id_wilayah_distribusi', $id_wilayah);
         $this->db->delete('wilayah_distribusi');
         redirect('suplier/dashboard/wilayah-toko');
-    }
-
-    public function edit_wilayah($id_wilayah)
-    {
-        $data['content'] = 'admin/pages/toko/edit_wilayah_toko';
-        $data['provinsi'] = $this->db->get('provinces');
-        $data['kota'] = $this->db->get('cities');
-        $data['hasil'] = $this->db->get_where('wilayah_distribusi', ['id_wilayah_distribusi' => $id_wilayah])->row_array();
-
-        return $this->load->view('admin/layouts/app', $data);
     }
 
     public function update_wilayah_toko()
