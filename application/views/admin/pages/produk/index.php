@@ -27,8 +27,6 @@
             </div>
         </div>
     </div>
-</div>
-</section>
 
 <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">
@@ -48,5 +46,4 @@
             </div>
         </div>
     </div>
-</div>
-
+</section>

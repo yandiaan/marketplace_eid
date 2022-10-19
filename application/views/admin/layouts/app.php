@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<?php echo base_url($value) ?>"></script>
     <?php endforeach; ?>
     <?php } ?>
-    
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/style.css">
     <link rel="stylesheet" href="<?= base_url('/assets/admin') ?>/css/components.css">

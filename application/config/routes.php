@@ -18,6 +18,14 @@ $route['suplier/dashboard/list-produk']         = 'Suplier/Produk/index';
 $route['suplier/dashboard/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
 $route['suplier/dashboard/edit-produk/(:any)']  = 'Suplier/Produk/edit/$1';
 
+$route['suplier/dashboard/profil-toko'] = 'Suplier/Profil/index';
+$route['suplier/dashboard/wilayah-toko'] = 'Suplier/Profil/wilayah_toko';
+$route['suplier/dashboard/tambah-wilayah-toko'] = 'Suplier/Profil/tambah_wilayah_toko';
+$route['suplier/dashboard/edit-wilayah-toko/(:any)']  = 'Suplier/Profil/edit_wilayah/$1';
+$route['suplier/dashboard/delete-wilayah-toko/(:any)']  = 'Suplier/Profil/delete_wilayah/$1';
+
+
+
 // Produk route
 $route['produk/(:any)']         = 'produk/detail/$1';
 $route['produk']                = '404';
