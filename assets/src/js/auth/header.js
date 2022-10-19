@@ -18,15 +18,16 @@ if (token !== undefined) {
 	$(".btn-cart").mouseenter(() => {
 		$(".data-cart").removeClass("visually-hidden");
 		$.ajax({
-			url: "http://localhost/marketplace_eid/api/keranjang/get_item",
+			url: `${ENDPOINT}keranjang/get_item`,
 			method: "GET",
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
-			mimeType: "multipart/form-data",
+			mimeType: "application/json",
 		}).done((res) => {
 			$(".data-cart").empty();
-			let data = JSON.parse(res).data.items;
+			
+			let data = res.data.items;
 			$(".data-cart").append(`
 				<div>
 					<h6 class="fw-bold text-primary">Total (${data.length})</h6>
@@ -81,14 +82,13 @@ $(".logout").click((e) => {
 
 if (token !== undefined) {
 	$.ajax({
-		url: "http://localhost/marketplace_eid/api/keranjang/get_item",
+		url: `${ENDPOINT}keranjang/get_item`,
 		method: "GET",
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
-		mimeType: "multipart/form-data",
+		mimeType: "application/json",
 	}).done((res) => {
-		let data = JSON.parse(res).data;
-		$(".contain-cart .count").text(data.items.length);
+		$(".contain-cart .count").text(res.data.total_items);
 	});
 }

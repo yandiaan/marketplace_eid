@@ -35,6 +35,7 @@ class Galeri_produk extends RestController
         }
 
         $galeri_produk    = $_FILES['galeriProduk']['name'];
+
         $count = count($galeri_produk);
 
         $foto  = [];

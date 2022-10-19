@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    var formData = new FormData($("#tambahProdukForm")[0]);
+    var container = new DataTransfer();
+
     /* Ajax Requeest */
 
         // Set default header on every request
@@ -21,6 +24,8 @@ $(document).ready(function() {
             },
             
             submitHandler: function(form) {
+                console.log(container.files.length);
+                return;
                 let ajax = $.ajax({
                     url     : `${ENDPOINT}/admin/produk/store`,
                     method  : "POST",
@@ -28,9 +33,10 @@ $(document).ready(function() {
                 });
 
                 ajax.done((res) => {
+                    storeGaleri(res.data.user);
                     alert(res.meta.message);
-                    window.onbeforeunload = null;
-                    window.location.href =  `${BASE_URL}/suplier/dashboard/list-produk`;
+                    // window.onbeforeunload = null;
+                    // window.location.href =  `${BASE_URL}/suplier/dashboard/list-produk`;
                 });
 
                 ajax.fail((res, status, err) => {
@@ -38,6 +44,30 @@ $(document).ready(function() {
                 });
             }
         });
+
+        function storeGaleri(data) {
+            var id = data.id_produk;
+            formData.append('id_produk', id);
+
+            // append file
+            for (let index = 0; index < container.files.length; index++) {
+                formData.append(`galeriProduk[${index}]`, container.files[index]);
+            }
+
+            $.ajax({
+                url     : `${ENDPOINT}/admin/produk/galeri/store`,
+                method  : "POST",
+                data    : formData,
+                enctype : 'multipart/form-data',
+                processData: false,
+                contentType: false,
+            }).done((res) => {
+                console.log(res);
+                alert(res.meta.message);
+            }).fail((res, status, err) => {
+                alert(err);
+            });
+        }
 
 
     /* Manipulate DOM */
@@ -76,7 +106,7 @@ $(document).ready(function() {
                                 <a><img id="preview-foto-${image.length}"></a>
                                 <div class="img-action">
                                     <div class="d-flex justify-content-center py-1">
-                                        <button type="button" class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                        <button type="button" class="delete-image" data-key="foto-${image.length}"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
                                     </div>
                                 </div>
                             </div>
@@ -84,13 +114,30 @@ $(document).ready(function() {
             $(html).insertBefore(div);
         });
 
-        // // Delete image box
-        // $(document).on('click', '.delete-image', function() {
-        //     var parent = $(this).parents('.img-box');
-        //     var input = $(this).closest('input[name="galeriProduk[]"]');
-        //     console.log(parent);
-        //     parent.hide();
-        // });
+        // Delete image box
+        $(document).on('click', '.delete-image', function() {
+            var key     = $(this).data('key');
+            var box     = document.getElementById('box-' + key);
+            var label   = document.querySelector(`label[for="${key}"]`);
+            var input   = $('input#' + key);
+            var image   = $('#preview-' +key);
+
+            // remove image attribute
+            image.removeAttr('src');
+            image.removeAttr('data-fslightbox');
+            image.removeAttr('data-alt');
+            image.removeAttr('href');
+
+            // refresh fslightbox data
+            refreshFsLightbox();
+
+            // show label and hide box
+            label.style.display = 'block';
+            box.style.display = 'none';
+
+            // remove value on file input
+            formData.set(input.attr('name'), '');
+        });
 
         // Add Variasi form
         $('#tambahVariasi').click(function() {
@@ -169,7 +216,7 @@ $(document).ready(function() {
                         </div>
                         <div class="img-action">
                             <div class="d-flex justify-content-center py-1">
-                                <button class="delete-image"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
+                                <button type="button" class="delete-image" data-key="foto-variasi-${i}"><i class="fas fa-fw fa-trash-alt"></i> Hapus</button>
                             </div>
                         </div>
                     </div>
@@ -226,16 +273,8 @@ $(document).ready(function() {
         // Update Input file value
         function updateInputValue(fileInputElement, blob, name) {
             let file = new File([blob], `${name}.png`,{type:"image/png", lastModified:new Date().getTime()});
-            let container = new DataTransfer();
-            
             container.items.add(file);
             fileInputElement.files = container.files;
-
-            let form = $("#tambahProdukForm").closest("form");
-            var formData = new FormData(form[0]);
-            
-            formData.set(fileInputElement.name, container.files[0]);
-            // console.log(formData.get(fileInputElement.name));
         }
 
         // Upload and Crop an image
