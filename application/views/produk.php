@@ -42,17 +42,7 @@
                 <div class="col-3">
                     <h6 class="fw-bold">Versi</h6>
                 </div>
-<<<<<<< HEAD
-                <div class="col-8">
-                    <h6 class="fw-light">Pilih versi</h6>
-                    <div class="row w-50">
-                        <button class="btn btn-outline-secondary versi">CEAS5312-1000422CO</button>
-                        <button class="btn btn-outline-secondary mt-2 versi">CHA01120-1CACTP07B</button>
-                    </div>
-                </div>
-=======
                 <div id="versi" class="col-9"></div>
->>>>>>> origin/zlnew
             </div>
             <div class="variant row">
                 <div class="col-3">
