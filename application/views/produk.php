@@ -24,15 +24,10 @@
             <div class="info-group">
                 <small class="sales-counter fw-bold me-3 text-secondary">Terjual 32</small>
                 <div class="rating d-inline fs-6 fw-bold border-start border-1 border-dark ps-3" data-value="3.5">
-                    <small class="text-decoration-underline">3.5</small>
-                    <div class="star-group d-inline mx-1 text-warning">
-                        <i class="fa fa-star text-warning"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-stroke"></i>
-                        <i class="fa-regular fa-star"></i>
+                    <small class="text-decoration-underline text-star"></small>
+                    <div class="star-group star-result d-inline mx-1 text-warning">
                     </div>
-                    <small class="text-secondary">(20 Ulasan)</small>
+                    <small class="text-secondary total-review"></small>
                 </div>
             </div>
             <div class="price">
@@ -82,7 +77,8 @@
             </div>
             <div class="confirm row justify-content-start mt-4">
                 <div class="col-4"><button class="w-100 btn btn-primary">Beli Sekarang</button></div>
-                <div class="col-6"><button class="w-100 btn btn-outline-primary submit-cart">Masukkan Keranjang</button></div>
+                <div class="col-6"><button class="w-100 btn btn-outline-primary submit-cart">Masukkan Keranjang</button>
+                </div>
             </div>
             <div class="row justify-content-space-between mt-2">
                 <div class="col">
@@ -202,59 +198,59 @@
     </div>
     <div class="row align-items-center">
         <div class="col-5">
-            <h3 class="fw-semibold">Ulasan (20)</h3>
+            <h3 class="fw-semibold total-review"></h3>
             <div class="w-100 row align-items-center">
                 <div class="col-4 text-center py-5">
-                    <h1 class="d-inline fw-bolder">3.5</h1>
+                    <h1 class="d-inline text-star fw-bolder">3.5</h1>
                     <span>/ 5</span>
-                    <div class="star-group mx-1 text-warning">
-                        <i class="fa fa-star text-warning"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-stroke"></i>
-                        <i class="fa-regular fa-star"></i>
+                    <div class="star-result mx-1 text-warning">
                     </div>
                 </div>
                 <div class="rate col-8">
                     <div class="rate-item d-flex align-items-center">
                         <span><i class="fa fa-star text-warning me-1"></i>5</span>
                         <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-50" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" id="range-5" role="progressbar"
+                                aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                            </div>
                         </div>
-                        <span class="text-secondary">10</span>
+                        <span class="text-secondary count-info">10</span>
                     </div>
                     <div class="rate-item d-flex align-items-center">
                         <span><i class="fa fa-star text-warning me-1"></i>4</span>
                         <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-0" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" id="range-4" role="progressbar"
+                                aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            </div>
                         </div>
-                        <span class="text-secondary">0</span>
+                        <span class="text-secondary count-info">0</span>
                     </div>
                     <div class="rate-item d-flex align-items-center">
                         <span><i class="fa fa-star text-warning me-1"></i>3</span>
                         <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-0" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" id="range-3" role="progressbar"
+                                aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            </div>
                         </div>
-                        <span class="text-secondary">0</span>
+                        <span class="text-secondary count-info">0</span>
                     </div>
                     <div class="rate-item d-flex align-items-center">
                         <span><i class="fa fa-star text-warning me-1"></i>2</span>
                         <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-75" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" id="range-2" role="progressbar"
+                                aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            </div>
                         </div>
-                        <span class="text-secondary">10</span>
+                        <span class="text-secondary count-info">10</span>
                     </div>
                     <div class="rate-item d-flex align-items-center">
                         <span><i class="fa fa-star text-warning me-1"></i>1</span>
                         <div class="progress w-75 mx-2">
-                            <div class="progress-bar bg-success w-75" role="progressbar" aria-label="Basic example"
-                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" id="range-1" role="progressbar"
+                                aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            </div>
                         </div>
-                        <span class="text-secondary">10</span>
+                        <span class="text-secondary count-info">10</span>
                     </div>
                 </div>
 
@@ -266,12 +262,13 @@
                 <div class="input-form">
                     <input type="hidden" name="id_produk" class="id-produk" value="">
                     <h5 class="fw-bold">Review produk ini </h5>
-                    <div class="star-form text-warning my-3">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                    <div class="star-form my-3">
+                        <input type="hidden" name="rate" class="rate-value" value="0">
+                        <button class="fa-regular fa-star btn-rate text-warning"></button>
+                        <button class="fa-regular fa-star btn-rate text-warning"></button>
+                        <button class="fa-regular fa-star btn-rate text-warning"></button>
+                        <button class="fa-regular fa-star btn-rate text-warning"></button>
+                        <button class="fa-regular fa-star btn-rate text-warning"></button>
                     </div>
                     <textarea class="form-control bg-transparent text-white input-review" name="review" id="" cols="30"
                         rows="5" placeholder="Bagikan pengalaman Anda di sini"></textarea>
@@ -698,7 +695,7 @@
     </div>
 </div>
 
-<script src="<?= base_url("assets/src/js/pages/ProductPage.js"); ?>"></script>
+<script src="<?= base_url("assets/src/js/pages/productPage.js"); ?>"></script>
 
 <script>
 fetchDetailProduct("<?= $slug; ?>");

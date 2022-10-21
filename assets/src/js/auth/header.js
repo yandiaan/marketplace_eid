@@ -23,10 +23,10 @@ if (token !== undefined) {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
-			mimeType: "multipart/form-data",
+			mimeType: "application/json",
 		}).done((res) => {
 			$(".data-cart").empty();
-			let data = JSON.parse(res).data.items;
+			let data = res.data.items;
 			$(".data-cart").append(`
 				<div>
 					<h6 class="fw-bold text-primary">Total (${data.length})</h6>
@@ -86,9 +86,8 @@ if (token !== undefined) {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
-		mimeType: "multipart/form-data",
 	}).done((res) => {
-		let data = JSON.parse(res).data;
+		let data = res.data;
 		$(".contain-cart .count").text(data.items.length);
 	});
 }
