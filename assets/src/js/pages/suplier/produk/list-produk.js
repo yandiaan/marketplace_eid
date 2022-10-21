@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-$(document).ready(() => {
-	$.ajaxSetup({
-		headers: { Authorization: "Bearer " + tokenSuplier },
-	});
-=======
 $(document).ready(function() {
     window.onload = function() {
         if(localStorage.getItem('toastMsg').length) doneToast(localStorage.getItem('toastMsg'));
@@ -13,7 +7,6 @@ $(document).ready(function() {
     $.ajaxSetup({
         headers: { 'Authorization': "Bearer " + $.cookie('sessionTokenSuplier') }
     });
->>>>>>> origin/zlnew
 
     var table = $('#datatable').DataTable({
         processing  : true,
@@ -34,33 +27,6 @@ $(document).ready(function() {
         order: [[1, 'asc']],
     });
 
-<<<<<<< HEAD
-    table.on('order.dt search.dt', function () {
-        let i = 1;
- 
-        table.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
-            this.data(i++);
-        });
-    }).draw();
-});
-
-function submitDel(id) {
-	let ajax = $.ajax({
-		url: `${ENDPOINT}admin/produk/delete`,
-		method: "POST",
-		data: { id_produk: id },
-	});
-
-	ajax.done((res) => {
-		alert(res.meta.message);
-		window.location.reload();
-	});
-
-	ajax.fail((res, status, err) => {
-		alert(err);
-	});
-}
-=======
     $(document).on('click', '.delete-data', function() {
         $('#deleteModal').modal('show');
         var id_produk = $(this).parent().data('id_produk');
@@ -105,4 +71,3 @@ function submitDel(id) {
         });
     });
 });
->>>>>>> origin/zlnew
