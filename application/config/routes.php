@@ -14,6 +14,7 @@ $route['register/action']       = 'Auth/register/register_action';
 // Admin
 $route['suplier/dashboard/login']     = 'Suplier/Auth';
 $route['suplier/dashboard']           = 'Suplier/Dashboard';
+$route['suplier/dashboard/get_kota']           = 'Suplier/Dashboard/get_kota';
 $route['suplier/dashboard/list-produk']         = 'Suplier/Produk/index';
 $route['suplier/dashboard/tambah-produk-baru']  = 'Suplier/Produk/tambah_produk_baru';
 $route['suplier/dashboard/edit-produk/(:any)']  = 'Suplier/Produk/edit/$1';
