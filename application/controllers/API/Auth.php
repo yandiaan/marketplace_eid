@@ -41,7 +41,7 @@ class Auth extends RestController
                 if (password_verify($password, $user['password'])) {
                     $payload = array(
                         "iat"           => time(),
-                        "exp"           => time() + getenv('JWT_TIME_EXP'),
+                        // "exp"           => time() + getenv('JWT_TIME_EXP'),
                         "id_pengguna"   => $user['id_customer'],
                         "nama_pengguna" => $user['nama_lengkap'],
                         "email"         => $email

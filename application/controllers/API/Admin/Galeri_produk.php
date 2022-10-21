@@ -25,7 +25,7 @@ class Galeri_produk extends RestController
 
     public function store_galeri_produk_post()
     {
-        $id_produk   = $this->input->post('id_produk', true) ?? null;
+        $id_produk   = $this->input->post('id_produk', true) ?? false;
 
         if (!$id_produk) {
             $this->response([
@@ -34,34 +34,28 @@ class Galeri_produk extends RestController
             ], 404);
         }
 
-        $galeri_produk    = $_FILES['galeriProduk']['name'];
-        $count = count($galeri_produk);
+        $galeri_produk = $_FILES['galeriProduk']['name'];
+        $nama = [];
 
-        $foto  = [];
-        $nama  = [];
+        foreach($galeri_produk as $key => $value) {
+            if (!empty($galeri_produk[$key])) {
 
-        for ($i = 0; $i < $count; $i++) {
-            if (!empty($galeri_produk[$i])) {
-                if (!in_array($galeri_produk[$i], $nama)) {
-                    $nama[$i] = $galeri_produk[$i];
-                    $foto[$i] = uploadBerkas('galeri', 'produk_galeri', $i);
+                if (!in_array($galeri_produk[$key], $nama)) {
+                    $nama[$key] = $galeri_produk[$key];
+                    $foto[$key] = uploadBerkas('galeri', 'produk_galeri', $key);
                 } else {
                     $this->response([
                         'message' => 'Ada duplikat file !',
-                        'error'  => "gambar ini " . $galeri_produk[$i] . " sudah terdaftar !",
+                        'error'  => "gambar ini " . $galeri_produk[$key] . " sudah terdaftar !",
                     ], 422);
                 }
+
+                $data[$key] = ['id_produk'  => $id_produk, 'image_path' => $foto[$key]];
+                $total = $key + 1;
             }
         }
 
-        for ($j = 0; $j < $count; $j++) {
-            $data[$j] = [
-                'id_produk'  => $id_produk,
-                'image_path' => $foto[$j],
-            ];
-        }
-
-        $result = $this->galeri_produk->addMultipleGaleriProduk($data, $count);
+        $result = $this->galeri_produk->addMultipleGaleriProduk($data, $total);
 
         if ($result) {
             // jika benar

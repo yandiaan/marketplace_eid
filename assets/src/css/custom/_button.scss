@@ -14,8 +14,14 @@ $btn-dark: #000;
 		white,
 		lighten($btn-primary, 5%),
 		lighten($btn-primary, 10%),
-		darken($btn-primary, 30%)
+		darken($btn-primary, 30%),
+		$btn-primary,
+		$btn-primary,
+		white
 	);
+}
+.btn-primary:focus, .btn-outline-primary:focus, .btn-danger:focus, .btn-outline-danger:focus{
+	color: white
 }
 
 .btn-outline-primary {

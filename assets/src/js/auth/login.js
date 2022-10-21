@@ -17,7 +17,7 @@ $("#loginForm").submit((e) => {
 		success: (res) => {
 			$.cookie("sessionToken", res.data.access_token, {
 				path: "/",
-				expires: date,
+				// expires: date,
 			});
 			window.location.reload();
 		},

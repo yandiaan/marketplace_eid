@@ -91,21 +91,25 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Wilayah</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <<<<<<< HEAD <h5 class="modal-title">Edit Wilayah</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    =======
+                    <h4 class="modal-title" id="myModalLabel">Edit Wikayah</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    >>>>>>> 7186a69bdfbb3b80994c252488920af4f3156757
             </div>
             <form action="<?= base_url('Suplier/Profil/update_wilayah_toko') ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Provinsi</label>
                         <input type="hidden" name="id_wilayah_toko" class="wilayah_id">
-                        <select class="form-control wilayah_provinsi" id="inputProvinsi" name="provinsi">
+                        <<<<<<< HEAD <select class="form-control wilayah_provinsi" id="inputProvinsi" name="provinsi">
                             <?php foreach ($provinsi->result() as $row) { ?>
                                 <option value="<?= $row->prov_name; ?>"><?php echo $row->prov_name; ?></option>
                             <?php } ?>
-                        </select>
+                            </select>
                     </div>
                     <div class="form-group">
                         <label>Kota</label>
@@ -114,6 +118,24 @@
                                 <option value="<?= $row->city_name; ?>"><?php echo $row->city_name; ?></option>
                             <?php } ?>
                         </select>
+                        =======
+                        <div class="form-group">
+                            <label>Provinsi</label>
+                            <select class="form-control" id="wilayah_provinsi" name="provinsi">
+                                <?php foreach ($provinsi->result() as $row) { ?>
+                                    <option value="<?= $row->prov_name ?>"> <?= $row->prov_name ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Kota</label>
+                            <select class="form-control" id="wilayah_kota" name="kota">
+                                <?php foreach ($kota->result() as $row) { ?>
+                                    <option value="<?= $row->city_name ?>"> <?= $row->city_name ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        >>>>>>> 7186a69bdfbb3b80994c252488920af4f3156757
                     </div>
                 </div>
                 <div class="modal-footer bg-whitesmoke br">
@@ -151,9 +173,13 @@
         var provinsi = $(this).data('provinsi');
 
         $('#modaledit').modal('show');
+
+        $('#modaledit').modal('show');
         $(".wilayah_id").val(id);
         $(".wilayah_kota").val(kota);
         $(".wilayah_provinsi").val(provinsi);
 
+        $("#wilayah_kota").val(kota);
+        $("#wilayah_provinsi").val(provinsi);
     });
 </script>

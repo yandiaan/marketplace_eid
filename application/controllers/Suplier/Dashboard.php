@@ -17,4 +17,13 @@ class Dashboard extends CI_Controller
         $data['content'] = 'admin/pages/dashboard';
         return $this->load->view('admin/layouts/app', $data);
     }
+
+    public function get_kota()
+    {
+        $id_provinsi = $this->input->post('id_provinsi');
+
+        $data = $this->db->get_where('cities', ['prov_id' => $id_provinsi])->result_array();
+
+        echo json_encode($data);
+    }
 }

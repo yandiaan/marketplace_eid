@@ -1,0 +1,47 @@
+.hero {
+	margin-top: -25px;
+	width: 100%;
+	display: flex;
+	color: white;
+	font-weight: 800;
+	justify-content: center;
+	flex-direction: column;
+	justify-items: center;
+	background-image: url("../../img/bg-recom.png");
+	background-size: cover;
+	padding: 100px 0px 50px 0px;
+}
+
+.hero h2,
+.hero .rec-search-bar {
+	margin: 0 auto;
+}
+
+.rec-search-bar {
+	background-color: white;
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-o-border-radius: 25px;
+	padding: 5px 10px;
+}
+
+.rec-search-bar input {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+.rec-search-bar button {
+	font-size: 14px;
+	padding: 3px 8px;
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-o-border-radius: 25px;
+}
+::placeholder {
+	color: grey;
+}

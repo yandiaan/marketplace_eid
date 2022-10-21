@@ -9,14 +9,14 @@
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
     <!-- Page Specific CSS -->
-    <?php if (isset($css)) { ?>
-        <?php $i = 0;
-        foreach ($css as $key => $value) : ?>
-            <link rel="stylesheet" href="<?php echo base_url($value) ?>">
-            </script>
-        <?php endforeach; ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" integrity="sha512-0SPWAwpC/17yYyZ/4HSllgaK7/gg9OlVozq8K7rf3J8LvCjYEEIfzzpnA2/SSjpGIunCSD18r3UhvDcu/xncWA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <?php if(isset($css)) { ?>    
+    <?php $i=0; foreach($css as $key => $value): ?>
+    <link rel="stylesheet" href="<?php echo base_url($value) ?>"></script>
+    <?php endforeach; ?>
     <?php } ?>
 
     <!-- Template CSS -->
@@ -67,27 +67,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- DataTables -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/sb-1.3.4/datatables.min.js"></script>
 
     <!-- Core Js -->
-    <script src="<?= base_url('/assets/admin') ?>/js/extensions/popper.js"></script>
-    <script src="<?= base_url('/assets/admin') ?>/js/extensions/moment.min.js"></script>
     <script src="<?= base_url('/assets/admin') ?>/js/stisla.js"></script>
 
     <!-- Template JS File -->
     <script src="<?= base_url('/assets/admin') ?>/js/scripts.js"></script>
     <script src="<?= base_url('/assets/admin') ?>/js/custom.js"></script>
     <script src="<?= base_url('/assets/src') ?>/js/var.js"></script>
+    <script src="<?= base_url('/assets/src') ?>/js/toast.js"></script>
 
     <!-- Page Specific JS File -->
-    <?php if (isset($js)) { ?>
-        <?php $i = 0;
-        foreach ($js as $key => $value) : ?>
-            <script src="<?php echo base_url($value) ?>"></script>
-        <?php endforeach; ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js" integrity="sha512-ooSWpxJsiXe6t4+PPjCgYmVfr1NS5QXJACcR/FPpsdm6kqG1FmQ2SVyg2RXeVuCRBLr0lWHnWJP6Zs1Efvxzww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <?php if(isset($js)) { ?>   
+    <?php $i=0; foreach($js as $key => $value): ?>
+    <script src="<?php echo base_url($value) ?>"></script>
+    <?php endforeach; ?>
     <?php } ?>
 </body>
 
