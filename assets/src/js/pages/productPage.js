@@ -1,3 +1,15 @@
+let star = {
+	rate: {
+		1: 0,
+		2: 0,
+		3: 0,
+		4: 0,
+		5: 0,
+	},
+	avg: 0,
+	total: 0,
+};
+
 function fetchDetailProduct(slug) {
 	$(document).ready(function () {
 		$.ajax({
@@ -6,6 +18,15 @@ function fetchDetailProduct(slug) {
 			dataType: "json",
 			success: function (res) {
 				let product = res.data[0];
+
+				product.reviews.map((review) => {
+					star.rate[review.rating] += 1;
+					star.avg += Number(review.rating);
+				});
+
+				star.total = product.reviews.length;
+
+				star.avg = star.avg / star.total || 0;
 
 				$("#breadcrumb-kategori").html(product.nama_kategori);
 				$("#breadcrumb-produk").html(product.nama_produk);
@@ -22,6 +43,18 @@ function fetchDetailProduct(slug) {
 				$("#lokasi").html(product.lokasi);
 				$("#brand").html(product.brand);
 				$("#nama_kategori").html(product.nama_kategori);
+				$(".star-result").append(handleStar(star.avg));
+				$(".text-star").text(star.avg.toFixed(1));
+				$(".total-review").text(`(${star.total} Ulasan)`);
+
+				let detailRate = document.querySelectorAll(".progress-bar");
+				let counter = document.querySelectorAll(".count-info");
+
+				detailRate.forEach((el, index) => {
+					el.style.width =
+						((star.rate[index + 1] / star.total) * 100).toString() + "%";
+					counter[index].innerHTML = star.rate[index + 1];
+				});
 
 				$(".xzoom-main img")
 					.attr({
@@ -64,14 +97,10 @@ function fetchDetailProduct(slug) {
 							<div class="col-9 align-self-center">
 								<span>${val.nama_pengguna}</span>
 								<div class="star-form text-warning">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa-regular fa-star"></i>
+									${handleStar(Number(val.rating))}
 								</div>
 								<span class="text-secondary">
-									22 Februari 2022 09:45
+									${showFormattedDate(val.created_at)}
 								</span>
 								<p class="text-right text-justify mt-3">
 									${val.pesan}
@@ -139,7 +168,7 @@ function addReview(id) {
 	let form = new FormData();
 	form.append("id_produk", id);
 	form.append("pesan", $(".input-review").val());
-	form.append("rating", "5");
+	form.append("rating", $(".rate-value").val());
 
 	let settings = {
 		url: "http://localhost/marketplace_eid/api/review",
@@ -221,4 +250,43 @@ $(".submit-cart").click(() => {
 	} else {
 		alert("data tidak bisa kosong");
 	}
+});
+
+let btnRate = document.querySelectorAll(".btn-rate");
+
+btnRate.forEach((btn, index) => {
+	$(btn).hover(
+		() => {
+			for (let i = 0; i <= index; i++) {
+				$(btnRate[i]).removeClass("fa-regular").addClass("fa");
+			}
+		},
+		() => {
+			if ($(".rate-value").val() == 0) {
+				for (let i = 0; i <= index; i++) {
+					$(btnRate[i]).removeClass("fa").addClass("fa-regular");
+				}
+			} else {
+				for (let i = 5; i > index - 1; i--) {
+					if (i + 1 > Number($(".rate-value").val())) {
+						for (let j = 5; j > Number($(".rate-value").val()); j--) {
+							$(btnRate[j - 1])
+								.removeClass("fa")
+								.addClass("fa-regular");
+						}
+					}
+				}
+			}
+		}
+	);
+
+	$(btn).click((e) => {
+		$(".rate-value").val(index + 1);
+		for (let i = 0; i <= $(".rate-value").val() - 1; i++) {
+			$(btnRate[i]).removeClass("fa-regular").addClass("fa");
+		}
+		for (let i = 5; i > $(".rate-value").val() - 1; i--) {
+			$(btnRate[i]).removeClass("fa").addClass("fa-regular");
+		}
+	});
 });
