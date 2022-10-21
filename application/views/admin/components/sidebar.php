@@ -69,7 +69,7 @@
                  <ul class="dropdown-menu">
                      <li><a class="nav-link" href="#">Penilaian Toko</a></li>
                      <li><a class="nav-link" href="<?= base_url('suplier/dashboard/profil-toko') ?>">Profil Toko</a></li>
-                     <li><a class="nav-link" href="#">Wilayah Toko</a></li>
+                     <li><a class="nav-link" href="<?= base_url('suplier/dashboard/wilayah-toko') ?>">Wilayah Toko</a></li>
                      <li><a class="nav-link" href="#">Laporan Saya</a></li>
                  </ul>
              </li>

@@ -63,7 +63,7 @@ class Variasi_produk extends RestController
             $token = base64_encode(random_bytes(3));
 
             $nama_berkas_gambar = "";
-            if (!empty($_FILES['galeriProduk']['name'])) {
+            if (!empty($_FILES['galeriVariasiProduk']['name'])) {
 
                 $_FILES['file']['name']     = $_FILES['galeriProduk']['name'];
                 $_FILES['file']['type']     = $_FILES['galeriProduk']['type'];
