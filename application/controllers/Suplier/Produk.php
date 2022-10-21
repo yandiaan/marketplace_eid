@@ -18,11 +18,7 @@ class produk extends CI_Controller
     public function index()
     {
         $data = [
-<<<<<<< HEAD
-            'js'        => [$this->src . 'produk/list-produk.js'],
-=======
             'js'        => ["$this->src/produk/list-produk.js"],
->>>>>>> origin/zlnew
             'content'   => 'admin/pages/produk/index',
             'produks'   => $this->db->get_where('produk', ['id_suplier' => $this->userdata->id_suplier])->result(),
         ];
@@ -39,13 +35,8 @@ class produk extends CI_Controller
             "$this->js/extensions/fslightbox.js"
         ];
         $data = [
-<<<<<<< HEAD
-            'css'       => ['assets/admin/css/extensions/summernote-bs4.min.css'],
-            'js'        => ['assets/admin/js/extensions/summernote-bs4.min.js', $this->src . 'produk/tambah-produk.js'],
-=======
             'css'       => $css,
             'js'        => $js,
->>>>>>> origin/zlnew
             'content'   => 'admin/pages/produk/tambah_produk_baru',
             'k_produk'  => $this->db->get('produk_kategori')->result()
         ];
