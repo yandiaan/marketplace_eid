@@ -20,6 +20,9 @@ $route['suplier/dashboard/edit-produk/(:any)']  = 'Suplier/Produk/edit/$1';
 $route['suplier/dashboard/arsip-produk/(:any)']  = 'Suplier/Produk/arsip/$1';
 $route['suplier/dashboard/bukaarsip-produk/(:any)']  = 'Suplier/Produk/bukaArsip/$1';
 $route['suplier/dashboard/delete-produk/(:any)']  = 'Suplier/Produk/delete/$1';
+$route['suplier/dashboard/wilayah-produk'] = 'Suplier/Produk/wilayah_produk';
+$route['suplier/dashboard/delete-wilayah-produk/(:any)']  = 'Suplier/Produk/delete_wilayah_produk/$1';
+
 
 $route['suplier/dashboard/profil-toko'] = 'Suplier/Profil/index';
 $route['suplier/dashboard/wilayah-toko'] = 'Suplier/Profil/wilayah_toko';

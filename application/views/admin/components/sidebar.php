@@ -48,7 +48,7 @@
                  <ul class="dropdown-menu">
                      <li><a class="nav-link" href="<?= base_url('suplier/dashboard/list-produk') ?>">Produk Saya</a></li>
                      <li><a class="nav-link" href="<?= base_url('suplier/dashboard/tambah-produk-baru') ?>">Tambah Produk Baru</a></li>
-                     <li><a class="nav-link" href="#">Wilayah Produk</a></li>
+                     <li><a class="nav-link" href="<?= base_url('suplier/dashboard/wilayah-produk') ?>">Wilayah Produk</a></li>
                      <li><a class="nav-link" href="#">Penilaian Produk</a></li>
                  </ul>
              </li>
