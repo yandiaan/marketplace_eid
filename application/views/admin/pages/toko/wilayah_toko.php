@@ -32,8 +32,8 @@
                                     <td style="text-align:center;"><?php echo $wilayah->provinsi ?></td>
                                     <td style="text-align:center;">
                                         <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                            <a href="<?php echo base_url('suplier/dashboard/edit-wilayah-toko/' . $wilayah->id_wilayah_distribusi) ?>" data-id="" class="btn btn-warning">Edit</a>
-                                            <!-- <button class="btn btn-warning edit_wilayah" data-kota="<?= $wilayah->kota; ?>" data-provinsi="<?= $wilayah->provinsi ?>" data-id="<?= $wilayah->id_wilayah_distribusi ?>">Edit</button> -->
+                                            <!-- <a href="<?php echo base_url('suplier/dashboard/edit-wilayah-toko/' . $wilayah->id_wilayah_distribusi) ?>" data-id="" class="btn btn-warning">Edit</a> -->
+                                            <button class="btn btn-warning edit_wilayah" data-kota="<?= $wilayah->kota; ?>" data-provinsi="<?= $wilayah->provinsi ?>" data-id="<?= $wilayah->id_wilayah_distribusi ?>">Edit</button>
                                             <form action="<?php echo base_url('suplier/dashboard/delete-wilayah-toko/' . $wilayah->id_wilayah_distribusi) ?>" method="post" id="delProduk-<?= $wilayah->id_wilayah_distribusi ?>">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button class="btn btn-danger" data-confirm="Hapus Data?|Apakah Anda yakin ingin menghapus produk ini?<br>semua data yang bersangkutan dengan produk ini akan terhapus." data-confirm-yes="submitDel(<?= $wilayah->id_wilayah_distribusi ?>)">Delete</button>
@@ -93,8 +93,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Edit Wikayah</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Edit Skill</h4>
             </div>
             <form action="<?= base_url('Suplier/Profil/update_wilayah_toko') ?>" method="POST">
                 <div class="card">
@@ -105,17 +105,17 @@
                         <input type="hidden" name="id_wilayah_toko" class="wilayah_id">
                         <div class="form-group">
                             <label>Provinsi</label>
-                            <select class="form-control" id="inputProvinsi" name="provinsi" class="wilayah_provinsi">
-                                <?php foreach ($provinsi->result() as $row) { ?>
+                            <select class="form-control" id="wilayah_provinsi" name="provinsi">
+                            <?php foreach ($provinsi->result() as $row) { ?>
                                     <option value="<?= $row->prov_name ?>"> <?= $row->prov_name ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Kota</label>
-                            <select class="form-control" id="inputProvinsi" name="kota">
+                            <select class="form-control" id="wilayah_kota" name="kota">
                                 <?php foreach ($kota->result() as $row) { ?>
-                                    <option value="<?= $row->city_name ?>" <?php echo ($row->city_name == $hasil['kota']) ? 'selected' : ''; ?>> <?= $row->city_name ?></option>
+                                    <option value="<?= $row->city_name ?>"> <?= $row->city_name ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -150,15 +150,15 @@
         $('#delProduk-' + id).submit()
     }
 
-    $(document).on("click", '.edit_wilayah', function(e) {
+    $('.edit_wilayah').click(function(e) {
         var id = $(this).data('id');
         var kota = $(this).data('kota');
         var provinsi = $(this).data('provinsi');
+        
+        $('#modaledit').modal('show');
 
         $(".wilayah_id").val(id);
-        $(".wilayah_kota").val(kota);
-        $(".wilayah_provinsi").val(provinsi);
-
-        $('#modaledit').modal('show');
+        $("#wilayah_kota").val(kota);
+        $("#wilayah_provinsi").val(provinsi);
     });
 </script>

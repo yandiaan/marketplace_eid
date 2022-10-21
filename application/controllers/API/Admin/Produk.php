@@ -76,11 +76,17 @@ class Produk extends RestController
     {
         $dt = new Datatables(new CodeigniterAdapter);
 
-        $query = $this->db->select('slug, id_produk, nama_produk, brand, harga, berat, delete_at')
+        $query = $this->db->select('slug, produk.id_produk, image_path, nama_produk, brand, harga, berat, delete_at')
+            ->join('galeri_produk', 'galeri_produk.id_produk=produk.id_produk', 'left')
             ->where('id_suplier', $this->token_session->id_suplier)
+            ->group_by('id_produk')
             ->get_compiled_select('produk', FALSE);
         $dt->query($query);
         $dt->hide('slug');
+        $dt->hide('id_produk');
+        $dt->edit('image_path', function ($data) {
+            return '<img src="'.$data['image_path'].'" class="img-fluid">';
+        });
         $dt->edit('harga', function ($data) {
             return '<span class="badge badge-success">Rp '.number_format($data['harga'],'0',',','.').'</span>';
         });

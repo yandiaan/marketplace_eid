@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    window.onload = function() {
+        if(localStorage.getItem('toastMsg').length) doneToast(localStorage.getItem('toastMsg'));
+        localStorage.clear();
+    };
+
     $.ajaxSetup({
         headers: { 'Authorization': "Bearer " + $.cookie('sessionTokenSuplier') }
     });
@@ -8,7 +13,7 @@ $(document).ready(function() {
         serverSide  : true,
         ajax        : `${ENDPOINT}admin/produk/datatables`,
         columns     : [
-            { "data"  : "id_produk" },
+            { "data"  : "image_path" },
             { "data"  : "nama_produk" },
             { "data"  : "brand" },
             { "data"  : "harga" },
@@ -16,16 +21,8 @@ $(document).ready(function() {
             { "data"  : "action" },
         ],
         columnDefs: [
-            {
-                searchable: false,
-                orderable: false,
-                targets: 0,
-            },
-            {
-                searchable: false,
-                orderable: false,
-                targets: -1,
-            },
+            { searchable: false, orderable: false, targets: 0 },
+            { searchable: false, orderable: false, targets: -1 },
         ],
         order: [[1, 'asc']],
     });
@@ -47,12 +44,12 @@ $(document).ready(function() {
     
         ajax.done((res) => {
             $('#deleteModal').modal("hide");
-            alert(res.meta.message);
+            doneToast(res.meta.message);
             table.ajax.reload();
         });
     
         ajax.fail((res, status, err) => {
-            alert(err);
+            failToast(err);
         });
     });
 
@@ -70,7 +67,7 @@ $(document).ready(function() {
         });
     
         ajax.fail((res, status, err) => {
-            alert(err);
+            failToast(err);
         });
     });
 });

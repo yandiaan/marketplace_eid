@@ -24,8 +24,7 @@ $(document).ready(function() {
             },
             
             submitHandler: function(form) {
-                console.log(container.files.length);
-                return;
+                let variasi = $(document).find('input[name="nama_variasi[]"]');
                 let ajax = $.ajax({
                     url     : `${ENDPOINT}/admin/produk/store`,
                     method  : "POST",
@@ -34,9 +33,9 @@ $(document).ready(function() {
 
                 ajax.done((res) => {
                     storeGaleri(res.data.user);
-                    alert(res.meta.message);
-                    // window.onbeforeunload = null;
-                    // window.location.href =  `${BASE_URL}/suplier/dashboard/list-produk`;
+                    localStorage.setItem('toastMsg', res.meta.message);
+                    window.onbeforeunload = null;
+                    window.location.href =  `${BASE_URL}/suplier/dashboard/list-produk`;
                 });
 
                 ajax.fail((res, status, err) => {
@@ -52,6 +51,29 @@ $(document).ready(function() {
             // append file
             for (let index = 0; index < container.files.length; index++) {
                 formData.append(`galeriProduk[${index}]`, container.files[index]);
+            }
+
+            $.ajax({
+                url     : `${ENDPOINT}/admin/produk/galeri/store`,
+                method  : "POST",
+                data    : formData,
+                enctype : 'multipart/form-data',
+                processData: false,
+                contentType: false,
+            }).done((res) => {
+                console.log(res.meta.message);
+            }).fail((res, status, err) => {
+                failToast(err);
+            });
+        }
+
+        function storeGaleriVariasi(data) {
+            var id = data.id_produk;
+            formData.append('id_produk', id);
+
+            // append file
+            for (let index = 0; index < container.files.length; index++) {
+                formData.append(`galeriVariasiProduk[${index}]`, container.files[index]);
             }
 
             $.ajax({
@@ -203,7 +225,7 @@ $(document).ready(function() {
             $('#daftar-foto-variasi').show();
             $('#foto-variasi').append(
                 `<div class="col-3">
-                    <input id="foto-variasi-${i}" type="file" name="foto_variasi[]" hidden />
+                    <input id="foto-variasi-${i}" type="file" name="galerivariasiProduk[]" hidden />
                     <label for="foto-variasi-${i}" style="display:block">
                         <div class="img-upload-box d-flex align-items-center justify-content-center">
                             <span for="variasi_${i}">Variasi ${i}</span>

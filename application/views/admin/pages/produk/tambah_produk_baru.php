@@ -153,7 +153,7 @@
                         <div class="col-10">
                             <div id="galeri-produk" class="row">
                                 <div class="col-2">
-                                    <input id="foto-utama" type="file" name="galeriProduk[]" hidden />
+                                    <input id="foto-utama" type="file" name="galeriProduk[]" hidden required/>
                                     <label for="foto-utama" style="display:block">
                                         <div class="img-upload-box d-flex align-items-center justify-content-center">
                                             <span>*Foto Utama</span>
@@ -173,7 +173,7 @@
                                 </div>
             
                                 <div class="col-2">
-                                    <input id="foto-1" type="file" name="galeriProduk[]" hidden />
+                                    <input id="foto-1" type="file" name="galeriProduk[]" hidden/>
                                     <label for="foto-1" style="display:block">
                                         <div class="img-upload-box d-flex align-items-center justify-content-center">
                                             <span>Foto 1</span>
